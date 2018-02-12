@@ -2,27 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class TonLivre : MonoBehaviour
 {
     //Variables publiques
-    public Image tonLivre;
+    public GameObject tonLivre;
+    public InputField searchBar;
+    public Text displayText;
 
-    //Variables privées
-    private bool isActive = false;
+    //public InputFieldTest iFT;
+    public GameObject deleteButton;
 
+    //Variables privées (par défaut elles sont toutes considérées comme privées)
+    bool isActive, textWasInputed;
+    string inputedText;
 
+    //Sert à initialiser la valeur de certaines variables
     void Start ()
-    {        
-        tonLivre.GetComponent<Image>().enabled = false;
+    {
+        searchBar.text = "";
+        deleteButton.SetActive(false);
 
-        //isActive = false;
+        //Fait que le gameObject TonLivre commence fermé == changer à true pour commencer ouvert
+        tonLivre.SetActive(false);
+        isActive = false;
     }
 	
 	void Update ()
     {
-
-	}
+       // searchBar.GetComponent<InputField>().
+    }
 
     //Sert à ouvrir la fenêtre
     public void OpenMainTonLivreWindow()
@@ -30,8 +40,8 @@ public class TonLivre : MonoBehaviour
         if(!isActive)
         {
             Debug.Log("The open function has been called");
-            tonLivre.GetComponent<Image>().enabled = true;
 
+            tonLivre.SetActive(true);
             isActive = !isActive;
         }        
     }
@@ -42,10 +52,30 @@ public class TonLivre : MonoBehaviour
         if (isActive)
         {
             Debug.Log("The close function has been called");
-            tonLivre.GetComponent<Image>().enabled = false;
 
+            tonLivre.SetActive(false);
             isActive = !isActive;
         }
 
+    }
+
+    //Sert à gérer les entrées de clavier dans l'inputField
+    public void ManageInputField()
+    {
+        inputedText = searchBar.text;
+        displayText.text = searchBar.text;
+    }
+
+    
+    //Sert à gérer l'affichage du petit bouton qui efface le texte inputé
+    public void DeleteCurrentInputedText()
+    {
+        deleteButton.SetActive(true);
+        //searchBar.text = "";
+    }
+    public void UNDeleteCurrentInputedText()
+    {
+        searchBar.text = "";
+        deleteButton.SetActive(false);        
     }
 }
