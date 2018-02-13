@@ -7,12 +7,9 @@ using UnityEngine.Events;
 public class TonLivre : MonoBehaviour
 {
     //Variables publiques
-    public GameObject tonLivre;
+    public GameObject tonLivre, deleteButton;
     public InputField searchBar;
     public Text displayText;
-
-    //public InputFieldTest iFT;
-    public GameObject deleteButton;
 
     //Variables privées (par défaut elles sont toutes considérées comme privées)
     bool isActive, textWasInputed;
@@ -21,7 +18,7 @@ public class TonLivre : MonoBehaviour
     //Sert à initialiser la valeur de certaines variables
     void Start ()
     {
-        searchBar.text = "";
+        //En relation avec l'inputfield
         deleteButton.SetActive(false);
 
         //Fait que le gameObject TonLivre commence fermé == changer à true pour commencer ouvert
@@ -31,7 +28,7 @@ public class TonLivre : MonoBehaviour
 	
 	void Update ()
     {
-       // searchBar.GetComponent<InputField>().
+
     }
 
     //Sert à ouvrir la fenêtre
@@ -64,6 +61,7 @@ public class TonLivre : MonoBehaviour
     {
         inputedText = searchBar.text;
         displayText.text = searchBar.text;
+        Debug.Log("Data has been inputed");
     }
 
     
