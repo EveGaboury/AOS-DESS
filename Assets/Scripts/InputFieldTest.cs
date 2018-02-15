@@ -5,9 +5,20 @@ using UnityEngine.UI;
 
 public class InputFieldTest : MonoBehaviour
 {
+    GameManager _GM;
+
     public InputField inputField;
 
     [HideInInspector]public bool valueHasBeenInputed = true;
+
+    void Start()
+    {
+        //TEST
+
+        //GameManager.Instance.currentState = GameManager.CurrentGameState.Bank;
+        
+        //TEST
+    }
 
     void OnEnable()
     {

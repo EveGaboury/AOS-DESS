@@ -28,7 +28,7 @@ public class TonLivre : MonoBehaviour
 	
 	void Update ()
     {
-
+        UpdateInputField();
     }
 
     //Sert à ouvrir la fenêtre
@@ -57,23 +57,25 @@ public class TonLivre : MonoBehaviour
     }
 
     //Sert à gérer les entrées de clavier dans l'inputField
-    public void ManageInputField()
+    public void UpdateInputField()
     {
+        Debug.Log("Data has been inputed");
         inputedText = searchBar.text;
         displayText.text = searchBar.text;
-        Debug.Log("Data has been inputed");
-    }
+        
 
-    
-    //Sert à gérer l'affichage du petit bouton qui efface le texte inputé
-    public void DeleteCurrentInputedText()
-    {
-        deleteButton.SetActive(true);
-        //searchBar.text = "";
+        if (searchBar.text.Length == 0)
+        {
+            deleteButton.SetActive(false);
+        }
+        else
+        {
+            deleteButton.SetActive(true);
+        }
     }
-    public void UNDeleteCurrentInputedText()
+  
+    public void ClearContent()
     {
         searchBar.text = "";
-        deleteButton.SetActive(false);        
     }
 }
