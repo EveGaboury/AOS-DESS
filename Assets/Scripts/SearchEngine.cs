@@ -2,27 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class SearchEngine
+public class SearchEngine: MonoBehaviour
 {
-    public abstract void Search(string userSearch);
-
-    //public static void SearchFacebook();
-    //public static void SearchYoutube();
-    //public static void SearchX();
-    //public static void SearchYouGoals();
-    //public static void SearchU();
-    //public static void SearchBing();
-}
-
-
-public class SearchEngineFacebook : SearchEngine
-{
-    public override void Search(string userSearch)
+    //prend une chaine de charactere, puis renvoit un resultat
+    public static void SearchFacebook(string answer)
     {
-        throw new System.NotImplementedException();
+        //
+
+    }
+
+    public static void SearchYoutube()
+    {
+
+    }
+
+    public static void SearchX()
+    {
+
+    }
+
+    public static void SearchYouGoals()
+    {
+
+    }
+
+    public static void SearchU()
+    {
+
+    }
+
+    public static void SearchBing()
+    {
+
     }
 }
-
-
-//SearchEngine s = new SearchEngineFacebook();
-//s.search("coucou");
