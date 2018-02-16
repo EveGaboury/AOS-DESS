@@ -368,6 +368,11 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 0.8919829
       objectReference: {fileID: 0}
+    - target: {fileID: 114644926799088618, guid: d5e9882f52a3e9a479b833777e423cff,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseMessengerWindow
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d5e9882f52a3e9a479b833777e423cff, type: 2}
   m_IsPrefabParent: 0

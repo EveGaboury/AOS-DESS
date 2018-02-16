@@ -13,11 +13,6 @@ public class InputFieldTest : MonoBehaviour
 
     void Start()
     {
-        //TEST
-
-        //GameManager.Instance.currentState = GameManager.CurrentGameState.Bank;
-        
-        //TEST
     }
 
     void OnEnable()
