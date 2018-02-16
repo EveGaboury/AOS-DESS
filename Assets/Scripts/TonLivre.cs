@@ -8,8 +8,9 @@ public class TonLivre : MonoBehaviour
 {
     //Variables publiques
     public GameObject tonLivre, deleteButton;
-    public InputField searchBar;
-    public Text displayText;
+    [HideInInspector]public InputField searchBar;
+    //public Text displayText;
+    public Dropdown dropTheBass;
 
     //Variables privées (par défaut elles sont toutes considérées comme privées)
     bool isActive, textWasInputed;
@@ -24,11 +25,22 @@ public class TonLivre : MonoBehaviour
         //Fait que le gameObject TonLivre commence fermé == changer à true pour commencer ouvert
         tonLivre.SetActive(false);
         isActive = false;
+
+
     }
 	
 	void Update ()
     {
-        UpdateInputField();
+        //UpdateInputField();
+
+        //Test
+        if (Input.GetKey(KeyCode.H))
+        {
+            //faire que sa commence ouvert
+            //dropTheBass.options.
+
+        }
+        //Fin Test
     }
 
     //Sert à ouvrir la fenêtre
@@ -61,7 +73,7 @@ public class TonLivre : MonoBehaviour
     {
         Debug.Log("Data has been inputed");
         inputedText = searchBar.text;
-        displayText.text = searchBar.text;
+        //displayText.text = searchBar.text;
         
 
         if (searchBar.text.Length == 0)
