@@ -6,10 +6,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }    
 
-    [HideInInspector] public enum GameState { Desktop, TonLivre, Gmail, BlocNotes, Studium, Browser, Bank, EditeurWord };
-    [HideInInspector] public GameState currentState;
+    [HideInInspector] public enum GameState { Desktop, TonLivre, Gmail, BlocNotes, Studium, Browser, Bank, EditeurWord, Messenger };
+    [HideInInspector] public static GameState currentState;
 
-    void Awake()
+    public void Awake()
     {
         //Singleton - début
         if(Instance != null && Instance != this)
@@ -25,9 +25,9 @@ public class GameManager : MonoBehaviour
         //Singleton - fin
     }
 
-    void Start()
+    public void Start()
     {
-        currentState = GameState.Desktop;
+        //currentState = GameState.Desktop;
     }
 
     public void UpdateAllGameStates ()
@@ -58,6 +58,9 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.EditeurWord:
                 Debug.Log("Je suis dans mon Editeur de texte");
+                break;
+            case GameState.Messenger:
+                Debug.Log("Je suis dans mon Messenger");
                 break;
         }
     }

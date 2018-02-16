@@ -7,13 +7,11 @@ using UnityEngine.Events;
 public class TonLivre : MonoBehaviour
 {
     //Variables publiques
-    public GameObject tonLivre, deleteButton;
+    public GameObject tonLivre, messenger, deleteButton;
     [HideInInspector]public InputField searchBar;
-    //public Text displayText;
-    public Dropdown dropTheBass;
 
     //Variables privées (par défaut elles sont toutes considérées comme privées)
-    bool isActive, textWasInputed;
+    bool isActive = false;
     string inputedText;
 
     //Sert à initialiser la valeur de certaines variables
@@ -23,49 +21,15 @@ public class TonLivre : MonoBehaviour
         deleteButton.SetActive(false);
 
         //Fait que le gameObject TonLivre commence fermé == changer à true pour commencer ouvert
+        //GameManager.Instance.currentState = GameManager.GameState.Desktop;
+        GameManager.currentState = GameManager.GameState.Desktop;
         tonLivre.SetActive(false);
-        isActive = false;
-
-
+        messenger.SetActive(false);
     }
 	
 	void Update ()
     {
-        //UpdateInputField();
-
-        //Test
-        if (Input.GetKey(KeyCode.H))
-        {
-            //faire que sa commence ouvert
-            //dropTheBass.options.
-
-        }
-        //Fin Test
-    }
-
-    //Sert à ouvrir la fenêtre
-    public void OpenMainTonLivreWindow()
-    {
-        if(!isActive)
-        {
-            Debug.Log("The open function has been called");
-
-            tonLivre.SetActive(true);
-            isActive = !isActive;
-        }        
-    }
-
-    //Sert à fermer la fenêtre
-    public void CloseMainTonLivreWindow()
-    {
-        if (isActive)
-        {
-            Debug.Log("The close function has been called");
-
-            tonLivre.SetActive(false);
-            isActive = !isActive;
-        }
-
+        
     }
 
     //Sert à gérer les entrées de clavier dans l'inputField
@@ -73,8 +37,6 @@ public class TonLivre : MonoBehaviour
     {
         Debug.Log("Data has been inputed");
         inputedText = searchBar.text;
-        //displayText.text = searchBar.text;
-        
 
         if (searchBar.text.Length == 0)
         {
@@ -85,9 +47,72 @@ public class TonLivre : MonoBehaviour
             deleteButton.SetActive(true);
         }
     }
-  
+
     public void ClearContent()
     {
         searchBar.text = "";
+    }
+
+
+
+
+
+
+    //Sert à ouvrir la fenêtre
+    public void OpenTonLivreWindow()
+    {
+        //GameManager.Instance.currentState = GameManager.GameState.TonLivre;
+        GameManager.currentState = GameManager.GameState.TonLivre;
+        if (!isActive)
+        {
+            Debug.Log("The open function of TonLivre has been called");
+
+            tonLivre.SetActive(true);
+            isActive = !isActive;
+        }        
+    }
+
+    //Sert à fermer la fenêtre
+    public void CloseTonLivreWindow()
+    {
+        //GameManager.Instance.currentState = GameManager.GameState.Desktop;
+        GameManager.currentState = GameManager.GameState.Desktop;
+
+        if (isActive)
+        {
+            Debug.Log("The close function of TonLivre has been called");
+
+            tonLivre.SetActive(false);
+            isActive = !isActive;
+        }
+    }
+
+    public void OpenMessengerWindow()
+    {
+        //GameManager.Instance.currentState = GameManager.GameState.Desktop;
+        GameManager.currentState = GameManager.GameState.Messenger;
+
+        if (!isActive)
+        {
+            Debug.Log("The open function of Messenger has been called");
+
+            messenger.SetActive(true);
+            isActive = !isActive;
+        }
+    }
+
+    //Sert à fermer la fenêtre
+    public void CloseMessengerWindow()
+    {
+        //GameManager.Instance.currentState = GameManager.GameState.Desktop;
+        GameManager.currentState = GameManager.GameState.Desktop;
+
+        if (isActive)
+        {
+            Debug.Log("The close function of Messenger has been called");
+
+            messenger.SetActive(false);
+            isActive = !isActive;
+        }
     }
 }
