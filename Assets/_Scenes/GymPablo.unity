@@ -373,6 +373,12 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: CloseMessengerWindow
       objectReference: {fileID: 0}
+    - target: {fileID: 114034820840324794, guid: d5e9882f52a3e9a479b833777e423cff,
+        type: 2}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 114102562469869410, guid: 7578d793f4f62bc47905a293f79faed0,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d5e9882f52a3e9a479b833777e423cff, type: 2}
   m_IsPrefabParent: 0

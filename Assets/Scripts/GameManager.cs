@@ -1,43 +1,52 @@
-﻿using System.Collections;
+﻿using System.Collections; 
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class GameManager : MonoBehaviour
+public class GameManager
 {
-    public static GameManager Instance { get; private set; }    
+
+    //Singleton - début
+    private static GameManager instance;
+
+    private GameManager() { }
+
+    public static GameManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = new GameManager();
+            }
+            return instance;
+        }
+    }
+    //Singleton - fin
 
     [HideInInspector] public enum GameState { Desktop, TonLivre, Gmail, BlocNotes, Studium, Browser, Bank, EditeurWord, Messenger };
-    [HideInInspector] public static GameState currentState;
+    [HideInInspector] public GameState currentState;
 
-    public void Awake()
+	public float gaugePsycho = 10, gaugeFinances = 10, gaugeConsomation = 10, gaugeHarassement = 10, currPsy = 3, currFin, currCon, currHar;   
+
+    void Awake()
     {
-        //Singleton - début
-        if(Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-        }
-
-        Instance = this;
-
-        /* va etre important si jamais le gamemanager doit commncer avec des valeurs differentes dasn chaque scene
-         * DontDestroyOnLoad(this.gameObject);*/
-
-        //Singleton - fin
+        //gaugePsycho = 10;
+        //currPsy = 1;
     }
 
-    public void Start()
+    void Start()
     {
-        //currentState = GameState.Desktop;
+
     }
 
     public void UpdateAllGameStates ()
     {
         switch (currentState)
         {        
-            /*case CurrentGameState.BlocNotes:
+            case GameState.BlocNotes:
                 Debug.Log("Je suis dans mon Bloc-Notes");
-                break;*/
-
+                break;
             case GameState.Desktop:
                 Debug.Log("Je suis dans le Bureau");
                 break;
@@ -67,5 +76,23 @@ public class GameManager : MonoBehaviour
 }
 
 
-//Singleton source code: http://clearcutgames.net/home/?p=437 && https://www.studica.com/blog/how-to-create-a-singleton-in-unity-3d
+//Singleton source code: http://clearcutgames.net/home/?p=437 && https://www.studica.com/blog/how-to-create-a-singleton-in-unity-3d &&https://msdn.microsoft.com/en-us/library/ff650316.aspx
 //En lien avec singleton: https://stackoverflow.com/questions/35890932/unity-game-manager-script-works-only-one-time/35891919#35891919
+
+
+/*
+ * public static GameManager Instance { get; private set; }
+ * 
+   //Singleton - début
+    if (Instance != null && Instance != this)
+    {
+        Destroy(gameObject);
+    }
+
+    Instance = this;
+
+       va etre important si jamais le gamemanager doit commncer avec des valeurs differentes dasn chaque scene
+      DontDestroyOnLoad(this.gameObject);
+
+//Singleton - fin
+*/

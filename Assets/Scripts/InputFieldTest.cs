@@ -2,47 +2,60 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
-public class InputFieldTest : MonoBehaviour
+public class InputFieldTest
 {
-    GameManager _GM;
+    private static InputFieldTest instance;
 
-    public InputField inputField;
+    private InputFieldTest() { }
 
-    [HideInInspector]public bool valueHasBeenInputed = true;
+    public int HP;
 
-    void Start()
+    public static InputFieldTest Instance
     {
+        get
+        {
+            if (instance == null)
+            {
+                instance = new InputFieldTest();
+            }
+            return instance;
+        } 
     }
 
-    void OnEnable()
-    {
-        //Register InputField Events
-        inputField.onEndEdit.AddListener(delegate { inputEndEdit(); });
-        inputField.onValueChanged.AddListener(delegate { inputValueChanged(); });
-    }
-
-    //Called when Input is submitted
-    private void inputEndEdit()
-    {
-        valueHasBeenInputed = true;
-        Debug.Log("Input Submitted");
-    }
-
-    //Called when Input changes
-    private void inputValueChanged()
-    {
-        valueHasBeenInputed = false;
-        Debug.Log("Input Changed");
-    }
-
-    void OnDisable()
-    {
-        //Un-Register InputField Events
-        inputField.onEndEdit.RemoveAllListeners();
-        inputField.onValueChanged.RemoveAllListeners();
-    }
 }
 
 
 //Source: https://stackoverflow.com/questions/41391708/how-to-detect-click-touch-events-on-ui-and-gameobjects
+
+/*
+ public class InputFieldTest : MonoBehaviour
+{
+public int HP = 3;
+public static InputFieldTest instance = null;
+
+
+void Awake()
+{
+    if (instance == null)
+    {
+        instance = this;
+    }
+    else if (instance != this)
+    {
+        Destroy(gameObject);
+    }
+}
+ */
+
+/*
+     //void Update()
+//{
+//    if (Input.GetKeyUp(KeyCode.G))
+//    {
+//        GameManager.gaugePsycho++;
+//        Debug.Log(GameManager.gaugePsycho);
+//    }
+//}  
+ */
