@@ -93,7 +93,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1088740270876414
 GameObject:
   m_ObjectHideFlags: 1
@@ -621,6 +621,7 @@ GameObject:
   - component: {fileID: 114902349380558850}
   - component: {fileID: 114260330964668926}
   - component: {fileID: 114034820840324794}
+  - component: {fileID: 114783333344892826}
   m_Layer: 5
   m_Name: CanvasTonLivre
   m_TagString: Untagged
@@ -678,7 +679,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1794821277396760
 GameObject:
   m_ObjectHideFlags: 1
@@ -2039,7 +2040,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114034820840324794}
-        m_MethodName: CloseTonLivreWindow
+        m_MethodName: CloseMessengerWindow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2321,6 +2322,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Bloc-Notes
+--- !u!114 &114783333344892826
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1756307036692192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb9c534924aadee49833871f52b0904e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectable: {fileID: 0}
+  isOver: 0
 --- !u!114 &114825198174697276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3694,8 +3708,8 @@ RectTransform:
   m_Father: {fileID: 224578101297904312}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.00000005298007}
+  m_AnchorMax: {x: 1, y: 0.8919829}
   m_AnchoredPosition: {x: -1.4, y: -13.12}
   m_SizeDelta: {x: 17.19, y: -230.83}
   m_Pivot: {x: 0.5, y: 0.5}
