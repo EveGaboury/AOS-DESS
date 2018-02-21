@@ -1,4 +1,3 @@
-<<<<<<< HEAD:Assets/StartPosition.cs
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,21 +29,5 @@ public class StartPosition : MonoBehaviour {
 		fenetreFolderSophie.SetActive (false);
 	}
 }
-=======
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-public class StartPosition : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-}
->>>>>>> 2229ef017e2eb8c0eb219eeb67726ce10cadebb5:Assets/Scripts/StartPosition.cs
