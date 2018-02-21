@@ -449,7 +449,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &157594420
 Transform:
   m_ObjectHideFlags: 0
@@ -1930,7 +1930,6 @@ Transform:
   - {fileID: 1755596710}
   - {fileID: 1017303380}
   - {fileID: 1846662956}
-  - {fileID: 734222273}
   m_Father: {fileID: 1224558037}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2294,6 +2293,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbaab57b8a71849689216b4df5b9ab34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  switchSessionCanvas: {fileID: 1146257937}
+  blocNoteCanvas: {fileID: 1386429104}
+  fenetrePoireCanvas: {fileID: 870362250}
+  desktopCass: {fileID: 157594419}
+  desktopSophie: {fileID: 1224558036}
+  fenetreFolderSophie: {fileID: 734222272}
 --- !u!1 &727980054
 GameObject:
   m_ObjectHideFlags: 0
@@ -2386,16 +2391,16 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 734222272}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2.0740135}
-  m_LocalScale: {x: 1.0495095, y: 1.0495093, z: 1.0495093}
+  m_LocalPosition: {x: 0, y: 0, z: 5.1675167}
+  m_LocalScale: {x: 1.1067967, y: 1.1067967, z: 1.1067967}
   m_Children:
   - {fileID: 1037819108}
-  m_Father: {fileID: 622133483}
-  m_RootOrder: 10
+  m_Father: {fileID: 936591507}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 275.16803, y: -63.44223}
+  m_AnchoredPosition: {x: 159.05138, y: -139.48299}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &734222274
@@ -2954,6 +2959,7 @@ Transform:
   m_LocalScale: {x: 1.6563146, y: 1.6563146, z: 1.6563146}
   m_Children:
   - {fileID: 1224558037}
+  - {fileID: 734222273}
   m_Father: {fileID: 1652266787}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
