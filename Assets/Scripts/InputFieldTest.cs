@@ -2,47 +2,99 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+using UnityEngine.EventSystems;
 
-public class InputFieldTest : MonoBehaviour
+public class InputFieldTest : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    GameManager _GM;
+    //Public
+    public Text selectable;
+    public bool isOver = false;
 
-    public InputField inputField;
-
-    [HideInInspector]public bool valueHasBeenInputed = true;
+    //Privée
+    Color startingColor = Color.black, highlighted = Color.red;
 
     void Start()
     {
+        selectable.GetComponent<Outline>().enabled = false;
+        selectable.GetComponent<Shadow>().enabled = false;
     }
 
-    void OnEnable()
+    public void OnPointerEnter(PointerEventData eventData)
     {
-        //Register InputField Events
-        inputField.onEndEdit.AddListener(delegate { inputEndEdit(); });
-        inputField.onValueChanged.AddListener(delegate { inputValueChanged(); });
+        Debug.Log("Mouse enter");
+        isOver = true;
+
+        selectable.GetComponent<Outline>().enabled = isOver;
+        selectable.color = highlighted;
+        selectable.GetComponent<Shadow>().enabled = isOver;
+
+        
     }
 
-    //Called when Input is submitted
-    private void inputEndEdit()
+    public void OnPointerExit(PointerEventData eventData)
     {
-        valueHasBeenInputed = true;
-        Debug.Log("Input Submitted");
-    }
+        Debug.Log("Mouse exit");
+        isOver = false;
 
-    //Called when Input changes
-    private void inputValueChanged()
-    {
-        valueHasBeenInputed = false;
-        Debug.Log("Input Changed");
-    }
+        selectable.GetComponent<Outline>().enabled = isOver;
+        selectable.color = startingColor;
+        selectable.GetComponent<Shadow>().enabled = isOver;
 
-    void OnDisable()
-    {
-        //Un-Register InputField Events
-        inputField.onEndEdit.RemoveAllListeners();
-        inputField.onValueChanged.RemoveAllListeners();
+        
     }
 }
 
 
-//Source: https://stackoverflow.com/questions/41391708/how-to-detect-click-touch-events-on-ui-and-gameobjects
+//Source pour le pointer dans le UI: https://stackoverflow.com/questions/41391708/how-to-detect-click-touch-events-on-ui-and-gameobjects && https://gamedev.stackexchange.com/questions/108625/how-to-detect-mouse-over-for-ui-image-in-unity-5
+
+/*
+ public class InputFieldTest : MonoBehaviour
+{
+public int HP = 3;
+public static InputFieldTest instance = null;
+
+
+void Awake()
+{
+    if (instance == null)
+    {
+        instance = this;
+    }
+    else if (instance != this)
+    {
+        Destroy(gameObject);
+    }
+}
+ */
+
+/*
+     //void Update()
+//{
+//    if (Input.GetKeyUp(KeyCode.G))
+//    {
+//        GameManager.gaugePsycho++;
+//        Debug.Log(GameManager.gaugePsycho);
+//    }
+//}  
+ */
+
+/*
+     private static InputFieldTest instance;
+
+private InputFieldTest() { }
+
+public int HP;
+
+public static InputFieldTest Instance
+{
+    get
+    {
+        if (instance == null)
+        {
+            instance = new InputFieldTest();
+        }
+        return instance;
+    } 
+}
+ */
