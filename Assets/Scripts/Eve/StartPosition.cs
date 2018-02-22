@@ -1,6 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StartPosition : MonoBehaviour {
 
@@ -8,13 +8,14 @@ public class StartPosition : MonoBehaviour {
 	public GameObject switchSessionCanvas;
 	public GameObject blocNoteCanvas;
 	public GameObject fenetrePoireCanvas;
-
-	//gameobjects Cass
-	public GameObject desktopCass;
+	public GameObject browserCanvas;
+	public GameObject facebookConnexionCanvas;
 
 	// gameobjects Sophie
-	public GameObject desktopSophie;
-	public GameObject fenetreFolderSophie;
+	public GameObject desktopImageSophie;
+
+	//gameobjects Cass
+	public GameObject desktopImageCass;
 
 
 	void Start () 
@@ -22,11 +23,9 @@ public class StartPosition : MonoBehaviour {
 		switchSessionCanvas.SetActive (false);
 		blocNoteCanvas.SetActive (true);
 		fenetrePoireCanvas.SetActive (false);
-
-		desktopCass.SetActive (false);
-
-		desktopSophie.SetActive (true);
-		fenetreFolderSophie.SetActive (false);
+		browserCanvas.SetActive (false);
+		facebookConnexionCanvas.SetActive (false);
+		desktopImageCass.SetActive (false);	
 	}
 }
 
