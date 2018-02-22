@@ -1,48 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using System;
-using UnityEngine.EventSystems;
 
-public class InputFieldTest : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class InputFieldTest : MonoBehaviour
 {
-    //Public
-    public Text selectable;
-    public bool isOver = false;
-
-    //Privée
-    Color startingColor = Color.black, highlighted = Color.red;
-
-    void Start()
-    {
-        selectable.GetComponent<Outline>().enabled = false;
-        selectable.GetComponent<Shadow>().enabled = false;
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        Debug.Log("Mouse enter");
-        isOver = true;
-
-        selectable.GetComponent<Outline>().enabled = isOver;
-        selectable.color = highlighted;
-        selectable.GetComponent<Shadow>().enabled = isOver;
-
-        
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        Debug.Log("Mouse exit");
-        isOver = false;
-
-        selectable.GetComponent<Outline>().enabled = isOver;
-        selectable.color = startingColor;
-        selectable.GetComponent<Shadow>().enabled = isOver;
-
-        
-    }
+    
 }
 
 
