@@ -1,6 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StartPosition : MonoBehaviour {
 
@@ -8,6 +8,7 @@ public class StartPosition : MonoBehaviour {
 	public GameObject switchSessionCanvas;
 	public GameObject blocNoteCanvas;
 	public GameObject fenetrePoireCanvas;
+	//public GameObject browserCanvas;
 
 	//gameobjects Cass
 	public GameObject desktopCass;
@@ -22,6 +23,7 @@ public class StartPosition : MonoBehaviour {
 		switchSessionCanvas.SetActive (false);
 		blocNoteCanvas.SetActive (true);
 		fenetrePoireCanvas.SetActive (false);
+		//browserCanvas.SetActive (false);
 
 		desktopCass.SetActive (false);
 
