@@ -4,35 +4,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InputFieldTest : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class InputFieldTest : MonoBehaviour
 {
-	public GameObject itemBeingDragged;
 
-	Vector2 startPosition;
-	Transform startParent;
-    
-	public void OnBeginDrag(PointerEventData eventData)
-	{
-		itemBeingDragged = this.gameObject;
-
-		startPosition = transform.position;
-		startParent = transform.parent;
-	}
-
-	public void OnDrag(PointerEventData eventData)
-	{
-		transform.position = eventData.position;
-	}
-
-	public void OnEndDrag(PointerEventData eventData)
-	{
-		itemBeingDragged = null; 
-
-		if (transform.parent == startParent) 
-		{
-			transform.position = startPosition;
-		}
-	}
 } 
 
 
