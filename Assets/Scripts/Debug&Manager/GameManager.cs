@@ -27,7 +27,7 @@ public class GameManager
     [HideInInspector] public enum GameState { Desktop, TonLivre, Gmail, BlocNotes, Studium, Browser, Bank, EditeurWord, Messenger };
     [HideInInspector] public GameState currentState;
 
-	public float gaugePsycho = 10, gaugeFinances = 10, gaugeConsomation = 10, gaugeHarassement = 10, currPsy = 3, currFin, currCon, currHar;   
+	public float gaugePsycho = 10, gaugeFinances = 10, gaugeConsomation = 10, gaugeHarassement = 10, currPsy, currFin, currCon, currHar;   
 
     void Awake()
     {

@@ -8,13 +8,11 @@ using System;
 public class TonLivre : MonoBehaviour
 {
     //Variables publiques
-    public GameObject tonLivre, messenger, deleteButton;
-    [HideInInspector]public InputField searchBar;
+	public GameObject tonLivre, messenger, deleteButton;
     //public GameManager gameManager;
 
     //Variables privées (par défaut elles sont toutes considérées comme privées)
     bool isActive = false;
-    string inputedText;
 
     //Sert à initialiser la valeur de certaines variables
     void Start ()
@@ -37,26 +35,7 @@ public class TonLivre : MonoBehaviour
         Debug.Log(GameManager.Instance.currentState);
     }
 
-    //Sert à gérer les entrées de clavier dans l'inputField
-    public void UpdateInputField()
-    {
-        Debug.Log("Data has been inputed");
-        inputedText = searchBar.text;
 
-        if (searchBar.text.Length == 0)
-        {
-            deleteButton.SetActive(false);
-        }
-        else
-        {
-            deleteButton.SetActive(true);
-        }
-    }
-
-    public void ClearContent()
-    {
-        searchBar.text = "";
-    }
 
 
 
