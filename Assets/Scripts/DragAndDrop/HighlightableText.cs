@@ -5,20 +5,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class HighlightableText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class HighlightableText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     //Public
     [HideInInspector] public bool isOver = false;
-	public static GameObject itemBeingDragged;
-    public int objectID;
-
+	public string intialText;
     //Privée
 	private Color startingColor = Color.black, highlighted = Color.red;
 	private GameObject thisIsIt;
-	private string toBeHighlighted = "trololo";
-
-	Vector2 startPosition;
-	Transform startParent;
 
     void Start()
     {
@@ -28,29 +22,11 @@ public class HighlightableText : MonoBehaviour, IPointerEnterHandler, IPointerEx
 		thisIsIt.GetComponent<Shadow>().enabled = isOver;
     }
 		
-	public void OnBeginDrag(PointerEventData eventData)
+	void Update()
 	{
-		itemBeingDragged = this.gameObject;
-
-		startPosition = transform.position;
-		startParent = transform.parent;
+		thisIsIt.GetComponent<Text> ().text = intialText;
 	}
 
-	public void OnDrag(PointerEventData eventData)
-	{
-		transform.position = eventData.position;
-	}
-
-	public void OnEndDrag(PointerEventData eventData)
-	{
-		itemBeingDragged = null; 
-
-		if (transform.parent == startParent) 
-		{
-			transform.position = startPosition;
-		}
-	}
-		
     public void OnPointerEnter(PointerEventData eventData)
     {
         Debug.Log("Mouse enter");
