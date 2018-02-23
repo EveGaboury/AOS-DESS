@@ -4,26 +4,43 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class TrashWindow : MonoBehaviour {
+public class ButtonBrowser : MonoBehaviour {
 
-	public Button trash;
+
+	//game state
 	public GameObject sessionCass;
+	public bool SoOpen = true;
+
+
+	//boutton corbeille
+	public Button trash;
 	public GameObject windowCass;
 	public GameObject windowSo; 
 
-	public bool SoOpen = true;
+
+	//boutton Gmail
+	public Button gmail;
+	public GameObject gmailCass;
+	public GameObject gmailSo;
+
+
 
 
 
 	void Start () {
 
 		Button btn = trash.GetComponent <Button> ();
-		btn.onClick.AddListener (TaskOnClick);
+		btn.onClick.AddListener (TaskOnClickTrash);
+
+		Button btn2 = gmail.GetComponent <Button> ();
+		btn.onClick.AddListener (TaskOnClickGmail);
 
 	}
 
 	void Update () {
-		
+
+
+		//game state
 		if (sessionCass.activeSelf == true) {
 			SoOpen = false;
 		}
@@ -33,18 +50,22 @@ public class TrashWindow : MonoBehaviour {
 		}
 	}
 
-	void TaskOnClick () {
+	void TaskOnClickTrash () {
 
 		if (SoOpen) {
 			windowSo.SetActive (true);
 		} else {
 			windowCass.SetActive (true);
 		}
+	}
 
-		Debug.Log ("le bouton marche");
+	void TaskOnClickGmail () {
 
-	
-
+		if (SoOpen) {
+			gmailSo.SetActive (true);
+		} else {
+			gmailCass.SetActive (true);
+		}
 	}
 }
 
