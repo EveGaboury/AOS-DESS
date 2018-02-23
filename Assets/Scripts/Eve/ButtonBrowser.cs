@@ -18,10 +18,10 @@ public class ButtonBrowser : MonoBehaviour {
 	public GameObject windowSo; 
 
 
-	//boutton Gmail
-	public Button gmail;
-	public GameObject gmailCass;
-	public GameObject gmailSo;
+//	//boutton Gmail
+//	public Button gmail;
+//	public GameObject gmailCass;
+//	public GameObject gmailSo;
 
 
 
@@ -32,8 +32,8 @@ public class ButtonBrowser : MonoBehaviour {
 		Button btn = trash.GetComponent <Button> ();
 		btn.onClick.AddListener (TaskOnClickTrash);
 
-		Button btn2 = gmail.GetComponent <Button> ();
-		btn.onClick.AddListener (TaskOnClickGmail);
+//		Button btn2 = gmail.GetComponent <Button> ();
+//		btn.onClick.AddListener (TaskOnClickGmail);
 
 	}
 
@@ -59,14 +59,14 @@ public class ButtonBrowser : MonoBehaviour {
 		}
 	}
 
-	void TaskOnClickGmail () {
-
-		if (SoOpen) {
-			gmailSo.SetActive (true);
-		} else {
-			gmailCass.SetActive (true);
-		}
-	}
+//	void TaskOnClickGmail () {
+//
+//		if (SoOpen) {
+//			gmailSo.SetActive (true);
+//		} else {
+//			gmailCass.SetActive (true);
+//		}
+//	}
 }
 
 

@@ -10,6 +10,7 @@ public class StartPosition : MonoBehaviour {
 	public GameObject fenetrePoireCanvas;
 	public GameObject browserCanvas;
 	public GameObject facebookConnexionCanvas;
+	public GameObject gmailCanvas;
 
 	// gameobjects Sophie
 	public GameObject desktopImageSophie;
@@ -26,6 +27,7 @@ public class StartPosition : MonoBehaviour {
 		browserCanvas.SetActive (false);
 		facebookConnexionCanvas.SetActive (false);
 		desktopImageCass.SetActive (false);	
+		gmailCanvas.SetActive (false);
 	}
 }
 
