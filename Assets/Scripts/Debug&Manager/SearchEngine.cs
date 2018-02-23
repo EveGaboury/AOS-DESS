@@ -14,8 +14,8 @@ public class SearchEngine: MonoBehaviour
 		//searchBar = GetComponent<TextMeshPro>();
 		TextMeshPro searchBar = GetComponent<TextMeshPro>();
 		ClearContent ();
-		falseFacebook.SetActive (false);
-		falseYoutube.SetActive (false);
+//		falseFacebook.SetActive (false);
+//		falseYoutube.SetActive (false);
 	}		
 		
     //prend une chaine de charactere, puis renvoit un resultat
