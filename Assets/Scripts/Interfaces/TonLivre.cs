@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using System;
+using TMPro;
 
 public class TonLivre : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class TonLivre : MonoBehaviour
 
     //Variables privées (par défaut elles sont toutes considérées comme privées)
     bool isActive = false;
+
+	GameObject g;
+	bool a;
 
     //Sert à initialiser la valeur de certaines variables
     void Start ()
@@ -46,13 +50,17 @@ public class TonLivre : MonoBehaviour
     public void OpenTonLivreWindow()
     {
         //GameManager.currentState = GameManager.GameState.TonLivre;
-
         if (!isActive)
         {
             Debug.Log("The open function of TonLivre has been called");
 
             tonLivre.SetActive(true);
             isActive = !isActive;
+
+			foreach(Transform child in tonLivre.transform)
+			{
+				child.gameObject.SetActive (true);
+			}
         }        
     }
 
@@ -67,6 +75,11 @@ public class TonLivre : MonoBehaviour
 
             tonLivre.SetActive(false);
             isActive = !isActive;
+
+			foreach(Transform child in tonLivre.transform)
+			{
+				child.gameObject.SetActive (false);
+			}
         }
     }
 
@@ -80,6 +93,12 @@ public class TonLivre : MonoBehaviour
 
             messenger.SetActive(true);
             isActive = !isActive;
+
+			foreach(Transform child in messenger.transform)
+			{
+				child.gameObject.SetActive (true);
+
+			}
         }
     }
 
@@ -94,6 +113,11 @@ public class TonLivre : MonoBehaviour
 
             messenger.SetActive(false);
             isActive = !isActive;
+
+			foreach(Transform child in messenger.transform)
+			{
+				child.gameObject.SetActive (false);
+			}
         }
     }
 }
