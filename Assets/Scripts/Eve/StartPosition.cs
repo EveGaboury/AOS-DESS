@@ -11,6 +11,7 @@ public class StartPosition : MonoBehaviour {
 	public GameObject browserCanvas;
 	public GameObject facebookConnexionCanvas;
 	public GameObject gmailCanvas;
+	 
 
 	// gameobjects Sophie
 	public GameObject desktopImageSophie;
