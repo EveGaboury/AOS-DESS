@@ -14,6 +14,7 @@ public class SearchEngine: MonoBehaviour
 	void Start()
 	{
 		ClearContent ();
+<<<<<<< HEAD
 
 		TextMeshPro searchBar = GetComponent<TextMeshPro>();
 
@@ -25,6 +26,11 @@ public class SearchEngine: MonoBehaviour
 	{
 		ClearContent ();
 	}
+=======
+//		falseFacebook.SetActive (false);
+//		falseYoutube.SetActive (false);
+	}		
+>>>>>>> 2f7ef0cc82b2dfdcae872dbdfe60fd707cdc75da
 		
     //prend une chaine de charactere, puis renvoit un resultat
     public void SearchFacebook(string userSearch)
