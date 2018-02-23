@@ -10,7 +10,7 @@ public class HighlightableText : MonoBehaviour, IPointerEnterHandler, IPointerEx
     //Public
     [HideInInspector] public bool isOver = false;
 	public static GameObject itemBeingDragged;
-
+    public int objectID;
 
     //Privée
 	private Color startingColor = Color.black, highlighted = Color.red;
