@@ -3,54 +3,49 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ObjectSlot : MonoBehaviour/*, IDropHandler, IPointerEnterHandler, IPointerExitHandler*/
+public class ObjectSlot : MonoBehaviour, IDropHandler
 {
-//    //HighlightableText obj;
-//
-//    public GameObject item
-//    {
-//        get
-//        {
-//            if (transform.childCount > 0)
-//            {
-//                return transform.GetChild(0).gameObject;
-//            }
-//            return null;
-//        }
-//    }
-//
-//    public void OnDrop(PointerEventData eventData)
-//    {
-//        if (!item)
-//        {
-//            HighlightableText.itemBeingDragged.transform.SetParent(transform);
-//        }
-//        //		ExecuteEvents.ExecuteHierarchy<IHasChanged> (gameObject, null, (x, y) => x.HasCHanged ());
-//        //		obj.GetComponent<Transform> ().transform.SetParent (transform);
-//	
-//        if (eventData.pointerDrag == null)
-//        {
-//            return;
-//        }
-//
-//        HighlightableText h = eventData.pointerDrag.GetComponent<HighlightableText>();
-//
-//        //if (h != null && h.transform == this.transform)
-//        //{
-//        //    h.transform = h.
-//
-//        //}
-//    }
-//
-//    void OnDrop(PointerEventData eventData)
-//    {
-//        Debug.Log(eventData.pointerDrag.name + " dropped on " + gameObject.name);
-//
-//        HighlightableText h = eventData.pointerDrag.GetComponent<HighlightableText>();
-//
-//        if (h != null)
-//        {
-//            h.transform = this.transform;
-//        }
-//    }
+	public string newText;
+	public int[] checkID;
+
+	public void OnDrop (PointerEventData eventData)
+	{
+		DraggableObject tri = eventData.pointerDrag.GetComponent<DraggableObject> ();
+
+		if (tri != null)
+		{
+			tri.parentToReturnTo = this.transform;
+
+			if (tri.objectID == checkID[0]) 
+			{
+				tri.GetComponent<HighlightableText> ().intialText = newText;
+			}
+			else if (tri.objectID == 2) //'Rince and repeat'
+			{
+				//Fait de quoi
+			}
+		}
+	}
+
+
+   // public GameObject item
+   // {
+   //     get
+   //     {
+   //         if (transform.childCount > 0)
+   //         {
+   //             return transform.GetChild(0).gameObject;
+   //         }
+   //         return null;
+   //     }
+   // }
+
+   // public void OnDrop(PointerEventData eventData)
+   // {
+   //     if (!item)
+   //     {
+   //         HighlightableText.itemBeingDragged.transform.SetParent(transform);
+			////ExecuteEvents.ExecuteHierarchy<IDropHandler>(gameObject, null, (x, y) => x.());
+   //     }
+   // }
 }

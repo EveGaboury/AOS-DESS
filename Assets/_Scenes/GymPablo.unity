@@ -256,13 +256,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &964726294
+--- !u!1001 &1100203344
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114570624370577230, guid: d5e9882f52a3e9a479b833777e423cff,
+        type: 2}
+      propertyPath: checkID.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 224351042124165484, guid: d5e9882f52a3e9a479b833777e423cff,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -352,6 +357,51 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114570624370577230, guid: d5e9882f52a3e9a479b833777e423cff,
+        type: 2}
+      propertyPath: newText
+      value: NO
+      objectReference: {fileID: 0}
+    - target: {fileID: 114196286324375508, guid: d5e9882f52a3e9a479b833777e423cff,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482113493259004, guid: d5e9882f52a3e9a479b833777e423cff,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114570624370577230, guid: d5e9882f52a3e9a479b833777e423cff,
+        type: 2}
+      propertyPath: checkID
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114570624370577230, guid: d5e9882f52a3e9a479b833777e423cff,
+        type: 2}
+      propertyPath: checkID.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114570624370577230, guid: d5e9882f52a3e9a479b833777e423cff,
+        type: 2}
+      propertyPath: checkID.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114570624370577230, guid: d5e9882f52a3e9a479b833777e423cff,
+        type: 2}
+      propertyPath: checkID.Array.data[2]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114570624370577230, guid: d5e9882f52a3e9a479b833777e423cff,
+        type: 2}
+      propertyPath: checkID.Array.data[3]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114570624370577230, guid: d5e9882f52a3e9a479b833777e423cff,
+        type: 2}
+      propertyPath: checkID.Array.data[4]
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d5e9882f52a3e9a479b833777e423cff, type: 2}
