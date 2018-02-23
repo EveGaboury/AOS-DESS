@@ -7,16 +7,24 @@ using TMPro;
 public class SearchEngine: MonoBehaviour
 {
 	public GameObject deleteButton, falseFacebook, falseYoutube;
-	public TMP_InputField searchBar;
+	[HideInInspector] public TMP_InputField searchBar;
+	public TextMeshProUGUI inputText;
+	bool notActive = false, clearOnceDone;
 
 	void Start()
 	{
-		//searchBar = GetComponent<TextMeshPro>();
-		TextMeshPro searchBar = GetComponent<TextMeshPro>();
 		ClearContent ();
+
+		TextMeshPro searchBar = GetComponent<TextMeshPro>();
+
 		falseFacebook.SetActive (false);
 		falseYoutube.SetActive (false);
-	}		
+	}
+
+	void OnDisable()
+	{
+		ClearContent ();
+	}
 		
     //prend une chaine de charactere, puis renvoit un resultat
     public void SearchFacebook(string userSearch)
@@ -57,7 +65,7 @@ public class SearchEngine: MonoBehaviour
 			Debug.Log ("your query is in-correct");
 		}
 
-		ClearContent ();
+		//ClearContent ();
     }
 
 
@@ -81,5 +89,7 @@ public class SearchEngine: MonoBehaviour
 	public void ClearContent()
 	{
 		searchBar.text = "";
+		//inputText.GetComponent<TextMeshProUGUI> ().text = "";
 	}
+
 }
