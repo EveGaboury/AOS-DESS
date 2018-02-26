@@ -41,6 +41,7 @@ public class SearchEngine: MonoBehaviour
 		{
 			Debug.Log ("your query is correct");
 			SP.facebookConnexionCanvas.SetActive (true);
+
 		} 
 		else 
 		{
