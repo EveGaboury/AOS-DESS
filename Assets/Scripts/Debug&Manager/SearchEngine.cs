@@ -13,7 +13,7 @@ public class SearchEngine: MonoBehaviour
 
 	void Start()
 	{
-		ClearContent ();
+		//ClearContent ();
 
 		TextMeshPro searchBar = GetComponent<TextMeshPro>();
 	}
@@ -42,7 +42,7 @@ public class SearchEngine: MonoBehaviour
 			Debug.Log ("your query is in-correct");
 		}
 
-		//ClearContent ();
+		ClearContent ();
     }
 
     public  void SearchYoutube()
@@ -57,7 +57,7 @@ public class SearchEngine: MonoBehaviour
 			Debug.Log ("your query is in-correct");
 		}
 
-		//ClearContent ();
+		ClearContent ();
     }
 
 
@@ -80,6 +80,7 @@ public class SearchEngine: MonoBehaviour
 
 	public void ClearContent()
 	{
+
 		searchBar.text = "";
 		//inputText.GetComponent<TextMeshProUGUI> ().text = "";
 	}
