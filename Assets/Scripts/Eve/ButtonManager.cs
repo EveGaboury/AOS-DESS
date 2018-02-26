@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class ButtonBrowser : MonoBehaviour {
+public class ButtonManager: MonoBehaviour {
 
 
 	//game state
@@ -17,11 +17,13 @@ public class ButtonBrowser : MonoBehaviour {
 	public GameObject windowCass;
 	public GameObject windowSo; 
 
+	//bouton Browser
+	public Button boutonRouge;
 
-//	//boutton Gmail
-//	public Button gmail;
-//	public GameObject gmailCass;
-//	public GameObject gmailSo;
+	//GameObject affecté par les bouttons
+	public GameObject facebookHeader;
+	public GameObject browserCanvas;
+	public GameObject facebookCanvas;
 
 
 
@@ -32,8 +34,9 @@ public class ButtonBrowser : MonoBehaviour {
 		Button btn = trash.GetComponent <Button> ();
 		btn.onClick.AddListener (TaskOnClickTrash);
 
-//		Button btn2 = gmail.GetComponent <Button> ();
-//		btn.onClick.AddListener (TaskOnClickGmail);
+		boutonRouge.GetComponent <Button> ();
+		boutonRouge.onClick.AddListener (TaskonClickBoutonRouge);
+
 
 	}
 
@@ -59,39 +62,10 @@ public class ButtonBrowser : MonoBehaviour {
 		}
 	}
 
-//	void TaskOnClickGmail () {
-//
-//		if (SoOpen) {
-//			gmailSo.SetActive (true);
-//		} else {
-//			gmailCass.SetActive (true);
-//		}
-//	}
+	void TaskonClickBoutonRouge () {
+
+		facebookHeader.SetActive (false);
+		browserCanvas.SetActive (false);
+		facebookCanvas.SetActive (false);
+	}
 }
-
-
-
-
-
-
-
-
-//	void Update (){
-//
-//		if (CassClosed) {
-//			sessionCass.SetActive (false);
-//			CassClosed = !CassClosed;
-//		}
-//
-//	}
-//	
-//
-//	void TaskOnClick () 
-//	{
-//
-//		if (CassClosed) {
-//			windowSo.SetActive (true);
-//		} else
-//			windowCass.SetActive (true);
-//	}
-//}

@@ -18,6 +18,8 @@ public class PasswordFb : MonoBehaviour {
 	public GameObject pageConnexion;
 	public GameObject pageProfil;
 
+	public StartPosition sP;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -44,6 +46,8 @@ public class PasswordFb : MonoBehaviour {
 				Debug.Log ("your every queris is correct");
 				pageConnexion.SetActive (false);
 				pageProfil.SetActive (true);
+				sP.facebookHeader.SetActive (true);
+
 			}
 		}	else 
 		{

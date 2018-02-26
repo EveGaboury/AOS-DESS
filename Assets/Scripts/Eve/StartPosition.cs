@@ -9,7 +9,10 @@ public class StartPosition : MonoBehaviour {
 	public GameObject blocNoteCanvas;
 	public GameObject fenetrePoireCanvas;
 	public GameObject browserCanvas;
+	public GameObject elementsCommun;
+
 	public GameObject facebookConnexionCanvas;
+	public GameObject facebookHeader;
 
 	public GameObject gmailCanvas;
 	public GameObject listContentMess;
@@ -17,14 +20,17 @@ public class StartPosition : MonoBehaviour {
 	public GameObject listContentImportant;
 	public GameObject listContentBrouillon;
 	public GameObject listContentTrash;
+
+
 	 
 
 	// gameobjects Sophie
 	public GameObject desktopImageSophie;
+	public GameObject folderTrashSophie;
 
 	//gameobjects Cass
 	public GameObject desktopImageCass;
-
+	public GameObject folderTrashCass;
 
 	void Start () 
 	{
@@ -32,10 +38,16 @@ public class StartPosition : MonoBehaviour {
 		blocNoteCanvas.SetActive (true);
 		fenetrePoireCanvas.SetActive (false);
 		browserCanvas.SetActive (false);
+		elementsCommun.SetActive (true);
+
 		facebookConnexionCanvas.SetActive (false);
 		desktopImageCass.SetActive (false);	
-		gmailCanvas.SetActive (false);
+		folderTrashCass.SetActive (false);
+		folderTrashSophie.SetActive (false);
 
+		facebookHeader.SetActive (false);
+
+		gmailCanvas.SetActive (false);
 		listContentMess.SetActive (true);
 		listContentEcole.SetActive (false);
 		listContentImportant.SetActive (false);
