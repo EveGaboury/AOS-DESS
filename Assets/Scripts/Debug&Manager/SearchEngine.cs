@@ -11,6 +11,8 @@ public class SearchEngine: MonoBehaviour
 	public TextMeshProUGUI inputText;
 	bool notActive = false, clearOnceDone;
 
+	public StartPosition SP;
+
 	void Start()
 	{
 		//ClearContent ();
@@ -22,6 +24,8 @@ public class SearchEngine: MonoBehaviour
 	{
 		ClearContent ();
 	}
+
+
     //prend une chaine de charactere, puis renvoit un resultat
     public void SearchFacebook(string userSearch)
     {
@@ -36,47 +40,49 @@ public class SearchEngine: MonoBehaviour
 		if (searchBar.text == "facebook.com") 
 		{
 			Debug.Log ("your query is correct");
+			SP.facebookConnexionCanvas.SetActive (true);
 		} 
 		else 
 		{
 			Debug.Log ("your query is in-correct");
+			//ClearContent ();
 		}
 
-		ClearContent ();
+
     }
 
-    public  void SearchYoutube()
-    {
-
-		if (searchBar.text == "youtube.com") 
-		{
-			Debug.Log ("your query is correct");
-		} 
-		else 
-		{
-			Debug.Log ("your query is in-correct");
-		}
-
-		ClearContent ();
-    }
+//    public  void SearchYoutube()
+//    {
+//
+//		if (searchBar.text == "youtube.com" ) 
+//		{
+//			Debug.Log ("your query is correct");
+//		} 
+//		else 
+//		{
+//			Debug.Log ("your query is in-correct");
+//		}
+//
+//		ClearContent ();
+//    
 
 
 	//Sert à gérer les entrées de clavier dans l'inputField
-	public void UpdateInputField()
-	{
-		Debug.Log("Data has been inputed");
-
-		if (searchBar.text == "")
-		{
-			deleteButton.SetActive(false);
-		}
-		else
-		{
-			searchBar.ActivateInputField ();
-			searchBar.Select ();
-			deleteButton.SetActive(true);
-		}
-	}
+//	public void UpdateInputField()
+//	{
+//		Debug.Log("Data has been inputed");
+//
+//		if (searchBar.text == "")
+//		{
+//			deleteButton.SetActive(false)
+//		}
+//		else
+//		{
+//			searchBar.ActivateInputField ();
+//			searchBar.Select ();
+//			deleteButton.SetActive(true);
+//		}
+//	}
 
 	public void ClearContent()
 	{
