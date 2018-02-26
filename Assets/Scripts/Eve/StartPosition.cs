@@ -10,7 +10,13 @@ public class StartPosition : MonoBehaviour {
 	public GameObject fenetrePoireCanvas;
 	public GameObject browserCanvas;
 	public GameObject facebookConnexionCanvas;
+
 	public GameObject gmailCanvas;
+	public GameObject listContentMess;
+	public GameObject listContentEcole;
+	public GameObject listContentImportant;
+	public GameObject listContentBrouillon;
+	public GameObject listContentTrash;
 	 
 
 	// gameobjects Sophie
@@ -29,6 +35,12 @@ public class StartPosition : MonoBehaviour {
 		facebookConnexionCanvas.SetActive (false);
 		desktopImageCass.SetActive (false);	
 		gmailCanvas.SetActive (false);
+
+		listContentMess.SetActive (true);
+		listContentEcole.SetActive (false);
+		listContentImportant.SetActive (false);
+		listContentBrouillon.SetActive (false);
+		listContentTrash.SetActive (false);
 	}
 }
 
