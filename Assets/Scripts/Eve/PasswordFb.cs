@@ -9,7 +9,6 @@ public class PasswordFb : MonoBehaviour {
 
 
 	public Button deleteButton;
-	//public TMP_InputField email;
 	public TMP_InputField password;
 
 	public Button connexion;
@@ -17,10 +16,12 @@ public class PasswordFb : MonoBehaviour {
 	public EmailFb eS;
 	public GameObject pageConnexion;
 	public GameObject pageProfil;
+	public GameObject passWordIncorrect;
 
 	public StartPosition sP;
 
-	// Use this for initialization
+
+
 	void Start () 
 	{
 
@@ -35,7 +36,6 @@ public class PasswordFb : MonoBehaviour {
 		ClearContent ();
 	}
 
-	//prend une chaine de charactere, puis renvoit un resultat
 
 	public void Search(string userSearch)
 	{
@@ -54,6 +54,7 @@ public class PasswordFb : MonoBehaviour {
 			Debug.Log ("your second query is in-correct");
 			ClearContent ();
 			eS.ClearContent ();
+			passWordIncorrect.SetActive (true);
 		}
 	}
 
@@ -62,7 +63,7 @@ public class PasswordFb : MonoBehaviour {
 	public void ClearContent()
 	{
 		Debug.Log ("clear content");
-		//email.text = "";
 		password.text = "";
+		passWordIncorrect.SetActive (false);
 	}
 }
