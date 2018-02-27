@@ -10,9 +10,15 @@ public class EmailFb : MonoBehaviour {
 
 	public Button deleteButton;
 	public TMP_InputField email;
-	//public TMP_InputField password;
+	public TMP_InputField password;
+	public GameObject passWordIncorrect;
+	public GameObject pageProfil;
 
 	public Button connexion;
+
+	public string reponseCorrecte = "jessica";
+	public string passwordCorrect = "cool";
+
 
 
 	// Use this for initialization
@@ -20,7 +26,7 @@ public class EmailFb : MonoBehaviour {
 	{
 
 		TextMeshPro email = GetComponent<TextMeshPro> ();
-		//TextMeshPro password = GetComponent<TextMeshPro> ();
+		TextMeshPro password = GetComponent<TextMeshPro> ();
 
 	
 	}
@@ -35,19 +41,25 @@ public class EmailFb : MonoBehaviour {
 	public void Search(string userSearch)
 	{
 		
-		if (email.text == "jessica")  
+		if (email.text == reponseCorrecte)
 		{
-			Debug.Log ("your first query is correct");
-
-		} 
-		else 
-		{
-			Debug.Log ("your first query is in-correct");
-			//ClearContent ();
+			if (password.text == passwordCorrect) 
+			{
+				Debug.Log ("your first query is correct");
+				pageProfil.SetActive (true);
+		
+			} 
 		}
-
-
+		else if (email.text != reponseCorrecte)
+		{
+			if (password.text != passwordCorrect) 
+			{
+				Debug.Log ("your first query is in-correct");
+				passWordIncorrect.SetActive (true);
+			}
+		}
 	}
+
 
 
 
@@ -55,6 +67,7 @@ public class EmailFb : MonoBehaviour {
 	{
 		Debug.Log ("clear content");
 		email.text = "";
-		//password.text = "";
+		password.text = "";
+		passWordIncorrect.SetActive (false);
 	}
 }

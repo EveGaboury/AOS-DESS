@@ -13,6 +13,7 @@ public class StartPosition : MonoBehaviour {
 
 	public GameObject facebookConnexionCanvas;
 	public GameObject facebookHeader;
+	public GameObject passwordIncorrect;
 
 	public GameObject gmailCanvas;
 	public GameObject listContentMess;
@@ -41,11 +42,14 @@ public class StartPosition : MonoBehaviour {
 		elementsCommun.SetActive (true);
 
 		facebookConnexionCanvas.SetActive (false);
+		facebookHeader.SetActive (false);
+		passwordIncorrect.SetActive (false);
+
 		desktopImageCass.SetActive (false);	
 		folderTrashCass.SetActive (false);
 		folderTrashSophie.SetActive (false);
 
-		facebookHeader.SetActive (false);
+
 
 		gmailCanvas.SetActive (false);
 		listContentMess.SetActive (true);
