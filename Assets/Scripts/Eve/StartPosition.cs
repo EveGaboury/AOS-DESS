@@ -17,10 +17,6 @@ public class StartPosition : MonoBehaviour {
 
 	public GameObject gmailCanvas;
 	public GameObject listContentMess;
-	public GameObject listContentEcole;
-	public GameObject listContentImportant;
-	public GameObject listContentBrouillon;
-	public GameObject listContentTrash;
 
 
 	 
@@ -49,14 +45,9 @@ public class StartPosition : MonoBehaviour {
 		folderTrashCass.SetActive (false);
 		folderTrashSophie.SetActive (false);
 
-
-
 		gmailCanvas.SetActive (false);
 		listContentMess.SetActive (true);
-		listContentEcole.SetActive (false);
-		listContentImportant.SetActive (false);
-		listContentBrouillon.SetActive (false);
-		listContentTrash.SetActive (false);
+		 
 	}
 }
 
