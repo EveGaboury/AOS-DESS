@@ -13,12 +13,12 @@ public class ButtonManager: MonoBehaviour {
 
 
 	//boutton corbeille
-	public Button trash;
+	public Button bouttontrash;
 	public GameObject windowCass;
 	public GameObject windowSo; 
 
 	//bouton Browser
-	public Button boutonRouge;
+	public Button boutonRougeBrowser;
 
 	//GameObject affecté par les bouttons
 	public GameObject facebookHeader;
@@ -31,11 +31,11 @@ public class ButtonManager: MonoBehaviour {
 
 	void Start () {
 
-		Button btn = trash.GetComponent <Button> ();
+		Button btn = bouttontrash.GetComponent <Button> ();
 		btn.onClick.AddListener (TaskOnClickTrash);
 
-		boutonRouge.GetComponent <Button> ();
-		boutonRouge.onClick.AddListener (TaskonClickBoutonRouge);
+		boutonRougeBrowser.GetComponent <Button> ();
+		boutonRougeBrowser.onClick.AddListener (TaskonClickBoutonRouge);
 
 
 	}
