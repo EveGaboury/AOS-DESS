@@ -7,6 +7,7 @@ public class Gmail : ScriptableObject {
 
 	public string name;
 	public string objet;
-	public TextMesh message;
+	public string infoMessage;
+	public string corpsMessage;
 
 }
