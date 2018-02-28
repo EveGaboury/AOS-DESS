@@ -14,14 +14,22 @@ public class InfoDisplay : MonoBehaviour {
 	public TextMeshProUGUI corpsMessage;
 
 
+
 	void Start () {
 
 		name.text = gmail.name;
 		objet.text = gmail.objet;
-		infoMessage.text = gmail.infoMessage;
-		corpsMessage.text = gmail.corpsMessage;
+
+
 
 		
+	}
+
+	public void ClickTrigger () {
+
+		corpsMessage.text = gmail.corpsMessage;
+		infoMessage.text = gmail.infoMessage;
+
 	}
 
 }
