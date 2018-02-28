@@ -15,8 +15,11 @@ public class StartPosition : MonoBehaviour {
 	public GameObject facebookHeader;
 	public GameObject passwordIncorrect;
 
+	//gmail
 	public GameObject gmailCanvas;
 	public GameObject listContentMess;
+	public GameObject listContentBrouillon;
+	public GameObject listContentTrash;
 
 
 	 
@@ -47,6 +50,8 @@ public class StartPosition : MonoBehaviour {
 
 		gmailCanvas.SetActive (false);
 		listContentMess.SetActive (true);
+		listContentBrouillon.SetActive (false);
+		listContentTrash.SetActive (false);
 		 
 	}
 }
