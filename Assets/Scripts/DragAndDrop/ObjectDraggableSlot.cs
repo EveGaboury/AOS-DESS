@@ -3,27 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ObjectSlot : MonoBehaviour, IDropHandler
+public class ObjectDraggableSlot : MonoBehaviour, IDropHandler
 {
-	public string newText;
+	public string[] newText;
 	public int[] checkID;
 
 	public void OnDrop (PointerEventData eventData)
 	{
 		DraggableObject tri = eventData.pointerDrag.GetComponent<DraggableObject> ();
 
-		if (tri != null)
-		{
-			tri.parentToReturnTo = this.transform;
 
-			if (tri.objectID == checkID[0]) 
+		for (int i = 0; i < checkID.Length; i++) 
+		{
+			if (tri != null) 
 			{
-				tri.GetComponent<HighlightableText> ().intialText = newText;
+				if (tri.objectID == checkID [i]) 
+				{
+					tri.GetComponent<HighlightableText> ().intialText = newText [i];
+					tri.transform.SetParent(transform);
+				}
 			}
-			else if (tri.objectID == 2) //'Rince and repeat'
-			{
-				//Fait de quoi
-			}
+		}
+
+//		if (tri != null)
+//		{
+//			tri.parentToReturnTo = this.transform;
+//
+//			if (tri.objectID == checkID[0]) 
+//			{
+//				tri.GetComponent<HighlightableText> ().intialText = newText[0];
+//			}
+//			else if (tri.objectID == 2) //'Rince and repeat'
+//			{
+//				//Fait de quoi
+//			}
 		}
 	}
 
@@ -48,4 +61,3 @@ public class ObjectSlot : MonoBehaviour, IDropHandler
 			////ExecuteEvents.ExecuteHierarchy<IDropHandler>(gameObject, null, (x, y) => x.());
    //     }
    // }
-}

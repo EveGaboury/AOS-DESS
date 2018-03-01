@@ -17,10 +17,10 @@ public class DisplayScore : MonoBehaviour
 
         jaugeHar.fillAmount = (GameManager.Instance.currHar / GameManager.Instance.gaugeHarassement);
 
-//		if (Input.GetKeyUp(KeyCode.A)) 
-//		{
-//			
-//			GameManager.Instance.currFin++;
-//		}
+		if (Input.GetKeyUp(KeyCode.A)) 
+		{
+			
+			GameManager.Instance.currFin++;
+		}
     }				
 }
