@@ -16,7 +16,6 @@ public class SearchEngine: MonoBehaviour
 	void Start()
 	{
 		//ClearContent ();
-
 		TextMeshPro searchBar = GetComponent<TextMeshPro>();
 	}
 
@@ -40,7 +39,7 @@ public class SearchEngine: MonoBehaviour
 		if (searchBar.text == "facebook.com") 
 		{
 			Debug.Log ("your query is correct");
-			SP.facebookConnexionCanvas.SetActive (true);
+			SP.facebookCanvas.SetActive (true);
 
 		} 
 		else 
