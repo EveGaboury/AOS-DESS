@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -40,6 +41,7 @@ public class SearchEngine: MonoBehaviour
 		{
 			Debug.Log ("your query is correct");
 			SP.facebookCanvas.SetActive (true);
+			SP.facebookConnexion.SetActive (true);
 
 		} 
 		else 
