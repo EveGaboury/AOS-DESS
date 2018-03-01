@@ -11,7 +11,9 @@ public class StartPosition : MonoBehaviour {
 	public GameObject browserCanvas;
 	public GameObject elementsCommun;
 
-	public GameObject facebookConnexionCanvas;
+
+	//facebook
+	public GameObject facebookConnexion;
 	public GameObject facebookHeader;
 	public GameObject passwordIncorrect;
 	public GameObject facebookCanvas;
@@ -22,12 +24,10 @@ public class StartPosition : MonoBehaviour {
 	public GameObject listContentBrouillon;
 	public GameObject listContentTrash;
 
-
-	 
-
 	// gameobjects Sophie
 	public GameObject desktopImageSophie;
 	public GameObject folderTrashSophie;
+	public GameObject fenetreFolderSo;
 
 	//gameobjects Cass
 	public GameObject desktopImageCass;
@@ -41,7 +41,8 @@ public class StartPosition : MonoBehaviour {
 		browserCanvas.SetActive (false);
 		elementsCommun.SetActive (true);
 
-		facebookConnexionCanvas.SetActive (false);
+
+		facebookConnexion.SetActive (false);
 		facebookHeader.SetActive (false);
 		passwordIncorrect.SetActive (false);
 		facebookCanvas.SetActive (false);
@@ -49,6 +50,7 @@ public class StartPosition : MonoBehaviour {
 		desktopImageCass.SetActive (false);	
 		folderTrashCass.SetActive (false);
 		folderTrashSophie.SetActive (false);
+		fenetreFolderSo.SetActive (false);
 
 		gmailCanvas.SetActive (false);
 		listContentMess.SetActive (true);
