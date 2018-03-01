@@ -30,21 +30,21 @@ public class ProfilDisplay : MonoBehaviour {
 
 	void Start () {
 
-		profilePicture = F.profilePicture;
+		profilePicture.sprite = F.profilePicture;
 
-		name = F.name;
-		birthDate = F.birthDate;
-		profession = F.profession;
+		name.text = F.name;
+		birthDate.text = F.birthDate;
+		profession.text = F.profession;
 
-		picture1 = F.picture1;
-		picture2 = F.picture2;
-		picture3 = F.picture3;
-		picture4 = F.picture4;
-		picture5 = F.picture5;
-		picture6 = F.picture6;
-		picture7 = F.picture7;
-		picture8 = F.picture8;
-		picture9 = F.picture9;
+		picture1.sprite = F.picture1;
+		picture2.sprite = F.picture2;
+		picture3.sprite = F.picture3;
+		picture4.sprite = F.picture4;
+		picture5.sprite = F.picture5;
+		picture6.sprite = F.picture6;
+		picture7.sprite = F.picture7;
+		picture8.sprite = F.picture8;
+		picture9.sprite = F.picture9;
 	}
 
 }
