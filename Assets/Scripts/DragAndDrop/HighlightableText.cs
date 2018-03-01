@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class HighlightableText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -24,6 +25,7 @@ public class HighlightableText : MonoBehaviour, IPointerEnterHandler, IPointerEx
 		
 	void Update()
 	{
+		//thisIsIt.GetComponent<TextMeshProUGUI> ().text = intialText;
 		thisIsIt.GetComponent<Text> ().text = intialText;
 	}
 
@@ -33,8 +35,10 @@ public class HighlightableText : MonoBehaviour, IPointerEnterHandler, IPointerEx
         isOver = true;
 
 		thisIsIt.GetComponent<Outline>().enabled = isOver;
-		thisIsIt.GetComponent<Text> ().color = highlighted;
 		thisIsIt.GetComponent<Shadow>().enabled = isOver;
+	
+		//thisIsIt.GetComponent<TextMeshPro>().color = highlighted;
+		thisIsIt.GetComponent<Text>().color = highlighted;
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -43,7 +47,9 @@ public class HighlightableText : MonoBehaviour, IPointerEnterHandler, IPointerEx
         isOver = false;
 
 		thisIsIt.GetComponent<Outline>().enabled = isOver;
-		thisIsIt.GetComponent<Text> ().color = startingColor;
 		thisIsIt.GetComponent<Shadow>().enabled = isOver;
+
+		//thisIsIt.GetComponent<TextMeshPro>().color = startingColor;
+		thisIsIt.GetComponent<Text>().color = startingColor;
     }
 }

@@ -35,7 +35,8 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
         Debug.Log(eventData.pointerDrag.name + " dropped on " + gameObject.name);
 
         Draggable d = eventData.pointerDrag.GetComponent<Draggable>();
-        if (d != null)
+        
+		if (d != null)
         {
             d.parentToReturnTo = this.transform;
 			if (d.reference.intialText == "CLUE") 
