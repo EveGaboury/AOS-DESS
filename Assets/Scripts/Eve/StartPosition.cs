@@ -26,6 +26,18 @@ public class StartPosition : MonoBehaviour {
 	public GameObject buttonCass;
 	public GameObject newsFeedTemplate;
 
+	//facebook messenger
+	public GameObject messengerTemplate;
+
+	//facebook Amis
+	public GameObject mesAmisTemplate;
+
+	//facebook Groupe
+	public GameObject mesGroupesTemplate;
+
+	//facebook photo private
+	public GameObject photosPrivateTemplate;
+
 
 	//gmail
 	public GameObject gmailCanvas;
@@ -57,6 +69,13 @@ public class StartPosition : MonoBehaviour {
 		pageProfilTemplate.SetActive (false);
 		newsFeedTemplate.SetActive (false);
 
+		messengerTemplate.SetActive (false);
+
+		mesAmisTemplate.SetActive (false);
+
+		mesGroupesTemplate.SetActive (false);
+
+		photosPrivateTemplate.SetActive (false);	
 
 		facebookConnexion.SetActive (false);
 		facebookHeader.SetActive (false);
