@@ -13,11 +13,10 @@ public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
 	Vector2 startPosition;
 	Transform startParent;
-	ObjectDraggableSlot objDS;
 
 	void Start()
 	{
-		objDS = GetComponent<ObjectDraggableSlot> ();
+
 	}
 
 	public void OnBeginDrag(PointerEventData eventData)
@@ -44,11 +43,6 @@ public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 		if (transform.parent == startParent) 
 		{
 			transform.position = startPosition;
-		}
-
-		if (true) 
-		{
-			
 		}
 	}
 }

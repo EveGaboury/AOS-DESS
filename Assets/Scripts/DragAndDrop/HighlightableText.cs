@@ -9,47 +9,41 @@ using TMPro;
 public class HighlightableText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     //Public
-    [HideInInspector] public bool isOver = false;
+    //[HideInInspector] public bool isOver = false;
+
 	public string intialText;
-    //Privée
+    
+	//Privée
 	private Color startingColor = Color.black, highlighted = Color.red;
 	private GameObject thisIsIt;
 
-    void Start()
+	TextMeshProUGUI textMeshProUGUI; 
+    
+	void Start()
     {
 		thisIsIt = this.gameObject;
 
-		thisIsIt.GetComponent<Outline>().enabled = isOver;
-		thisIsIt.GetComponent<Shadow>().enabled = isOver;
+		textMeshProUGUI = GetComponent<TextMeshProUGUI> ();
+		textMeshProUGUI.outlineColor = Color.black;
+
     }
 		
 	void Update()
 	{
-		//thisIsIt.GetComponent<TextMeshProUGUI> ().text = intialText;
-		thisIsIt.GetComponent<Text> ().text = intialText;
+		textMeshProUGUI.SetText(intialText);
 	}
 
     public void OnPointerEnter(PointerEventData eventData)
     {
         Debug.Log("Mouse enter");
-        isOver = true;
-
-		thisIsIt.GetComponent<Outline>().enabled = isOver;
-		thisIsIt.GetComponent<Shadow>().enabled = isOver;
 	
-		//thisIsIt.GetComponent<TextMeshPro>().color = highlighted;
-		thisIsIt.GetComponent<Text>().color = highlighted;
+		textMeshProUGUI.color = Color.red;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         Debug.Log("Mouse exit");
-        isOver = false;
 
-		thisIsIt.GetComponent<Outline>().enabled = isOver;
-		thisIsIt.GetComponent<Shadow>().enabled = isOver;
-
-		//thisIsIt.GetComponent<TextMeshPro>().color = startingColor;
-		thisIsIt.GetComponent<Text>().color = startingColor;
+		textMeshProUGUI.color = Color.black;
     }
 }
