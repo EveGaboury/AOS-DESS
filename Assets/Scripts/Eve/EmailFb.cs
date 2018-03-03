@@ -51,6 +51,7 @@ public class EmailFb : MonoBehaviour {
 				SP.facebookConnexion.SetActive (false);
 				SP.facebookHeader.SetActive (true);
 				SP.pageProfilTemplate.SetActive (false);
+				SP.newsFeedTemplate.SetActive (true);
 		
 			} 
 		} else if (email.text != reponseCorrecte) {

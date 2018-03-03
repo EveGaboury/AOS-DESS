@@ -24,6 +24,7 @@ public class StartPosition : MonoBehaviour {
 	public GameObject pageProfilTemplate;
 	public GameObject facebookInfoScriptable;
 	public GameObject buttonCass;
+	public GameObject newsFeedTemplate;
 
 
 	//gmail
@@ -54,6 +55,7 @@ public class StartPosition : MonoBehaviour {
 		notFound.SetActive (false);
 		shortCut.SetActive (false);
 		pageProfilTemplate.SetActive (false);
+		newsFeedTemplate.SetActive (false);
 
 
 		facebookConnexion.SetActive (false);
