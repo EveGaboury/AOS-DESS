@@ -37,8 +37,10 @@ public class StartPosition : MonoBehaviour {
 	public GameObject fenetreFolderSo;
 
 	//gameobjects Cass
-	public GameObject desktopImageCass;
+
 	public GameObject folderTrashCass;
+	public GameObject fenetreFolderCass;
+	public GameObject sessionCass;
 
 	void Start () 
 	{
@@ -59,8 +61,11 @@ public class StartPosition : MonoBehaviour {
 		facebookCanvas.SetActive (false);
 		facebookInfoScriptable.SetActive (false);
 
-		desktopImageCass.SetActive (false);	
+
 		folderTrashCass.SetActive (false);
+		fenetreFolderCass.SetActive (false);
+		sessionCass.SetActive (false);
+
 		folderTrashSophie.SetActive (false);
 		fenetreFolderSo.SetActive (false);
 
