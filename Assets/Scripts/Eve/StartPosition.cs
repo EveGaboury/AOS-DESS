@@ -8,8 +8,12 @@ public class StartPosition : MonoBehaviour {
 	public GameObject switchSessionCanvas;
 	public GameObject blocNoteCanvas;
 	public GameObject fenetrePoireCanvas;
-	public GameObject browserCanvas;
 	public GameObject elementsCommun;
+
+	//Browser
+	public GameObject browserCanvas;
+	public GameObject notFound;
+	public GameObject shortCut;
 
 
 	//facebook
@@ -17,6 +21,7 @@ public class StartPosition : MonoBehaviour {
 	public GameObject facebookHeader;
 	public GameObject passwordIncorrect;
 	public GameObject facebookCanvas;
+	public GameObject pageProfilTemplate;
 
 	//gmail
 	public GameObject gmailCanvas;
@@ -38,8 +43,12 @@ public class StartPosition : MonoBehaviour {
 		switchSessionCanvas.SetActive (false);
 		blocNoteCanvas.SetActive (true);
 		fenetrePoireCanvas.SetActive (false);
-		browserCanvas.SetActive (false);
 		elementsCommun.SetActive (true);
+
+		browserCanvas.SetActive (false);
+		notFound.SetActive (false);
+		shortCut.SetActive (false);
+		pageProfilTemplate.SetActive (false);
 
 
 		facebookConnexion.SetActive (false);

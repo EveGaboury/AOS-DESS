@@ -39,16 +39,27 @@ public class SearchEngine: MonoBehaviour
 		//mettre ça dans une fonction pour déterminer quel est l'engin en train d'être chercher
 		if (searchBar.text == "facebook.com") 
 		{
-			Debug.Log ("your query is correct");
+			Debug.Log ("facebook is correct");
 			SP.facebookCanvas.SetActive (true);
 			SP.facebookConnexion.SetActive (true);
+			SP.notFound.SetActive (false);
+			SP.pageProfilTemplate.SetActive (false);
 
 		} 
 		else 
 		{
-			Debug.Log ("your query is in-correct");
+			Debug.Log ("facebook is in-correct");
+			SP.notFound.SetActive (true);
+			SP.facebookCanvas.SetActive (false);
 			//ClearContent ();
 		}
+
+
+		if (searchBar.text == "google.com") {
+			Debug.Log ("google is correct");
+			SP.shortCut.SetActive (true);
+		} else
+			SP.shortCut.SetActive (false);
 
 
     }
