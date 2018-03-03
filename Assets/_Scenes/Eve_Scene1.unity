@@ -246,6 +246,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 727180406}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 807017117}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &3581563
@@ -1367,8 +1389,6 @@ Transform:
   - {fileID: 1608268900}
   - {fileID: 1518546183}
   - {fileID: 907789674}
-  - {fileID: 1033507730}
-  - {fileID: 1509998328}
   m_Father: {fileID: 2002681944}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2598,7 +2618,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 392364151}
+      - m_Target: {fileID: 1305121070}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -2619,6 +2639,17 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 392364151}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
@@ -3465,7 +3496,7 @@ MonoBehaviour:
   facebookCanvas: {fileID: 252749786}
   pageProfilTemplate: {fileID: 1083135214}
   facebookInfoScriptable: {fileID: 1045108800}
-  iconProfilCass: {fileID: 0}
+  buttonCass: {fileID: 807017117}
   gmailCanvas: {fileID: 1774260898}
   listContentMess: {fileID: 931529228}
   listContentBrouillon: {fileID: 1106176337}
@@ -4559,6 +4590,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 727180406}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 807017117}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &800293679
@@ -4818,7 +4871,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 392364151}
+      - m_Target: {fileID: 1305121070}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -4968,6 +5021,28 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1033507729}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 392364151}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1305121070}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -6754,12 +6829,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1033507729}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 83.437515, y: -179.6688, z: 0}
-  m_LocalScale: {x: 0.49280193, y: 0.49280193, z: 0.49280193}
+  m_LocalPosition: {x: -224.11241, y: 544.7125, z: 0}
+  m_LocalScale: {x: 0.8859362, y: 0.8859362, z: 0.8859362}
   m_Children:
   - {fileID: 1114653154}
-  m_Father: {fileID: 252749787}
-  m_RootOrder: 4
+  m_Father: {fileID: 1037785700}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1037785699
 GameObject:
@@ -6788,12 +6863,14 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1083135215}
+  - {fileID: 1033507730}
+  - {fileID: 1509998328}
   m_Father: {fileID: 1105346768}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: -400.4997}
+  m_AnchoredPosition: {x: 0, y: -400.4997}
   m_SizeDelta: {x: 0, y: 801}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1037785701
@@ -7902,6 +7979,11 @@ GameObject:
   m_PrefabParentObject: {fileID: 1142982958567432, guid: 68c1c5b3979cf4f20a32e12e13e79758,
     type: 2}
   m_PrefabInternal: {fileID: 898697081}
+--- !u!1 &1305121070 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1350549680618566, guid: 82015a9c1aa7c4a35a81558772465480,
+    type: 2}
+  m_PrefabInternal: {fileID: 219093759}
 --- !u!1 &1308738395
 GameObject:
   m_ObjectHideFlags: 0
@@ -8631,8 +8713,6 @@ MonoBehaviour:
   passWordIncorrect: {fileID: 842646305}
   pageProfil: {fileID: 1083135214}
   connexion: {fileID: 1413340705}
-  reponseCorrecte: jessica
-  passwordCorrect: cool
   SP: {fileID: 678657564}
 --- !u!114 &1504055578
 MonoBehaviour:
@@ -8813,11 +8893,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1509998327}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 475.61136, y: 52.19074, z: -1.9837284}
-  m_LocalScale: {x: 2.3946187, y: 2.3946187, z: 2.3946187}
+  m_LocalPosition: {x: 480.91916, y: 961.53876, z: -3.566254}
+  m_LocalScale: {x: 4.3049335, y: 4.3049335, z: 4.3049335}
   m_Children: []
-  m_Father: {fileID: 252749787}
-  m_RootOrder: 5
+  m_Father: {fileID: 1037785700}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1518546182
 GameObject:

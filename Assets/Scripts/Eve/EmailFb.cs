@@ -16,8 +16,9 @@ public class EmailFb : MonoBehaviour {
 
 	public Button connexion;
 
-	public string reponseCorrecte = "jessica";
-	public string passwordCorrect = "cool";
+	private string reponseCorrecte = "sophie";
+	//private string reponserCorrecte2 = "Sophie.baillargeon@gmail.com";
+	private string passwordCorrect = "cool";
 
 	public StartPosition SP;
 
@@ -43,22 +44,23 @@ public class EmailFb : MonoBehaviour {
 	public void Search(string userSearch)
 	{
 		
-		if (email.text == reponseCorrecte)
-		{
-			if (password.text == passwordCorrect) 
-			{
+		if (email.text == reponseCorrecte) {
+			if (password.text == passwordCorrect) {
 				Debug.Log ("your first query is correct");
 				pageProfil.SetActive (true);
 				SP.facebookConnexion.SetActive (false);
 				SP.facebookHeader.SetActive (true);
+				SP.pageProfilTemplate.SetActive (false);
 		
 			} 
+		} else if (email.text != reponseCorrecte) {
+			Debug.Log ("your first query is in-correct");
+			passWordIncorrect.SetActive (true);
 		}
-		else if (email.text != reponseCorrecte)
 		{
 			if (password.text != passwordCorrect) 
 			{
-				Debug.Log ("your first query is in-correct");
+				Debug.Log ("your second query is in-correct");
 				passWordIncorrect.SetActive (true);
 			}
 		}

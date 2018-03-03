@@ -44,7 +44,7 @@ public class SearchEngine: MonoBehaviour
 			SP.facebookConnexion.SetActive (true);
 			SP.notFound.SetActive (false);
 			SP.pageProfilTemplate.SetActive (false);
-			SP.iconProfilCass.SetActive (false);
+			SP.buttonCass.SetActive (false);
 
 		} 
 		else 
@@ -59,6 +59,7 @@ public class SearchEngine: MonoBehaviour
 		if (searchBar.text == "google.com") {
 			Debug.Log ("google is correct");
 			SP.shortCut.SetActive (true);
+			SP.notFound.SetActive (false);
 		} else
 			SP.shortCut.SetActive (false);
 
