@@ -19,6 +19,8 @@ public class EmailFb : MonoBehaviour {
 	public string reponseCorrecte = "jessica";
 	public string passwordCorrect = "cool";
 
+	public StartPosition SP;
+
 
 
 	// Use this for initialization
@@ -47,6 +49,8 @@ public class EmailFb : MonoBehaviour {
 			{
 				Debug.Log ("your first query is correct");
 				pageProfil.SetActive (true);
+				SP.facebookConnexion.SetActive (false);
+				SP.facebookHeader.SetActive (true);
 		
 			} 
 		}

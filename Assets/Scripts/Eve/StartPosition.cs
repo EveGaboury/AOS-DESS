@@ -23,6 +23,7 @@ public class StartPosition : MonoBehaviour {
 	public GameObject facebookCanvas;
 	public GameObject pageProfilTemplate;
 	public GameObject facebookInfoScriptable;
+	public GameObject iconProfilCass;
 
 
 	//gmail
@@ -60,6 +61,7 @@ public class StartPosition : MonoBehaviour {
 		passwordIncorrect.SetActive (false);
 		facebookCanvas.SetActive (false);
 		facebookInfoScriptable.SetActive (false);
+		iconProfilCass.SetActive (false);
 
 
 		folderTrashCass.SetActive (false);

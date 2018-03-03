@@ -44,6 +44,7 @@ public class SearchEngine: MonoBehaviour
 			SP.facebookConnexion.SetActive (true);
 			SP.notFound.SetActive (false);
 			SP.pageProfilTemplate.SetActive (false);
+			SP.iconProfilCass.SetActive (false);
 
 		} 
 		else 
