@@ -9,5 +9,6 @@ public class Gmail : ScriptableObject {
 	public string objet;
 	public string infoMessage;
 	public string corpsMessage;
+	public string finMessage;
 
 }
