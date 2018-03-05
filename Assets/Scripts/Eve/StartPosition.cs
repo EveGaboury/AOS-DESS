@@ -27,6 +27,10 @@ public class StartPosition : MonoBehaviour {
 	public GameObject passwordTemplate;
 	public GameObject wrongPassword;
 
+
+	//facebook mot de passe oublie
+	public GameObject questionOne;
+
 	//facebook messenger
 	public GameObject messengerTemplate;
 
@@ -70,6 +74,8 @@ public class StartPosition : MonoBehaviour {
 		pageProfilTemplate.SetActive (false);
 		newsFeedTemplate.SetActive (false);
 		wrongPassword.SetActive (false);
+
+		questionOne.SetActive (false);
 
 		messengerTemplate.SetActive (false);
 

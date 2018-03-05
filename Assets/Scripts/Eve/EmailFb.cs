@@ -29,8 +29,7 @@ public class EmailFb : MonoBehaviour {
 
 		TextMeshPro email = GetComponent<TextMeshPro> ();
 		TextMeshPro password = GetComponent<TextMeshPro> ();
-
-	
+		TextMeshPro emailSecond = GetComponent <TextMeshPro> ();
 	}
 
 	void OnDisable()

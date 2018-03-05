@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class ButtonManager: MonoBehaviour {
 
@@ -26,10 +27,19 @@ public class ButtonManager: MonoBehaviour {
 	public GameObject facebookCanvas;
 
 
+	//inputfield et boutton pour facebook mot de passe
+	public Button inputfieldWrongButton;
+	public TMP_InputField inputfieldWrongText;
+	private string reponsecorrecte = "cassandraroyer@gmail.com" ; 
+
+	public StartPosition SP;
+
+	public GameObject faux;
 
 
 
-	void Start () {
+	void Start () 
+	{
 
 		Button btn = bouttontrash.GetComponent <Button> ();
 		btn.onClick.AddListener (TaskOnClickTrash);
@@ -37,7 +47,8 @@ public class ButtonManager: MonoBehaviour {
 		boutonRougeBrowser.GetComponent <Button> ();
 		boutonRougeBrowser.onClick.AddListener (TaskonClickBoutonRouge);
 
-
+		Button btnn = inputfieldWrongButton.GetComponent<Button> ();
+		btnn.onClick.AddListener (TaskOnClickForgotFacebook);
 	}
 
 	void Update () {
@@ -68,4 +79,17 @@ public class ButtonManager: MonoBehaviour {
 		browserCanvas.SetActive (false);
 		facebookCanvas.SetActive (false);
 	}
+
+	 void TaskOnClickForgotFacebook ()
+	{
+		if (reponsecorrecte == inputfieldWrongText.text) {
+			SP.questionOne.SetActive (true);
+		} else
+			faux.SetActive (true);
+			
+
+
+
+	}
+
 }
