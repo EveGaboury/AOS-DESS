@@ -14,7 +14,7 @@ public class ObjectDraggableSlot : MonoBehaviour, IDropHandler
 
 	//[HideInInspector] public float totalHeight;
 
-	List<Transform> list = new List<Transform>();
+	public List<RectTransform> list = new List<RectTransform>();
 
 	public void OnDrop (PointerEventData eventData)
 	{
@@ -42,6 +42,24 @@ public class ObjectDraggableSlot : MonoBehaviour, IDropHandler
 
 	void OnTransformChildrenChanged()
 	{
+//		Debug.Log(transform.childCount);
+
+		foreach(RectTransform child in transform)
+		{
+			//Debug.Log(child.GetComponent<RectTransform> ().rect.height);
+			list.Add (child);
+
+			Debug.Log (child.rect.height /*list.Distinct ()*/);
+		}
+
+//		foreach (Transform t in transform) 
+//		{
+//			list.Add (t);
+//			//GameObject[] arr = list.ToArray ();
+//			Debug.Log (list.Count /*list.ToArray ()*/ /*(list.Count)*/);
+//		}
+
+
 //		foreach (Transform t in transform) 
 //		{
 //			list.Add (t.gameObject);
