@@ -14,17 +14,18 @@ public class HighlightableText : MonoBehaviour, IPointerEnterHandler, IPointerEx
 	public string intialText;
     
 	//Privée
-	private Color startingColor = Color.black, highlighted = Color.red;
+	public Color startingColor = Color.black, highlighted = Color.red;
 	private GameObject thisIsIt;
 
 	TextMeshProUGUI textMeshProUGUI; 
-    
-	void Start()
+   
+	void Awake()
     {
+		textMeshProUGUI = GetComponent<TextMeshProUGUI> ();
+		textMeshProUGUI.outlineColor = startingColor;
 		thisIsIt = this.gameObject;
 
-		textMeshProUGUI = GetComponent<TextMeshProUGUI> ();
-		textMeshProUGUI.outlineColor = Color.black;
+
 
     }
 		
@@ -37,13 +38,13 @@ public class HighlightableText : MonoBehaviour, IPointerEnterHandler, IPointerEx
     {
         Debug.Log("Mouse enter");
 	
-		textMeshProUGUI.color = Color.red;
+		textMeshProUGUI.color = highlighted;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         Debug.Log("Mouse exit");
 
-		textMeshProUGUI.color = Color.black;
+		textMeshProUGUI.color = startingColor;
     }
 }
