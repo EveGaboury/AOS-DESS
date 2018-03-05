@@ -11,7 +11,6 @@ public class EmailFb : MonoBehaviour {
 	public Button deleteButton;
 	public TMP_InputField email;
 	public TMP_InputField password;
-	public GameObject passWordIncorrect;
 	public GameObject pageProfil;
 
 	public Button connexion;
@@ -56,13 +55,13 @@ public class EmailFb : MonoBehaviour {
 			} 
 		} else if (email.text != reponseCorrecte) {
 			Debug.Log ("your first query is in-correct");
-			passWordIncorrect.SetActive (true);
+			SP.wrongPassword.SetActive (true);
 		}
 		{
 			if (password.text != passwordCorrect) 
 			{
 				Debug.Log ("your second query is in-correct");
-				passWordIncorrect.SetActive (true);
+				SP.wrongPassword.SetActive (true);
 			}
 		}
 	}
@@ -75,6 +74,6 @@ public class EmailFb : MonoBehaviour {
 		Debug.Log ("clear content");
 		email.text = "";
 		password.text = "";
-		passWordIncorrect.SetActive (false);
+		SP.wrongPassword.SetActive (false);
 	}
 }

@@ -19,12 +19,13 @@ public class StartPosition : MonoBehaviour {
 	//facebook
 	public GameObject facebookConnexion;
 	public GameObject facebookHeader;
-	public GameObject passwordIncorrect;
 	public GameObject facebookCanvas;
 	public GameObject pageProfilTemplate;
 	public GameObject facebookInfoScriptable;
 	public GameObject buttonCass;
 	public GameObject newsFeedTemplate;
+	public GameObject passwordTemplate;
+	public GameObject wrongPassword;
 
 	//facebook messenger
 	public GameObject messengerTemplate;
@@ -68,6 +69,7 @@ public class StartPosition : MonoBehaviour {
 		shortCut.SetActive (false);
 		pageProfilTemplate.SetActive (false);
 		newsFeedTemplate.SetActive (false);
+		wrongPassword.SetActive (false);
 
 		messengerTemplate.SetActive (false);
 
@@ -79,10 +81,10 @@ public class StartPosition : MonoBehaviour {
 
 		facebookConnexion.SetActive (false);
 		facebookHeader.SetActive (false);
-		passwordIncorrect.SetActive (false);
 		facebookCanvas.SetActive (false);
 		facebookInfoScriptable.SetActive (false);
 		buttonCass.SetActive (false);
+		passwordTemplate.SetActive (false);
 
 
 		folderTrashCass.SetActive (false);
