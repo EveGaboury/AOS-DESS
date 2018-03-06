@@ -34,6 +34,8 @@ public class StartPosition : MonoBehaviour {
 
 	//facebook mot de passe oublie
 	public GameObject questionOne;
+	public GameObject fauxText;
+	public GameObject vraiText;
 
 
 	//facebook messenger
@@ -74,6 +76,8 @@ public class StartPosition : MonoBehaviour {
 		NFCass.SetActive (false);
 
 		questionOne.SetActive (false);
+		fauxText.SetActive (false);
+		vraiText.SetActive (false);
 
 		messengerTemplate.SetActive (false);
 

@@ -41,7 +41,6 @@ public class ButtonManager: MonoBehaviour {
 	public TMP_InputField inputfieldWrongText;
 	private string reponsecorrecte = "cassandraroyer@courriel.fr", reponsecorrecte2 = "Cassandraroyer@courriel.fr" ; 
 
-	public GameObject faux;
 
 	public Sprite vrai;
 	public Sprite pasvrai;
@@ -122,9 +121,11 @@ public class ButtonManager: MonoBehaviour {
 		if ((reponsecorrecte == inputfieldWrongText.text) || (reponsecorrecte2 == inputfieldWrongText.text)) {
 			SP.questionOne.SetActive (true);
 			wrongImage.sprite = vrai;
-			faux.SetActive (false);
+			SP.fauxText.SetActive (false);
+			SP.vraiText.SetActive (true);
 		} else {
-			faux.SetActive (true);
+			SP.fauxText.SetActive (true);
+			SP.vraiText.SetActive (false);
 			wrongImage.sprite = pasvrai;
 		}
 
