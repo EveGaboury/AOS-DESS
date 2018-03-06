@@ -30,18 +30,24 @@ public class ButtonManager: MonoBehaviour {
 
 
 	//inputfield et boutton pour facebook mot de passe
-	public Button inputfieldWrongButton;
+	public Button wrongButton;
+	public Image wrongImage;
 	public TMP_InputField inputfieldWrongText;
 	private string reponsecorrecte = "cassandraroyer@courriel.fr", reponsecorrecte2 = "Cassandraroyer@courriel.fr" ; 
 
 	public GameObject faux;
-	public Image bouttonWrongPass;
 
 	public Sprite vrai;
 	public Sprite pasvrai;
-	public TMP_InputField inputfieldQuestion1;
+	public Sprite initial;
 
 
+	public Button question1Button;
+	public Image question1Image;
+	public TMP_InputField inputfieldQuestionOne;
+	private string reponseQuestion1 = "Zeus", reponseQuestion1a = "zeus"; 
+
+	private string clear ="";
 
 
 	void Start () 
@@ -53,19 +59,16 @@ public class ButtonManager: MonoBehaviour {
 		boutonRougeBrowser.GetComponent <Button> ();
 		boutonRougeBrowser.onClick.AddListener (TaskonClickBoutonRouge);
 
-		Button btnn = inputfieldWrongButton.GetComponent<Button> ();
-		btnn.onClick.AddListener (TaskOnClickForgotFacebook);
+		wrongButton.GetComponent<Button> ();
+		wrongButton.onClick.AddListener (TaskOnClickForgotFacebook);
 
+		question1Button.GetComponent <Button> ();
+		question1Button.onClick.AddListener (TaskOnClickQuestionOne);
 
-		SpriteRenderer initial = GetComponent<SpriteRenderer> ();
-
-		TextMeshPro inputfieldQuestion1 = GetComponent <TextMeshPro> ();
-
-	
+		TextMeshPro inputfieldQuestion0 = GetComponent <TextMeshPro> ();
+		TextMeshPro inputfieldQuestionOne = GetComponent <TextMeshPro> ();
 	}
-
-
-
+		
 	void Update () 
 	{
 		//game state
@@ -75,6 +78,9 @@ public class ButtonManager: MonoBehaviour {
 		else{
 			SoOpen = true;
 		}
+
+		if (clear == inputfieldWrongText.text)
+			wrongImage.sprite = initial;
 	}
 
 	void TaskOnClickTrash () 
@@ -98,17 +104,31 @@ public class ButtonManager: MonoBehaviour {
 	{
 		if ((reponsecorrecte == inputfieldWrongText.text) || (reponsecorrecte2 == inputfieldWrongText.text)) {
 			SP.questionOne.SetActive (true);
-			bouttonWrongPass.sprite = vrai;
+			wrongImage.sprite = vrai;
+			faux.SetActive (false);
 		} else {
 			faux.SetActive (true);
-			bouttonWrongPass.sprite = pasvrai;
+			wrongImage.sprite = pasvrai;
+		}
+
+	}
+
+	void TaskOnClickQuestionOne ()
+	{
+		if ((reponseQuestion1 == inputfieldQuestionOne.text) || (reponseQuestion1a == inputfieldQuestionOne.text)) 
+		{
+			Debug.Log ("bonne réponse");
+			question1Image.sprite = vrai;
+
+		} else {
+			question1Image.sprite = pasvrai;
 		}
 	}
 
 	public void ClearContent (){
 
 		inputfieldWrongText.text = "";
-		inputfieldQuestion1.text = "";
+		inputfieldQuestionOne.text = "";
 
 		}
 }
