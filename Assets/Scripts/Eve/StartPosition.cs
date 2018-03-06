@@ -46,9 +46,9 @@ public class StartPosition : MonoBehaviour {
 
 	//gmail
 	public GameObject gmailCanvas;
-	public GameObject listContentMess;
-	public GameObject listContentBrouillon;
-	public GameObject listContentTrash;
+//	public GameObject listContentMess;
+//	public GameObject listContentBrouillon;
+//	public GameObject listContentTrash;
 
 	// gameobjects Sophie
 	public GameObject desktopImageSophie;
@@ -101,9 +101,9 @@ public class StartPosition : MonoBehaviour {
 		fenetreFolderSo.SetActive (false);
 
 		gmailCanvas.SetActive (false);
-		listContentMess.SetActive (true);
-		listContentBrouillon.SetActive (false);
-		listContentTrash.SetActive (false);
+//		listContentMess.SetActive (true);
+//		listContentBrouillon.SetActive (false);
+//		listContentTrash.SetActive (false);
 		 
 	}
 }
