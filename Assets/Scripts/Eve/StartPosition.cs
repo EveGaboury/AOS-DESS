@@ -18,6 +18,7 @@ public class StartPosition : MonoBehaviour {
 
 	//facebook
 	public GameObject facebookConnexion;
+	public GameObject facebookConnInPage;
 	public GameObject facebookHeader;
 	public GameObject facebookCanvas;
 	public GameObject pageProfilTemplate;
@@ -31,17 +32,12 @@ public class StartPosition : MonoBehaviour {
 	//facebook mot de passe oublie
 	public GameObject questionOne;
 
+
 	//facebook messenger
 	public GameObject messengerTemplate;
 
 	//facebook Amis
 	public GameObject mesAmisTemplate;
-
-	//facebook Groupe
-	public GameObject mesGroupesTemplate;
-
-	//facebook photo private
-	public GameObject photosPrivateTemplate;
 
 
 	//gmail
@@ -81,11 +77,8 @@ public class StartPosition : MonoBehaviour {
 
 		mesAmisTemplate.SetActive (false);
 
-		mesGroupesTemplate.SetActive (false);
-
-		photosPrivateTemplate.SetActive (false);	
-
 		facebookConnexion.SetActive (false);
+
 		facebookHeader.SetActive (false);
 		facebookCanvas.SetActive (false);
 		facebookInfoScriptable.SetActive (false);
