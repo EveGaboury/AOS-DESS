@@ -14,6 +14,12 @@ public class ButtonManager: MonoBehaviour {
 	public GameObject sessionCass;
 	public bool SoOpen = true;
 
+	//facebook state
+	public GameObject ButtonSophie;
+	public bool soOpenFacebook = false;
+
+	public GameObject NFSo;
+	public Button iconFb;
 
 	//boutton corbeille
 	public Button bouttontrash;
@@ -67,6 +73,9 @@ public class ButtonManager: MonoBehaviour {
 
 		TextMeshPro inputfieldQuestion0 = GetComponent <TextMeshPro> ();
 		TextMeshPro inputfieldQuestionOne = GetComponent <TextMeshPro> ();
+
+		iconFb.GetComponent <Button> ();
+		iconFb.onClick.AddListener (OnClickFacebook);
 	}
 		
 	void Update () 
@@ -79,8 +88,16 @@ public class ButtonManager: MonoBehaviour {
 			SoOpen = true;
 		}
 
-		if (clear == inputfieldWrongText.text)
+		if (clear == inputfieldWrongText.text) {
 			wrongImage.sprite = initial;
+		}
+
+		if (ButtonSophie.activeSelf == true) {
+			soOpenFacebook = true;
+		} else
+			soOpenFacebook = false;
+
+
 	}
 
 	void TaskOnClickTrash () 
@@ -123,6 +140,21 @@ public class ButtonManager: MonoBehaviour {
 		} else {
 			question1Image.sprite = pasvrai;
 		}
+	}
+
+	void OnClickFacebook (){
+
+		if (soOpenFacebook) {
+			SP.newsFeedTemplate.SetActive (true);
+			SP.NFCass.SetActive (false);
+			NFSo.SetActive (true);
+
+		} else {
+			SP.newsFeedTemplate.SetActive (true);
+			SP.NFCass.SetActive (true);
+			NFSo.SetActive (false);
+		}
+
 	}
 
 	public void ClearContent (){

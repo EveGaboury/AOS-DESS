@@ -22,6 +22,7 @@ public class SearchEngine: MonoBehaviour
 
 	void OnDisable()
 	{
+		Debug.Log ("clear");
 		ClearContent ();
 	}
 
@@ -29,12 +30,6 @@ public class SearchEngine: MonoBehaviour
     //prend une chaine de charactere, puis renvoit un resultat
     public void SearchFacebook(string userSearch)
     {
-		//regarder documentation pour comparer les string de characters cf. 'Compare' && regarder egalement dictionnaire et hasmap
-		//avoir absolulent une emum avec tous les id des pages de facebook, different de les diesable (utiliser un 'pageswitcher')
-		if (userSearch == "Sophie") 
-		{
-			//retourne id de la page pour spophie
-		}
 
 		//mettre ça dans une fonction pour déterminer quel est l'engin en train d'être chercher
 		if (searchBar.text == "facebook.com") 
@@ -52,7 +47,7 @@ public class SearchEngine: MonoBehaviour
 			Debug.Log ("facebook is in-correct");
 			SP.notFound.SetActive (true);
 			SP.facebookCanvas.SetActive (false);
-			//ClearContent ();
+
 		}
 
 
@@ -101,8 +96,8 @@ public class SearchEngine: MonoBehaviour
 
 	public void ClearContent()
 	{
-
+		Debug.Log ("clear2");
 		searchBar.text = "";
-		//inputText.GetComponent<TextMeshProUGUI> ().text = "";
+
 	}
 }

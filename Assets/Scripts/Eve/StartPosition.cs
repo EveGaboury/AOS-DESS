@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class StartPosition : MonoBehaviour {
 
+
+
 	//gamobjects commun
 	public GameObject switchSessionCanvas;
 	public GameObject blocNoteCanvas;
@@ -27,6 +29,7 @@ public class StartPosition : MonoBehaviour {
 	public GameObject newsFeedTemplate;
 	public GameObject passwordTemplate;
 	public GameObject wrongPassword;
+	public GameObject NFCass;
 
 
 	//facebook mot de passe oublie
@@ -42,9 +45,7 @@ public class StartPosition : MonoBehaviour {
 
 	//gmail
 	public GameObject gmailCanvas;
-//	public GameObject listContentMess;
-//	public GameObject listContentBrouillon;
-//	public GameObject listContentTrash;
+
 
 	// gameobjects Sophie
 	public GameObject desktopImageSophie;
@@ -70,6 +71,7 @@ public class StartPosition : MonoBehaviour {
 		pageProfilTemplate.SetActive (false);
 		newsFeedTemplate.SetActive (false);
 		wrongPassword.SetActive (false);
+		NFCass.SetActive (false);
 
 		questionOne.SetActive (false);
 
@@ -94,10 +96,7 @@ public class StartPosition : MonoBehaviour {
 		fenetreFolderSo.SetActive (false);
 
 		gmailCanvas.SetActive (false);
-//		listContentMess.SetActive (true);
-//		listContentBrouillon.SetActive (false);
-//		listContentTrash.SetActive (false);
-		 
+
 	}
 }
 
