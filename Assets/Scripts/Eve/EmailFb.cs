@@ -15,7 +15,7 @@ public class EmailFb : MonoBehaviour {
 
 	public Button connexion;
 
-	private string reponseCorrecte = "sophie";
+	private string reponseCorrecte = "sophie", responseCorrecte2 = "Sophie";
 	//private string reponserCorrecte2 = "Sophie.baillargeon@gmail.com";
 	private string passwordCorrect = "cool";
 
@@ -42,8 +42,10 @@ public class EmailFb : MonoBehaviour {
 	public void Search(string userSearch)
 	{
 		
-		if (email.text == reponseCorrecte) {
-			if (password.text == passwordCorrect) {
+		if (email.text == reponseCorrecte || email.text == responseCorrecte2) 
+		{
+			if (password.text == passwordCorrect)
+			{
 				Debug.Log ("your first query is correct");
 				pageProfil.SetActive (true);
 				SP.facebookConnexion.SetActive (false);
