@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-
+[RequireComponent(typeof(AudioSource))]
 public class ChangeMusic : MonoBehaviour
 {	
 	public AudioClip[] clipList;
 
 	AudioSource audioSource;
-	int currentArrayIndex = 0;
+	int currentAudioIndex = 0;
 	bool isAudioPlaying;
 
 	void Start()
@@ -20,67 +20,47 @@ public class ChangeMusic : MonoBehaviour
 
 		audioSource.Stop ();
 
-		audioSource.clip = clipList[0];
+		audioSource.clip = clipList[currentAudioIndex];
 
 		audioSource.Play ();
 	}
 
+	void PlayMusicAtIndex(int k)
+	{
+		if (k >= clipList.Length && k < 0) 
+		{
+			return;
+		}
+		audioSource.Stop ();
+		currentAudioIndex = k;
+		audioSource.clip = clipList[currentAudioIndex];
+		audioSource.Play ();
+	}
+
+	void PlayNextMusic()
+	{
+		int k = (currentAudioIndex + 1) % clipList.Length;
+		PlayMusicAtIndex(k);
+	}
+
+	void PlayPreviousMusic()
+	{
+		int k = (currentAudioIndex - 1) % clipList.Length;
+
+		if (k <= 0) 
+		{
+			k = 0;
+		}
+
+		PlayMusicAtIndex(k);
+	}
+		
 	void Update()
-	{
-		Debug.Log ("Currently playing: " + audioSource.clip.name);
-		ChooseNew ();
-	}
-
-	void ChooseNew()
-	{
-		for (int i = 0; i < clipList.Length; i++) 
+	{		
+		if (audioSource.time == audioSource.clip.length) 
 		{
-			if (audioSource.time == clipList[i].length)
-			{	
-				currentArrayIndex = i;
-				//Debug.Log("currently playing: ");
-			}
-//			else if (clipList[i] == clipList[2]) 
-//			{
-//				Debug.Log ("je suis arriver a la fin de la liste");
-//			}
-
+			Debug.Log (audioSource.clip.name + " a terminer de jouer");
+			PlayNextMusic ();
 		}
-		currentArrayIndex = (currentArrayIndex + 1) % clipList.Length;
-
-		audioSource.PlayOneShot (clipList[currentArrayIndex]);
-
-
-		Debug.Log ("this is: " + clipList[currentArrayIndex]);
-	}
-
-	public void NextTune()
-	{
-		audioSource.Stop ();
-		//
-		Debug.Log ("play the NEXT tune in the list");
-	}
-
-	public void PreviousTune ()
-	{
-		audioSource.Stop ();
-
-		Debug.Log ("play the PREVIOUS tune in the list");
-	}
-
-	public void PlayThatFunkyMusicWhiteBoy()
-	{
-		if (isAudioPlaying == true) 
-		{
-			audioSource.Pause ();
-		}
-		else if(isAudioPlaying == false)
-		{
-			audioSource.UnPause ();
-		}
-
-		isAudioPlaying = !isAudioPlaying;
-
-		Debug.Log ("Calcul en cours...");
 	}
 }

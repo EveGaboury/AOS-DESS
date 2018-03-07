@@ -11,10 +11,16 @@ public class ObjectDraggableSlot : MonoBehaviour, IDropHandler
 {
 	public string[] newText;
 	public int[] checkID;
-
+	public Transform originalPositionOfObjects;
+	public Transform parentTransform;
 	//[HideInInspector] public float totalHeight;
 
-	public List<RectTransform> list = new List<RectTransform>();
+	//public List<RectTransform> list = new List<RectTransform>();
+
+	void Start()
+	{
+		Debug.Log("the position of the gameObkect is: " + originalPositionOfObjects.InverseTransformPoint(originalPositionOfObjects.position));
+	}
 
 	public void OnDrop (PointerEventData eventData)
 	{
@@ -25,12 +31,29 @@ public class ObjectDraggableSlot : MonoBehaviour, IDropHandler
 			if (tri != null) 
 			{
 				if (tri.objectID == checkID [i]) 
-				{
+				{	
+
 					tri.transform.SetParent(transform);
+
 					if (tri.GetComponent<Image> ()) 
 					{
-						Debug.Log ("Une image a été ajoutée au bloc notes");
+						DraggableObject dataInstance = Instantiate (tri, Vector3.zero, Quaternion.identity);
+						dataInstance.GetComponent<Transform> ().SetParent (dataInstance.startParent);
+						dataInstance.GetComponent<Transform> ().localPosition = new Vector2 (tri.PosX, tri.PosY);
+						dataInstance.GetComponent<Transform> ().localScale = new Vector2(tri.ScaleX, tri.ScaleY);
+						dataInstance.enabled = false;
+						Debug.Log ("Une image a été ajoutée au bloc notes: " + tri.name);
 					} 
+					else if(tri.GetComponent<TextMeshProUGUI> ())
+					{
+						DraggableObject dataInstance = Instantiate (tri, Vector3.zero, Quaternion.identity);
+						dataInstance.GetComponent<Transform> ().SetParent (dataInstance.startParent);
+						dataInstance.GetComponent<Transform> ().localPosition = new Vector2 (tri.PosX, tri.PosY);
+						dataInstance.GetComponent<Transform> ().localScale = new Vector2(tri.ScaleX, tri.ScaleY);
+						dataInstance.enabled = false;
+						dataInstance.GetComponent<HighlightableText>().highlighted = dataInstance.GetComponent<HighlightableText>().startingColor;
+						Debug.Log ("Une image a été ajoutée au bloc notes: " + tri.name);
+					}
 					else 
 					{
 						tri.GetComponent<HighlightableText> ().intialText = newText [i];
@@ -40,17 +63,17 @@ public class ObjectDraggableSlot : MonoBehaviour, IDropHandler
 		}
 	}
 
-	void OnTransformChildrenChanged()
-	{
+//	void OnTransformChildrenChanged()
+//	{
 //		Debug.Log(transform.childCount);
 
-		foreach(RectTransform child in transform)
-		{
+//		foreach(RectTransform child in transform)
+//		{
 			//Debug.Log(child.GetComponent<RectTransform> ().rect.height);
-			list.Add (child);
+			//list.Add (child);
 
-			Debug.Log (child.rect.height /*list.Distinct ()*/);
-		}
+//			Debug.Log (child.rect.height /*list.Distinct ()*/);
+//		}
 
 //		foreach (Transform t in transform) 
 //		{
@@ -78,5 +101,5 @@ public class ObjectDraggableSlot : MonoBehaviour, IDropHandler
 ////				Debug.Log ("I will survive");
 ////			}
 //		}
-	}
+//	}
 }

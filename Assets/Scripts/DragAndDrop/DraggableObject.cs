@@ -6,18 +6,15 @@ using UnityEngine.EventSystems;
 public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
 	[HideInInspector]
-	public Transform parentToReturnTo = null;
+	public Transform parentToReturnTo = null, startParent;
+
+	public float PosX, PosY, ScaleX, ScaleY;
 
 	public int objectID;
+
 	public static GameObject itemBeingDragged;
 
 	Vector2 startPosition;
-	Transform startParent;
-
-	void Start()
-	{
-
-	}
 
 	public void OnBeginDrag(PointerEventData eventData)
 	{
