@@ -9,22 +9,15 @@ public class ButtonManager: MonoBehaviour {
 
 
 	public StartPosition SP;
-
-	//game state
-	public GameObject sessionCass;
-	public bool SoOpen = true;
-
-	//facebook state
-	public GameObject ButtonSophie;
-	public bool soOpenFacebook = false;
+	public GameState GS;
 
 	public GameObject NFSo;
 	public Button iconFb;
 
 	//boutton corbeille
 	public Button bouttontrash;
-	public GameObject windowCass;
-	public GameObject windowSo; 
+	public GameObject folderTrashCass;
+	public GameObject folderTrashSo; 
 
 	//bouton Browser
 	public Button boutonRougeBrowser;
@@ -60,7 +53,7 @@ public class ButtonManager: MonoBehaviour {
 	public TMP_InputField inputfieldQuestion3;
 	private string reponseQuestion3 = "Paris";
 
-	private string clear ="";
+	[HideInInspector] public string clear ="";
 
 
 	void Start () 
@@ -91,35 +84,14 @@ public class ButtonManager: MonoBehaviour {
 	
 	}
 		
-	void Update () 
-	{
-		//game state
-		if (sessionCass.activeSelf == true) {
-			SoOpen = false;
-		}
-		else{
-			SoOpen = true;
-		}
-
-		if (clear == inputfieldWrongText.text) {
-			wrongImage.sprite = initial;
-		}
-
-		if (ButtonSophie.activeSelf == true) {
-			soOpenFacebook = true;
-		} else
-			soOpenFacebook = false;
-
-
-	}
 
 	void TaskOnClickTrash () 
 	{
-		if (SoOpen) 
+		if (GS.SoOpen) 
 		{
-			windowSo.SetActive (true);
+			folderTrashSo.SetActive (true);
 		} else {
-			windowCass.SetActive (true);
+			folderTrashCass.SetActive (true);
 		}
 	}
 
@@ -174,7 +146,7 @@ public class ButtonManager: MonoBehaviour {
 
 	void OnClickFacebook (){
 
-		if (soOpenFacebook) {
+		if (GS.soOpenFacebook) {
 			SP.newsFeedTemplate.SetActive (true);
 			SP.NFCass.SetActive (false);
 			NFSo.SetActive (true);

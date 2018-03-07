@@ -1,0 +1,46 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using TMPro;
+
+
+public class GameState : MonoBehaviour {
+
+	public StartPosition SP;
+	public ButtonManager BM;
+
+	//game state
+	public GameObject sessionCass;
+	public bool SoOpen = true;
+
+	//facebook state
+	public GameObject ButtonFBSophie;
+	public bool soOpenFacebook = false;
+
+
+	
+	void Update () 
+	{
+		//game state
+		if (sessionCass.activeSelf == true) {
+			SoOpen = false;
+		}
+		else{
+			SoOpen = true;
+		}
+
+		if (BM.clear == BM.inputfieldWrongText.text) {
+			BM.wrongImage.sprite = BM.initial;
+		}
+
+		if (ButtonFBSophie.activeSelf == true) {
+			soOpenFacebook = true;
+		} else
+			soOpenFacebook = false;
+
+
+	}
+
+}
