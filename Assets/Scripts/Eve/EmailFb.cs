@@ -8,7 +8,7 @@ using TMPro;
 public class EmailFb : MonoBehaviour {
 
 
-	public Button deleteButton;
+	//public Button deleteButton;
 	public TMP_InputField email;
 	public TMP_InputField password;
 

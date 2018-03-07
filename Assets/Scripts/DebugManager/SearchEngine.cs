@@ -37,9 +37,10 @@ public class SearchEngine: MonoBehaviour
 			Debug.Log ("facebook is correct");
 			SP.facebookCanvas.SetActive (true);
 			SP.facebookConnexion.SetActive (true);
+			SP.facebookConnInPage.SetActive (true);
 			SP.notFound.SetActive (false);
 			SP.pageProfilTemplate.SetActive (false);
-			SP.buttonCass.SetActive (false);
+			SP.buttonHeaderCass.SetActive (false);
 
 		} 
 		else 
