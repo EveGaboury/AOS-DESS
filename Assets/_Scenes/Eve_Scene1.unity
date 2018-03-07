@@ -6010,25 +6010,25 @@ MonoBehaviour:
   browserCanvas: {fileID: 133718525}
   notFound: {fileID: 992557885}
   shortCut: {fileID: 29745166}
-  facebookConnexion: {fileID: 0}
-  facebookConnInPage: {fileID: 0}
-  facebookHeader: {fileID: 0}
-  facebookCanvas: {fileID: 0}
-  pageProfilTemplate: {fileID: 0}
-  facebookInfoScriptable: {fileID: 0}
-  buttonCass: {fileID: 0}
-  newsFeedTemplate: {fileID: 0}
-  passwordTemplate: {fileID: 0}
-  wrongPassword: {fileID: 0}
-  NFCass: {fileID: 0}
-  questionOne: {fileID: 0}
-  question2: {fileID: 0}
-  fauxText: {fileID: 0}
-  vraiText: {fileID: 0}
-  question3: {fileID: 0}
-  bouttonfinal: {fileID: 0}
-  messengerTemplate: {fileID: 0}
-  mesAmisTemplate: {fileID: 0}
+  facebookConnexion: {fileID: 315746917}
+  facebookConnInPage: {fileID: 855527019}
+  facebookHeader: {fileID: 140093776}
+  facebookCanvas: {fileID: 1290940004}
+  pageProfilTemplate: {fileID: 99089854}
+  facebookInfoScriptable: {fileID: 653518635}
+  buttonHeaderCass: {fileID: 1396325041}
+  newsFeedTemplate: {fileID: 710244215}
+  passwordTemplate: {fileID: 738213776}
+  wrongPassword: {fileID: 1528680743}
+  NFCass: {fileID: 1846540035}
+  questionOne: {fileID: 1508241012}
+  question2: {fileID: 30426037}
+  fauxText: {fileID: 688556463}
+  vraiText: {fileID: 889396209}
+  question3: {fileID: 781082851}
+  bouttonfinal: {fileID: 378101149}
+  messengerTemplate: {fileID: 1693702779}
+  mesAmisTemplate: {fileID: 1288766133}
   gmailCanvas: {fileID: 1608155361}
   desktopImageSophie: {fileID: 249528530}
   folderTrashSophie: {fileID: 2017804724}
@@ -6062,29 +6062,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SP: {fileID: 678657564}
-  GS: {fileID: 0}
-  NFSo: {fileID: 0}
-  iconFb: {fileID: 0}
+  GS: {fileID: 678657567}
+  NFSo: {fileID: 1585701707}
+  iconFb: {fileID: 506939874}
   bouttontrash: {fileID: 12026534}
-  folderTrashCass: {fileID: 0}
-  folderTrashSo: {fileID: 0}
+  folderTrashCass: {fileID: 334699396}
+  folderTrashSo: {fileID: 2017804724}
   boutonRougeBrowser: {fileID: 1423401460}
-  facebookHeader: {fileID: 0}
+  facebookHeader: {fileID: 140093776}
   browserCanvas: {fileID: 133718525}
-  facebookCanvas: {fileID: 0}
-  wrongButton: {fileID: 0}
-  wrongImage: {fileID: 0}
-  inputfieldWrongText: {fileID: 0}
+  facebookCanvas: {fileID: 1290940004}
+  wrongButton: {fileID: 1508294539}
+  wrongImage: {fileID: 1508294540}
+  inputfieldWrongText: {fileID: 1264253441}
   vrai: {fileID: 21300000, guid: 3b02b2e04b55d4f2498f75086a99518c, type: 3}
   pasvrai: {fileID: 21300000, guid: 849ace38b461b4b7c853c7bf744b8838, type: 3}
   initial: {fileID: 21300000, guid: 9607f7943f87143a4b4a61c5b51aeff9, type: 3}
-  question1Button: {fileID: 0}
-  question1Image: {fileID: 0}
-  inputfieldQuestionOne: {fileID: 0}
-  pablo: {fileID: 0}
-  question3Button: {fileID: 0}
-  question3Image: {fileID: 0}
-  inputfieldQuestion3: {fileID: 0}
+  question1Button: {fileID: 430306609}
+  question1Image: {fileID: 430306610}
+  inputfieldQuestionOne: {fileID: 717622612}
+  pablo: {fileID: 2097908227}
+  question3Button: {fileID: 907420054}
+  question3Image: {fileID: 907420055}
+  inputfieldQuestion3: {fileID: 1538942917}
   clear: 
 --- !u!114 &678657567
 MonoBehaviour:
@@ -6101,7 +6101,7 @@ MonoBehaviour:
   BM: {fileID: 678657566}
   sessionCass: {fileID: 1780680282}
   SoOpen: 1
-  ButtonFBSophie: {fileID: 0}
+  ButtonFBSophie: {fileID: 1213081747}
   soOpenFacebook: 0
 --- !u!1 &688556463
 GameObject:
@@ -11248,17 +11248,17 @@ Prefab:
     - target: {fileID: 224322917266739336, guid: da2a38ccc37cd45c780a620a88e15b42,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0.00003874302
+      value: 0.00002348423
       objectReference: {fileID: 0}
     - target: {fileID: 224322917266739336, guid: da2a38ccc37cd45c780a620a88e15b42,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000036001205
+      value: -0.000020742416
       objectReference: {fileID: 0}
     - target: {fileID: 224149878106844470, guid: da2a38ccc37cd45c780a620a88e15b42,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0.000000059604645
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da2a38ccc37cd45c780a620a88e15b42, type: 2}
@@ -13278,7 +13278,7 @@ GameObject:
   - component: {fileID: 1213081749}
   - component: {fileID: 1213081748}
   m_Layer: 0
-  m_Name: ButtonSophie
+  m_Name: ButtonHeaderSophie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15483,7 +15483,7 @@ GameObject:
   - component: {fileID: 1396325043}
   - component: {fileID: 1396325042}
   m_Layer: 0
-  m_Name: ButtonCass
+  m_Name: ButtonHeaderCass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16370,11 +16370,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d3cacd1f1134ba394dfd613fc787ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deleteButton: {fileID: 0}
   email: {fileID: 1454903418}
   password: {fileID: 509615252}
   connexion: {fileID: 659161254}
-  SP: {fileID: 0}
+  SP: {fileID: 678657564}
 --- !u!114 &1454903418
 MonoBehaviour:
   m_ObjectHideFlags: 0

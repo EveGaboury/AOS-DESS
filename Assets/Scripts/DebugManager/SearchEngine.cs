@@ -39,7 +39,7 @@ public class SearchEngine: MonoBehaviour
 			SP.facebookConnexion.SetActive (true);
 			SP.notFound.SetActive (false);
 			SP.pageProfilTemplate.SetActive (false);
-			SP.buttonCass.SetActive (false);
+			SP.buttonHeaderCass.SetActive (false);
 
 		} 
 		else 

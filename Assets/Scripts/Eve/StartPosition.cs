@@ -25,7 +25,7 @@ public class StartPosition : MonoBehaviour {
 	public GameObject facebookCanvas;
 	public GameObject pageProfilTemplate;
 	public GameObject facebookInfoScriptable;
-	public GameObject buttonCass;
+	public GameObject buttonHeaderCass;
 	public GameObject newsFeedTemplate;
 	public GameObject passwordTemplate;
 	public GameObject wrongPassword;
@@ -94,7 +94,7 @@ public class StartPosition : MonoBehaviour {
 		facebookHeader.SetActive (false);
 		facebookCanvas.SetActive (false);
 		facebookInfoScriptable.SetActive (false);
-		buttonCass.SetActive (false);
+		buttonHeaderCass.SetActive (false);
 		passwordTemplate.SetActive (false);
 
 
