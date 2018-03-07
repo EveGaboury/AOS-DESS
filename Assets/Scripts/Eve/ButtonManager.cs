@@ -51,6 +51,8 @@ public class ButtonManager: MonoBehaviour {
 	public Image question1Image;
 	public TMP_InputField inputfieldQuestionOne;
 	private string reponseQuestion1 = "Zeus", reponseQuestion1a = "zeus"; 
+	private string easter = "pablololol";
+	public GameObject pablo;
 
 	private string clear ="";
 
@@ -75,6 +77,7 @@ public class ButtonManager: MonoBehaviour {
 
 		iconFb.GetComponent <Button> ();
 		iconFb.onClick.AddListener (OnClickFacebook);
+	
 	}
 		
 	void Update () 
@@ -137,9 +140,15 @@ public class ButtonManager: MonoBehaviour {
 		{
 			Debug.Log ("bonne réponse");
 			question1Image.sprite = vrai;
+			SP.question2.SetActive (true);
 
 		} else {
 			question1Image.sprite = pasvrai;
+		}
+
+		if (easter == inputfieldQuestionOne.text) {
+			pablo.SetActive (true);
+
 		}
 	}
 

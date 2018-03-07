@@ -34,6 +34,7 @@ public class StartPosition : MonoBehaviour {
 
 	//facebook mot de passe oublie
 	public GameObject questionOne;
+	public GameObject question2;
 	public GameObject fauxText;
 	public GameObject vraiText;
 
@@ -76,6 +77,7 @@ public class StartPosition : MonoBehaviour {
 		NFCass.SetActive (false);
 
 		questionOne.SetActive (false);
+		question2.SetActive (false);
 		fauxText.SetActive (false);
 		vraiText.SetActive (false);
 
