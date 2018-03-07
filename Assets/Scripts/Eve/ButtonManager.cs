@@ -54,6 +54,12 @@ public class ButtonManager: MonoBehaviour {
 	private string easter = "pablololol";
 	public GameObject pablo;
 
+
+	public Button question3Button;
+	public Image question3Image;
+	public TMP_InputField inputfieldQuestion3;
+	private string reponseQuestion3 = "Paris";
+
 	private string clear ="";
 
 
@@ -72,8 +78,13 @@ public class ButtonManager: MonoBehaviour {
 		question1Button.GetComponent <Button> ();
 		question1Button.onClick.AddListener (TaskOnClickQuestionOne);
 
+		question3Button.GetComponent <Button> ();
+		question3Button.onClick.AddListener (TaskOnClickQuestion3);
+
+
 		TextMeshPro inputfieldQuestion0 = GetComponent <TextMeshPro> ();
 		TextMeshPro inputfieldQuestionOne = GetComponent <TextMeshPro> ();
+		TextMeshPro inputfieldQuestion2 = GetComponent <TextMeshPro> ();
 
 		iconFb.GetComponent <Button> ();
 		iconFb.onClick.AddListener (OnClickFacebook);
@@ -150,6 +161,15 @@ public class ButtonManager: MonoBehaviour {
 			pablo.SetActive (true);
 
 		}
+	}
+
+	void TaskOnClickQuestion3 ()
+	{
+		if (reponseQuestion3 == inputfieldQuestion3.text) {
+			question3Image.sprite = vrai;
+			SP.bouttonfinal.SetActive (true);
+		}
+
 	}
 
 	void OnClickFacebook (){

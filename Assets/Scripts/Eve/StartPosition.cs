@@ -37,6 +37,8 @@ public class StartPosition : MonoBehaviour {
 	public GameObject question2;
 	public GameObject fauxText;
 	public GameObject vraiText;
+	public GameObject question3;
+	public GameObject bouttonfinal;
 
 
 	//facebook messenger
@@ -80,6 +82,8 @@ public class StartPosition : MonoBehaviour {
 		question2.SetActive (false);
 		fauxText.SetActive (false);
 		vraiText.SetActive (false);
+		question3.SetActive (false);
+		bouttonfinal.SetActive (false);
 
 		messengerTemplate.SetActive (false);
 

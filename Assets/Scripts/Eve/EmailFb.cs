@@ -50,13 +50,7 @@ public class EmailFb : MonoBehaviour {
 		{
 			if (password.text == passwordCorrect)
 			{
-				Debug.Log ("your first query is correct");
-				SP.pageProfilTemplate.SetActive (true);
-				SP.facebookConnexion.SetActive (false);
-				SP.facebookConnInPage.SetActive (false);
-				SP.facebookHeader.SetActive (true);
-				SP.pageProfilTemplate.SetActive (false);
-				SP.newsFeedTemplate.SetActive (true);
+				accesFB ();
 			} 
 		}
 		else if (email.text != reponseCorrecte)
@@ -67,6 +61,18 @@ public class EmailFb : MonoBehaviour {
 
 
 
+	}
+
+	public void accesFB ()
+	{
+		Debug.Log ("your first query is correct");
+		SP.pageProfilTemplate.SetActive (true);
+		SP.facebookConnexion.SetActive (false);
+		SP.facebookConnInPage.SetActive (false);
+		SP.facebookHeader.SetActive (true);
+		SP.pageProfilTemplate.SetActive (false);
+		SP.newsFeedTemplate.SetActive (true);
+		SP.passwordTemplate.SetActive (false);
 	}
 
 
