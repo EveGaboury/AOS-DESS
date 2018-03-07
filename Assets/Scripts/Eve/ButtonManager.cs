@@ -13,6 +13,8 @@ public class ButtonManager: MonoBehaviour {
 
 	public Button iconFb;
 
+	public Button accueilButton;
+
 	//boutton corbeille
 	public Button bouttontrash;
 
@@ -64,6 +66,9 @@ public class ButtonManager: MonoBehaviour {
 
 		question3Button.GetComponent <Button> ();
 		question3Button.onClick.AddListener (TaskOnClickQuestion3);
+
+		accueilButton.GetComponent <Button> ();
+		accueilButton.onClick.AddListener (GS.accueil);
 
 
 		TextMeshPro inputfieldQuestion0 = GetComponent <TextMeshPro> ();

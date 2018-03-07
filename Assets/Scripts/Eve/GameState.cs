@@ -53,4 +53,20 @@ public class GameState : MonoBehaviour {
 
 	}
 
+	public void accueil (){
+
+		SP.pageProfilTemplate.SetActive (false);
+		SP.messengerTemplate.SetActive (false);
+		SP.otherTemplate.SetActive (false);
+		SP.newsFeedTemplate.SetActive (true);
+
+		if (soOpenFacebook) {
+			SP.NFSo.SetActive (true);
+			SP.NFCass.SetActive (false);
+		} else {
+			SP.NFSo.SetActive (false);
+			SP.NFCass.SetActive (true);
+		}
+	}
+
 }

@@ -28,6 +28,7 @@ public class StartPosition : MonoBehaviour {
 	public GameObject buttonHeaderCass;
 	public GameObject newsFeedTemplate;
 	public GameObject passwordTemplate;
+	public GameObject otherTemplate;
 	public GameObject wrongPassword;
 	public GameObject NFCass;
 	public GameObject NFSo;
@@ -77,6 +78,7 @@ public class StartPosition : MonoBehaviour {
 		shortCut.SetActive (false);
 		pageProfilTemplate.SetActive (false);
 		newsFeedTemplate.SetActive (false);
+		otherTemplate.SetActive (false);
 		wrongPassword.SetActive (false);
 		NFCass.SetActive (false);
 
