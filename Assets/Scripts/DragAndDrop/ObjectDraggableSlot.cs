@@ -28,7 +28,7 @@ public class ObjectDraggableSlot : MonoBehaviour, IDropHandler
 			{
 				if (tri.objectID == checkID [i]) 
 				{	
-					Debug.Log("Ceci est le texte: " + tri.captionText.text + " .Contenu dans l'objet: " + tri.gameObject.name);
+				//	Debug.Log("Ceci est le texte: " + tri.captionText.text + " .Contenu dans l'objet: " + tri.gameObject.name);
 
 					tri.transform.SetParent(transform);
 
