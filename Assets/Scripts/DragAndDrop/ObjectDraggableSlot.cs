@@ -11,16 +11,9 @@ public class ObjectDraggableSlot : MonoBehaviour, IDropHandler
 {
 	public string[] newText;
 	public int[] checkID;
-	public Transform originalPositionOfObjects;
-	public Transform parentTransform;
 	//[HideInInspector] public float totalHeight;
 
 	//public List<RectTransform> list = new List<RectTransform>();
-
-	void Start()
-	{
-		Debug.Log("the position of the gameObkect is: " + originalPositionOfObjects.InverseTransformPoint(originalPositionOfObjects.position));
-	}
 
 	public void OnDrop (PointerEventData eventData)
 	{
