@@ -11,22 +11,13 @@ public class ButtonManager: MonoBehaviour {
 	public StartPosition SP;
 	public GameState GS;
 
-	public GameObject NFSo;
 	public Button iconFb;
 
 	//boutton corbeille
 	public Button bouttontrash;
-	public GameObject folderTrashCass;
-	public GameObject folderTrashSo; 
 
 	//bouton Browser
 	public Button boutonRougeBrowser;
-
-	//GameObject affecté par les bouttons
-	public GameObject facebookHeader;
-	public GameObject browserCanvas;
-	public GameObject facebookCanvas;
-
 
 	//inputfield et boutton pour facebook mot de passe
 	public Button wrongButton;
@@ -89,17 +80,17 @@ public class ButtonManager: MonoBehaviour {
 	{
 		if (GS.SoOpen) 
 		{
-			folderTrashSo.SetActive (true);
+			SP.folderTrashSophie.SetActive (true);
 		} else {
-			folderTrashCass.SetActive (true);
+			SP.folderTrashCass.SetActive (true);
 		}
 	}
 
 	void TaskonClickBoutonRouge () 
 	{
-		facebookHeader.SetActive (false);
-		browserCanvas.SetActive (false);
-		facebookCanvas.SetActive (false);
+		SP.facebookHeader.SetActive (false);
+		SP.browserCanvas.SetActive (false);
+		SP.facebookCanvas.SetActive (false);
 	}
 		
 	 void TaskOnClickForgotFacebook ()
@@ -140,6 +131,8 @@ public class ButtonManager: MonoBehaviour {
 		if (reponseQuestion3 == inputfieldQuestion3.text) {
 			question3Image.sprite = vrai;
 			SP.bouttonfinal.SetActive (true);
+		} else {
+			question3Image.sprite = pasvrai;
 		}
 
 	}
@@ -149,12 +142,12 @@ public class ButtonManager: MonoBehaviour {
 		if (GS.soOpenFacebook) {
 			SP.newsFeedTemplate.SetActive (true);
 			SP.NFCass.SetActive (false);
-			NFSo.SetActive (true);
+			SP.NFSo.SetActive (true);
 
 		} else {
 			SP.newsFeedTemplate.SetActive (true);
 			SP.NFCass.SetActive (true);
-			NFSo.SetActive (false);
+			SP.NFSo.SetActive (false);
 		}
 
 	}

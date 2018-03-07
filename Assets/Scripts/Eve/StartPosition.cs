@@ -25,11 +25,12 @@ public class StartPosition : MonoBehaviour {
 	public GameObject facebookCanvas;
 	public GameObject pageProfilTemplate;
 	public GameObject facebookInfoScriptable;
-	public GameObject buttonCass;
+	public GameObject buttonHeaderCass;
 	public GameObject newsFeedTemplate;
 	public GameObject passwordTemplate;
 	public GameObject wrongPassword;
 	public GameObject NFCass;
+	public GameObject NFSo;
 
 
 	//facebook mot de passe oublie
@@ -43,6 +44,7 @@ public class StartPosition : MonoBehaviour {
 
 	//facebook messenger
 	public GameObject messengerTemplate;
+	public GameObject messengerFix;
 
 	//facebook Amis
 	public GameObject mesAmisTemplate;
@@ -86,6 +88,7 @@ public class StartPosition : MonoBehaviour {
 		bouttonfinal.SetActive (false);
 
 		messengerTemplate.SetActive (false);
+		messengerFix.SetActive (false);
 
 		mesAmisTemplate.SetActive (false);
 
@@ -94,7 +97,7 @@ public class StartPosition : MonoBehaviour {
 		facebookHeader.SetActive (false);
 		facebookCanvas.SetActive (false);
 		facebookInfoScriptable.SetActive (false);
-		buttonCass.SetActive (false);
+		buttonHeaderCass.SetActive (false);
 		passwordTemplate.SetActive (false);
 
 

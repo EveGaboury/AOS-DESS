@@ -31,9 +31,19 @@ public class GameState : MonoBehaviour {
 			SoOpen = true;
 		}
 
+
 		if (BM.clear == BM.inputfieldWrongText.text) {
 			BM.wrongImage.sprite = BM.initial;
 		}
+
+		if (BM.clear == BM.inputfieldQuestionOne.text) {
+			BM.question1Image.sprite = BM.initial;
+		}
+
+		if (BM.clear == BM.inputfieldQuestion3.text) {
+			BM.question3Image.sprite = BM.initial;
+		}
+
 
 		if (ButtonFBSophie.activeSelf == true) {
 			soOpenFacebook = true;
