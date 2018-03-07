@@ -41,7 +41,6 @@ public class ButtonManager: MonoBehaviour {
 	public TMP_InputField inputfieldWrongText;
 	private string reponsecorrecte = "cassandraroyer@courriel.fr", reponsecorrecte2 = "Cassandraroyer@courriel.fr" ; 
 
-	public GameObject faux;
 
 	public Sprite vrai;
 	public Sprite pasvrai;
@@ -52,6 +51,8 @@ public class ButtonManager: MonoBehaviour {
 	public Image question1Image;
 	public TMP_InputField inputfieldQuestionOne;
 	private string reponseQuestion1 = "Zeus", reponseQuestion1a = "zeus"; 
+	private string easter = "pablololol";
+	public GameObject pablo;
 
 	private string clear ="";
 
@@ -76,6 +77,7 @@ public class ButtonManager: MonoBehaviour {
 
 		iconFb.GetComponent <Button> ();
 		iconFb.onClick.AddListener (OnClickFacebook);
+	
 	}
 		
 	void Update () 
@@ -122,9 +124,11 @@ public class ButtonManager: MonoBehaviour {
 		if ((reponsecorrecte == inputfieldWrongText.text) || (reponsecorrecte2 == inputfieldWrongText.text)) {
 			SP.questionOne.SetActive (true);
 			wrongImage.sprite = vrai;
-			faux.SetActive (false);
+			SP.fauxText.SetActive (false);
+			SP.vraiText.SetActive (true);
 		} else {
-			faux.SetActive (true);
+			SP.fauxText.SetActive (true);
+			SP.vraiText.SetActive (false);
 			wrongImage.sprite = pasvrai;
 		}
 
@@ -136,9 +140,15 @@ public class ButtonManager: MonoBehaviour {
 		{
 			Debug.Log ("bonne réponse");
 			question1Image.sprite = vrai;
+			SP.question2.SetActive (true);
 
 		} else {
 			question1Image.sprite = pasvrai;
+		}
+
+		if (easter == inputfieldQuestionOne.text) {
+			pablo.SetActive (true);
+
 		}
 	}
 
