@@ -6,18 +6,16 @@ using UnityEngine.UI;
 using TMPro;
 using System.Linq;
 
-
 public class ObjectDraggableSlot : MonoBehaviour, IDropHandler
 {
 	public string[] newText;
+	public string[] imageCaption;
 	public int[] checkID;
-	//[HideInInspector] public float totalHeight;
-
-	//public List<RectTransform> list = new List<RectTransform>();
 
 	void Start()
 	{
-		
+		//Ceci est là uniquement pour avoir la petite check mark dans l'inspecteur qui permet de désactiver le script
+
 	}
 
 	public void OnDrop (PointerEventData eventData)
@@ -30,6 +28,7 @@ public class ObjectDraggableSlot : MonoBehaviour, IDropHandler
 			{
 				if (tri.objectID == checkID [i]) 
 				{	
+					Debug.Log("Ceci est le texte: " + tri.captionText.text + " .Contenu dans l'objet: " + tri.gameObject.name);
 
 					tri.transform.SetParent(transform);
 
@@ -39,6 +38,10 @@ public class ObjectDraggableSlot : MonoBehaviour, IDropHandler
 						dataInstance.GetComponent<Transform> ().SetParent (dataInstance.startParent);
 						dataInstance.GetComponent<Transform> ().localPosition = new Vector2 (tri.PosX, tri.PosY);
 						dataInstance.GetComponent<Transform> ().localScale = new Vector2(tri.ScaleX, tri.ScaleY);
+
+						tri.captionText.text = tri.newCaption;
+
+
 						dataInstance.enabled = false;
 						Debug.Log ("Une image a été ajoutée au bloc notes: " + tri.name);
 					} 

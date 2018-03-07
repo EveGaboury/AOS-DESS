@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using TMPro;
+using UnityEngine.UI;
 
 public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
 	[HideInInspector]
 	public Transform parentToReturnTo = null, startParent;
+	[HideInInspector]
+	public TextMeshProUGUI captionText;
+
+	public string newCaption;
 
 	public float PosX, PosY, ScaleX, ScaleY;
 
@@ -19,7 +25,14 @@ public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
 	void Start()
 	{
+		Component[] captionText; 
 
+		captionText = GetComponentsInChildren (typeof(TextMeshProUGUI));
+
+		if (this.gameObject.GetComponent<Image>()) 
+		{
+			this.gameObject.GetComponentInChildren<TextMeshProUGUI> ().text = "";
+		}
 	}
 
 	public void OnBeginDrag(PointerEventData eventData)
