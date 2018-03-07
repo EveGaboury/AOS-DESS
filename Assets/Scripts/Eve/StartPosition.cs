@@ -76,14 +76,14 @@ public class StartPosition : MonoBehaviour {
 		pageProfilTemplate.SetActive (false);
 		newsFeedTemplate.SetActive (false);
 		wrongPassword.SetActive (false);
-		NFCass.SetActive (false);
+//		NFCass.SetActive (false);
 
 		questionOne.SetActive (false);
-		question2.SetActive (false);
-		fauxText.SetActive (false);
-		vraiText.SetActive (false);
-		question3.SetActive (false);
-		bouttonfinal.SetActive (false);
+//		question2.SetActive (false);
+//		fauxText.SetActive (false);
+//		vraiText.SetActive (false);
+//		question3.SetActive (false);
+//		bouttonfinal.SetActive (false);
 
 		messengerTemplate.SetActive (false);
 

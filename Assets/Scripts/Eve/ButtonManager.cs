@@ -65,22 +65,22 @@ public class ButtonManager: MonoBehaviour {
 		boutonRougeBrowser.GetComponent <Button> ();
 		boutonRougeBrowser.onClick.AddListener (TaskonClickBoutonRouge);
 
-		wrongButton.GetComponent<Button> ();
-		wrongButton.onClick.AddListener (TaskOnClickForgotFacebook);
+//		wrongButton.GetComponent<Button> ();
+//		wrongButton.onClick.AddListener (TaskOnClickForgotFacebook);
 
-		question1Button.GetComponent <Button> ();
-		question1Button.onClick.AddListener (TaskOnClickQuestionOne);
+//		question1Button.GetComponent <Button> ();
+//		question1Button.onClick.AddListener (TaskOnClickQuestionOne);
 
-		question3Button.GetComponent <Button> ();
-		question3Button.onClick.AddListener (TaskOnClickQuestion3);
+//		question3Button.GetComponent <Button> ();
+//		question3Button.onClick.AddListener (TaskOnClickQuestion3);
 
 
 		TextMeshPro inputfieldQuestion0 = GetComponent <TextMeshPro> ();
 		TextMeshPro inputfieldQuestionOne = GetComponent <TextMeshPro> ();
 		TextMeshPro inputfieldQuestion2 = GetComponent <TextMeshPro> ();
 
-		iconFb.GetComponent <Button> ();
-		iconFb.onClick.AddListener (OnClickFacebook);
+//		iconFb.GetComponent <Button> ();
+//		iconFb.onClick.AddListener (OnClickFacebook);
 	
 	}
 		
