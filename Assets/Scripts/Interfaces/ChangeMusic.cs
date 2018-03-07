@@ -12,9 +12,6 @@ public class ChangeMusic : MonoBehaviour
 	public Button activatingButton;
 	public AudioClip[] clipList;
 
-	public GameObject testingThis;
-	public Transform testingLocation;
-
 	AudioSource audioSource;
 	int currentAudioIndex = 0;
 	bool isAudioPlaying;
@@ -34,20 +31,26 @@ public class ChangeMusic : MonoBehaviour
 
 	void Start() 
 	{
-		TextMeshProUGUI displayText = gameObject.GetComponentInChildren (typeof(TextMeshProUGUI)) as TextMeshProUGUI;
+		Component[] displayText;
+
+		displayText = GetComponentsInChildren (typeof(TextMeshProUGUI));
 
 		if (displayText != null)
 		{
-			displayText.text = "";
-			GameObject test = Instantiate(testingThis, testingLocation.localPosition, Quaternion.identity) as GameObject;
-			for (int i = 0; i < clipList.Length; i++) 
+			foreach (TextMeshProUGUI item in displayText)
 			{
-				//displayText.text = clipList [0].name + "\r\n" + clipList [1].name ;
+				item.text = "";
+				item.text = item.gameObject.name;
 
-				Debug.Log (clipList [i].name);
+				if (displayText.Length <= clipList.Length) 
+				{
+					Debug.Log ("l'array displayText est de taille: " + displayText.Length + " donc est plus PETIT ou egal a la taille de l'array clipList: " + clipList.Length);
+				} 
+				else 
+				{
+					Debug.Log ("l'array displayText est de taille: " + displayText.Length + " donc est plus GRAND ou egal a la taille de l'array clipList: " + clipList.Length);
+				}
 			}
-
-			Debug.Log (displayText.gameObject.name);
 		} 
 		else
 		{
