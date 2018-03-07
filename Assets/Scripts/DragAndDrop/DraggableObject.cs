@@ -16,6 +16,12 @@ public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
 	Vector2 startPosition;
 
+
+	void Start()
+	{
+
+	}
+
 	public void OnBeginDrag(PointerEventData eventData)
 	{
 		itemBeingDragged = this.gameObject;

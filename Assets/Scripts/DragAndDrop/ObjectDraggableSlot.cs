@@ -15,6 +15,11 @@ public class ObjectDraggableSlot : MonoBehaviour, IDropHandler
 
 	//public List<RectTransform> list = new List<RectTransform>();
 
+	void Start()
+	{
+		
+	}
+
 	public void OnDrop (PointerEventData eventData)
 	{
 		DraggableObject tri = eventData.pointerDrag.GetComponent<DraggableObject> ();
@@ -45,12 +50,13 @@ public class ObjectDraggableSlot : MonoBehaviour, IDropHandler
 						dataInstance.GetComponent<Transform> ().localScale = new Vector2(tri.ScaleX, tri.ScaleY);
 						dataInstance.enabled = false;
 						dataInstance.GetComponent<HighlightableText>().highlighted = dataInstance.GetComponent<HighlightableText>().startingColor;
+						tri.GetComponent<HighlightableText> ().intialText = newText [i];
 						Debug.Log ("Une image a été ajoutée au bloc notes: " + tri.name);
 					}
-					else 
-					{
-						tri.GetComponent<HighlightableText> ().intialText = newText [i];
-					}
+//					else 
+//					{
+//						tri.GetComponent<HighlightableText> ().intialText = newText [i];
+//					}
 				}
 			}
 		}
