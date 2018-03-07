@@ -4102,6 +4102,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 855527019}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &506939875
@@ -5432,7 +5443,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 137.30637, y: -46.71116}
+  m_AnchoredPosition: {x: 2.95, y: 0.0000076294}
   m_SizeDelta: {x: -5.9, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &625070281
@@ -6021,6 +6032,7 @@ MonoBehaviour:
   passwordTemplate: {fileID: 738213776}
   wrongPassword: {fileID: 1528680743}
   NFCass: {fileID: 1846540035}
+  NFSo: {fileID: 0}
   questionOne: {fileID: 1508241012}
   question2: {fileID: 30426037}
   fauxText: {fileID: 688556463}
@@ -6028,6 +6040,7 @@ MonoBehaviour:
   question3: {fileID: 781082851}
   bouttonfinal: {fileID: 378101149}
   messengerTemplate: {fileID: 1693702779}
+  messengerFix: {fileID: 2022635861}
   mesAmisTemplate: {fileID: 1288766133}
   gmailCanvas: {fileID: 1608155361}
   desktopImageSophie: {fileID: 249528530}
@@ -6063,15 +6076,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SP: {fileID: 678657564}
   GS: {fileID: 678657567}
-  NFSo: {fileID: 1585701707}
   iconFb: {fileID: 506939874}
   bouttontrash: {fileID: 12026534}
-  folderTrashCass: {fileID: 334699396}
-  folderTrashSo: {fileID: 2017804724}
   boutonRougeBrowser: {fileID: 1423401460}
-  facebookHeader: {fileID: 140093776}
-  browserCanvas: {fileID: 133718525}
-  facebookCanvas: {fileID: 1290940004}
   wrongButton: {fileID: 1508294539}
   wrongImage: {fileID: 1508294540}
   inputfieldWrongText: {fileID: 1264253441}
@@ -7018,7 +7025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc812092639cb42518c88f2bd00501ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BM: {fileID: 0}
+  BM: {fileID: 678657566}
 --- !u!4 &738213778
 Transform:
   m_ObjectHideFlags: 0
@@ -10732,7 +10739,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 95.2, y: -114}
+  m_AnchoredPosition: {x: 95.2, y: -113.1}
   m_SizeDelta: {x: 340.9, y: 207.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &992557887
@@ -10924,8 +10931,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 208.39993, y: -719}
-  m_SizeDelta: {x: 815.5, y: 1455.5}
+  m_AnchoredPosition: {x: 205.79, y: -718.3}
+  m_SizeDelta: {x: 816.71, y: 1455.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1027505780
 MonoBehaviour:
@@ -11169,12 +11176,12 @@ Prefab:
     - target: {fileID: 224939183380242136, guid: da2a38ccc37cd45c780a620a88e15b42,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -294
+      value: -292.7
       objectReference: {fileID: 0}
     - target: {fileID: 224939183380242136, guid: da2a38ccc37cd45c780a620a88e15b42,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -115
+      value: -118.8
       objectReference: {fileID: 0}
     - target: {fileID: 224939183380242136, guid: da2a38ccc37cd45c780a620a88e15b42,
         type: 2}
@@ -11248,17 +11255,27 @@ Prefab:
     - target: {fileID: 224322917266739336, guid: da2a38ccc37cd45c780a620a88e15b42,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0.00002348423
+      value: 0.000054001808
       objectReference: {fileID: 0}
     - target: {fileID: 224322917266739336, guid: da2a38ccc37cd45c780a620a88e15b42,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000020742416
+      value: -0.000036001205
       objectReference: {fileID: 0}
     - target: {fileID: 224149878106844470, guid: da2a38ccc37cd45c780a620a88e15b42,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.00000011920929
+      objectReference: {fileID: 0}
+    - target: {fileID: 224801720217068082, guid: da2a38ccc37cd45c780a620a88e15b42,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.0000047683857
+      objectReference: {fileID: 0}
+    - target: {fileID: 224801720217068082, guid: da2a38ccc37cd45c780a620a88e15b42,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 3.8250237
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da2a38ccc37cd45c780a620a88e15b42, type: 2}
@@ -17378,6 +17395,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 2022635861}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1564759029
@@ -21654,7 +21682,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 94, y: 257}
+  m_AnchoredPosition: {x: 93.1, y: 257}
   m_SizeDelta: {x: 1473.52, y: 91.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1775013465
@@ -22966,7 +22994,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1290940004}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -22977,7 +23005,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 855527019}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -22988,7 +23016,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 315746917}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -22997,7 +23025,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 0}
         m_MethodName: SetActive
@@ -23749,8 +23777,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 96, y: 214}
-  m_SizeDelta: {x: 1470.4, y: 85.5}
+  m_AnchoredPosition: {x: 95.81, y: 214}
+  m_SizeDelta: {x: 1473.62, y: 85.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1930831259
 MonoBehaviour:
@@ -24468,6 +24496,11 @@ RectTransform:
   m_AnchoredPosition: {x: 332.97614, y: -321.7057}
   m_SizeDelta: {x: 267.3, y: 171.1}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2022635861 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1420325910650488, guid: d3c450862d13a4eae9adc7d35ef6c872,
+    type: 2}
+  m_PrefabInternal: {fileID: 1979199157}
 --- !u!1 &2023928605
 GameObject:
   m_ObjectHideFlags: 0
@@ -24964,7 +24997,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1256243350}
   m_Direction: 2
   m_Value: 0.99999994
-  m_Size: 0.479177
+  m_Size: 0.47917697
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
