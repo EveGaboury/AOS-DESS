@@ -59,6 +59,7 @@ public class GameState : MonoBehaviour {
 		SP.messengerTemplate.SetActive (false);
 		SP.otherTemplate.SetActive (false);
 		SP.newsFeedTemplate.SetActive (true);
+		SP.messengerFix.SetActive (false);
 
 		if (soOpenFacebook) {
 			SP.NFSo.SetActive (true);

@@ -34,6 +34,7 @@ public class StartPosition : MonoBehaviour {
 	public GameObject NFSo;
 
 
+
 	//facebook mot de passe oublie
 	public GameObject questionOne;
 	public GameObject question2;

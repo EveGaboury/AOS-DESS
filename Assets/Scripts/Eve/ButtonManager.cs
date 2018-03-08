@@ -76,7 +76,7 @@ public class ButtonManager: MonoBehaviour {
 		TextMeshPro inputfieldQuestion2 = GetComponent <TextMeshPro> ();
 
 		iconFb.GetComponent <Button> ();
-		iconFb.onClick.AddListener (OnClickFacebook);
+		iconFb.onClick.AddListener (GS.accueil);
 	
 	}
 		
@@ -142,20 +142,20 @@ public class ButtonManager: MonoBehaviour {
 
 	}
 
-	void OnClickFacebook (){
-
-		if (GS.soOpenFacebook) {
-			SP.newsFeedTemplate.SetActive (true);
-			SP.NFCass.SetActive (false);
-			SP.NFSo.SetActive (true);
-
-		} else {
-			SP.newsFeedTemplate.SetActive (true);
-			SP.NFCass.SetActive (true);
-			SP.NFSo.SetActive (false);
-		}
-
-	}
+//	void OnClickFacebook (){
+//
+//		if (GS.soOpenFacebook) {
+//			SP.newsFeedTemplate.SetActive (true);
+//			SP.NFCass.SetActive (false);
+//			SP.NFSo.SetActive (true);
+//
+//		} else {
+//			SP.newsFeedTemplate.SetActive (true);
+//			SP.NFCass.SetActive (true);
+//			SP.NFSo.SetActive (false);
+//		}
+//
+//	}
 
 	public void ClearContent (){
 
