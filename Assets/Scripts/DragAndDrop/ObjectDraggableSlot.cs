@@ -12,6 +12,8 @@ public class ObjectDraggableSlot : MonoBehaviour, IDropHandler
 	public string[] imageCaption;
 	public int[] checkID;
 
+	public GameObject test;
+
 	void Start()
 	{
 		//Ceci est là uniquement pour avoir la petite check mark dans l'inspecteur qui permet de désactiver le script
@@ -28,39 +30,67 @@ public class ObjectDraggableSlot : MonoBehaviour, IDropHandler
 			{
 				if (tri.objectID == checkID [i]) 
 				{	
+
+//					Debug.Log("Ceci est le texte: " + tri.captionText.text + " .Contenu dans l'objet: " + tri.gameObject.name);
+
 				//	Debug.Log("Ceci est le texte: " + tri.captionText.text + " .Contenu dans l'objet: " + tri.gameObject.name);
+
 
 					tri.transform.SetParent(transform);
 
 					if (tri.GetComponent<Image> ()) 
 					{
-						DraggableObject dataInstance = Instantiate (tri, Vector3.zero, Quaternion.identity);
-						dataInstance.GetComponent<Transform> ().SetParent (dataInstance.startParent);
-						dataInstance.GetComponent<Transform> ().localPosition = new Vector2 (tri.PosX, tri.PosY);
-						dataInstance.GetComponent<Transform> ().localScale = new Vector2(tri.ScaleX, tri.ScaleY);
+						DraggableObject dataInstanceIMAGE = Instantiate (tri, Vector3.zero, Quaternion.identity);
+						dataInstanceIMAGE.GetComponent<Transform> ().SetParent (dataInstanceIMAGE.startParent);
+						dataInstanceIMAGE.GetComponent<Transform> ().localPosition = new Vector2 (tri.PosX, tri.PosY);
+						dataInstanceIMAGE.GetComponent<Transform> ().localScale = new Vector2(tri.ScaleX, tri.ScaleY);
+						dataInstanceIMAGE.tag= "Untagged";
 
 						tri.captionText.text = tri.newCaption;
+						tri.GetComponent<Selectable> ().enabled = false;
+						tri.tag = "NotToBeDeleted";
 
 
-						dataInstance.enabled = false;
-						Debug.Log ("Une image a été ajoutée au bloc notes: " + tri.name);
+						dataInstanceIMAGE.enabled = false;
+						dataInstanceIMAGE.GetComponent<Selectable> ().enabled = false;
+						//Debug.Log ("Une image a été ajoutée au bloc notes: " + tri.name);
+						TrackAllReplicants();
 					} 
 					else if(tri.GetComponent<TextMeshProUGUI> ())
 					{
-						DraggableObject dataInstance = Instantiate (tri, Vector3.zero, Quaternion.identity);
-						dataInstance.GetComponent<Transform> ().SetParent (dataInstance.startParent);
-						dataInstance.GetComponent<Transform> ().localPosition = new Vector2 (tri.PosX, tri.PosY);
-						dataInstance.GetComponent<Transform> ().localScale = new Vector2(tri.ScaleX, tri.ScaleY);
-						dataInstance.enabled = false;
-						dataInstance.GetComponent<HighlightableText>().highlighted = dataInstance.GetComponent<HighlightableText>().startingColor;
+						DraggableObject dataInstanceTEXT = Instantiate (tri, Vector3.zero, Quaternion.identity);
+						dataInstanceTEXT.GetComponent<Transform> ().SetParent (dataInstanceTEXT.startParent);
+						dataInstanceTEXT.GetComponent<Transform> ().localPosition = new Vector2 (tri.PosX, tri.PosY);
+						dataInstanceTEXT.GetComponent<Transform> ().localScale = new Vector2(tri.ScaleX, tri.ScaleY);
+						dataInstanceTEXT.tag= "Untagged";
+
 						tri.GetComponent<HighlightableText> ().intialText = newText [i];
-						Debug.Log ("Une image a été ajoutée au bloc notes: " + tri.name);
+						tri.tag = "NotToBeDeleted";
+
+						dataInstanceTEXT.enabled = false;
+						dataInstanceTEXT.GetComponent<HighlightableText>().highlighted = dataInstanceTEXT.GetComponent<HighlightableText>().startingColor;
+						//Debug.Log ("Une image a été ajoutée au bloc notes: " + tri.name);
+						 
+						//Debug.Log ("il y a plus qu'un type d'objet dans le bloc notes" + dataInstanceTEXT.GetType());
+						TrackAllReplicants();
 					}
-//					else 
-//					{
-//						tri.GetComponent<HighlightableText> ().intialText = newText [i];
-//					}
 				}
+			}
+		}
+
+	}
+
+	void TrackAllReplicants()
+	{
+		Component[] checkForDuplicates;
+
+		checkForDuplicates = GetComponentsInChildren (typeof(DraggableObject));
+
+		for (int i = 0; i < checkForDuplicates.Length; i++) 
+		{
+			if (checkForDuplicates[i].GetComponent<Transform> ().tag == "Untagged") 
+			{
+				Destroy (checkForDuplicates[i].gameObject, .000003f);
 			}
 		}
 	}
