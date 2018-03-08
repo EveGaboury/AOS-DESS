@@ -11,7 +11,7 @@ public class ButtonManager: MonoBehaviour {
 	public StartPosition SP;
 	public GameState GS;
 
-	public Button iconFb;
+	//public Button iconFb;
 
 	public Button accueilButton;
 
@@ -75,8 +75,8 @@ public class ButtonManager: MonoBehaviour {
 		TextMeshPro inputfieldQuestionOne = GetComponent <TextMeshPro> ();
 		TextMeshPro inputfieldQuestion2 = GetComponent <TextMeshPro> ();
 
-		iconFb.GetComponent <Button> ();
-		iconFb.onClick.AddListener (GS.accueil);
+//		iconFb.GetComponent <Button> ();
+//		iconFb.onClick.AddListener (GS.accueil);
 	
 	}
 		
