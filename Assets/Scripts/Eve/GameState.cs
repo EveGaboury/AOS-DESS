@@ -57,7 +57,7 @@ public class GameState : MonoBehaviour {
 
 		SP.pageProfilTemplate.SetActive (false);
 		SP.messengerTemplate.SetActive (false);
-		SP.otherTemplate.SetActive (false);
+		SP.amisTemplate.SetActive (false);
 		SP.newsFeedTemplate.SetActive (true);
 		SP.messengerFix.SetActive (false);
 
