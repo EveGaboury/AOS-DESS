@@ -9,7 +9,7 @@ using System.Linq;
 [RequireComponent(typeof(AudioSource))]
 public class ChangeMusic : MonoBehaviour
 {	
-	public Button activatingButton;
+	//public Button activatingButton;
 	public AudioClip[] clipList;
 
 	AudioSource audioSource;

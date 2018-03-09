@@ -52,8 +52,9 @@ public class GameState : MonoBehaviour {
 
 
 	}
-
-	public void accueil (){
+		
+	public void accueil ()
+	{
 
 		SP.pageProfilTemplate.SetActive (false);
 		SP.messengerTemplate.SetActive (false);
@@ -70,4 +71,9 @@ public class GameState : MonoBehaviour {
 		}
 	}
 
+//	public void pageProfil ()
+//	{
+//
+//
+//	}
 }

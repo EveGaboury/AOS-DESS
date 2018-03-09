@@ -28,10 +28,12 @@ public class StartPosition : MonoBehaviour {
 	public GameObject buttonHeaderCass;
 	public GameObject newsFeedTemplate;
 	public GameObject passwordTemplate;
+	public GameObject rechercheTemplate;
 	public GameObject amisTemplate;
 	public GameObject wrongPassword;
 	public GameObject NFCass;
 	public GameObject NFSo;
+
 
 
 
@@ -60,6 +62,9 @@ public class StartPosition : MonoBehaviour {
 	public GameObject desktopImageSophie;
 	public GameObject folderTrashSophie;
 	public GameObject fenetreFolderSo;
+	public GameObject memoWord;
+	public GameObject itunes;
+
 
 	//gameobjects Cass
 
@@ -79,6 +84,7 @@ public class StartPosition : MonoBehaviour {
 		shortCut.SetActive (false);
 		pageProfilTemplate.SetActive (false);
 		newsFeedTemplate.SetActive (false);
+		rechercheTemplate.SetActive (false);
 		amisTemplate.SetActive (false);
 		wrongPassword.SetActive (false);
 		NFCass.SetActive (false);
@@ -110,6 +116,8 @@ public class StartPosition : MonoBehaviour {
 
 		folderTrashSophie.SetActive (false);
 		fenetreFolderSo.SetActive (false);
+		memoWord.SetActive (false);
+		itunes.SetActive (false);
 
 		gmailCanvas.SetActive (false);
 
