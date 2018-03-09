@@ -11,7 +11,7 @@ public class ButtonManager: MonoBehaviour {
 	public StartPosition SP;
 	public GameState GS;
 
-	public Button iconFb;
+	//public Button iconFb;
 
 	public Button accueilButton;
 
