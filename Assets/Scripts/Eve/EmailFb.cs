@@ -80,7 +80,7 @@ public class EmailFb : MonoBehaviour {
 
 	public void ClearContent()
 	{
-		Debug.Log ("clear content");
+//		Debug.Log ("clear content");
 		email.text = "";
 		password.text = "";
 		SP.wrongPassword.SetActive (false);

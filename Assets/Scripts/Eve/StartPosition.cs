@@ -79,19 +79,19 @@ public class StartPosition : MonoBehaviour {
 		shortCut.SetActive (false);
 		pageProfilTemplate.SetActive (false);
 		newsFeedTemplate.SetActive (false);
-		otherTemplate.SetActive (false);
+//		otherTemplate.SetActive (false);
 		wrongPassword.SetActive (false);
-		NFCass.SetActive (false);
+//		NFCass.SetActive (false);
 
 		questionOne.SetActive (false);
-		question2.SetActive (false);
-		fauxText.SetActive (false);
-		vraiText.SetActive (false);
-		question3.SetActive (false);
-		bouttonfinal.SetActive (false);
+//		question2.SetActive (false);
+//		fauxText.SetActive (false);
+//		vraiText.SetActive (false);
+//		question3.SetActive (false);
+//		bouttonfinal.SetActive (false);
 
 		messengerTemplate.SetActive (false);
-		messengerFix.SetActive (false);
+//		messengerFix.SetActive (false);
 
 		mesAmisTemplate.SetActive (false);
 
@@ -100,7 +100,7 @@ public class StartPosition : MonoBehaviour {
 		facebookHeader.SetActive (false);
 		facebookCanvas.SetActive (false);
 		facebookInfoScriptable.SetActive (false);
-		buttonHeaderCass.SetActive (false);
+//		buttonHeaderCass.SetActive (false);
 		passwordTemplate.SetActive (false);
 
 
