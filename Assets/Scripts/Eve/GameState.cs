@@ -52,7 +52,7 @@ public class GameState : MonoBehaviour {
 
 
 	}
-
+		
 	public void accueil (){
 
 		SP.pageProfilTemplate.SetActive (false);
@@ -69,5 +69,4 @@ public class GameState : MonoBehaviour {
 			SP.NFCass.SetActive (true);
 		}
 	}
-
 }
