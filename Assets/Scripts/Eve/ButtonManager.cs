@@ -48,6 +48,8 @@ public class ButtonManager: MonoBehaviour {
 
 	[HideInInspector] public string clear ="";
 
+	public Button iconFb;
+
 
 	void Start () 
 	{
@@ -58,25 +60,25 @@ public class ButtonManager: MonoBehaviour {
 		boutonRougeBrowser.GetComponent <Button> ();
 		boutonRougeBrowser.onClick.AddListener (TaskonClickBoutonRouge);
 
-//		wrongButton.GetComponent<Button> ();
-//		wrongButton.onClick.AddListener (TaskOnClickForgotFacebook);
+		wrongButton.GetComponent<Button> ();
+		wrongButton.onClick.AddListener (TaskOnClickForgotFacebook);
 
-//		question1Button.GetComponent <Button> ();
-//		question1Button.onClick.AddListener (TaskOnClickQuestionOne);
+		question1Button.GetComponent <Button> ();
+		question1Button.onClick.AddListener (TaskOnClickQuestionOne);
 
-//		question3Button.GetComponent <Button> ();
-//		question3Button.onClick.AddListener (TaskOnClickQuestion3);
+		question3Button.GetComponent <Button> ();
+		question3Button.onClick.AddListener (TaskOnClickQuestion3);
 
-//		accueilButton.GetComponent <Button> ();
-//		accueilButton.onClick.AddListener (GS.accueil);
+		accueilButton.GetComponent <Button> ();
+		accueilButton.onClick.AddListener (GS.accueil);
 
 
 		TextMeshPro inputfieldQuestion0 = GetComponent <TextMeshPro> ();
 		TextMeshPro inputfieldQuestionOne = GetComponent <TextMeshPro> ();
 		TextMeshPro inputfieldQuestion2 = GetComponent <TextMeshPro> ();
 
-//		iconFb.GetComponent <Button> ();
-//		iconFb.onClick.AddListener (GS.accueil);
+		iconFb.GetComponent <Button> ();
+		iconFb.onClick.AddListener (GS.accueil);
 	
 	}
 		
@@ -142,20 +144,20 @@ public class ButtonManager: MonoBehaviour {
 
 	}
 
-//	void OnClickFacebook (){
-//
-//		if (GS.soOpenFacebook) {
-//			SP.newsFeedTemplate.SetActive (true);
-//			SP.NFCass.SetActive (false);
-//			SP.NFSo.SetActive (true);
-//
-//		} else {
-//			SP.newsFeedTemplate.SetActive (true);
-//			SP.NFCass.SetActive (true);
-//			SP.NFSo.SetActive (false);
-//		}
-//
-//	}
+	void OnClickFacebook (){
+
+		if (GS.soOpenFacebook) {
+			SP.newsFeedTemplate.SetActive (true);
+			SP.NFCass.SetActive (false);
+			SP.NFSo.SetActive (true);
+
+		} else {
+			SP.newsFeedTemplate.SetActive (true);
+			SP.NFCass.SetActive (true);
+			SP.NFSo.SetActive (false);
+		}
+
+	}
 
 	public void ClearContent (){
 
