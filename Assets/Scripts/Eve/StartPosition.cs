@@ -62,6 +62,8 @@ public class StartPosition : MonoBehaviour {
 	public GameObject desktopImageSophie;
 	public GameObject folderTrashSophie;
 	public GameObject fenetreFolderSo;
+	public GameObject memoWord;
+
 
 	//gameobjects Cass
 
@@ -113,6 +115,7 @@ public class StartPosition : MonoBehaviour {
 
 		folderTrashSophie.SetActive (false);
 		fenetreFolderSo.SetActive (false);
+		memoWord.SetActive (false);
 
 		gmailCanvas.SetActive (false);
 
