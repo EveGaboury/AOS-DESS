@@ -41,6 +41,7 @@ public class SearchEngine: MonoBehaviour
 			SP.notFound.SetActive (false);
 			SP.pageProfilTemplate.SetActive (false);
 			SP.buttonHeaderCass.SetActive (false);
+			SP.passwordTemplate.SetActive (false);
 
 		} 
 		else 

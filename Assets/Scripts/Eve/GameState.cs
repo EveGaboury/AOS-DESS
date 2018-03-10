@@ -61,6 +61,9 @@ public class GameState : MonoBehaviour {
 		SP.amisTemplate.SetActive (false);
 		SP.newsFeedTemplate.SetActive (true);
 		SP.messengerFix.SetActive (false);
+		SP.mesAmisFix.SetActive (true);
+		SP.facebookConnInPage.SetActive (false);
+		SP.facebookConnexion.SetActive (false);
 
 		if (soOpenFacebook) {
 			SP.NFSo.SetActive (true);
@@ -71,9 +74,13 @@ public class GameState : MonoBehaviour {
 		}
 	}
 
-//	public void pageProfil ()
-//	{
-//
-//
-//	}
+	public void mesAmis ()
+	{
+		if (soOpenFacebook) {
+			SP.mesAmisSo.SetActive (true);
+		} else
+			SP.mesAmisCass.SetActive (true);
+
+
+	}
 }

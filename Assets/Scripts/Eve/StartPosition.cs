@@ -33,6 +33,8 @@ public class StartPosition : MonoBehaviour {
 	public GameObject wrongPassword;
 	public GameObject NFCass;
 	public GameObject NFSo;
+	public GameObject mesAmisSo;
+	public GameObject mesAmisCass;
 
 
 
@@ -52,6 +54,7 @@ public class StartPosition : MonoBehaviour {
 
 	//facebook Amis
 	public GameObject mesAmisTemplate;
+	public GameObject mesAmisFix;
 
 
 	//gmail
@@ -100,6 +103,7 @@ public class StartPosition : MonoBehaviour {
 		messengerFix.SetActive (false);
 
 		mesAmisTemplate.SetActive (false);
+		mesAmisFix.SetActive (false);
 
 		facebookConnexion.SetActive (false);
 
