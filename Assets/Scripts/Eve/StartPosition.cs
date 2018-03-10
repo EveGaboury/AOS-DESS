@@ -35,6 +35,7 @@ public class StartPosition : MonoBehaviour {
 	public GameObject NFSo;
 	public GameObject mesAmisSo;
 	public GameObject mesAmisCass;
+	public GameObject buttonHeaderSophie;
 
 
 
@@ -51,6 +52,8 @@ public class StartPosition : MonoBehaviour {
 	//facebook messenger
 	public GameObject messengerTemplate;
 	public GameObject messengerFix;
+	public GameObject messCass;
+	public GameObject messSo;
 
 	//facebook Amis
 	public GameObject mesAmisTemplate;
@@ -91,6 +94,7 @@ public class StartPosition : MonoBehaviour {
 		amisTemplate.SetActive (false);
 		wrongPassword.SetActive (false);
 		NFCass.SetActive (false);
+		buttonHeaderSophie.SetActive (false);
 
 		questionOne.SetActive (false);
 		question2.SetActive (false);

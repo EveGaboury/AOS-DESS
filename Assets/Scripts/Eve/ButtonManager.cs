@@ -141,28 +141,11 @@ public class ButtonManager: MonoBehaviour {
 		} else {
 			question3Image.sprite = pasvrai;
 		}
-
 	}
-
-	void OnClickFacebook (){
-
-		if (GS.soOpenFacebook) {
-			SP.newsFeedTemplate.SetActive (true);
-			SP.NFCass.SetActive (false);
-			SP.NFSo.SetActive (true);
-
-		} else {
-			SP.newsFeedTemplate.SetActive (true);
-			SP.NFCass.SetActive (true);
-			SP.NFSo.SetActive (false);
-		}
-
-	}
-
-	public void ClearContent (){
-
+		
+	public void ClearContent ()
+	{
 		inputfieldWrongText.text = "";
 		inputfieldQuestionOne.text = "";
-
-		}
+	}
 }

@@ -19,6 +19,7 @@ public class EmailFb : MonoBehaviour {
 	private string passwordCorrect = "cool";
 
 	public StartPosition SP;
+	public GameState GS;
 
 
 
@@ -50,7 +51,9 @@ public class EmailFb : MonoBehaviour {
 		{
 			if (password.text == passwordCorrect)
 			{
-				accesFB ();
+				//accesFB ();
+				GS.accueil ();
+
 			} 
 		}
 		else if (email.text != reponseCorrecte)
