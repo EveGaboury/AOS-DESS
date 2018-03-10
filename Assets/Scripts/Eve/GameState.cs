@@ -19,19 +19,15 @@ public class GameState : MonoBehaviour {
 	public GameObject ButtonFBSophie;
 	public bool soOpenFacebook = false;
 
-
 	
-	void Update () 
-	{
-		//game state
-		if (sessionCass.activeSelf == true) {
-			SoOpen = false;
-		}
-		else{
-			SoOpen = true;
-		}
+	void Update (){	
 
+	//game state facebook
+	if (ButtonFBSophie.activeSelf == true) {
+		soOpenFacebook = true;
+	} 
 
+		//icon wrong password facebook
 		if (BM.clear == BM.inputfieldWrongText.text) {
 			BM.wrongImage.sprite = BM.initial;
 		}
@@ -43,14 +39,6 @@ public class GameState : MonoBehaviour {
 		if (BM.clear == BM.inputfieldQuestion3.text) {
 			BM.question3Image.sprite = BM.initial;
 		}
-
-
-		if (ButtonFBSophie.activeSelf == true) {
-			soOpenFacebook = true;
-		} else
-			soOpenFacebook = false;
-
-
 	}
 		
 	public void accueil ()
@@ -61,19 +49,62 @@ public class GameState : MonoBehaviour {
 		SP.amisTemplate.SetActive (false);
 		SP.newsFeedTemplate.SetActive (true);
 		SP.messengerFix.SetActive (false);
+		SP.mesAmisFix.SetActive (true);
+		SP.facebookConnInPage.SetActive (false);
+		SP.facebookConnexion.SetActive (false);
+		SP.facebookHeader.SetActive (true);
 
 		if (soOpenFacebook) {
 			SP.NFSo.SetActive (true);
 			SP.NFCass.SetActive (false);
+			SP.buttonHeaderSophie.SetActive (true);
+			SP.buttonHeaderCass.SetActive (false);
 		} else {
 			SP.NFSo.SetActive (false);
 			SP.NFCass.SetActive (true);
+			SP.buttonHeaderCass.SetActive (true);
+			SP.buttonHeaderSophie.SetActive (false);
 		}
 	}
 
-//	public void pageProfil ()
-//	{
-//
-//
-//	}
+	public void mesAmis ()
+	{
+
+		SP.mesAmisTemplate.SetActive (true);
+		if (soOpenFacebook) {
+			SP.mesAmisSo.SetActive (true);
+			SP.mesAmisCass.SetActive (false);
+		} else {
+			SP.mesAmisCass.SetActive (true);
+			SP.mesAmisSo.SetActive (false);
+		}
+	}
+
+	public void Messenger () {
+
+		SP.pageProfilTemplate.SetActive (false);
+		SP.newsFeedTemplate.SetActive (false);
+		SP.messengerTemplate.SetActive (true);
+		SP.messengerFix.SetActive (true);
+		SP.mesAmisFix.SetActive (false);
+
+		if (soOpenFacebook) {
+			SP.messSo.SetActive (true);
+			SP.messCass.SetActive (false);
+		} else {
+			SP.messSo.SetActive (false);
+			SP.messCass.SetActive (true);
+		}
+
+	}
+
+
+	public void SoFacebookIsOpen (){
+
+		soOpenFacebook = true;
+	}
+
+	public void SoFacebookIsClosed () {
+		soOpenFacebook = false;
+	}
 }
