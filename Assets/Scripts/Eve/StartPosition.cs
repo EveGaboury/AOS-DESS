@@ -84,20 +84,20 @@ public class StartPosition : MonoBehaviour {
 		shortCut.SetActive (false);
 		pageProfilTemplate.SetActive (false);
 		newsFeedTemplate.SetActive (false);
-		rechercheTemplate.SetActive (false);
-		amisTemplate.SetActive (false);
+//		rechercheTemplate.SetActive (false);
+//		amisTemplate.SetActive (false);
 		wrongPassword.SetActive (false);
-		NFCass.SetActive (false);
+//		NFCass.SetActive (false);
 
 		questionOne.SetActive (false);
-		question2.SetActive (false);
-		fauxText.SetActive (false);
-		vraiText.SetActive (false);
-		question3.SetActive (false);
-		bouttonfinal.SetActive (false);
+//		question2.SetActive (false);
+//		fauxText.SetActive (false);
+//		vraiText.SetActive (false);
+//		question3.SetActive (false);
+//		bouttonfinal.SetActive (false);
 
 		messengerTemplate.SetActive (false);
-		messengerFix.SetActive (false);
+//		messengerFix.SetActive (false);
 
 		mesAmisTemplate.SetActive (false);
 
@@ -106,7 +106,7 @@ public class StartPosition : MonoBehaviour {
 		facebookHeader.SetActive (false);
 		facebookCanvas.SetActive (false);
 		facebookInfoScriptable.SetActive (false);
-		buttonHeaderCass.SetActive (false);
+//		buttonHeaderCass.SetActive (false);
 		passwordTemplate.SetActive (false);
 
 
@@ -116,8 +116,8 @@ public class StartPosition : MonoBehaviour {
 
 		folderTrashSophie.SetActive (false);
 		fenetreFolderSo.SetActive (false);
-		memoWord.SetActive (false);
-		itunes.SetActive (false);
+//		memoWord.SetActive (false);
+//		itunes.SetActive (false);
 
 		gmailCanvas.SetActive (false);
 
