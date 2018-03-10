@@ -59,11 +59,15 @@ public class GameState : MonoBehaviour {
 			SP.NFCass.SetActive (false);
 			SP.buttonHeaderSophie.SetActive (true);
 			SP.buttonHeaderCass.SetActive (false);
+			SP.toggleNotifSo.SetActive (true);
+			SP.toggleNotifCass.SetActive (false);
 		} else {
 			SP.NFSo.SetActive (false);
 			SP.NFCass.SetActive (true);
 			SP.buttonHeaderCass.SetActive (true);
 			SP.buttonHeaderSophie.SetActive (false);
+			SP.toggleNotifSo.SetActive (false);
+			SP.toggleNotifCass.SetActive (true);
 		}
 	}
 
@@ -87,6 +91,7 @@ public class GameState : MonoBehaviour {
 		SP.messengerTemplate.SetActive (true);
 		SP.messengerFix.SetActive (true);
 		SP.mesAmisFix.SetActive (false);
+	
 
 		if (soOpenFacebook) {
 			SP.messSo.SetActive (true);
@@ -97,7 +102,6 @@ public class GameState : MonoBehaviour {
 		}
 
 	}
-
 
 	public void SoFacebookIsOpen (){
 
