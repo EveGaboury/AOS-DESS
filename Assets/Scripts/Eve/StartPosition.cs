@@ -107,7 +107,7 @@ public class StartPosition : MonoBehaviour {
 		messengerFix.SetActive (false);
 
 		mesAmisTemplate.SetActive (false);
-		//mesAmisFix.SetActive (false);
+		mesAmisFix.SetActive (false);
 
 		facebookConnexion.SetActive (false);
 
