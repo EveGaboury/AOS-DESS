@@ -32,7 +32,7 @@ public class GameState : MonoBehaviour {
 			BM.wrongImage.sprite = BM.initial;
 		}
 
-		if (BM.clear == BM.inputfieldQuestionOne.text) {
+		if (BM.clear == BM.inputfieldQuestion1.text) {
 			BM.question1Image.sprite = BM.initial;
 		}
 
@@ -53,6 +53,7 @@ public class GameState : MonoBehaviour {
 		SP.facebookConnInPage.SetActive (false);
 		SP.facebookConnexion.SetActive (false);
 		SP.facebookHeader.SetActive (true);
+		SP.passwordTemplate.SetActive (false);
 
 		if (soOpenFacebook) {
 			SP.NFSo.SetActive (true);
@@ -106,6 +107,7 @@ public class GameState : MonoBehaviour {
 		}
 
 	}
+
 
 	public void SoFacebookIsOpen (){
 
