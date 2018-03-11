@@ -15,7 +15,7 @@ public class EmailFb : MonoBehaviour {
 	public Button connexion;
 
 	private string reponseCorrecte = "sophie", responseCorrecte2 = "Sophie";
-	//private string reponserCorrecte2 = "Sophie.baillargeon@gmail.com";
+	private string reponserCorrecte2 = "Sophie.baillargeon@gmail.com";
 	private string passwordCorrect = "cool";
 
 	public StartPosition SP;
@@ -83,7 +83,7 @@ public class EmailFb : MonoBehaviour {
 
 	public void ClearContent()
 	{
-//		Debug.Log ("clear content");
+		Debug.Log ("clear content");
 		email.text = "";
 		password.text = "";
 		SP.wrongPassword.SetActive (false);
