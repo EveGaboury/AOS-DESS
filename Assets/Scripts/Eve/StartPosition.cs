@@ -36,6 +36,10 @@ public class StartPosition : MonoBehaviour {
 	public GameObject mesAmisSo;
 	public GameObject mesAmisCass;
 	public GameObject buttonHeaderSophie;
+	public GameObject notifSo;
+	public GameObject notifCass;
+	public GameObject toggleNotifSo;
+	public GameObject toggleNotifCass;
 
 
 
@@ -95,6 +99,8 @@ public class StartPosition : MonoBehaviour {
 		wrongPassword.SetActive (false);
 		NFCass.SetActive (false);
 		buttonHeaderSophie.SetActive (false);
+		notifSo.SetActive (false);
+		notifCass.SetActive (false);
 
 		questionOne.SetActive (false);
 		question2.SetActive (false);
