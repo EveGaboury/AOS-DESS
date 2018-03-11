@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using System.Linq;
 
 public class RepositoryOfFakeNames: MonoBehaviour
 {
+	public Sprite[] photoProfil;
+
 	public string[] A_Prenoms;
 	public string[] B_Prenoms;
 	public string[] C_Prenoms;
@@ -31,7 +35,7 @@ public class RepositoryOfFakeNames: MonoBehaviour
 	public string[] Y_Prenoms;
 	public string[] Z_Prenoms;
 
-	public string[] A_NomDeFamille;
+//	public string[] A_NomDeFamille;
 	//#1: avoir un scriptable object ou je rentre les donnes d'une personne, psui ailleurs un script avec un tableau ou je l'appelle
 	//#2: avoir une class databaseuser et aller les query par nom
 }
