@@ -2,24 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
+using System;
 public class DialogueManager : MonoBehaviour 
 {
-	public Text nameText;
-	public Text dialoguetext;
-
+	public TextMeshProUGUI nameText,dialogueText;
+	public GameObject messengerCanvas;
 	private Queue<string> sentences;
 
 	void Start ()
 	{
 		sentences = new Queue<string> ();
+
+		if (messengerCanvas.activeSelf == true) 
+		{
+			messengerCanvas.SetActive (false);
+			Debug.Log ("The messengerCanvas gameObject is currently active: " + messengerCanvas.activeSelf);
+		} 
+			
+//		Button[] allChildren = messengerCanvas.GetComponentsInChildren<Button> ();
+//
+//		foreach (Button child in allChildren) 
+//		{
+//			Debug.Log("From dialogueManager: " + child.name);
+//		}
 	}
 
 	public void StartDialogue(Dialogue dialogue)
 	{
-//		Debug.Log ("Starting conversation with: " + dialogue.name);
+		Debug.Log ("Starting conversation with: " + dialogue.name);
 
-		nameText.text = dialogue.name;
+		nameText.GetComponent<TextMeshProUGUI>().text = dialogue.name;
 
 		sentences.Clear ();
 
@@ -40,12 +53,14 @@ public class DialogueManager : MonoBehaviour
 		}
 
 		string sentence = sentences.Dequeue ();
-		dialoguetext.text = sentence;
-//		Debug.Log (sentence);
+
+		dialogueText.GetComponent<TextMeshProUGUI>().text = sentence;
+
+		Debug.Log (sentence);
 	}
 
 	public void EndDialogue ()
 	{
-		Debug.Log ("End of conversation.");
+			Debug.Log ("End of conversation.");
 	}
 }

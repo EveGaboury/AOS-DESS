@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 114851982324033316}
   m_Layer: 5
   m_Name: Exit_Bttn
-  m_TagString: Untagged
+  m_TagString: NotToBeDeleted
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -463,7 +463,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d61e605789efa40aaaa23c0b390eb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activatingButton: {fileID: 0}
   clipList:
   - {fileID: 8300000, guid: fbb044768f3ca70439a7b443ac627879, type: 3}
   - {fileID: 8300000, guid: e50863bdd7648134da16c4f19366bac7, type: 3}
