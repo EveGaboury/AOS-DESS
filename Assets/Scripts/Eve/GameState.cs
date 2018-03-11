@@ -73,6 +73,10 @@ public class GameState : MonoBehaviour {
 
 	public void mesAmis ()
 	{
+		SP.NFCass.SetActive (false);
+		SP.NFSo.SetActive (false);
+		SP.mesAmisFix.SetActive (false);
+
 
 		SP.mesAmisTemplate.SetActive (true);
 		if (soOpenFacebook) {
