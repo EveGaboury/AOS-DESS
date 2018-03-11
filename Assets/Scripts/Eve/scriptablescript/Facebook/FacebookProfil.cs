@@ -14,6 +14,8 @@ public class FacebookProfil : ScriptableObject {
 	public string name;
 	public string birthDate;
 	public string profession;
+	public string birthplace;
+	public string lifeplace;
 
 	public Sprite picture1;
 	public Sprite picture2;
