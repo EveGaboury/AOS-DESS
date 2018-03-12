@@ -38,7 +38,7 @@ public class ButtonManager: MonoBehaviour {
 	public Button question3Button;
 	public Image question3Image;
 	public TMP_InputField inputfieldQuestion3;
-	private string reponseQuestion3 = "Zeus", reponseQuestion3a = "zeus"; 
+	private string reponseQuestion3 = "Zeus", reponseQuestion3a = "zeus";
 	private string easter = "pablololol";
 	public GameObject pablo;
 
@@ -109,7 +109,7 @@ public class ButtonManager: MonoBehaviour {
 
 	void TaskOnClickQuestion1 ()
 	{
-		if ((reponseQuestion1 == inputfieldQuestion1.text) || (reponseQuestion1a == inputfieldQuestion1.text)) 
+		if ((reponseQuestion1 == inputfieldQuestion1.text) || (reponseQuestion1a == inputfieldQuestion1.text))
 		{
 			Debug.Log ("bonne réponse");
 			question1Image.sprite = vrai;
@@ -139,7 +139,7 @@ public class ButtonManager: MonoBehaviour {
 		inputfieldWrongText.text = "";
 		inputfieldQuestion1.text = "";
 	}
-		
+
 	public void bouttonRouge () {
 
 		SP.facebookCanvas.SetActive (false);
