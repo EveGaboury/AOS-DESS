@@ -40,7 +40,16 @@ public class GameState : MonoBehaviour {
 			BM.question3Image.sprite = BM.initial;
 		}
 	}
-		
+
+	public void SoFacebookIsOpen (){
+
+		soOpenFacebook = true;
+	}
+
+	public void SoFacebookIsClosed () {
+		soOpenFacebook = false;
+	}	
+
 	public void accueil ()
 	{
 		SP.pageProfilTemplate.SetActive (false);
@@ -129,6 +138,23 @@ public class GameState : MonoBehaviour {
 		}
 	}
 
+	public void InputFieldSearch () {
+
+		SP.rechercheTemplate.SetActive (true);
+
+		SP.pageNewFeedTemplate.SetActive (false);
+		SP.messengerTemplate.SetActive (false);
+		SP.pageProfilTemplate.SetActive (false);
+		SP.newsFeedTemplate.SetActive (false);
+		SP.mesAmisTemplate.SetActive (false);
+		SP.passwordTemplate.SetActive (false);
+		SP.facebookConnInPage.SetActive (false);
+		SP.mesAmisFix.SetActive (false);
+		SP.messengerFix.SetActive (false);
+
+	}
+
+
 	public void BoutonSophie () 
 	{
 		SP.pageProfilTemplate.SetActive (true);
@@ -163,29 +189,7 @@ public class GameState : MonoBehaviour {
 		SP.notifSo.SetActive (false);
 	}
 
-	public void InputFieldSearch () {
-		
-		SP.rechercheTemplate.SetActive (true);
 
-		SP.pageNewFeedTemplate.SetActive (false);
-		SP.messengerTemplate.SetActive (false);
-		SP.pageProfilTemplate.SetActive (false);
-		SP.newsFeedTemplate.SetActive (false);
-		SP.mesAmisTemplate.SetActive (false);
-		SP.passwordTemplate.SetActive (false);
-		SP.facebookConnInPage.SetActive (false);
-		SP.mesAmisFix.SetActive (false);
-		SP.messengerFix.SetActive (false);
-	
-	}
+	//public void 
 
-		
-	public void SoFacebookIsOpen (){
-
-		soOpenFacebook = true;
-	}
-
-	public void SoFacebookIsClosed () {
-		soOpenFacebook = false;
-	}
 }

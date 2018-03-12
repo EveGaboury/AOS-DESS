@@ -8,6 +8,9 @@ using UnityEngine.UI;
 
 public class ErroneousSearchesDirector : MonoBehaviour 
 {
+	
+	public Button fredButton;
+
 	public Image[] portraitsToBeDisplayed;
 
 	public TMP_InputField searchBar;
@@ -105,7 +108,10 @@ public class ErroneousSearchesDirector : MonoBehaviour
 				//FFFFF
 				if((test == verification[5]) || (test == verification[31]))
 				{
+					fredButton.GetComponent<Button> ().enabled = true;
+		
 					textDisplay [i].GetComponent<TextMeshProUGUI> ().text = retrieveData.F_Prenoms[i].ToString();
+
 				}
 				//GGGGGGG
 				if((test == verification[6]) || (test == verification[32]))
