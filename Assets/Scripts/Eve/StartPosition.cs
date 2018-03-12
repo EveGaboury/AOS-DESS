@@ -38,6 +38,16 @@ public class StartPosition : MonoBehaviour {
 	public GameObject toggleNotifSo;
 	public GameObject toggleNotifCass;
 
+	//facebook scriptable
+	public GameObject profilCassScriptable;
+	public GameObject profilSoScriptable;
+	public GameObject profilAdrienScriptable;
+	public GameObject profilYannScriptable;
+	public GameObject profilHugoScriptable;
+	public GameObject profilMarieEveScriptable;
+
+
+
 	//facebook page newsfeed
 	public GameObject pageNewFeed;
 	public GameObject profilYann;
@@ -63,6 +73,7 @@ public class StartPosition : MonoBehaviour {
 	public GameObject messengerFix;
 	public GameObject messCass;
 	public GameObject messSo;
+	public GameObject fond;
 
 	//facebook Amis
 	public GameObject mesAmisTemplate;
@@ -104,8 +115,15 @@ public class StartPosition : MonoBehaviour {
 		notifCass.SetActive (false);
 
 		pageNewFeed.SetActive (false);
-
-
+		profilYann.SetActive (false);
+		profilMarieEve2.SetActive (false);
+		profilMarieEve1.SetActive (false);
+		profilHugo2.SetActive (false);
+		profilHugo1.SetActive (false);
+		profilAdrien2.SetActive (false);
+		profilAdrien1.SetActive (false);
+		profilSophie.SetActive (false);
+		profilCass.SetActive (false);
 
 		questionOne.SetActive (false);
 		question2.SetActive (false);
@@ -128,7 +146,6 @@ public class StartPosition : MonoBehaviour {
 		buttonHeaderCass.SetActive (false);
 		passwordTemplate.SetActive (false);
 
-
 		folderTrashCass.SetActive (false);
 		fenetreFolderCass.SetActive (false);
 		sessionCass.SetActive (false);
@@ -139,7 +156,6 @@ public class StartPosition : MonoBehaviour {
 		itunes.SetActive (false);
 
 		gmailCanvas.SetActive (false);
-
 	}
 }
 

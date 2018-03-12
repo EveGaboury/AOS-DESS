@@ -12,7 +12,6 @@ public class ButtonManager: MonoBehaviour {
 	public GameState GS;
 
 	//public Button iconFb;
-
 	public Button accueilButton;
 
 	//boutton corbeille
@@ -26,7 +25,6 @@ public class ButtonManager: MonoBehaviour {
 	public Image wrongImage;
 	public TMP_InputField inputfieldWrongText;
 	private string reponsecorrecte = "cassandraroyer@courriel.fr", reponsecorrecte2 = "Cassandraroyer@courriel.fr" ; 
-
 
 	public Sprite vrai;
 	public Sprite pasvrai;
@@ -69,7 +67,6 @@ public class ButtonManager: MonoBehaviour {
 
 		accueilButton.GetComponent <Button> ();
 		accueilButton.onClick.AddListener (GS.accueil);
-
 
 		TextMeshPro inputfieldQuestion0 = GetComponent <TextMeshPro> ();
 		TextMeshPro inputfieldQuestion1 = GetComponent <TextMeshPro> ();
@@ -155,4 +152,5 @@ public class ButtonManager: MonoBehaviour {
 		SP.messengerFix.SetActive (false);
 		SP.passwordTemplate.SetActive (false);
 	}
+
 }

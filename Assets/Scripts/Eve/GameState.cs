@@ -43,7 +43,6 @@ public class GameState : MonoBehaviour {
 		
 	public void accueil ()
 	{
-
 		SP.pageProfilTemplate.SetActive (false);
 		SP.messengerTemplate.SetActive (false);
 		SP.amisTemplate.SetActive (false);
@@ -54,6 +53,17 @@ public class GameState : MonoBehaviour {
 		SP.facebookConnexion.SetActive (false);
 		SP.facebookHeader.SetActive (true);
 		SP.passwordTemplate.SetActive (false);
+
+		SP.pageNewFeed.SetActive (false);
+		SP.profilYann.SetActive (false);
+		SP.profilMarieEve2.SetActive (false);
+		SP.profilMarieEve1.SetActive (false);
+		SP.profilHugo2.SetActive (false);
+		SP.profilHugo1.SetActive (false);
+		SP.profilAdrien2.SetActive (false);
+		SP.profilAdrien1.SetActive (false);
+		SP.profilSophie.SetActive (false);
+		SP.profilCass.SetActive (false);
 
 		if (soOpenFacebook) {
 			SP.NFSo.SetActive (true);
@@ -91,13 +101,25 @@ public class GameState : MonoBehaviour {
 
 	public void Messenger () {
 
-		SP.pageProfilTemplate.SetActive (false);
-		SP.newsFeedTemplate.SetActive (false);
 		SP.messengerTemplate.SetActive (true);
 		SP.messengerFix.SetActive (true);
-		SP.mesAmisFix.SetActive (false);
-	
+		SP.fond.SetActive (true);
 
+		SP.pageProfilTemplate.SetActive (false);
+		SP.newsFeedTemplate.SetActive (false);
+		SP.mesAmisFix.SetActive (false);
+
+		SP.pageNewFeed.SetActive (false);
+		SP.profilYann.SetActive (false);
+		SP.profilMarieEve2.SetActive (false);
+		SP.profilMarieEve1.SetActive (false);
+		SP.profilHugo2.SetActive (false);
+		SP.profilHugo1.SetActive (false);
+		SP.profilAdrien2.SetActive (false);
+		SP.profilAdrien1.SetActive (false);
+		SP.profilSophie.SetActive (false);
+		SP.profilCass.SetActive (false);
+	
 		if (soOpenFacebook) {
 			SP.messSo.SetActive (true);
 			SP.messCass.SetActive (false);
@@ -105,10 +127,43 @@ public class GameState : MonoBehaviour {
 			SP.messSo.SetActive (false);
 			SP.messCass.SetActive (true);
 		}
-
 	}
 
+	public void BoutonSophie () 
+	{
+		SP.pageProfilTemplate.SetActive (true);
+		SP.facebookInfoScriptable.SetActive (true);
+		SP.pageNewFeed.SetActive (true);
+		SP.profilSophie.SetActive (true);
 
+		SP.profilSoScriptable.SetActive (true);
+		SP.profilCassScriptable.SetActive (false);
+
+		SP.newsFeedTemplate.SetActive (false);
+		SP.messengerTemplate.SetActive (false);
+		SP.messengerFix.SetActive (false);
+		SP.mesAmisFix.SetActive (false);
+		SP.notifSo.SetActive (false);
+	}
+
+	public void BoutonCass () 
+	{
+		SP.pageProfilTemplate.SetActive (true);
+		SP.facebookInfoScriptable.SetActive (true);
+		SP.pageNewFeed.SetActive (true);
+		SP.profilCass.SetActive (true);
+
+		SP.profilSoScriptable.SetActive (false);
+		SP.profilCassScriptable.SetActive (true);
+
+		SP.newsFeedTemplate.SetActive (false);
+		SP.messengerTemplate.SetActive (false);
+		SP.messengerFix.SetActive (false);
+		SP.mesAmisFix.SetActive (false);
+		SP.notifSo.SetActive (false);
+	}
+
+		
 	public void SoFacebookIsOpen (){
 
 		soOpenFacebook = true;
