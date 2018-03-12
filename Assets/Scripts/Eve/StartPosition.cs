@@ -9,6 +9,7 @@ public class StartPosition : MonoBehaviour {
 	public GameObject blocNoteCanvas;
 	public GameObject fenetrePoireCanvas;
 	public GameObject elementsCommun;
+	public GameObject gmailNotif;
 
 	//Browser
 	public GameObject browserCanvas;
@@ -111,6 +112,7 @@ public class StartPosition : MonoBehaviour {
 		blocNoteCanvas.SetActive (true);
 		fenetrePoireCanvas.SetActive (false);
 		elementsCommun.SetActive (true);
+		gmailNotif.SetActive (true);
 
 		shortCutFacebook.SetActive (false);
 
