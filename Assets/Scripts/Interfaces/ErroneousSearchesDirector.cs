@@ -8,7 +8,9 @@ using UnityEngine.UI;
 
 public class ErroneousSearchesDirector : MonoBehaviour 
 {
-	
+	public GameState GS;
+	public RepositoryOfFakeNames RFN;
+
 	public Button fredButton;
 	public Button adrienButton;
 
@@ -22,7 +24,7 @@ public class ErroneousSearchesDirector : MonoBehaviour
 
 	Transform wrongSearchResults;
 
-	public bool adrien=false, frederic=false;
+	public bool adrien=false, frederic=false, adrien2=false, frederic2=false;
 
 	char[] verification = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
 						   'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
@@ -260,6 +262,7 @@ public class ErroneousSearchesDirector : MonoBehaviour
 						imagePosition[2].GetComponent<Image>().sprite = retrieveData.photoProfil[1];
 						imagePosition[3].GetComponent<Image>().sprite = retrieveData.photoProfil[2];
 						imagePosition[4].GetComponent<Image>().sprite = retrieveData.photoProfil[3];
+						frederic2 = true;
 					}
 				}
 					
@@ -269,6 +272,7 @@ public class ErroneousSearchesDirector : MonoBehaviour
 					imagePosition [2].GetComponent<Image> ().sprite = retrieveData.photoProfil [1];
 					imagePosition [3].GetComponent<Image> ().sprite = retrieveData.photoProfil [2];
 					imagePosition [4].GetComponent<Image> ().sprite = retrieveData.photoProfil [3];
+					adrien2 = true;
 				}
 		
 				//imagePosition[i].GetComponent<Image>().sprite = retrieveData.photoProfil[i];				
@@ -297,6 +301,21 @@ public class ErroneousSearchesDirector : MonoBehaviour
 		this.gameObject.SetActive (false);
 		searchBar.GetComponent<TMP_InputField> ().text = "";
 	}
+
+	public void ButtonOfChoice ()
+	{
+		if (adrien2==true) {
+			GS.BoutonAdrien ();
+		}
+
+		if (frederic2==true) {
+			GS.BoutonFred ();
+		}
+
+		adrien2 = false;
+		frederic2 = false;
+	}
+
 
 //	void Update ()
 //	{

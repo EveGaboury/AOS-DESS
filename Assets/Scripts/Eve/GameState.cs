@@ -73,6 +73,7 @@ public class GameState : MonoBehaviour {
 		SP.profilAdrien1.SetActive (false);
 		SP.profilSophie.SetActive (false);
 		SP.profilCass.SetActive (false);
+		SP.profilFred.SetActive (false);
 
 		if (soOpenFacebook) {
 			SP.NFSo.SetActive (true);
@@ -127,6 +128,7 @@ public class GameState : MonoBehaviour {
 		SP.profilAdrien1.SetActive (false);
 		SP.profilSophie.SetActive (false);
 		SP.profilCass.SetActive (false);
+		SP.profilFred.SetActive (false);
 	
 		if (soOpenFacebook) {
 			SP.messSo.SetActive (true);
@@ -171,6 +173,7 @@ public class GameState : MonoBehaviour {
 		SP.profilYann.SetActive (false);
 		SP.profilAdrien1.SetActive (false);
 		SP.profilAdrien2.SetActive (false);
+		SP.profilFred.SetActive (false);
 
 		SP.profilSoScriptable.SetActive (true);
 		SP.profilCassScriptable.SetActive (false);
@@ -203,6 +206,7 @@ public class GameState : MonoBehaviour {
 		SP.profilYann.SetActive (false);
 		SP.profilAdrien1.SetActive (false);
 		SP.profilAdrien2.SetActive (false);
+		SP.profilFred.SetActive (false);
 
 		SP.profilCassScriptable.SetActive (true);
 		SP.profilSoScriptable.SetActive (false);
@@ -232,6 +236,7 @@ public class GameState : MonoBehaviour {
 		SP.profilHugo1.SetActive (false);
 		SP.profilHugo2.SetActive (false);
 		SP.profilYann.SetActive (false);
+		SP.profilFred.SetActive (false);
 
 		SP.profilAdrienScriptable.SetActive (true);
 		SP.profilSoScriptable.SetActive (false);
@@ -246,6 +251,7 @@ public class GameState : MonoBehaviour {
 		SP.messengerFix.SetActive (false);
 		SP.mesAmisFix.SetActive (false);
 		SP.notifSo.SetActive (false);
+		SP.rechercheTemplate.SetActive (false);
 
 		if (soOpenFacebook) {
 			SP.profilAdrien1.SetActive (true);
@@ -270,6 +276,7 @@ public class GameState : MonoBehaviour {
 			SP.profilAdrien1.SetActive (false);
 			SP.profilAdrien2.SetActive (false);
 			SP.profilYann.SetActive (false);
+			SP.profilFred.SetActive (false);
 
 			SP.profilAdrienScriptable.SetActive (false);
 			SP.profilSoScriptable.SetActive (false);
@@ -308,6 +315,7 @@ public class GameState : MonoBehaviour {
 		SP.profilAdrien1.SetActive (false);
 		SP.profilAdrien2.SetActive (false);
 		SP.profilYann.SetActive (false);
+		SP.profilFred.SetActive (false);
 
 		SP.profilAdrienScriptable.SetActive (false);
 		SP.profilSoScriptable.SetActive (false);
@@ -348,11 +356,12 @@ public class GameState : MonoBehaviour {
 		SP.profilHugo1.SetActive (false);
 		SP.profilHugo2.SetActive (false);
 		SP.profilYann.SetActive (true);
+		SP.profilFred.SetActive (false);
 
 		SP.profilAdrienScriptable.SetActive (false);
 		SP.profilSoScriptable.SetActive (false);
 		SP.profilCassScriptable.SetActive (false);
-		SP.profilHugoScriptable.SetActive (true);
+		SP.profilHugoScriptable.SetActive (false);
 		SP.profilYannScriptable.SetActive (true);
 		SP.profilMarieEveScriptable.SetActive (false);
 
@@ -362,6 +371,41 @@ public class GameState : MonoBehaviour {
 		SP.messengerFix.SetActive (false);
 		SP.mesAmisFix.SetActive (false);
 		SP.notifSo.SetActive (false);
+
+	}
+
+	public void BoutonFred () 
+	{
+		SP.pageProfilTemplate.SetActive (true);
+		SP.facebookInfoScriptable.SetActive (true);
+		SP.pageNewFeedTemplate.SetActive (true);
+
+
+		SP.profilCass.SetActive (false);
+		SP.profilSophie.SetActive (false);
+		SP.profilMarieEve1.SetActive (false);
+		SP.profilMarieEve2.SetActive (false);
+		SP.profilAdrien1.SetActive (false);
+		SP.profilAdrien2.SetActive (false);
+		SP.profilHugo1.SetActive (false);
+		SP.profilHugo2.SetActive (false);
+		SP.profilYann.SetActive (false);
+		SP.profilFred.SetActive (true);
+
+		SP.profilAdrienScriptable.SetActive (false);
+		SP.profilSoScriptable.SetActive (false);
+		SP.profilCassScriptable.SetActive (false);
+		SP.profilHugoScriptable.SetActive (false);
+		SP.profilYannScriptable.SetActive (false);
+		SP.profilMarieEveScriptable.SetActive (false);
+
+		SP.mesAmisTemplate.SetActive (false);
+		SP.newsFeedTemplate.SetActive (false);
+		SP.messengerTemplate.SetActive (false);
+		SP.messengerFix.SetActive (false);
+		SP.mesAmisFix.SetActive (false);
+		SP.notifSo.SetActive (false);
+		SP.rechercheTemplate.SetActive (false);
 
 	}
 

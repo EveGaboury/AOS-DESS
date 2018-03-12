@@ -63,6 +63,7 @@ public class StartPosition : MonoBehaviour {
 	public GameObject profilAdrien1;
 	public GameObject profilSophie;
 	public GameObject profilCass;
+	public GameObject profilFred;
 
 	//facebook mot de passe oublie
 	public GameObject questionOne;
@@ -136,6 +137,8 @@ public class StartPosition : MonoBehaviour {
 		profilAdrien1.SetActive (false);
 		profilSophie.SetActive (false);
 		profilCass.SetActive (false);
+		profilFred.SetActive (false);
+
 		shortCutSophieFB.SetActive (false);
 		shortCutCassFB.SetActive (false);
 
