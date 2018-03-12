@@ -15269,7 +15269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchSessionCanvas: {fileID: 1146257937}
-  blocNoteCanvas: {fileID: 0}
+  blocNoteCanvas: {fileID: 2081049474}
   fenetrePoireCanvas: {fileID: 870362250}
   elementsCommun: {fileID: 2002681943}
   browserCanvas: {fileID: 133718525}
@@ -15330,11 +15330,11 @@ MonoBehaviour:
   fixSo: {fileID: 1515822137}
   mesAmisTemplate: {fileID: 1288766133}
   mesAmisFix: {fileID: 2070676004}
-  gmailCanvas: {fileID: 0}
+  gmailCanvas: {fileID: 1437013750}
   desktopImageSophie: {fileID: 249528530}
   folderTrashSophie: {fileID: 2017804724}
   fenetreFolderSo: {fileID: 734222272}
-  memoWord: {fileID: 0}
+  memoWord: {fileID: 346907303}
   itunes: {fileID: 106641693}
   folderTrashCass: {fileID: 334699396}
   fenetreFolderCass: {fileID: 292789854}
@@ -19933,7 +19933,7 @@ Prefab:
     - target: {fileID: 224642564773196602, guid: 6c491f463537d4b559a3de0bf76fd51c,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0.000000059604645
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224642564773196602, guid: 6c491f463537d4b559a3de0bf76fd51c,
         type: 2}
@@ -32303,6 +32303,11 @@ RectTransform:
   m_AnchoredPosition: {x: 683.65, y: -391.2}
   m_SizeDelta: {x: 1367.3, y: 782.4}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1437013750 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1124475394871126, guid: 6c491f463537d4b559a3de0bf76fd51c,
+    type: 2}
+  m_PrefabInternal: {fileID: 849650392}
 --- !u!1 &1444514665
 GameObject:
   m_ObjectHideFlags: 0
@@ -38781,7 +38786,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000022292137, y: -0.000036001205}
+  m_AnchoredPosition: {x: -0.000068068504, y: -0.0000054836273}
   m_SizeDelta: {x: -12.51, y: -44.61}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1687230946
