@@ -14,8 +14,13 @@ public class ObjectDraggableSlot : MonoBehaviour, IDropHandler
 
 	public GameObject test;
 
+	//public GameObject ButtonC1Clone;
+
+
 	void Start()
 	{
+		//ButtonC1Clone.transform.SetParent(Transform newParent);
+
 		//Ceci est là uniquement pour avoir la petite check mark dans l'inspecteur qui permet de désactiver le script
 
 	}
@@ -58,7 +63,7 @@ public class ObjectDraggableSlot : MonoBehaviour, IDropHandler
 					} 
 					else if(tri.GetComponent<TextMeshProUGUI> ())
 					{
-						DraggableObject dataInstanceTEXT = Instantiate (tri, Vector3.zero, Quaternion.identity);
+						DraggableObject dataInstanceTEXT = Instantiate (tri, Vector3.zero, Quaternion.identity); //Transform.Parent
 						dataInstanceTEXT.GetComponent<Transform> ().SetParent (dataInstanceTEXT.startParent);
 						dataInstanceTEXT.GetComponent<Transform> ().localPosition = new Vector2 (tri.PosX, tri.PosY);
 						dataInstanceTEXT.GetComponent<Transform> ().localScale = new Vector2(tri.ScaleX, tri.ScaleY);
