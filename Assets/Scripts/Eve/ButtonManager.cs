@@ -12,7 +12,6 @@ public class ButtonManager: MonoBehaviour {
 	public GameState GS;
 
 	//public Button iconFb;
-
 	public Button accueilButton;
 
 	//boutton corbeille
@@ -27,24 +26,21 @@ public class ButtonManager: MonoBehaviour {
 	public TMP_InputField inputfieldWrongText;
 	private string reponsecorrecte = "cassandraroyer@courriel.fr", reponsecorrecte2 = "Cassandraroyer@courriel.fr" ; 
 
-
 	public Sprite vrai;
 	public Sprite pasvrai;
 	public Sprite initial;
 
-
 	public Button question1Button;
 	public Image question1Image;
-	public TMP_InputField inputfieldQuestionOne;
-	private string reponseQuestion1 = "Zeus", reponseQuestion1a = "zeus"; 
-	private string easter = "pablololol";
-	public GameObject pablo;
-
+	public TMP_InputField inputfieldQuestion1;
+	private string reponseQuestion1 = "Paris", reponseQuestion1a = "paris";
 
 	public Button question3Button;
 	public Image question3Image;
 	public TMP_InputField inputfieldQuestion3;
-	private string reponseQuestion3 = "Paris";
+	private string reponseQuestion3 = "Zeus", reponseQuestion3a = "zeus";
+	private string easter = "pablololol";
+	public GameObject pablo;
 
 	[HideInInspector] public string clear ="";
 
@@ -60,28 +56,25 @@ public class ButtonManager: MonoBehaviour {
 		boutonRougeBrowser.GetComponent <Button> ();
 		boutonRougeBrowser.onClick.AddListener (TaskonClickBoutonRouge);
 
-//		wrongButton.GetComponent<Button> ();
-//		wrongButton.onClick.AddListener (TaskOnClickForgotFacebook);
+		wrongButton.GetComponent<Button> ();
+		wrongButton.onClick.AddListener (TaskOnClickForgotFacebook);
 
-//		question1Button.GetComponent <Button> ();
-//		question1Button.onClick.AddListener (TaskOnClickQuestionOne);
+		question1Button.GetComponent <Button> ();
+		question1Button.onClick.AddListener (TaskOnClickQuestion1);
 
-//		question3Button.GetComponent <Button> ();
-//		question3Button.onClick.AddListener (TaskOnClickQuestion3);
+		question3Button.GetComponent <Button> ();
+		question3Button.onClick.AddListener (TaskOnClickQuestion3);
 
-//		accueilButton.GetComponent <Button> ();
-//		accueilButton.onClick.AddListener (GS.accueil);
-
+		accueilButton.GetComponent <Button> ();
+		accueilButton.onClick.AddListener (GS.accueil);
 
 		TextMeshPro inputfieldQuestion0 = GetComponent <TextMeshPro> ();
-		TextMeshPro inputfieldQuestionOne = GetComponent <TextMeshPro> ();
+		TextMeshPro inputfieldQuestion1 = GetComponent <TextMeshPro> ();
 		TextMeshPro inputfieldQuestion2 = GetComponent <TextMeshPro> ();
 
-//		iconFb.GetComponent <Button> ();
-//		iconFb.onClick.AddListener (GS.accueil);
-	
+		iconFb.GetComponent <Button> ();
+		iconFb.onClick.AddListener (GS.accueil);
 	}
-		
 
 	void TaskOnClickTrash () 
 	{
@@ -112,12 +105,11 @@ public class ButtonManager: MonoBehaviour {
 			SP.vraiText.SetActive (false);
 			wrongImage.sprite = pasvrai;
 		}
-
 	}
 
-	void TaskOnClickQuestionOne ()
+	void TaskOnClickQuestion1 ()
 	{
-		if ((reponseQuestion1 == inputfieldQuestionOne.text) || (reponseQuestion1a == inputfieldQuestionOne.text)) 
+		if ((reponseQuestion1 == inputfieldQuestion1.text) || (reponseQuestion1a == inputfieldQuestion1.text))
 		{
 			Debug.Log ("bonne réponse");
 			question1Image.sprite = vrai;
@@ -127,15 +119,14 @@ public class ButtonManager: MonoBehaviour {
 			question1Image.sprite = pasvrai;
 		}
 
-		if (easter == inputfieldQuestionOne.text) {
+		if (easter == inputfieldQuestion1.text) {
 			pablo.SetActive (true);
-
 		}
 	}
 
 	void TaskOnClickQuestion3 ()
 	{
-		if (reponseQuestion3 == inputfieldQuestion3.text) {
+		if ((reponseQuestion3 == inputfieldQuestion3.text) || (reponseQuestion3a == inputfieldQuestion3.text)) {
 			question3Image.sprite = vrai;
 			SP.bouttonfinal.SetActive (true);
 		} else {
@@ -146,6 +137,20 @@ public class ButtonManager: MonoBehaviour {
 	public void ClearContent ()
 	{
 		inputfieldWrongText.text = "";
-		inputfieldQuestionOne.text = "";
+		inputfieldQuestion1.text = "";
 	}
+
+	public void bouttonRouge () {
+
+		SP.facebookCanvas.SetActive (false);
+		SP.messengerTemplate.SetActive (false);
+		SP.notifSo.SetActive (false);
+		SP.notifCass.SetActive (false);
+		SP.pageProfilTemplate.SetActive (false);
+		SP.newsFeedTemplate.SetActive (false);
+		SP.mesAmisTemplate.SetActive (false);
+		SP.messengerFix.SetActive (false);
+		SP.passwordTemplate.SetActive (false);
+	}
+
 }

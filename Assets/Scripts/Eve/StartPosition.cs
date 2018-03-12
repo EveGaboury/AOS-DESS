@@ -4,8 +4,6 @@ using UnityEngine.UI;
 
 public class StartPosition : MonoBehaviour {
 
-
-
 	//gamobjects commun
 	public GameObject switchSessionCanvas;
 	public GameObject blocNoteCanvas;
@@ -16,7 +14,7 @@ public class StartPosition : MonoBehaviour {
 	public GameObject browserCanvas;
 	public GameObject notFound;
 	public GameObject shortCut;
-
+	public GameObject shortCutFacebook;
 
 	//facebook
 	public GameObject facebookConnexion;
@@ -41,8 +39,27 @@ public class StartPosition : MonoBehaviour {
 	public GameObject toggleNotifSo;
 	public GameObject toggleNotifCass;
 
+	//facebook scriptable
+	public GameObject profilCassScriptable;
+	public GameObject profilSoScriptable;
+	public GameObject profilAdrienScriptable;
+	public GameObject profilYannScriptable;
+	public GameObject profilHugoScriptable;
+	public GameObject profilMarieEveScriptable;
 
 
+
+	//facebook page newsfeed
+	public GameObject pageNewFeedTemplate;
+	public GameObject profilYann;
+	public GameObject profilMarieEve2;
+	public GameObject profilMarieEve1;
+	public GameObject profilHugo2;
+	public GameObject profilHugo1;
+	public GameObject profilAdrien2;
+	public GameObject profilAdrien1;
+	public GameObject profilSophie;
+	public GameObject profilCass;
 
 	//facebook mot de passe oublie
 	public GameObject questionOne;
@@ -52,21 +69,19 @@ public class StartPosition : MonoBehaviour {
 	public GameObject question3;
 	public GameObject bouttonfinal;
 
-
 	//facebook messenger
 	public GameObject messengerTemplate;
 	public GameObject messengerFix;
 	public GameObject messCass;
 	public GameObject messSo;
+	public GameObject fond;
 
 	//facebook Amis
 	public GameObject mesAmisTemplate;
 	public GameObject mesAmisFix;
 
-
 	//gmail
 	public GameObject gmailCanvas;
-
 
 	// gameobjects Sophie
 	public GameObject desktopImageSophie;
@@ -75,12 +90,14 @@ public class StartPosition : MonoBehaviour {
 	public GameObject memoWord;
 	public GameObject itunes;
 
-
 	//gameobjects Cass
-
 	public GameObject folderTrashCass;
 	public GameObject fenetreFolderCass;
 	public GameObject sessionCass;
+
+	public GameObject avisDeces;
+	public GameObject shortCutDeces;
+
 
 	void Start () 
 	{
@@ -88,6 +105,8 @@ public class StartPosition : MonoBehaviour {
 		blocNoteCanvas.SetActive (true);
 		fenetrePoireCanvas.SetActive (false);
 		elementsCommun.SetActive (true);
+
+		shortCutFacebook.SetActive (false);
 
 		browserCanvas.SetActive (false);
 		notFound.SetActive (false);
@@ -101,6 +120,17 @@ public class StartPosition : MonoBehaviour {
 //		buttonHeaderSophie.SetActive (false);
 //		notifSo.SetActive (false);
 //		notifCass.SetActive (false);
+
+		pageNewFeedTemplate.SetActive (false);
+		profilYann.SetActive (false);
+		profilMarieEve2.SetActive (false);
+		profilMarieEve1.SetActive (false);
+		profilHugo2.SetActive (false);
+		profilHugo1.SetActive (false);
+		profilAdrien2.SetActive (false);
+		profilAdrien1.SetActive (false);
+		profilSophie.SetActive (false);
+		profilCass.SetActive (false);
 
 		questionOne.SetActive (false);
 //		question2.SetActive (false);
@@ -123,7 +153,6 @@ public class StartPosition : MonoBehaviour {
 //		buttonHeaderCass.SetActive (false);
 		passwordTemplate.SetActive (false);
 
-
 		folderTrashCass.SetActive (false);
 		fenetreFolderCass.SetActive (false);
 		sessionCass.SetActive (false);
@@ -135,6 +164,8 @@ public class StartPosition : MonoBehaviour {
 
 		gmailCanvas.SetActive (false);
 
+		avisDeces.SetActive (false);
+		shortCutDeces.SetActive (false);
 	}
 }
 
