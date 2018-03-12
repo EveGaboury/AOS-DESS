@@ -41,7 +41,7 @@ public class ObjectDraggableSlot : MonoBehaviour, IDropHandler
 				//	Debug.Log("Ceci est le texte: " + tri.captionText.text + " .Contenu dans l'objet: " + tri.gameObject.name);
 
 
-					tri.transform.SetParent(transform);
+//					tri.transform.SetParent(transform);
 
 					if (tri.GetComponent<Image> ()) 
 					{
@@ -51,6 +51,7 @@ public class ObjectDraggableSlot : MonoBehaviour, IDropHandler
 						dataInstanceIMAGE.GetComponent<Transform> ().localScale = new Vector2(tri.ScaleX, tri.ScaleY);
 						dataInstanceIMAGE.tag= "Untagged";
 
+						tri.transform.SetParent(transform);
 						tri.captionText.text = tri.newCaption;
 						tri.GetComponent<Selectable> ().enabled = false;
 						tri.tag = "NotToBeDeleted";
@@ -64,13 +65,13 @@ public class ObjectDraggableSlot : MonoBehaviour, IDropHandler
 					else if(tri.GetComponent<TextMeshProUGUI> ())
 					{
 						DraggableObject dataInstanceTEXT = Instantiate (tri, Vector3.zero, Quaternion.identity); //Transform.Parent
-						dataInstanceTEXT.GetComponent<Transform> ().SetParent (dataInstanceTEXT.startParent);
+						dataInstanceTEXT.GetComponent<Transform> ().SetParent (transform/*dataInstanceTEXT.startParent*/);
 						dataInstanceTEXT.GetComponent<Transform> ().localPosition = new Vector2 (tri.PosX, tri.PosY);
 						dataInstanceTEXT.GetComponent<Transform> ().localScale = new Vector2(tri.ScaleX, tri.ScaleY);
-						dataInstanceTEXT.tag= "Untagged";
-
-						tri.GetComponent<HighlightableText> ().intialText = newText [i];
-						tri.tag = "NotToBeDeleted";
+						dataInstanceTEXT.tag= "NotToBeDeleted";
+						dataInstanceTEXT.gameObject.GetComponent<HighlightableText> ().intialText = newText [i];
+//						tri.GetComponent<HighlightableText> ().intialText = newText [i];
+//						tri.tag = "NotToBeDeleted";
 
 						dataInstanceTEXT.enabled = false;
 						dataInstanceTEXT.GetComponent<HighlightableText>().highlighted = dataInstanceTEXT.GetComponent<HighlightableText>().startingColor;
