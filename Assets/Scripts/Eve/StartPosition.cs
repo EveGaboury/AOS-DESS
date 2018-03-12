@@ -77,7 +77,8 @@ public class StartPosition : MonoBehaviour {
 	public GameObject messengerFix;
 	public GameObject messCass;
 	public GameObject messSo;
-	public GameObject fond;
+	public GameObject fixCass;
+	public GameObject fixSo;
 
 	//facebook Amis
 	public GameObject mesAmisTemplate;
@@ -147,6 +148,8 @@ public class StartPosition : MonoBehaviour {
 
 		messengerTemplate.SetActive (false);
 		messengerFix.SetActive (false);
+		fixCass.SetActive (false);
+		fixSo.SetActive (false);
 
 		mesAmisTemplate.SetActive (false);
 		mesAmisFix.SetActive (false);

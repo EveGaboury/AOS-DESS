@@ -112,7 +112,6 @@ public class GameState : MonoBehaviour {
 
 		SP.messengerTemplate.SetActive (true);
 		SP.messengerFix.SetActive (true);
-		SP.fond.SetActive (true);
 
 		SP.pageProfilTemplate.SetActive (false);
 		SP.newsFeedTemplate.SetActive (false);
@@ -132,9 +131,11 @@ public class GameState : MonoBehaviour {
 		if (soOpenFacebook) {
 			SP.messSo.SetActive (true);
 			SP.messCass.SetActive (false);
+			SP.fixSo.SetActive (true);
 		} else {
 			SP.messSo.SetActive (false);
 			SP.messCass.SetActive (true);
+			SP.fixCass.SetActive (true);
 		}
 	}
 
