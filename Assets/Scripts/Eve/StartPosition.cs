@@ -4,8 +4,6 @@ using UnityEngine.UI;
 
 public class StartPosition : MonoBehaviour {
 
-
-
 	//gamobjects commun
 	public GameObject switchSessionCanvas;
 	public GameObject blocNoteCanvas;
@@ -16,7 +14,6 @@ public class StartPosition : MonoBehaviour {
 	public GameObject browserCanvas;
 	public GameObject notFound;
 	public GameObject shortCut;
-
 
 	//facebook
 	public GameObject facebookConnexion;
@@ -41,8 +38,17 @@ public class StartPosition : MonoBehaviour {
 	public GameObject toggleNotifSo;
 	public GameObject toggleNotifCass;
 
-
-
+	//facebook page newsfeed
+	public GameObject pageNewFeed;
+	public GameObject profilYann;
+	public GameObject profilMarieEve2;
+	public GameObject profilMarieEve1;
+	public GameObject profilHugo2;
+	public GameObject profilHugo1;
+	public GameObject profilAdrien2;
+	public GameObject profilAdrien1;
+	public GameObject profilSophie;
+	public GameObject profilCass;
 
 	//facebook mot de passe oublie
 	public GameObject questionOne;
@@ -51,7 +57,6 @@ public class StartPosition : MonoBehaviour {
 	public GameObject vraiText;
 	public GameObject question3;
 	public GameObject bouttonfinal;
-
 
 	//facebook messenger
 	public GameObject messengerTemplate;
@@ -63,10 +68,8 @@ public class StartPosition : MonoBehaviour {
 	public GameObject mesAmisTemplate;
 	public GameObject mesAmisFix;
 
-
 	//gmail
 	public GameObject gmailCanvas;
-
 
 	// gameobjects Sophie
 	public GameObject desktopImageSophie;
@@ -75,9 +78,7 @@ public class StartPosition : MonoBehaviour {
 	public GameObject memoWord;
 	public GameObject itunes;
 
-
 	//gameobjects Cass
-
 	public GameObject folderTrashCass;
 	public GameObject fenetreFolderCass;
 	public GameObject sessionCass;
@@ -101,6 +102,10 @@ public class StartPosition : MonoBehaviour {
 		buttonHeaderSophie.SetActive (false);
 		notifSo.SetActive (false);
 		notifCass.SetActive (false);
+
+		pageNewFeed.SetActive (false);
+
+
 
 		questionOne.SetActive (false);
 		question2.SetActive (false);
