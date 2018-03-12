@@ -14,8 +14,7 @@ public class EmailFb : MonoBehaviour {
 
 	public Button connexion;
 
-	private string reponseCorrecte = "sophie", responseCorrecte2 = "Sophie";
-	private string reponserCorrecte2 = "Sophie.baillargeon@gmail.com";
+	private string reponseCorrecte = "sophie.baillargeon@courriel.ca";
 	private string passwordCorrect = "cool";
 
 	public StartPosition SP;
@@ -47,12 +46,14 @@ public class EmailFb : MonoBehaviour {
 			SP.wrongPassword.SetActive (true);
 		}
 		
-		if (email.text == reponseCorrecte || email.text == responseCorrecte2) 
+		if (email.text == reponseCorrecte) 
 		{
 			if (password.text == passwordCorrect)
 			{
 				//accesFB ();
+				GS.SoFacebookIsOpen();
 				GS.accueil ();
+				SP.shortCutSophieFB.SetActive (true);
 
 			} 
 		}
