@@ -62,6 +62,7 @@ public class GameState : MonoBehaviour {
 		SP.facebookConnexion.SetActive (false);
 		SP.facebookHeader.SetActive (true);
 		SP.passwordTemplate.SetActive (false);
+		SP.rechercheTemplate.SetActive (false);
 
 		SP.pageNewFeedTemplate.SetActive (false);
 		SP.profilYann.SetActive (false);
@@ -94,9 +95,11 @@ public class GameState : MonoBehaviour {
 
 	public void mesAmis ()
 	{
+		SP.newsFeedTemplate.SetActive (false);
 		SP.NFCass.SetActive (false);
 		SP.NFSo.SetActive (false);
 		SP.mesAmisFix.SetActive (false);
+		SP.rechercheTemplate.SetActive (false);
 
 
 		SP.mesAmisTemplate.SetActive (true);
@@ -114,6 +117,7 @@ public class GameState : MonoBehaviour {
 		SP.messengerTemplate.SetActive (true);
 		SP.messengerFix.SetActive (true);
 
+		SP.rechercheTemplate.SetActive (false);
 		SP.pageProfilTemplate.SetActive (false);
 		SP.newsFeedTemplate.SetActive (false);
 		SP.mesAmisFix.SetActive (false);
@@ -188,6 +192,7 @@ public class GameState : MonoBehaviour {
 		SP.messengerFix.SetActive (false);
 		SP.mesAmisFix.SetActive (false);
 		SP.notifSo.SetActive (false);
+		SP.rechercheTemplate.SetActive (false);
 	}
 
 	public void BoutonCass () 
@@ -221,6 +226,7 @@ public class GameState : MonoBehaviour {
 		SP.messengerFix.SetActive (false);
 		SP.mesAmisFix.SetActive (false);
 		SP.notifSo.SetActive (false);
+		SP.rechercheTemplate.SetActive (false);
 	}
 
 	public void BoutonAdrien ()
@@ -291,6 +297,7 @@ public class GameState : MonoBehaviour {
 			SP.messengerFix.SetActive (false);
 			SP.mesAmisFix.SetActive (false);
 			SP.notifSo.SetActive (false);
+			SP.rechercheTemplate.SetActive (false);
 
 			if (soOpenFacebook){
 				SP.profilHugo1.SetActive (true);
@@ -330,6 +337,7 @@ public class GameState : MonoBehaviour {
 		SP.messengerFix.SetActive (false);
 		SP.mesAmisFix.SetActive (false);
 		SP.notifSo.SetActive (false);
+		SP.rechercheTemplate.SetActive (false);
 
 		if (soOpenFacebook){
 			SP.profilMarieEve1.SetActive (true);
@@ -371,6 +379,7 @@ public class GameState : MonoBehaviour {
 		SP.messengerFix.SetActive (false);
 		SP.mesAmisFix.SetActive (false);
 		SP.notifSo.SetActive (false);
+		SP.rechercheTemplate.SetActive (false);
 
 	}
 

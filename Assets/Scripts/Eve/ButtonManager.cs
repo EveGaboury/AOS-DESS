@@ -151,6 +151,8 @@ public class ButtonManager: MonoBehaviour {
 		SP.mesAmisTemplate.SetActive (false);
 		SP.messengerFix.SetActive (false);
 		SP.passwordTemplate.SetActive (false);
+		SP.fixCass.SetActive (false);
+		SP.fixSo.SetActive (false);
 	}
 
 }
