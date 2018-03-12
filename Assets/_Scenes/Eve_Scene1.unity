@@ -155,7 +155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000015258789, y: 0.000030517578}
+  m_AnchoredPosition: {x: -0.000045776367, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &8187536
@@ -4256,6 +4256,10 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1891652112509494, guid: 06d39ddc6480a6e459028d3d5b5a5649, type: 2}
+      propertyPath: m_Name
+      value: RechercheTemplate
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114165779628041002, guid: 06d39ddc6480a6e459028d3d5b5a5649, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 06d39ddc6480a6e459028d3d5b5a5649, type: 2}
@@ -8192,7 +8196,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000054001808, y: -0.0000054836273}
+  m_AnchoredPosition: {x: -0.00008332729, y: -0.0000054836273}
   m_SizeDelta: {x: -12.51, y: -44.61}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &479529829
@@ -8511,7 +8515,7 @@ GameObject:
   - component: {fileID: 497563913}
   - component: {fileID: 497563914}
   m_Layer: 0
-  m_Name: PageNewFeed
+  m_Name: PageNewFeedTemplate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11944,7 +11948,7 @@ MonoBehaviour:
   profilYannScriptable: {fileID: 1972392374}
   profilHugoScriptable: {fileID: 1778819076}
   profilMarieEveScriptable: {fileID: 879780299}
-  pageNewFeed: {fileID: 497563911}
+  pageNewFeedTemplate: {fileID: 497563911}
   profilYann: {fileID: 161088299}
   profilMarieEve2: {fileID: 508603253}
   profilMarieEve1: {fileID: 242005526}
@@ -16740,94 +16744,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 332301905}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1693702779}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 99089854}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 710244215}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1288766133}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 738213776}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 855527019}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2070676004}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2022635861}
         m_MethodName: SetActive
         m_Mode: 6
@@ -16841,6 +16757,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 678657569}
         m_MethodName: Start
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 678657567}
+        m_MethodName: InputFieldSearch
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18336,8 +18263,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 87179595}
   m_HandleRect: {fileID: 87179594}
   m_Direction: 2
-  m_Value: 0.9999997
-  m_Size: 0.35941654
+  m_Value: 0.99999946
+  m_Size: 0.35941657
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -29753,7 +29680,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000019073486, y: -99.91495}
+  m_AnchoredPosition: {x: -0.000017166138, y: -99.91495}
   m_SizeDelta: {x: 214.84, y: 311.95}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1560595059
@@ -31670,7 +31597,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1455757049}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

@@ -49,7 +49,7 @@ public class StartPosition : MonoBehaviour {
 
 
 	//facebook page newsfeed
-	public GameObject pageNewFeed;
+	public GameObject pageNewFeedTemplate;
 	public GameObject profilYann;
 	public GameObject profilMarieEve2;
 	public GameObject profilMarieEve1;
@@ -114,7 +114,7 @@ public class StartPosition : MonoBehaviour {
 		notifSo.SetActive (false);
 		notifCass.SetActive (false);
 
-		pageNewFeed.SetActive (false);
+		pageNewFeedTemplate.SetActive (false);
 		profilYann.SetActive (false);
 		profilMarieEve2.SetActive (false);
 		profilMarieEve1.SetActive (false);

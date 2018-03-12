@@ -54,7 +54,7 @@ public class GameState : MonoBehaviour {
 		SP.facebookHeader.SetActive (true);
 		SP.passwordTemplate.SetActive (false);
 
-		SP.pageNewFeed.SetActive (false);
+		SP.pageNewFeedTemplate.SetActive (false);
 		SP.profilYann.SetActive (false);
 		SP.profilMarieEve2.SetActive (false);
 		SP.profilMarieEve1.SetActive (false);
@@ -109,7 +109,7 @@ public class GameState : MonoBehaviour {
 		SP.newsFeedTemplate.SetActive (false);
 		SP.mesAmisFix.SetActive (false);
 
-		SP.pageNewFeed.SetActive (false);
+		SP.pageNewFeedTemplate.SetActive (false);
 		SP.profilYann.SetActive (false);
 		SP.profilMarieEve2.SetActive (false);
 		SP.profilMarieEve1.SetActive (false);
@@ -133,7 +133,7 @@ public class GameState : MonoBehaviour {
 	{
 		SP.pageProfilTemplate.SetActive (true);
 		SP.facebookInfoScriptable.SetActive (true);
-		SP.pageNewFeed.SetActive (true);
+		SP.pageNewFeedTemplate.SetActive (true);
 		SP.profilSophie.SetActive (true);
 
 		SP.profilSoScriptable.SetActive (true);
@@ -150,7 +150,7 @@ public class GameState : MonoBehaviour {
 	{
 		SP.pageProfilTemplate.SetActive (true);
 		SP.facebookInfoScriptable.SetActive (true);
-		SP.pageNewFeed.SetActive (true);
+		SP.pageNewFeedTemplate.SetActive (true);
 		SP.profilCass.SetActive (true);
 
 		SP.profilSoScriptable.SetActive (false);
@@ -161,6 +161,22 @@ public class GameState : MonoBehaviour {
 		SP.messengerFix.SetActive (false);
 		SP.mesAmisFix.SetActive (false);
 		SP.notifSo.SetActive (false);
+	}
+
+	public void InputFieldSearch () {
+		
+		SP.rechercheTemplate.SetActive (true);
+
+		SP.pageNewFeedTemplate.SetActive (false);
+		SP.messengerTemplate.SetActive (false);
+		SP.pageProfilTemplate.SetActive (false);
+		SP.newsFeedTemplate.SetActive (false);
+		SP.mesAmisTemplate.SetActive (false);
+		SP.passwordTemplate.SetActive (false);
+		SP.facebookConnInPage.SetActive (false);
+		SP.mesAmisFix.SetActive (false);
+		SP.messengerFix.SetActive (false);
+	
 	}
 
 		
