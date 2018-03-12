@@ -32,7 +32,7 @@ public class SearchEngine: MonoBehaviour
     {
 
 		//mettre ça dans une fonction pour déterminer quel est l'engin en train d'être chercher
-		if (searchBar.text == "facebook.com") 
+		if (searchBar.text == "www.tonlivre.com") 
 		{
 			Debug.Log ("facebook is correct");
 			SP.facebookCanvas.SetActive (true);
@@ -42,6 +42,7 @@ public class SearchEngine: MonoBehaviour
 			SP.pageProfilTemplate.SetActive (false);
 			SP.buttonHeaderCass.SetActive (false);
 			SP.passwordTemplate.SetActive (false);
+			SP.shortCutFacebook.SetActive (true);
 
 		} 
 		else 
@@ -53,14 +54,21 @@ public class SearchEngine: MonoBehaviour
 		}
 
 
-		if (searchBar.text == "google.com") {
+		if (searchBar.text == "www.google.com") {
 			Debug.Log ("google is correct");
 			SP.shortCut.SetActive (true);
 			SP.notFound.SetActive (false);
 		} else
 			SP.shortCut.SetActive (false);
 
-
+		if (searchBar.text == "www.avis-deces-cassandra-royer.fr") {
+			Debug.Log ("avis is correct");
+			SP.avisDeces.SetActive (true);
+			SP.notFound.SetActive (false);
+			SP.shortCutDeces.SetActive (true);
+		} else
+			SP.notFound.SetActive (true);
+		
     }
 
 //    public  void SearchYoutube()

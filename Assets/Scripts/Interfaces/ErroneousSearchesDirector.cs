@@ -8,6 +8,10 @@ using UnityEngine.UI;
 
 public class ErroneousSearchesDirector : MonoBehaviour 
 {
+	
+	public Button fredButton;
+	public Button adrienButton;
+
 	public Image[] portraitsToBeDisplayed;
 
 	public TMP_InputField searchBar;
@@ -17,6 +21,8 @@ public class ErroneousSearchesDirector : MonoBehaviour
 	RepositoryOfFakeNames retrieveData;
 
 	Transform wrongSearchResults;
+
+	public bool adrien=false, frederic=false;
 
 	char[] verification = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
 						   'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
@@ -29,7 +35,7 @@ public class ErroneousSearchesDirector : MonoBehaviour
 //		this.gameObject.GetComponentInParent<Transform>().transform.parent.gameObject.GetComponentInParent<Transform>().parent.gameObject.GetComponentInChildren<TMP_InputField>().text;
 //		Debug.Log (this.gameObject.GetComponentInParent<Transform>().transform.parent.gameObject.GetComponentInParent<Transform>().parent.gameObject.GetComponentInChildren<TMP_InputField>().text);
 	}
-
+		
 	public void SortInputedData (string userSearch) 
 	{
 		userSearch = searchBar.GetComponent<TMP_InputField> ().text;
@@ -40,14 +46,14 @@ public class ErroneousSearchesDirector : MonoBehaviour
 		{
 			Debug.Log ("minuscules: " + firstLetter);
 			BringWrongSearchResultsPanel(firstLetter);
-			RetrieveAllImages ();
+//			RetrieveAllImages ();
 
 		}
 		else if( firstLetter<= verification[51] && firstLetter >= verification[26])
 		{
 			Debug.Log ("MAJUSCULES: " + firstLetter);
 			BringWrongSearchResultsPanel (firstLetter);
-			RetrieveAllImages ();
+//			RetrieveAllImages ();
 		}
 		else
 		{
@@ -80,6 +86,10 @@ public class ErroneousSearchesDirector : MonoBehaviour
 				//AAAAAAA
 				if ((test == verification [0]) || (test == verification [26]))
 				{
+					adrien = true;
+					Debug.Log (adrien);
+					adrienButton.GetComponent<Button> ().enabled = true;
+
 					textDisplay [i].GetComponentInChildren<TextMeshProUGUI> ().text = retrieveData.A_Prenoms [i].ToString ();
 				}
 				//BBBBBB
@@ -105,7 +115,11 @@ public class ErroneousSearchesDirector : MonoBehaviour
 				//FFFFF
 				if((test == verification[5]) || (test == verification[31]))
 				{
+					frederic = true;
+					fredButton.GetComponent<Button> ().enabled = true;
+		
 					textDisplay [i].GetComponent<TextMeshProUGUI> ().text = retrieveData.F_Prenoms[i].ToString();
+
 				}
 				//GGGGGGG
 				if((test == verification[6]) || (test == verification[32]))
@@ -221,7 +235,7 @@ public class ErroneousSearchesDirector : MonoBehaviour
 //						}
 //					}
 //IMPORTANT PERMET PEUT ETRE D AGILISER TOUT LE BASTRINGUE >>>>>>>>>>>>>>>>>>>>>>>>>
-
+		RetrieveAllImages();
 	}
 
 	void RetrieveAllImages()
@@ -233,12 +247,35 @@ public class ErroneousSearchesDirector : MonoBehaviour
 		foreach (Image img in imagePosition)
 		{
 			for (int i = 0; i < imagePosition.Length; i++) 
-			{				
-//				imagePosition[i].GetComponent<Image>().sprite = retrieveData.photoProfil[i];				
-				if (imagePosition [i].GetComponent<Image> ().sprite == null) 
+			{	
+
+				if (adrien == false) 
 				{
-					imagePosition [i].GetComponent<Image> ().sprite = retrieveData.photoProfil [Random.Range (0, retrieveData.photoProfil.Length)];
+				
+					if (frederic == false)
+						imagePosition [i].GetComponent<Image> ().sprite = retrieveData.photoProfil [i];
+					if (frederic == true) {
+						imagePosition[0].GetComponent<Image>().sprite = retrieveData.photoProfil[6];
+						imagePosition[1].GetComponent<Image>().sprite = retrieveData.photoProfil[0];
+						imagePosition[2].GetComponent<Image>().sprite = retrieveData.photoProfil[1];
+						imagePosition[3].GetComponent<Image>().sprite = retrieveData.photoProfil[2];
+						imagePosition[4].GetComponent<Image>().sprite = retrieveData.photoProfil[3];
+					}
 				}
+					
+				if (adrien == true) {
+					imagePosition [0].GetComponent<Image> ().sprite = retrieveData.photoProfil [5];
+					imagePosition [1].GetComponent<Image> ().sprite = retrieveData.photoProfil [0];
+					imagePosition [2].GetComponent<Image> ().sprite = retrieveData.photoProfil [1];
+					imagePosition [3].GetComponent<Image> ().sprite = retrieveData.photoProfil [2];
+					imagePosition [4].GetComponent<Image> ().sprite = retrieveData.photoProfil [3];
+				}
+		
+				//imagePosition[i].GetComponent<Image>().sprite = retrieveData.photoProfil[i];				
+//				if (imagePosition [i].GetComponent<Image> ().sprite == null) 
+//				{
+//					imagePosition [i].GetComponent<Image> ().sprite = retrieveData.photoProfil [Random.Range (0, retrieveData.photoProfil.Length)];
+//				}
 //				else if (imagePosition [i].GetComponent<Image> ().sprite != null)
 //				{
 //					if (imagePosition [i].GetComponent<Image> ().sprite.name == retrieveData.profilePhotos[i].name)
@@ -248,6 +285,10 @@ public class ErroneousSearchesDirector : MonoBehaviour
 //				}
 			}
 		}
+
+		adrien = false;
+		frederic = false;
+
 	}
 
 	void OnDisable()
@@ -256,4 +297,11 @@ public class ErroneousSearchesDirector : MonoBehaviour
 		this.gameObject.SetActive (false);
 		searchBar.GetComponent<TMP_InputField> ().text = "";
 	}
+
+//	void Update ()
+//	{
+//		Debug.Log (adrien + "adrien");
+//		Debug.Log (frederic + "frederic");
+//	}
+
 }

@@ -14,6 +14,7 @@ public class StartPosition : MonoBehaviour {
 	public GameObject browserCanvas;
 	public GameObject notFound;
 	public GameObject shortCut;
+	public GameObject shortCutFacebook;
 
 	//facebook
 	public GameObject facebookConnexion;
@@ -94,12 +95,18 @@ public class StartPosition : MonoBehaviour {
 	public GameObject fenetreFolderCass;
 	public GameObject sessionCass;
 
+	public GameObject avisDeces;
+	public GameObject shortCutDeces;
+
+
 	void Start () 
 	{
 		switchSessionCanvas.SetActive (false);
 		blocNoteCanvas.SetActive (true);
 		fenetrePoireCanvas.SetActive (false);
 		elementsCommun.SetActive (true);
+
+		shortCutFacebook.SetActive (false);
 
 		browserCanvas.SetActive (false);
 		notFound.SetActive (false);
@@ -156,6 +163,9 @@ public class StartPosition : MonoBehaviour {
 		itunes.SetActive (false);
 
 		gmailCanvas.SetActive (false);
+
+		avisDeces.SetActive (false);
+		shortCutDeces.SetActive (false);
 	}
 }
 
