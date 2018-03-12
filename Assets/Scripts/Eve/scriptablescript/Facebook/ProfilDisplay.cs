@@ -15,6 +15,8 @@ public class ProfilDisplay : MonoBehaviour {
 	public TextMeshProUGUI name;
 	public TextMeshProUGUI birthDate;
 	public TextMeshProUGUI profession;
+	public TextMeshProUGUI birthplace;
+	public TextMeshProUGUI lifeplace;
 
 
 	public Image picture1;
@@ -35,6 +37,8 @@ public class ProfilDisplay : MonoBehaviour {
 		name.text = F.name;
 		birthDate.text = F.birthDate;
 		profession.text = F.profession;
+		birthplace.text = F.birthplace;
+		lifeplace.text = F.lifeplace;
 
 		picture1.sprite = F.picture1;
 		picture2.sprite = F.picture2;
