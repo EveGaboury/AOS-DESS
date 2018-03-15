@@ -12,6 +12,8 @@ public class ChangeMusic : MonoBehaviour
 	//public Button activatingButton;
 	public AudioClip[] clipList;
 
+	public List<GameObject> testList = new List<GameObject> ();
+
 	AudioSource audioSource;
 	int currentAudioIndex = 0;
 	bool isAudioPlaying;
@@ -31,31 +33,7 @@ public class ChangeMusic : MonoBehaviour
 
 	void Start() 
 	{
-		Component[] displayText;
-
-		displayText = GetComponentsInChildren (typeof(TextMeshProUGUI));
-
-		if (displayText != null)
-		{
-			foreach (TextMeshProUGUI item in displayText)
-			{
-				item.text = "";
-				item.text = item.gameObject.name;
-
-				if (displayText.Length <= clipList.Length) 
-				{
-					Debug.Log ("l'array displayText est de taille: " + displayText.Length + " donc est plus PETIT ou egal a la taille de l'array clipList: " + clipList.Length);
-				} 
-				else 
-				{
-					Debug.Log ("l'array displayText est de taille: " + displayText.Length + " donc est plus GRAND ou egal a la taille de l'array clipList: " + clipList.Length);
-				}
-			}
-		} 
-		else
-		{
-			return;
-		}
+		RetrieveAllButtons ();
 	}
 
 	public void PlayMusicAtIndex(int k)
@@ -108,6 +86,53 @@ public class ChangeMusic : MonoBehaviour
 		{
 			this.gameObject.SetActive (true);
 			Debug.Log (gameObject.name + " is inactive");
+		}
+	}
+
+	void RetrieveAllButtons()
+	{
+		Component[] displayText;
+
+		displayText = GetComponentsInChildren (typeof(TextMeshProUGUI));
+
+		if (displayText != null)
+		{
+			foreach (TextMeshProUGUI item in displayText)
+			{
+				testList.Add (item.gameObject);
+//				Debug.Log (testList.Count);
+
+//				item.text = "";
+//				item.text = item.gameObject.name;
+//
+//				if (displayText.Length <= clipList.Length) 
+//				{
+//					Debug.Log ("l'array displayText est de taille: " + displayText.Length + " donc est plus PETIT ou egal a la taille de l'array clipList: " + clipList.Length);
+//				} 
+//				else 
+//				{
+//					Debug.Log ("l'array displayText est de taille: " + displayText.Length + " donc est plus GRAND ou egal a la taille de l'array clipList: " + clipList.Length);
+//				}
+			}
+		} 
+		else
+		{
+			return;
+		}
+	}
+
+	public void PauseAndUnpauseMusic()
+	{
+		if (audioSource != null) 
+		{
+			if (audioSource.isPlaying) 
+			{
+				audioSource.Pause ();	
+			} 
+			else 
+			{
+				audioSource.UnPause ();
+			}		
 		}
 	}
 }

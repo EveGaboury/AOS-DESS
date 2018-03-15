@@ -113,60 +113,60 @@ public class StartPosition : MonoBehaviour {
 		blocNoteCanvas.SetActive (true);
 		fenetrePoireCanvas.SetActive (false);
 		elementsCommun.SetActive (true);
-		gmailNotif.SetActive (true);
-		photoWindow.SetActive (false);
+//		gmailNotif.SetActive (true);
+//		photoWindow.SetActive (false);
 
-		shortCutFacebook.SetActive (false);
+//		shortCutFacebook.SetActive (false);
 
 		browserCanvas.SetActive (false);
 		notFound.SetActive (false);
 		shortCut.SetActive (false);
 		pageProfilTemplate.SetActive (false);
 		newsFeedTemplate.SetActive (false);
-		rechercheTemplate.SetActive (false);
-		amisTemplate.SetActive (false);
+//		rechercheTemplate.SetActive (false);
+//		amisTemplate.SetActive (false);
 		wrongPassword.SetActive (false);
-		NFCass.SetActive (false);
-		buttonHeaderSophie.SetActive (false);
-		notifSo.SetActive (false);
-		notifCass.SetActive (false);
+//		NFCass.SetActive (false);
+//		buttonHeaderSophie.SetActive (false);
+//		notifSo.SetActive (false);
+//		notifCass.SetActive (false);
 
-		pageNewFeedTemplate.SetActive (false);
-		profilYann.SetActive (false);
-		profilMarieEve2.SetActive (false);
-		profilMarieEve1.SetActive (false);
-		profilHugo2.SetActive (false);
-		profilHugo1.SetActive (false);
-		profilAdrien2.SetActive (false);
-		profilAdrien1.SetActive (false);
-		profilSophie.SetActive (false);
-		profilCass.SetActive (false);
-		profilFred.SetActive (false);
+//		pageNewFeedTemplate.SetActive (false);
+//		profilYann.SetActive (false);
+//		profilMarieEve2.SetActive (false);
+//		profilMarieEve1.SetActive (false);
+//		profilHugo2.SetActive (false);
+//		profilHugo1.SetActive (false);
+//		profilAdrien2.SetActive (false);
+//		profilAdrien1.SetActive (false);
+//		profilSophie.SetActive (false);
+//		profilCass.SetActive (false);
+//		profilFred.SetActive (false);
 
-		shortCutSophieFB.SetActive (false);
-		shortCutCassFB.SetActive (false);
+//		shortCutSophieFB.SetActive (false);
+//		shortCutCassFB.SetActive (false);
 
 		questionOne.SetActive (false);
-		question2.SetActive (false);
-		fauxText.SetActive (false);
-		vraiText.SetActive (false);
-		question3.SetActive (false);
-		bouttonfinal.SetActive (false);
+//		question2.SetActive (false);
+//		fauxText.SetActive (false);
+//		vraiText.SetActive (false);
+//		question3.SetActive (false);
+//		bouttonfinal.SetActive (false);
 
 		messengerTemplate.SetActive (false);
-		messengerFix.SetActive (false);
-		fixCass.SetActive (false);
-		fixSo.SetActive (false);
+//		messengerFix.SetActive (false);
+//		fixCass.SetActive (false);
+//		fixSo.SetActive (false);
 
 		mesAmisTemplate.SetActive (false);
-		mesAmisFix.SetActive (false);
+//		mesAmisFix.SetActive (false);
 
 		facebookConnexion.SetActive (false);
 
 		facebookHeader.SetActive (false);
 		facebookCanvas.SetActive (false);
 		facebookInfoScriptable.SetActive (false);
-		buttonHeaderCass.SetActive (false);
+//		buttonHeaderCass.SetActive (false);
 		passwordTemplate.SetActive (false);
 
 		folderTrashCass.SetActive (false);
@@ -175,14 +175,12 @@ public class StartPosition : MonoBehaviour {
 
 		folderTrashSophie.SetActive (false);
 		fenetreFolderSo.SetActive (false);
-		memoWord.SetActive (false);
-		itunes.SetActive (false);
+//		memoWord.SetActive (false);
+//		itunes.SetActive (false);
 
 		gmailCanvas.SetActive (false);
 
-		avisDeces.SetActive (false);
-		shortCutDeces.SetActive (false);
+//		avisDeces.SetActive (false);
+//		shortCutDeces.SetActive (false);
 	}
 }
-
-
