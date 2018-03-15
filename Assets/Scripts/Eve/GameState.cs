@@ -19,6 +19,7 @@ public class GameState : MonoBehaviour {
 	public GameObject ButtonFBSophie;
 	public bool soOpenFacebook = false;
 
+
 	
 	void Update (){	
 
@@ -48,7 +49,39 @@ public class GameState : MonoBehaviour {
 
 	public void SoFacebookIsClosed () {
 		soOpenFacebook = false;
-	}	
+	}
+
+
+	public void bouttonRouge () {
+
+		SP.facebookCanvas.SetActive (false);
+		SP.messengerTemplate.SetActive (false);
+		SP.notifSo.SetActive (false);
+		SP.notifCass.SetActive (false);
+		SP.pageProfilTemplate.SetActive (false);
+		SP.newsFeedTemplate.SetActive (false);
+		SP.mesAmisTemplate.SetActive (false);
+		SP.messengerFix.SetActive (false);
+		SP.passwordTemplate.SetActive (false);
+		SP.fixCass.SetActive (false);
+		SP.fixSo.SetActive (false);
+		SP.pageNewFeedTemplate.SetActive (false);
+
+
+		SP.profilYann.SetActive (false);
+		SP.profilMarieEve2.SetActive (false);
+		SP.profilMarieEve1.SetActive (false);
+		SP.profilHugo2.SetActive (false);
+		SP.profilHugo1.SetActive (false);
+		SP.profilAdrien2.SetActive (false);
+		SP.profilAdrien1.SetActive (false);
+		SP.profilSophie.SetActive (false);
+		SP.profilCass.SetActive (false);
+		SP.profilFred.SetActive (false);
+
+
+
+	}
 
 	public void accueil ()
 	{
@@ -112,6 +145,35 @@ public class GameState : MonoBehaviour {
 		}
 	}
 
+	public void Deconnection ()
+	{
+		SP.facebookConnexion.SetActive (true);
+		SP.facebookHeader.SetActive (false);
+		SP.pageNewFeedTemplate.SetActive (false);
+		SP.fixSo.SetActive (false);
+		SP.fixCass.SetActive (false);
+		SP.rechercheTemplate.SetActive (false);
+		SP.notifCass.SetActive (false);
+		SP.notifSo.SetActive (false);
+		SP.pageProfilTemplate.SetActive (false);
+		SP.newsFeedTemplate.SetActive (false);
+		SP.messengerFix.SetActive (false);
+		SP.messengerTemplate.SetActive (false);
+		SP.wrongPassword.SetActive (false);
+		SP.mesAmisTemplate.SetActive (false);
+		SP.notifSo.SetActive (false);
+		SP.notifCass.SetActive (false);
+		SP.mesAmisFix.SetActive (false);
+		SP.facebookConnInPage.SetActive (true);
+
+
+		BM.toggleNotifCass.isOn = false;
+		BM.toggleNotifSo.isOn = false;
+
+
+	}
+
+
 	public void Messenger () {
 
 		SP.messengerTemplate.SetActive (true);
@@ -144,6 +206,17 @@ public class GameState : MonoBehaviour {
 			SP.fixCass.SetActive (true);
 		}
 	}
+
+	public void shortCutFacebook () {
+
+		SP.facebookCanvas.SetActive (true);
+		SP.facebookConnexion.SetActive (true);
+		SP.mesAmisFix.SetActive (false);
+		SP.facebookConnInPage.SetActive (true);
+
+
+	}
+
 
 	public void InputFieldSearch () {
 

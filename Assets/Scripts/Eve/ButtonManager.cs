@@ -47,6 +47,11 @@ public class ButtonManager: MonoBehaviour {
 	public Button iconFb;
 
 
+	public Toggle toggleNotifCass;
+	public Toggle toggleNotifSo;
+
+
+
 	void Start () 
 	{
 
@@ -139,20 +144,4 @@ public class ButtonManager: MonoBehaviour {
 		inputfieldWrongText.text = "";
 		inputfieldQuestion1.text = "";
 	}
-
-	public void bouttonRouge () {
-
-		SP.facebookCanvas.SetActive (false);
-		SP.messengerTemplate.SetActive (false);
-		SP.notifSo.SetActive (false);
-		SP.notifCass.SetActive (false);
-		SP.pageProfilTemplate.SetActive (false);
-		SP.newsFeedTemplate.SetActive (false);
-		SP.mesAmisTemplate.SetActive (false);
-		SP.messengerFix.SetActive (false);
-		SP.passwordTemplate.SetActive (false);
-		SP.fixCass.SetActive (false);
-		SP.fixSo.SetActive (false);
-	}
-
 }
