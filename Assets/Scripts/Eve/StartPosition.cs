@@ -143,6 +143,7 @@ public class StartPosition : MonoBehaviour {
 		profilCass.SetActive (false);
 		profilFred.SetActive (false);
 
+		facebookConnInPage.SetActive (false);
 		shortCutSophieFB.SetActive (false);
 		shortCutCassFB.SetActive (false);
 
