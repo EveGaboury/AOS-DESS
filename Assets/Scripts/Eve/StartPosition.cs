@@ -96,6 +96,7 @@ public class StartPosition : MonoBehaviour {
 	public GameObject fenetreFolderSo;
 	public GameObject memoWord;
 	public GameObject itunes;
+	public GameObject sessionSo;
 
 	//gameobjects Cass
 	public GameObject folderTrashCass;

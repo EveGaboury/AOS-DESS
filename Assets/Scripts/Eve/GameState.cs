@@ -51,7 +51,21 @@ public class GameState : MonoBehaviour {
 		soOpenFacebook = false;
 	}
 
+	public void ChangerSessionButton () {
 
+		SP.switchSessionCanvas.SetActive (true);
+		SP.fenetrePoireCanvas.SetActive (false);
+		SP.blocNoteCanvas.SetActive (false);
+		SP.sessionCass.SetActive (false);
+		SP.sessionSo.SetActive (false);
+
+
+
+	}
+
+
+
+	//boutonRouge du Browser
 	public void bouttonRouge () {
 
 		SP.facebookCanvas.SetActive (false);
@@ -83,6 +97,7 @@ public class GameState : MonoBehaviour {
 
 	}
 
+	//accueil de TonLivre
 	public void accueil ()
 	{
 		SP.pageProfilTemplate.SetActive (false);
@@ -126,6 +141,7 @@ public class GameState : MonoBehaviour {
 		}
 	}
 
+	//mesAmis de TonLivre
 	public void mesAmis ()
 	{
 		SP.newsFeedTemplate.SetActive (false);
