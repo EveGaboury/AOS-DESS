@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class StartPosition : MonoBehaviour {
 
 	//gamobjects commun
+	public GameObject desktopCanvas;
 	public GameObject switchSessionCanvas;
 	public GameObject blocNoteCanvas;
 	public GameObject fenetrePoireCanvas;
@@ -102,6 +103,7 @@ public class StartPosition : MonoBehaviour {
 	public GameObject folderTrashCass;
 	public GameObject fenetreFolderCass;
 	public GameObject sessionCass;
+
 
 	//avis deces
 	public GameObject avisDeces;

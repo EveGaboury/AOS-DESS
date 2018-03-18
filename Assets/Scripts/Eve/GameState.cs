@@ -58,12 +58,20 @@ public class GameState : MonoBehaviour {
 		SP.blocNoteCanvas.SetActive (false);
 		SP.sessionCass.SetActive (false);
 		SP.sessionSo.SetActive (false);
-
-
-
 	}
 
 
+	public void SessionCass (){
+		SP.sessionSo.SetActive (false);
+		SP.switchSessionCanvas.SetActive (false);
+		SP.sessionCass.SetActive (true);
+		SP.desktopCanvas.SetActive (true);
+		SP.browserCanvas.SetActive (false);
+		SP.fenetreFolderCass.SetActive (false);
+		SP.folderTrashCass.SetActive (false);
+
+
+	}
 
 	//boutonRouge du Browser
 	public void bouttonRouge () {
