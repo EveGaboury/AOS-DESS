@@ -6,39 +6,60 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Audio;
 
-public class Test : MonoBehaviour
+public class Test : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-	public List<GameObject> testingListed = new List<GameObject>();
+	public GameObject destinationParent;
+	Color currentColorValue, highLightedColor = Color.yellow, startingColor = Color.white;
+
+	GameObject prefab;
+
+	string startingText, currentTextValue;
+
+	float currentAlphaValue;
 
 	void Start()
 	{
-		Component[] broDog;
+		prefab = this.gameObject;
+		startingText = prefab.GetComponentInChildren<TMP_Text> ().text;
+//		prefab.GetComponent<Image> ().enabled = false;
+	}
 
-		broDog = GetComponentsInChildren (typeof(Transform/*Button*/));
+	public void OnPointerEnter(PointerEventData eventData)
+	{	
+		currentTextValue = "<b>" + startingText + "</b>";
+		currentAlphaValue = 255f;
+		currentColorValue = highLightedColor;
+		ManageColorChange ();
+	}
 
-		if (broDog != null)
-		{
-			foreach (Transform/*Button*/ item in broDog) 
-			{
-				testingListed.Add (item.gameObject);
+	public void OnPointerExit (PointerEventData eventData)
+	{	
+		currentTextValue = startingText;
+		currentAlphaValue = 0f;
+		currentColorValue = startingColor;
+		ManageColorChange ();
+	}
 
-				for (int i = 0; i < testingListed.Count; i++) 
-				{
-					if (testingListed[i].GetComponent<Button>() == true) 
-					{
+	void ManageColorChange()
+	{
+		prefab.GetComponentInChildren<TMP_Text> ().text = currentTextValue;
 
-						Debug.Log (testingListed[i].name);
-					}
+		prefab.GetComponent<Image> ().CrossFadeAlpha (currentAlphaValue,0,true);
 
-					if (testingListed[i].gameObject.GetComponentInChildren<Button>() == true) 
-					{
-						Debug.Log (testingListed[i].name);
-					}
-//					Debug.Log (testingListed.Count);
+		prefab.GetComponent<Image> ().color = currentColorValue;
+	}
 
-//					Debug.Log ("Le boutton: " + testingListed[i].name + ", dont le parent est: " + testingListed[i].gameObject.GetComponentInParent<Transform>().transform.parent.name);
-				}
-			}
-		}
+	public void HelloWorld()
+	{
+		GameObject newDataInstance = Instantiate (prefab, Vector2.zero, Quaternion.identity) as GameObject;
+		newDataInstance.GetComponent<Transform> ().SetParent (destinationParent.transform);
+		newDataInstance.GetComponent<Transform> ().localScale = new Vector2(.5f, .5f);
+
+		newDataInstance.GetComponent<Image> ().enabled = false;
+//		newDataInstance.GetComponent<Button> ()
+
+//		newDataInstance.GetComponent<Button> ().enabled = false;
+
+		Debug.Log ("Hello World!");
 	}
 } 
