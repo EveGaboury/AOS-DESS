@@ -6,60 +6,115 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Audio;
 
-public class Test : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class Test : MonoBehaviour
 {
-	public GameObject destinationParent;
-	Color currentColorValue, highLightedColor = Color.yellow, startingColor = Color.white;
+	public string currentlyPlayingClip;
 
-	GameObject prefab;
+	public AudioClip clipToBePlayed;
 
-	string startingText, currentTextValue;
+	public AnimationClip animCLIP;
 
-	float currentAlphaValue;
+	public GameObject canvas;
+
+	Animator animator;
+
+	[HideInInspector]
+	public bool animClipIsPlaying = false, justAnotherBoool = false;
 
 	void Start()
 	{
-		prefab = this.gameObject;
-		startingText = prefab.GetComponentInChildren<TMP_Text> ().text;
-//		prefab.GetComponent<Image> ().enabled = false;
+		animator = GetComponent<Animator> ();
 	}
 
-	public void OnPointerEnter(PointerEventData eventData)
-	{	
-		currentTextValue = "<b>" + startingText + "</b>";
-		currentAlphaValue = 255f;
-		currentColorValue = highLightedColor;
-		ManageColorChange ();
-	}
-
-	public void OnPointerExit (PointerEventData eventData)
-	{	
-		currentTextValue = startingText;
-		currentAlphaValue = 0f;
-		currentColorValue = startingColor;
-		ManageColorChange ();
-	}
-
-	void ManageColorChange()
+	public void StartAnimation()
 	{
-		prefab.GetComponentInChildren<TMP_Text> ().text = currentTextValue;
-
-		prefab.GetComponent<Image> ().CrossFadeAlpha (currentAlphaValue,0,true);
-
-		prefab.GetComponent<Image> ().color = currentColorValue;
+//		animator.SetTrigger ("Click");
+		animator.SetBool ("onClick", true);
+		justAnotherBoool = true;
+//		CheckIfClipIsPlaying ();
+//		animClipIsPlaying = true;
 	}
 
-	public void HelloWorld()
+	void Update()
 	{
-		GameObject newDataInstance = Instantiate (prefab, Vector2.zero, Quaternion.identity) as GameObject;
-		newDataInstance.GetComponent<Transform> ().SetParent (destinationParent.transform);
-		newDataInstance.GetComponent<Transform> ().localScale = new Vector2(.5f, .5f);
+		if (justAnotherBoool == true) 
+		{
+			CheckIfClipIsPlaying ();
+		}
 
-		newDataInstance.GetComponent<Image> ().enabled = false;
-//		newDataInstance.GetComponent<Button> ()
+//		float timeRemainingInAnim = animator.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).normalizedTime;
+//		Debug.Log (timeRemainingInAnim);
+//
+//		if (timeRemainingInAnim = 2.3f) 
+//		{
+//			Debug.Log ("Yay!");	
+//		}
+//		Debug.Log (animator.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).normalizedTime);
 
-//		newDataInstance.GetComponent<Button> ().enabled = false;
+//		Debug.Log("Test.cs: " + animator.GetBool ("onClick"));
 
-		Debug.Log ("Hello World!");
+
+//		if (clipHasEnded == true) 
+//		{
+//			PlayAudio ();
+//			canvas.GetComponent<AudioSource> ().PlayOneShot (clipToBePlayed,0.5f);
+		//		})
+//		if (Mathf.Approximately(animator.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).normalizedTime, animCLIP.length) )
+//		{
+//			Debug.Log ("Smeagol is free!");
+//		}
+	}
+
+	void CheckIfClipIsPlaying()
+	{
+		if (animator.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).IsName (currentlyPlayingClip) &&
+			animator.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).normalizedTime >= 1.0f) 
+		{
+//			animator.SetTrigger ("Click");
+			Debug.Log ("Smeagol is free!");
+			justAnotherBoool = false;
+			animator.SetBool ("onClick", false);
+
+			if (animator.GetBool("onClick") == false && justAnotherBoool == false) 
+			{
+				PlayAudio ();
+			}
+
+			//if (animClipIsPlaying == true) 
+			//{
+			//	PlayAudio ();
+			//}
+
+		}
+//		if (animator.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).IsName (currentlyPlayingClip) &&
+//		    animator.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).normalizedTime >= 1.0f) 
+//		{
+//			animator.SetBool ("onClick", false);
+//			clipHasEnded = true;
+//			Debug.Log ("C'est la que le son va se declcenhcer");
+//		}
+//		else 
+//		{	
+//			clipHasEnded = false;
+//		}
+	}
+
+
+
+	public void PlayAudio()
+	{
+//		canvas.GetComponent<AudioSource> ().Stop ();
+
+		canvas.GetComponent<AudioSource> ().PlayOneShot (clipToBePlayed,0.5f);
+
+//		if (canvas.GetComponent<AudioSource> ().time == canvas.GetComponent<AudioSource> ().clip.length) 
+//		{
+//			animClipIsPlaying = false;
+//		}
+	}
+
+	public void StopAudio()
+	{
+		canvas.GetComponent<AudioSource> ().Stop ();
 	}
 } 
