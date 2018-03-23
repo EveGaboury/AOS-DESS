@@ -7,7 +7,9 @@ using UnityEngine.UI;
 
 public class NewData : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-	public int objID;
+//	public int objID;
+
+	public GameObject resultatBlocNotes;
 
 	Color currentColorValue, highLightedColor = Color.yellow, startingColor = Color.white;
 
@@ -25,11 +27,14 @@ public class NewData : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 	}
 
 	public void OnPointerEnter(PointerEventData eventData)
-	{	
-		currentTextValue = "<b>" + startingText + "</b>";
-		currentAlphaValue = 255f;
-		currentColorValue = highLightedColor;
-		ManageColorChange ();
+	{
+		if (resultatBlocNotes.GetComponent<DataPrefab> ().animClipIsPlaying == false) 
+		{
+			currentTextValue = "<b>" + startingText + "</b>";
+			currentAlphaValue = 255f;
+			currentColorValue = highLightedColor;
+			ManageColorChange ();
+		}
 	}
 
 	public void OnPointerExit (PointerEventData eventData)
@@ -49,8 +54,18 @@ public class NewData : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 		prefab.GetComponent<Image> ().color = currentColorValue;
 	}
 
-//	public void HelloWorld()
-//	{
+	public void StartAnimation()
+	{
+		resultatBlocNotes.GetComponent<Animator> ().SetBool ("onClick", true);
+
+		resultatBlocNotes.GetComponent<DataPrefab> ().animClipIsPlaying = true;
+
+		resultatBlocNotes.GetComponent<Transform> ().SetParent (parentToBe.transform);
+
+		resultatBlocNotes.GetComponent<Transform> ().localScale = new Vector2(1.0f, 1.0f);
+
+		this.gameObject.GetComponent<Button> ().enabled = false;
+
 //		GameObject newDataInstance = Instantiate (prefab, Vector2.zero, Quaternion.identity) as GameObject;
 //
 //		newDataInstance.GetComponent<Transform> ().SetParent (parentToBe.transform);
@@ -60,5 +75,5 @@ public class NewData : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 //		newDataInstance.GetComponent<Image> ().enabled = false;
 //
 //		Debug.Log ("Hello World!");
-//	}
+	}
 }

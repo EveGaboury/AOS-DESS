@@ -120,11 +120,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 440234601}
     m_Modifications:
-    - target: {fileID: 114735561760542178, guid: b74256626ab652547a3f48bef032d464,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 224808150656831922, guid: b74256626ab652547a3f48bef032d464,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -218,73 +213,18 @@ Prefab:
     - target: {fileID: 114343111414353346, guid: b74256626ab652547a3f48bef032d464,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114343111414353346, guid: b74256626ab652547a3f48bef032d464,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114343111414353346, guid: b74256626ab652547a3f48bef032d464,
-        type: 2}
-      propertyPath: m_text
-      value: 'ceci est le courriel de cassandra: cassandraroyer@courriel.fr'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114343111414353346, guid: b74256626ab652547a3f48bef032d464,
-        type: 2}
-      propertyPath: m_textInfo.characterCount
-      value: 61
-      objectReference: {fileID: 0}
-    - target: {fileID: 114343111414353346, guid: b74256626ab652547a3f48bef032d464,
-        type: 2}
-      propertyPath: m_textInfo.spaceCount
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114343111414353346, guid: b74256626ab652547a3f48bef032d464,
-        type: 2}
-      propertyPath: m_textInfo.wordCount
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 114343111414353346, guid: b74256626ab652547a3f48bef032d464,
-        type: 2}
-      propertyPath: m_firstOverflowCharacterIndex
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 114343111414353346, guid: b74256626ab652547a3f48bef032d464,
-        type: 2}
-      propertyPath: m_textInfo.lineCount
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114735561760542178, guid: b74256626ab652547a3f48bef032d464,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2095712666}
-    - target: {fileID: 114735561760542178, guid: b74256626ab652547a3f48bef032d464,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartAnimation
-      objectReference: {fileID: 0}
-    - target: {fileID: 114735561760542178, guid: b74256626ab652547a3f48bef032d464,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114735561760542178, guid: b74256626ab652547a3f48bef032d464,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 114735561760542178, guid: b74256626ab652547a3f48bef032d464,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114960854647372856, guid: b74256626ab652547a3f48bef032d464,
         type: 2}
-      propertyPath: currentTest
+      propertyPath: resultatBlocNotes
       value: 
-      objectReference: {fileID: 2095712666}
+      objectReference: {fileID: 2095712661}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b74256626ab652547a3f48bef032d464, type: 2}
   m_IsPrefabParent: 0
@@ -384,8 +324,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 407960672}
   - {fileID: 2095712662}
+  - {fileID: 407960672}
   - {fileID: 28721552}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -663,7 +603,7 @@ Prefab:
     - target: {fileID: 224200222387615422, guid: 1126f659f8bb6a04092f4a8043829490,
         type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224200222387615422, guid: 1126f659f8bb6a04092f4a8043829490,
         type: 2}
@@ -817,7 +757,8 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114462272099263708, guid: 1126f659f8bb6a04092f4a8043829490, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 1126f659f8bb6a04092f4a8043829490, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1994665486
@@ -968,7 +909,7 @@ GameObject:
   - component: {fileID: 2095712665}
   - component: {fileID: 2095712664}
   - component: {fileID: 2095712663}
-  - component: {fileID: 2095712666}
+  - component: {fileID: 2095712667}
   m_Layer: 5
   m_Name: Text1
   m_TagString: Untagged
@@ -982,12 +923,12 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2095712661}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 440234601}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1044,7 +985,7 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2095712661}
---- !u!114 &2095712666
+--- !u!114 &2095712667
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -1052,11 +993,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2095712661}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb9c534924aadee49833871f52b0904e, type: 3}
+  m_Script: {fileID: 11500000, guid: 9550f138379293c4185242f066e8033e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentlyPlayingClip: text1
   clipToBePlayed: {fileID: 8300000, guid: 40292793720806848a0939330bf3e6d5, type: 3}
   animCLIP: {fileID: 7400000, guid: 34d460b9bcb0742dbbb8d9899ca99147, type: 2}
   canvas: {fileID: 440234597}
-  clipHasEnded: 0
+  animClipIsPlaying: 0
+  justAnotherBoool: 1
