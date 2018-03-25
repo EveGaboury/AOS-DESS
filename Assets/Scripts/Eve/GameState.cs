@@ -27,7 +27,6 @@ public class GameState : MonoBehaviour {
 	if (ButtonFBSophie.activeSelf == true) {
 		soOpenFacebook = true;
 	} 
-
 		//icon wrong password facebook
 		if (BM.clear == BM.inputfieldWrongText.text) {
 			BM.wrongImage.sprite = BM.initial;
@@ -59,8 +58,7 @@ public class GameState : MonoBehaviour {
 		SP.sessionCass.SetActive (false);
 		SP.sessionSo.SetActive (false);
 	}
-
-
+		
 	public void SessionCass (){
 		SP.sessionSo.SetActive (false);
 		SP.switchSessionCanvas.SetActive (false);
@@ -69,8 +67,6 @@ public class GameState : MonoBehaviour {
 		SP.browserCanvas.SetActive (false);
 		SP.fenetreFolderCass.SetActive (false);
 		SP.folderTrashCass.SetActive (false);
-
-
 	}
 
 	//boutonRouge du Browser
@@ -89,7 +85,6 @@ public class GameState : MonoBehaviour {
 		SP.fixSo.SetActive (false);
 		SP.pageNewFeedTemplate.SetActive (false);
 
-
 		SP.profilYann.SetActive (false);
 		SP.profilMarieEve2.SetActive (false);
 		SP.profilMarieEve1.SetActive (false);
@@ -100,9 +95,6 @@ public class GameState : MonoBehaviour {
 		SP.profilSophie.SetActive (false);
 		SP.profilCass.SetActive (false);
 		SP.profilFred.SetActive (false);
-
-
-
 	}
 
 	//accueil de TonLivre
@@ -158,7 +150,6 @@ public class GameState : MonoBehaviour {
 		SP.mesAmisFix.SetActive (false);
 		SP.rechercheTemplate.SetActive (false);
 
-
 		SP.mesAmisTemplate.SetActive (true);
 		if (soOpenFacebook) {
 			SP.mesAmisSo.SetActive (true);
@@ -190,14 +181,10 @@ public class GameState : MonoBehaviour {
 		SP.mesAmisFix.SetActive (false);
 		SP.facebookConnInPage.SetActive (true);
 
-
 		BM.toggleNotifCass.isOn = false;
 		BM.toggleNotifSo.isOn = false;
-
-
 	}
-
-
+		
 	public void Messenger () {
 
 		SP.messengerTemplate.SetActive (true);
@@ -238,10 +225,8 @@ public class GameState : MonoBehaviour {
 		SP.mesAmisFix.SetActive (false);
 		SP.facebookConnInPage.SetActive (true);
 
-
 	}
-
-
+		
 	public void InputFieldSearch () {
 
 		SP.rechercheTemplate.SetActive (true);
@@ -257,8 +242,7 @@ public class GameState : MonoBehaviour {
 		SP.messengerFix.SetActive (false);
 
 	}
-
-
+		
 	public void BoutonSophie () 
 	{
 		SP.pageProfilTemplate.SetActive (true);
@@ -513,6 +497,73 @@ public class GameState : MonoBehaviour {
 		SP.notifSo.SetActive (false);
 		SP.rechercheTemplate.SetActive (false);
 
+	}
+
+	public void BoiteMess () {
+
+		SP.C1corps.SetActive (true);
+		SP.C1info.SetActive (true);
+
+		SP.C2corps.SetActive (false);
+		SP.C3corps.SetActive (false);
+		SP.C4corps.SetActive (false);
+		SP.C5corps.SetActive (false);
+		SP.C6corps.SetActive (false);
+		SP.CT2corps.SetActive (false);
+		SP.CB1corps.SetActive (false);
+
+		SP.C2info.SetActive (false);
+		SP.C3info.SetActive (false);
+		SP.C4info.SetActive (false);
+		SP.C5info.SetActive (false);
+		SP.C6info.SetActive (false);
+		SP.CT2info.SetActive (false);
+		SP.CB1info.SetActive (false);
+	}
+
+	public void Brouillon () {
+
+		SP.CB1corps.SetActive (true);
+		SP.CB1info.SetActive (true);
+
+		SP.C2corps.SetActive (false);
+		SP.C3corps.SetActive (false);
+		SP.C4corps.SetActive (false);
+		SP.C5corps.SetActive (false);
+		SP.C6corps.SetActive (false);
+		SP.CT2corps.SetActive (false);
+		SP.C1corps.SetActive (false);
+
+		SP.C2info.SetActive (false);
+		SP.C3info.SetActive (false);
+		SP.C4info.SetActive (false);
+		SP.C5info.SetActive (false);
+		SP.C6info.SetActive (false);
+		SP.CT2info.SetActive (false);
+		SP.C1info.SetActive (false);
+
+	}
+
+	public void Corbeille () {
+		
+		SP.CT2corps.SetActive (true);
+		SP.CT2info.SetActive (true);
+
+		SP.C2corps.SetActive (false);
+		SP.C3corps.SetActive (false);
+		SP.C4corps.SetActive (false);
+		SP.C5corps.SetActive (false);
+		SP.C6corps.SetActive (false);
+		SP.CB1corps.SetActive (false);
+		SP.C1corps.SetActive (false);
+
+		SP.C2info.SetActive (false);
+		SP.C3info.SetActive (false);
+		SP.C4info.SetActive (false);
+		SP.C5info.SetActive (false);
+		SP.C6info.SetActive (false);
+		SP.CB1info.SetActive (false);
+		SP.C1info.SetActive (false);
 	}
 
 

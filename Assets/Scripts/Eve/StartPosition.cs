@@ -19,7 +19,9 @@ public class StartPosition : MonoBehaviour {
 	public GameObject shortCut;
 	public GameObject shortCutFacebook;
 
-	//facebook
+	//===================================================================================================================
+
+	//facebook 
 	public GameObject facebookConnexion;
 	public GameObject facebookConnInPage;
 	public GameObject facebookHeader;
@@ -44,7 +46,6 @@ public class StartPosition : MonoBehaviour {
 	public GameObject shortCutSophieFB;
 	public GameObject shortCutCassFB;
 
-
 	//facebook scriptable
 	public GameObject profilCassScriptable;
 	public GameObject profilSoScriptable;
@@ -52,7 +53,6 @@ public class StartPosition : MonoBehaviour {
 	public GameObject profilYannScriptable;
 	public GameObject profilHugoScriptable;
 	public GameObject profilMarieEveScriptable;
-
 
 
 	//facebook page newsfeed
@@ -88,11 +88,33 @@ public class StartPosition : MonoBehaviour {
 	public GameObject mesAmisTemplate;
 	public GameObject mesAmisFix;
 
+	//===================================================================================================================
+
 	//gmail
 	public GameObject gmailCanvas;
 	public GameObject listContentBrouillon;
 	public GameObject listContentTrash;
 	public GameObject listContentMess;
+
+	public GameObject C1corps;
+	public GameObject C2corps;
+	public GameObject C3corps;
+	public GameObject C4corps;
+	public GameObject C5corps;
+	public GameObject C6corps;
+	public GameObject CT2corps;
+	public GameObject CB1corps;
+
+	public GameObject C1info;
+	public GameObject C2info;
+	public GameObject C3info;
+	public GameObject C4info;
+	public GameObject C5info;
+	public GameObject C6info;
+	public GameObject CT2info;
+	public GameObject CB1info;
+
+	//===================================================================================================================
 
 	// gameobjects Sophie
 	public GameObject desktopImageSophie;
@@ -107,6 +129,7 @@ public class StartPosition : MonoBehaviour {
 	public GameObject fenetreFolderCass;
 	public GameObject sessionCass;
 
+	//===================================================================================================================
 
 	//avis deces
 	public GameObject avisDeces;
