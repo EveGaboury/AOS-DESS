@@ -90,6 +90,9 @@ public class StartPosition : MonoBehaviour {
 
 	//gmail
 	public GameObject gmailCanvas;
+	public GameObject listContentBrouillon;
+	public GameObject listContentTrash;
+	public GameObject listContentMess;
 
 	// gameobjects Sophie
 	public GameObject desktopImageSophie;
@@ -183,6 +186,10 @@ public class StartPosition : MonoBehaviour {
 		itunes.SetActive (false);
 
 		gmailCanvas.SetActive (false);
+		listContentMess.SetActive (true);
+		listContentTrash.SetActive (false);
+		listContentBrouillon.SetActive (false);
+
 
 		avisDeces.SetActive (false);
 		shortCutDeces.SetActive (false);
