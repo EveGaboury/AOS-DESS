@@ -11373,8 +11373,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1946666143}
   m_HandleRect: {fileID: 1946666141}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -46836,7 +46836,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1672075719
 RectTransform:
   m_ObjectHideFlags: 0
@@ -46850,9 +46850,9 @@ RectTransform:
   m_Father: {fileID: 1687230945}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 233.64, y: -444}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1672075720
@@ -47855,7 +47855,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00002348423, y: -0.0000054836273}
+  m_AnchoredPosition: {x: 0.000008225441, y: -0.00006651878}
   m_SizeDelta: {x: -12.51, y: -44.61}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1687230946
@@ -48716,9 +48716,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9550f138379293c4185242f066e8033e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentlyPlayingClip: 01-01_Animation
+  currentlyPlayingClip: J01-01_Animation
   clipToBePlayed: {fileID: 8300000, guid: 40292793720806848a0939330bf3e6d5, type: 3}
-  animCLIP: {fileID: 7400000, guid: ae9734dcbd8084aabaa8f657951550f6, type: 2}
+  animCLIP: {fileID: 7400000, guid: 5a4fd7e649c264d53b49809ba8c45b57, type: 2}
   soundManager: {fileID: 1730140044}
   animClipIsPlaying: 0
   justAnotherBoool: 1
@@ -48731,7 +48731,7 @@ Animator:
   m_GameObject: {fileID: 1712358205}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1a228db5bac968a4081cd368b09ee5f0, type: 2}
+  m_Controller: {fileID: 9100000, guid: fe0ea98f1ea1442e1aac645fdb52415f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
