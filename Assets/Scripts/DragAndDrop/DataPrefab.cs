@@ -4,7 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class DataPrefab : MonoBehaviour 
-{
+{  
+	public Sprite finalSprite;
+	
 	public string currentlyPlayingClip;
 
 	public AudioClip clipToBePlayed;
@@ -45,6 +47,7 @@ public class DataPrefab : MonoBehaviour
 			{
 				PlayAudio ();
 				CreateButtonAndAssignScript ();
+				this.gameObject.GetComponent<Image> ().overrideSprite = finalSprite;
 			}
 		}
 	}

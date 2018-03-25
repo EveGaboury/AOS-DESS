@@ -11373,8 +11373,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1946666143}
   m_HandleRect: {fileID: 1946666141}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -47768,7 +47768,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000022292137, y: -0.0000054836273}
+  m_AnchoredPosition: {x: -0.000022292137, y: -0.00006651878}
   m_SizeDelta: {x: -12.51, y: -44.61}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1687230946
@@ -48629,7 +48629,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9550f138379293c4185242f066e8033e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentlyPlayingClip: 01-01_Animation
+  finalSprite: {fileID: 21300000, guid: 370fb4025bdbf4b16851a91a8ee2bb08, type: 3}
+  currentlyPlayingClip: J01-01_Anim
   clipToBePlayed: {fileID: 8300000, guid: 40292793720806848a0939330bf3e6d5, type: 3}
   animCLIP: {fileID: 7400000, guid: 5a4fd7e649c264d53b49809ba8c45b57, type: 2}
   soundManager: {fileID: 1730140044}
