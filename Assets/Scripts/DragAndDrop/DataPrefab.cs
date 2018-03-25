@@ -11,7 +11,7 @@ public class DataPrefab : MonoBehaviour
 
 	public AnimationClip animCLIP;
 
-	public GameObject canvas;
+	public GameObject soundManager;
 
 	Animator animator;
 
@@ -51,12 +51,12 @@ public class DataPrefab : MonoBehaviour
 
 	public void PlayAudio()
 	{
-		canvas.GetComponent<AudioSource> ().PlayOneShot (clipToBePlayed,0.5f);
+		soundManager.GetComponent<AudioSource> ().PlayOneShot (clipToBePlayed,0.5f);
 	}
 
 	public void PlaySoundOnceButtonInstantiated()
 	{
-		canvas.GetComponent<AudioSource> ().Stop ();
+		soundManager.GetComponent<AudioSource> ().Stop ();
 		PlayAudio ();
 		Debug.Log(name + " has been clicked.");
 	}
