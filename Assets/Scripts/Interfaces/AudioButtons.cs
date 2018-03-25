@@ -6,12 +6,25 @@ using UnityEngine.Audio;
 
 public class AudioButtons : MonoBehaviour 
 {
+	public AudioClip[] audioClipByInterface;
+
 	public List<GameObject> childObjectsContainingButtons = new List<GameObject>(), parentObjects = new List<GameObject>();
 
-	string importantParent = "GmailCanvas 1";
+	string gmailCanvas = "GmailCanvas 1"
+	, deskTopCanvas = "DesktopCanvas"
+	, messengerCanvas = "MessengerCanvas"
+	, facebookCanvas = "FacebookCanvas"
+	, browserCanvas = "BrowserCanvas"
+	, startMessengerConversation = "StartMessengerConversation";
+
+	AudioSource soundPlayer;
+
+	AudioClip currentAudioCLip;
 
 	void Start()
 	{
+		soundPlayer = this.gameObject.GetComponent<AudioSource> ();
+
 		SearchAllButtonsInTheHierarchy ();
 		SortButtonsByParent ();
 	}
@@ -25,12 +38,10 @@ public class AudioButtons : MonoBehaviour
 			if (child.gameObject.GetComponent<Button> ()) 
 			{
 				childObjectsContainingButtons.Add (child.gameObject);
-				//				Debug.Log ("Ceci est un boutton: " + child.name);
 			} 
 			else 
 			{
 				parentObjects.Add (child.gameObject);
-				//				Debug.Log ("Ceci n'est pas un boutton: " + child.name);
 			}
 		}
 	}
@@ -39,11 +50,8 @@ public class AudioButtons : MonoBehaviour
 	{
 		for (int i = 0; i < parentObjects.Count; i++)
 		{
-
-			if (parentObjects[i].gameObject.name == importantParent) 
+			if (parentObjects[i].gameObject.name == gmailCanvas) 
 			{
-				//				parentObjects [i].gameObject.tag = "Gmail";
-
 				if (parentObjects[i].gameObject.GetComponentsInChildren<Transform>(true) != null) 
 				{
 					for (int j = 0; j < childObjectsContainingButtons.Count; j++) 
@@ -51,46 +59,19 @@ public class AudioButtons : MonoBehaviour
 						if (childObjectsContainingButtons[j].gameObject != null) 
 						{
 							childObjectsContainingButtons [j].gameObject.tag = "Gmail";
-//							Debug.Log ("trololo");
+
+							currentAudioCLip = audioClipByInterface[0];
+							DetermineButtonSoundToBePlayed ();
 						}
 					}
 				}
-
-				//				Transform[] allChildren = GetComponentsInChildren<Transform> (true);
-				//
-				//				foreach (Transform child in allChildren) 
-				//				{
-				//					if (allChildren[i].gameObject.name == childObjectsContainingButtons[i].gameObject.name) 
-				//					{
-				//						Debug.Log ("trololo");
-				//					}
-				//				}
 			}
 		}
+	}
 
-		//		for (int i = 0; i < childObjectsContainingButtons.Count; i++)
-		//		{
-		//			Debug.Log(childObjectsContainingButtons [i].gameObject.GetComponentsInParent<Transform> ().name);
-		//		}
-
-		//		Transform[] allParents = GetComponentsInParent<Transform> (true);
-		//
-		//		foreach (Transform parent in allParents) 
-		//		{
-		//			if (parent.gameObject != null) 
-		//			{
-		//				Debug.Log ("troolololole: " + parent.name);
-		//			}
-		//		}
-
-		//		for (int i = 0; i < childObjectsContainingButtons.Count; i++) 
-		//		{
-		//			Debug.Log ("Le parent de " + childObjectsContainingButtons[i].gameObject.name + " est: " + childObjectsContainingButtons[i].gameObject.transform.parent.name);
-		//
-		//			if (childObjectsContainingButtons[i].gameObject.transform.parent.name == "SessionSophie") 
-		//			{
-		//				Debug.Log (childObjectsContainingButtons[i].gameObject.name);
-		//			}
-		//		}
+	void DetermineButtonSoundToBePlayed()
+	{
+		soundPlayer.pitch = Random.Range (-3.0f , 3.0f);
+		soundPlayer.PlayOneShot (currentAudioCLip, 1.0f);
 	}
 }
