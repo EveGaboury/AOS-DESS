@@ -35,6 +35,8 @@ public class RepositoryOfFakeNames: MonoBehaviour
 	public string[] Y_Prenoms;
 	public string[] Z_Prenoms;
 
+	public string[] NomsDeFamille;
+
 //	public string[] A_NomDeFamille;
 	//#1: avoir un scriptable object ou je rentre les donnes d'une personne, psui ailleurs un script avec un tableau ou je l'appelle
 	//#2: avoir une class databaseuser et aller les query par nom
