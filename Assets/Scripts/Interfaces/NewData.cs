@@ -28,7 +28,9 @@ public class NewData : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
 	public void OnPointerEnter(PointerEventData eventData)
 	{
-		if (resultatBlocNotes.GetComponent<DataPrefab> ().justAnotherBoool == false) 
+		if (/*resultatBlocNotes.GetComponent<DataPrefab> ().animClipIsPlaying == false ||*/
+			resultatBlocNotes.GetComponent<DataPrefab> ().justAnotherBoool == true
+			/*(resultatBlocNotes.GetComponent<DataPrefab> ().animClipIsPlaying == true && resultatBlocNotes.GetComponent<DataPrefab> ().justAnotherBoool == true)*/) 
 		{
 			currentTextValue = "<b>" + startingText + "</b>";
 			currentAlphaValue = 255f;
