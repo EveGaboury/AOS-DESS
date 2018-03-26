@@ -4,14 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class DataPrefab : MonoBehaviour 
-{
+{  
+	public Sprite finalSprite;
+	
 	public string currentlyPlayingClip;
 
 	public AudioClip clipToBePlayed;
 
 	public AnimationClip animCLIP;
 
-	public GameObject canvas;
+	public GameObject soundManager;
 
 	Animator animator;
 
@@ -45,18 +47,19 @@ public class DataPrefab : MonoBehaviour
 			{
 				PlayAudio ();
 				CreateButtonAndAssignScript ();
+				this.gameObject.GetComponent<Image> ().overrideSprite = finalSprite;
 			}
 		}
 	}
 
 	public void PlayAudio()
 	{
-		canvas.GetComponent<AudioSource> ().PlayOneShot (clipToBePlayed,0.5f);
+		soundManager.GetComponent<AudioSource> ().PlayOneShot (clipToBePlayed,0.5f);
 	}
 
 	public void PlaySoundOnceButtonInstantiated()
 	{
-		canvas.GetComponent<AudioSource> ().Stop ();
+		soundManager.GetComponent<AudioSource> ().Stop ();
 		PlayAudio ();
 		Debug.Log(name + " has been clicked.");
 	}
