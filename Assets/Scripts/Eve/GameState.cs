@@ -67,6 +67,7 @@ public class GameState : MonoBehaviour {
 		SP.browserCanvas.SetActive (false);
 		SP.fenetreFolderCass.SetActive (false);
 		SP.folderTrashCass.SetActive (false);
+		SP.blocNoteCanvas.SetActive (true);
 	}
 
 	//boutonRouge du Browser
