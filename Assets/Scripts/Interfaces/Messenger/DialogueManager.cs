@@ -7,7 +7,7 @@ using System;
 
 public class DialogueManager : MonoBehaviour
 {
-	public TextMeshProUGUI nameText,dialogueText;
+	public TextMeshProUGUI nameText/*, dialogueText*/;
 	public GameObject messengerCanvas, partnerHistory, yourHistory;
 	public Transform conversationHistory;
 
@@ -27,14 +27,17 @@ public class DialogueManager : MonoBehaviour
 	[HideInInspector]
 	public string test, nextSentence;
 
-	void Start ()
+	void Awake()
 	{
-		sentences = new Queue<string> ();
-
 		if (messengerCanvas.activeSelf == true) 
 		{
 			messengerCanvas.SetActive (false);
 		}
+	}
+
+	void Start ()
+	{
+		sentences = new Queue<string> ();
 
 		FetchButtonsInOrderToMakeAList ();
 
@@ -68,7 +71,9 @@ public class DialogueManager : MonoBehaviour
 
 		nextSentence = sentences.Dequeue ();
 
-		dialogueText.GetComponent<TextMeshProUGUI>().text = nextSentence;
+		Debug.Log (nextSentence);
+
+//		dialogueText.GetComponent<TextMeshProUGUI>().text = nextSentence;
 
 		prefab = partnerHistory;
 		InstantiateStuff(nextSentence);
@@ -113,12 +118,20 @@ public class DialogueManager : MonoBehaviour
 				listeDeBouttons.Add (child.gameObject);
 			} 
 		}
-	} 		
+	}
 
-	public string HelloWorld(string trolollo)
+	public void ActivateAndDeactivateMessengerCanvas()
 	{
-		return trolollo = "Hello World!";
-		Debug.Log ("Hello World!");
+		if (messengerCanvas.activeSelf == true) 
+		{
+			messengerCanvas.SetActive (false);
+			Debug.Log (messengerCanvas.name + " is active: False");
+		} 
+		else if(messengerCanvas.activeSelf == false)
+		{
+			messengerCanvas.SetActive (true);
+//			Debug.Log (messengerCanvas.name + " is active: True");
+		}
 	}
 
 	public void SetNameOfButtonsTHREE()

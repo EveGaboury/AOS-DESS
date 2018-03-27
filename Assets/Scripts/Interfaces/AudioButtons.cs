@@ -60,7 +60,7 @@ public class AudioButtons : MonoBehaviour
 						{
 							childObjectsContainingButtons [j].gameObject.tag = "Gmail";
 
-							currentAudioCLip = audioClipByInterface[0];
+//							currentAudioCLip = audioClipByInterface[0];
 							DetermineButtonSoundToBePlayed ();
 						}
 					}

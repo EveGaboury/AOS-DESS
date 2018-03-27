@@ -89,10 +89,13 @@ public class ErroneousSearchesDirector : MonoBehaviour
 				if ((test == verification [0]) || (test == verification [26]))
 				{
 					adrien = true;
-					Debug.Log (adrien);
 					adrienButton.GetComponent<Button> ().enabled = true;
-
-					textDisplay [i].GetComponentInChildren<TextMeshProUGUI> ().text = retrieveData.A_Prenoms [i].ToString () + " " + retrieveData.NomsDeFamille[Random.Range(0, retrieveData.NomsDeFamille.Length)].ToString();
+//					Debug.Log (Mathf.Clamp(textDisplay.Length, 1, 4));
+					textDisplay [0].GetComponentInChildren<TextMeshProUGUI> ().text = retrieveData.A_Prenoms [0].ToString ();
+					textDisplay [1].GetComponentInChildren<TextMeshProUGUI> ().text = retrieveData.A_Prenoms [1].ToString () + " " + retrieveData.NomsDeFamille[Random.Range(0, retrieveData.NomsDeFamille.Length)].ToString();
+					textDisplay [2].GetComponentInChildren<TextMeshProUGUI> ().text = retrieveData.A_Prenoms [2].ToString () + " " + retrieveData.NomsDeFamille[Random.Range(0, retrieveData.NomsDeFamille.Length)].ToString();
+					textDisplay [3].GetComponentInChildren<TextMeshProUGUI> ().text = retrieveData.A_Prenoms [3].ToString () + " " + retrieveData.NomsDeFamille[Random.Range(0, retrieveData.NomsDeFamille.Length)].ToString();
+					textDisplay [4].GetComponentInChildren<TextMeshProUGUI> ().text = retrieveData.A_Prenoms [4].ToString () + " " + retrieveData.NomsDeFamille[Random.Range(0, retrieveData.NomsDeFamille.Length)].ToString();
 				}
 				//BBBBBB
 				if((test == verification[1]) || (test == verification[27]))
@@ -121,8 +124,11 @@ public class ErroneousSearchesDirector : MonoBehaviour
 					frederic = true;
 					fredButton.GetComponent<Button> ().enabled = true;
 		
-					textDisplay [i].GetComponent<TextMeshProUGUI> ().text = retrieveData.F_Prenoms[i].ToString() + " " + retrieveData.NomsDeFamille[Random.Range(0, retrieveData.NomsDeFamille.Length)].ToString();
-
+					textDisplay [0].GetComponent<TextMeshProUGUI> ().text = retrieveData.F_Prenoms[0].ToString();
+					textDisplay [1].GetComponent<TextMeshProUGUI> ().text = retrieveData.F_Prenoms[1].ToString() + " " + retrieveData.NomsDeFamille[Random.Range(0, retrieveData.NomsDeFamille.Length)].ToString();
+					textDisplay [2].GetComponent<TextMeshProUGUI> ().text = retrieveData.F_Prenoms[2].ToString() + " " + retrieveData.NomsDeFamille[Random.Range(0, retrieveData.NomsDeFamille.Length)].ToString();
+					textDisplay [3].GetComponent<TextMeshProUGUI> ().text = retrieveData.F_Prenoms[3].ToString() + " " + retrieveData.NomsDeFamille[Random.Range(0, retrieveData.NomsDeFamille.Length)].ToString();
+					textDisplay [4].GetComponent<TextMeshProUGUI> ().text = retrieveData.F_Prenoms[4].ToString() + " " + retrieveData.NomsDeFamille[Random.Range(0, retrieveData.NomsDeFamille.Length)].ToString();
 				}
 				//GGGGGGG
 				if((test == verification[6]) || (test == verification[32]))
