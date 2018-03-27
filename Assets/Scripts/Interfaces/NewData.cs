@@ -62,9 +62,9 @@ public class NewData : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
 		resultatBlocNotes.GetComponent<DataPrefab> ().animClipIsPlaying = true;
 
-		resultatBlocNotes.GetComponent<Transform> ().SetParent (parentToBe.transform);
+		 resultatBlocNotes.GetComponent<Transform> ().SetParent (parentToBe.transform);
 
-		//resultatBlocNotes.GetComponent<Transform> ().localScale = new Vector2(1.0f, 1.0f);
+		resultatBlocNotes.GetComponent<Transform> ().localScale = new Vector2(1.0f, 1.0f);
 
 		this.gameObject.GetComponent<Button> ().enabled = false;
 
