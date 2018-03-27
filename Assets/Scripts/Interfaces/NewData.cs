@@ -23,7 +23,7 @@ public class NewData : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 	{
 		prefab = this.gameObject;
 		startingText = prefab.GetComponentInChildren<TMP_Text> ().text;
-		parentToBe = GameObject.Find ("InventorySlot");
+		parentToBe = GameObject.Find ("Content_InventorySlot");
 	}
 
 	public void OnPointerEnter(PointerEventData eventData)
@@ -62,7 +62,7 @@ public class NewData : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
 		resultatBlocNotes.GetComponent<DataPrefab> ().animClipIsPlaying = true;
 
-		resultatBlocNotes.GetComponent<Transform> ().SetParent (parentToBe.transform);
+		 resultatBlocNotes.GetComponent<Transform> ().SetParent (parentToBe.transform);
 
 		resultatBlocNotes.GetComponent<Transform> ().localScale = new Vector2(1.0f, 1.0f);
 
