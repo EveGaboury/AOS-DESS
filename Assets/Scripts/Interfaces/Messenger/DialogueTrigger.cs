@@ -10,4 +10,13 @@ public class DialogueTrigger : MonoBehaviour
 	{
 		FindObjectOfType<DialogueManager> ().StartDialogue (dialogue);
 	}
+
+//	void Update()
+//	{
+//		if (Input.GetKeyUp(KeyCode.A)) 
+//		{
+//			TriggerDialogue();
+//			Debug.Log ("TriggerDialogue();");
+//		}
+//	}
 }

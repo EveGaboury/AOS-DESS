@@ -10,8 +10,8 @@ public class ButtonDetection : MonoBehaviour, IPointerClickHandler
 	[HideInInspector]
 	public string bttnName;
 
-	[HideInInspector]
-	public int bttnID;
+//	[HideInInspector]
+//	public int bttnID;
 
 	public DialogueManager dialogueManager;
 
@@ -20,7 +20,7 @@ public class ButtonDetection : MonoBehaviour, IPointerClickHandler
 	void Awake()
 	{
 		bttnName = name;
-		bttnID = transform.GetInstanceID ();
+//		bttnID = transform.GetInstanceID ();
 	}
 
 	void Start()
@@ -56,11 +56,11 @@ public class ButtonDetection : MonoBehaviour, IPointerClickHandler
 				{
 					dlg.prefab = dlg.yourHistory;
 					dlg.InstantiateStuff (name + "Q04");
-					Debug.Log ("Boutton a ete presse: " + name);
+//					Debug.Log ("Boutton a ete presse: " + name);
 				}
 
 
-				Debug.Log ("Phrases restanates: " + dlg.sentences.Count);
+//				Debug.Log ("Phrases restantes: " + dlg.sentences.Count);
 			}
 			else if (dlg.sentences.Count == 1) 
 			{
@@ -70,10 +70,10 @@ public class ButtonDetection : MonoBehaviour, IPointerClickHandler
 				{
 					dlg.prefab = dlg.yourHistory;
 					dlg.InstantiateStuff (name + "Q03");
-					Debug.Log ("Boutton a ete presse: " + name);
+//					Debug.Log ("Boutton a ete presse: " + name);
 				}
 
-				Debug.Log ("Phrases restanates: " +  dlg.sentences.Count);
+//				Debug.Log ("Phrases restantes: " +  dlg.sentences.Count);
 			}
 			else if (dlg.sentences.Count == 2) 
 			{
@@ -83,10 +83,10 @@ public class ButtonDetection : MonoBehaviour, IPointerClickHandler
 				{
 					dlg.prefab = dlg.yourHistory;
 					dlg.InstantiateStuff (name + "Q02");
-					Debug.Log ("Boutton a ete presse: " + name);
+//					Debug.Log ("Boutton a ete presse: " + name);
 				}
 					
-				Debug.Log ("Phrases restanates: " + dlg.sentences.Count);
+//				Debug.Log ("Phrases restanates: " + dlg.sentences.Count);
 			}
 			else if (dlg.sentences.Count == 3) 
 			{
@@ -96,10 +96,10 @@ public class ButtonDetection : MonoBehaviour, IPointerClickHandler
 				{
 					dlg.prefab = dlg.yourHistory;
 					dlg.InstantiateStuff (name + "Q01");
-					Debug.Log ("Boutton a ete presse: " + name);
+//					Debug.Log ("Boutton a ete presse: " + name);
 				}
 
-				Debug.Log (this.gameObject.name);
+//				Debug.Log (this.gameObject.name);
 //				Debug.Log ("test: "+ dlg.sentences.Count);
 			}
 
