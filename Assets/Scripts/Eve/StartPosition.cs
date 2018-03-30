@@ -46,6 +46,8 @@ public class StartPosition : MonoBehaviour {
 	public GameObject shortCutSophieFB;
 	public GameObject shortCutCassFB;
 
+	public GameObject SoMessMarieEveMessenger;
+
 	//facebook scriptable
 	public GameObject profilCassScriptable;
 	public GameObject profilSoScriptable;
@@ -78,9 +80,7 @@ public class StartPosition : MonoBehaviour {
 
 	//facebook messenger
 	public GameObject messengerTemplate;
-	public GameObject messengerFix;
-	public GameObject messCass;
-	public GameObject messSo;
+	public GameObject messengerFix;	
 	public GameObject fixCass;
 	public GameObject fixSo;
 

@@ -209,12 +209,9 @@ public class GameState : MonoBehaviour {
 		SP.profilFred.SetActive (false);
 	
 		if (soOpenFacebook) {
-			SP.messSo.SetActive (true);
-			SP.messCass.SetActive (false);
 			SP.fixSo.SetActive (true);
+			SP.SoMessMarieEveMessenger.SetActive (true);
 		} else {
-			SP.messSo.SetActive (false);
-			SP.messCass.SetActive (true);
 			SP.fixCass.SetActive (true);
 		}
 	}
