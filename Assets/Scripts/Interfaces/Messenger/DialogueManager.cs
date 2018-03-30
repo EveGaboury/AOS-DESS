@@ -71,7 +71,7 @@ public class DialogueManager : MonoBehaviour
 
 		nextSentence = sentences.Dequeue ();
 
-		Debug.Log (nextSentence);
+//		Debug.Log (nextSentence);
 
 //		dialogueText.GetComponent<TextMeshProUGUI>().text = nextSentence;
 
