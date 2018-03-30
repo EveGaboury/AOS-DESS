@@ -5,7 +5,7 @@ using TMPro;
 
 public class ButtonDetection : MonoBehaviour, IPointerClickHandler
 {
-	public Color newCoolor;
+	public Color newColor;
 
 	[HideInInspector]
 	public string bttnName;
@@ -26,7 +26,7 @@ public class ButtonDetection : MonoBehaviour, IPointerClickHandler
 	void Start()
 	{
 		ColorBlock colorBlock = transform.GetComponent<Button>().colors;
-		colorBlock.highlightedColor = newCoolor;	
+		colorBlock.highlightedColor = newColor;	
 		transform.GetComponent<Button>().colors = colorBlock;
 	}
 

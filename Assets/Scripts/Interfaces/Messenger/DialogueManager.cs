@@ -46,9 +46,9 @@ public class DialogueManager : MonoBehaviour
 
 	public void StartDialogue(Dialogue dialogue)
 	{
-//		Debug.Log ("Starting conversation with: " + dialogue.name);
-
-		nameText.GetComponent<TextMeshProUGUI>().text = dialogue.name;
+//		Debug.Log ("Starting conversation with: " + dialogue.naming);
+//
+//		nameText.text = dialogue.naming;
 
 		sentences.Clear ();
 

@@ -6,17 +6,25 @@ public class DialogueTrigger : MonoBehaviour
 {
 	public Dialogue dialogue;
 
-	public void TriggerDialogue()
+	private bool conversationSwitchOn; 
+
+	private List<GameObject> allTheObjectsInTheScene = new List<GameObject>();
+
+	void Start()
 	{
-		FindObjectOfType<DialogueManager> ().StartDialogue (dialogue);
+		foreach (GameObject item in Resources.FindObjectsOfTypeAll(typeof(GameObject)) as GameObject[]) 
+		{
+			
+		}
 	}
 
-//	void Update()
-//	{
-//		if (Input.GetKeyUp(KeyCode.A)) 
-//		{
-//			TriggerDialogue();
-//			Debug.Log ("TriggerDialogue();");
-//		}
-//	}
+	public void TriggerDialogue()
+	{
+		if (conversationSwitchOn == false) 
+		{
+			FindObjectOfType<DialogueManager> ().StartDialogue (dialogue);
+
+			conversationSwitchOn = !conversationSwitchOn;
+		}
+	}
 }
