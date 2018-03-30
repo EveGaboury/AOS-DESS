@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: 01-01-Animator
+  m_Name: 04-02Animator
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: onClick
@@ -69,7 +69,7 @@ AnimatorStateTransition:
   serializedVersion: 3
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
-  m_ExitTime: 0.8660713
+  m_ExitTime: 0.86607134
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -81,7 +81,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: EndState_01-01
+  m_Name: EndState_04-02
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -94,7 +94,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 13d1426a202a76a49821277b3e8e8d4c, type: 2}
+  m_Motion: {fileID: 7400000, guid: e3b04542448c3462fb4b080024fcbced, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -132,7 +132,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: J01-01_Anim
+  m_Name: J04-02_Anim
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -146,7 +146,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 5a4fd7e649c264d53b49809ba8c45b57, type: 2}
+  m_Motion: {fileID: 7400000, guid: c3de8ea6682b94c5c98ae2a2980a3856, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -162,13 +162,13 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1102799985351215052}
-    m_Position: {x: 156, y: 192, z: 0}
+    m_Position: {x: 156, y: 204, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102202020468581322}
-    m_Position: {x: 204, y: 408, z: 0}
+    m_Position: {x: 216, y: 408, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102906702705942886}
-    m_Position: {x: 180, y: 300, z: 0}
+    m_Position: {x: 192, y: 300, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
