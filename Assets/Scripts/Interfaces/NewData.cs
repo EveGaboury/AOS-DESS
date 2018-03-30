@@ -13,13 +13,13 @@ public class NewData : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
 	Color currentColorValue, highLightedColor = Color.yellow, startingColor = Color.white;
 
-	GameObject prefab, parentToBe;
+	public GameObject prefab, parentToBe;
 
 	string startingText, currentTextValue;
 
 	float currentAlphaValue;
 
-	void Start()
+	public void Start()
 	{
 		prefab = this.gameObject;
 		startingText = prefab.GetComponentInChildren<TMP_Text> ().text;
