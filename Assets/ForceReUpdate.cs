@@ -10,9 +10,12 @@ public class ForceReUpdate : MonoBehaviour {
 
 
 	void OnEnable() {
-		
+
+		SR.InvertStart ();
 		Canvas.ForceUpdateCanvases();
 		SR.InvertStart ();
 
 	}
+
+
 }
