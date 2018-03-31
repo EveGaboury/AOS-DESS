@@ -7,21 +7,9 @@ public class ButtonDetection : MonoBehaviour, IPointerClickHandler
 {
 	public Color newColor;
 
-	[HideInInspector]
-	public string bttnName;
-
-//	[HideInInspector]
-//	public int bttnID;
-
 	public DialogueManager dialogueManager;
 
 	int currentIndex = 0;
-
-	void Awake()
-	{
-		bttnName = name;
-//		bttnID = transform.GetInstanceID ();
-	}
 
 	void Start()
 	{
