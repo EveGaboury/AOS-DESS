@@ -15,14 +15,6 @@ public class scrollRectPosition : MonoBehaviour {
 	public void Start () {
 
 		//Change the current vertical scroll position.
-		scrollFacebook.verticalNormalizedPosition = 1f;
-		
+		scrollFacebook.verticalNormalizedPosition = 1f;	
 	}
-
-	public void InvertScroll (){
-
-
-		scrollFacebook.verticalNormalizedPosition = 0f;
-	}
-
 }
