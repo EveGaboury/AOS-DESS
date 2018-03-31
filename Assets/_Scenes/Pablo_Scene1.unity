@@ -165,7 +165,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newColor: {r: 0, g: 0, b: 0, a: 0}
-  bttnName: 
   dialogueManager: {fileID: 1256960078}
 --- !u!114 &8600597
 MonoBehaviour:
@@ -2230,7 +2229,7 @@ GameObject:
   - component: {fileID: 271556746}
   m_Layer: 0
   m_Name: DisplayConversationPartner
-  m_TagString: Untagged
+  m_TagString: MarieEvePoirier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2474,11 +2473,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -2779,7 +2778,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newColor: {r: 0, g: 0, b: 0, a: 0}
-  bttnName: 
   dialogueManager: {fileID: 1256960078}
 --- !u!114 &347196173
 MonoBehaviour:
@@ -2895,7 +2893,7 @@ GameObject:
   - component: {fileID: 350311915}
   m_Layer: 0
   m_Name: Answer02
-  m_TagString: Untagged
+  m_TagString: AnswerButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3031,7 +3029,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newColor: {r: 0, g: 0, b: 0, a: 0}
-  bttnName: 
   dialogueManager: {fileID: 1256960078}
 --- !u!1 &370271509
 GameObject:
@@ -3737,7 +3734,7 @@ GameObject:
   - component: {fileID: 582213971}
   m_Layer: 0
   m_Name: Answer03
-  m_TagString: Untagged
+  m_TagString: AnswerButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3873,7 +3870,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newColor: {r: 0, g: 0, b: 0, a: 0}
-  bttnName: 
   dialogueManager: {fileID: 1256960078}
 --- !u!1 &601840989
 GameObject:
@@ -5481,7 +5477,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &963584202
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5602,7 +5598,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newColor: {r: 0, g: 0, b: 0, a: 0}
-  bttnName: 
   dialogueManager: {fileID: 1256960078}
 --- !u!1 &980970781
 GameObject:
@@ -6812,11 +6807,11 @@ MonoBehaviour:
   yourHistory: {fileID: 1952162457035900, guid: 9ffe06e4651412a469b616239356a377,
     type: 2}
   conversationHistory: {fileID: 183875092}
-  prefab: {fileID: 0}
   listeDeBouttons: []
   listeDePhrases: []
-  test: salut les zizi
+  listeNomsDeBouttons: []
   nextSentence: 
+  prefab: {fileID: 0}
 --- !u!1 &1291975118
 GameObject:
   m_ObjectHideFlags: 0
@@ -6946,7 +6941,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 'Answer01
+  m_text: '
 
 '
   m_isRightToLeft: 0
@@ -7015,7 +7010,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 0}
-    characterCount: 9
+    characterCount: 1
     spriteCount: 0
     spaceCount: 1
     wordCount: 1
@@ -7150,7 +7145,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Answer03
+  m_text: '
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 715b80e429c437e40867928a4e1fc975, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 715b80e429c437e40867928a4e1fc975, type: 2}
@@ -7217,9 +7214,9 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 0}
-    characterCount: 8
+    characterCount: 1
     spriteCount: 0
-    spaceCount: 0
+    spaceCount: 1
     wordCount: 1
     linkCount: 0
     lineCount: 1
@@ -7598,6 +7595,7 @@ GameObject:
   - component: {fileID: 1537398281}
   - component: {fileID: 1256960078}
   - component: {fileID: 1537398280}
+  - component: {fileID: 1537398282}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -7618,7 +7616,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    naming: 
     sentences:
     - question 1
     - question 2
@@ -7638,6 +7635,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1537398282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1537398279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb9c534924aadee49833871f52b0904e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1589422692
 GameObject:
   m_ObjectHideFlags: 0
@@ -8027,7 +8035,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newColor: {r: 0, g: 0, b: 0, a: 0}
-  bttnName: 
   dialogueManager: {fileID: 1256960078}
 --- !u!114 &1671431078
 MonoBehaviour:
@@ -8515,7 +8522,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newColor: {r: 0, g: 0, b: 0, a: 0}
-  bttnName: 
   dialogueManager: {fileID: 1256960078}
 --- !u!114 &1805106117
 MonoBehaviour:
@@ -9304,7 +9310,7 @@ GameObject:
   - component: {fileID: 1931175658}
   m_Layer: 0
   m_Name: Answer01
-  m_TagString: Untagged
+  m_TagString: AnswerButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9440,7 +9446,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newColor: {r: 0, g: 0, b: 0, a: 0}
-  bttnName: 
   dialogueManager: {fileID: 1256960078}
 --- !u!1 &1938606191
 GameObject:
@@ -10686,7 +10691,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 'Answer02
+  m_text: '
 
 '
   m_isRightToLeft: 0
@@ -10755,7 +10760,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 0}
-    characterCount: 9
+    characterCount: 1
     spriteCount: 0
     spaceCount: 1
     wordCount: 1

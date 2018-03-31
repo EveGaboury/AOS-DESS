@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueTrigger : MonoBehaviour
 {
@@ -8,13 +9,27 @@ public class DialogueTrigger : MonoBehaviour
 
 	private bool conversationSwitchOn; 
 
-	private List<GameObject> allTheObjectsInTheScene = new List<GameObject>();
+	private GameObject reference;
+
+	private List<GameObject> allTheObjectsInTheSceneWithAButton = new List<GameObject>();
 
 	void Start()
 	{
-		foreach (GameObject item in Resources.FindObjectsOfTypeAll(typeof(GameObject)) as GameObject[]) 
+		reference = GameObject.Find ("CanvasEve");
+
+		Transform[] allChildren = reference.gameObject.GetComponentsInChildren<Transform> (true);
+
+		foreach (Transform child in allChildren) 
 		{
-			
+			if (child.GetComponent<Button>() && child.tag == "MarieEvePoirier") 
+			{
+				allTheObjectsInTheSceneWithAButton.Add (child.gameObject);
+
+//				for (int i = 0; i < allTheObjectsInTheSceneWithAButton.Count; i++)
+//				{
+//					Debug.Log(allTheObjectsInTheSceneWithAButton[i].name);
+//				}
+			}
 		}
 	}
 
@@ -25,6 +40,8 @@ public class DialogueTrigger : MonoBehaviour
 			FindObjectOfType<DialogueManager> ().StartDialogue (dialogue);
 
 			conversationSwitchOn = !conversationSwitchOn;
+
+			allTheObjectsInTheSceneWithAButton [0].GetComponent<Button> ().enabled = false;
 		}
 	}
 }
