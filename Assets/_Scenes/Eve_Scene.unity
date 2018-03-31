@@ -388,7 +388,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00010681152, y: 0.000030517578}
+  m_AnchoredPosition: {x: -0.00010681152, y: 0.000061035156}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &8187536
@@ -17181,7 +17181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43631a306698a4dc9a1e8c5ac701d83b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SR: {fileID: 678657569}
 --- !u!1 &263638896
 GameObject:
   m_ObjectHideFlags: 0
@@ -33032,17 +33031,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 262989554}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1319409071}
         m_MethodName: SetActive
         m_Mode: 6
@@ -33075,6 +33063,39 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 678657567}
+        m_MethodName: deactivateChildren
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 768419678}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 262989554}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
@@ -43681,7 +43702,6 @@ GameObject:
   - component: {fileID: 678657568}
   - component: {fileID: 678657569}
   - component: {fileID: 678657570}
-  - component: {fileID: 678657571}
   m_Layer: 0
   m_Name: ScriptManager
   m_TagString: Untagged
@@ -43924,18 +43944,6 @@ MonoBehaviour:
   SearchField: {fileID: 485190630}
   inputText: {fileID: 1619501728}
   postButton: {fileID: 322167007}
---- !u!114 &678657571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 678657561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 898515793590748b797fe3dd79c58e67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SB: {fileID: 2100818043}
 --- !u!1 &680732956
 GameObject:
   m_ObjectHideFlags: 0
@@ -64734,7 +64742,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43631a306698a4dc9a1e8c5ac701d83b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SR: {fileID: 678657569}
 --- !u!1 &953746697
 GameObject:
   m_ObjectHideFlags: 0
@@ -76929,7 +76936,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43631a306698a4dc9a1e8c5ac701d83b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SR: {fileID: 678657569}
 --- !u!1 &1167735540
 GameObject:
   m_ObjectHideFlags: 0
@@ -85184,7 +85190,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43631a306698a4dc9a1e8c5ac701d83b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SR: {fileID: 678657569}
 --- !u!1 &1321884530
 GameObject:
   m_ObjectHideFlags: 0
@@ -110888,7 +110893,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -16.886658, y: 0.032989502}
+  m_AnchoredPosition: {x: -16.886703, y: 0.032958984}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1687230946
@@ -111766,17 +111771,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1319409071}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 262989554}
         m_MethodName: SetActive
         m_Mode: 6
@@ -111809,6 +111803,39 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 678657567}
+        m_MethodName: deactivateChildren
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 768419678}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1319409071}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
@@ -125794,17 +125821,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1167050245}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 262989554}
         m_MethodName: SetActive
         m_Mode: 6
@@ -125837,6 +125853,39 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 678657567}
+        m_MethodName: deactivateChildren
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 768419678}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1167050245}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
@@ -134182,7 +134231,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43631a306698a4dc9a1e8c5ac701d83b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SR: {fileID: 678657569}
 --- !u!1 &2084544531
 GameObject:
   m_ObjectHideFlags: 0
@@ -135291,10 +135339,10 @@ RectTransform:
   m_Father: {fileID: 1571552796}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.9744215, y: 0}
+  m_AnchorMin: {x: 0.95100003, y: 0}
   m_AnchorMax: {x: 1, y: 0.9966544}
-  m_AnchoredPosition: {x: -9.299988, y: -6.1489143}
-  m_SizeDelta: {x: 25, y: 684.97}
+  m_AnchoredPosition: {x: 0.000061035156, y: 14}
+  m_SizeDelta: {x: 12.900002, y: 638.83}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2100818043
 MonoBehaviour:
@@ -135332,10 +135380,10 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1256243351}
+  m_TargetGraphic: {fileID: 2100818044}
   m_HandleRect: {fileID: 1256243350}
   m_Direction: 2
-  m_Value: 0.99999994
+  m_Value: 0.9999996
   m_Size: 0.70191973
   m_NumberOfSteps: 0
   m_OnValueChanged:

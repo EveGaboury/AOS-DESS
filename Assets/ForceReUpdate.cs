@@ -5,17 +5,8 @@ using UnityEngine.UI;
 
 public class ForceReUpdate : MonoBehaviour {
 
-	public scrollRectPosition SR;
-
-
-
 	void OnEnable() {
 
-		SR.InvertStart ();
 		Canvas.ForceUpdateCanvases();
-		SR.InvertStart ();
-
 	}
-
-
 }
