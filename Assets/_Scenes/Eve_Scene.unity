@@ -388,7 +388,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000045776367, y: 0.000030517578}
+  m_AnchoredPosition: {x: 0.000015258789, y: 0.000030517578}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &8187536
@@ -17178,7 +17178,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 262989554}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 898515793590748b797fe3dd79c58e67, type: 3}
+  m_Script: {fileID: 11500000, guid: 43631a306698a4dc9a1e8c5ac701d83b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SR: {fileID: 678657569}
@@ -25283,8 +25283,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1946666143}
   m_HandleRect: {fileID: 1946666141}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.9999999
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -51602,7 +51602,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &768419680
@@ -64720,7 +64720,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 949016421}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 898515793590748b797fe3dd79c58e67, type: 3}
+  m_Script: {fileID: 11500000, guid: 43631a306698a4dc9a1e8c5ac701d83b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SR: {fileID: 678657569}
@@ -76915,7 +76915,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1167050245}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 898515793590748b797fe3dd79c58e67, type: 3}
+  m_Script: {fileID: 11500000, guid: 43631a306698a4dc9a1e8c5ac701d83b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SR: {fileID: 678657569}
@@ -85170,7 +85170,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1319409071}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 898515793590748b797fe3dd79c58e67, type: 3}
+  m_Script: {fileID: 11500000, guid: 43631a306698a4dc9a1e8c5ac701d83b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SR: {fileID: 678657569}
@@ -102617,17 +102617,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 678657571}
-        m_MethodName: start
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1564759029
@@ -110877,7 +110866,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -16.886642, y: 0.03286743}
+  m_AnchoredPosition: {x: -16.886642, y: 0.032989502}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1687230946
@@ -125783,7 +125772,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1167050245}
+      - m_Target: {fileID: 1319409071}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -134135,7 +134124,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2083987361}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 898515793590748b797fe3dd79c58e67, type: 3}
+  m_Script: {fileID: 11500000, guid: 43631a306698a4dc9a1e8c5ac701d83b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SR: {fileID: 678657569}
