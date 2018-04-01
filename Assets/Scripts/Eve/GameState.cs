@@ -75,6 +75,7 @@ public class GameState : MonoBehaviour {
 
 		SP.facebookCanvas.SetActive (false);
 		SP.messengerTemplate.SetActive (false);
+		deactivateChildren ();
 		SP.notifSo.SetActive (false);
 		SP.notifCass.SetActive (false);
 		SP.pageProfilTemplate.SetActive (false);
@@ -102,7 +103,10 @@ public class GameState : MonoBehaviour {
 	public void accueil ()
 	{
 		SP.pageProfilTemplate.SetActive (false);
+
 		SP.messengerTemplate.SetActive (false);
+		deactivateChildren ();
+	
 		SP.amisTemplate.SetActive (false);
 		SP.newsFeedTemplate.SetActive (true);
 		SP.messengerFix.SetActive (false);
@@ -175,6 +179,7 @@ public class GameState : MonoBehaviour {
 		SP.newsFeedTemplate.SetActive (false);
 		SP.messengerFix.SetActive (false);
 		SP.messengerTemplate.SetActive (false);
+		deactivateChildren ();
 		SP.wrongPassword.SetActive (false);
 		SP.mesAmisTemplate.SetActive (false);
 		SP.notifSo.SetActive (false);
@@ -231,6 +236,7 @@ public class GameState : MonoBehaviour {
 
 		SP.pageNewFeedTemplate.SetActive (false);
 		SP.messengerTemplate.SetActive (false);
+		deactivateChildren ();
 		SP.pageProfilTemplate.SetActive (false);
 		SP.newsFeedTemplate.SetActive (false);
 		SP.mesAmisTemplate.SetActive (false);
@@ -268,6 +274,7 @@ public class GameState : MonoBehaviour {
 		SP.mesAmisTemplate.SetActive (false);
 		SP.newsFeedTemplate.SetActive (false);
 		SP.messengerTemplate.SetActive (false);
+		deactivateChildren ();
 		SP.messengerFix.SetActive (false);
 		SP.mesAmisFix.SetActive (false);
 		SP.notifSo.SetActive (false);
@@ -302,6 +309,7 @@ public class GameState : MonoBehaviour {
 		SP.mesAmisTemplate.SetActive (false);
 		SP.newsFeedTemplate.SetActive (false);
 		SP.messengerTemplate.SetActive (false);
+		deactivateChildren ();
 		SP.messengerFix.SetActive (false);
 		SP.mesAmisFix.SetActive (false);
 		SP.notifSo.SetActive (false);
@@ -333,6 +341,7 @@ public class GameState : MonoBehaviour {
 		SP.mesAmisTemplate.SetActive (false);
 		SP.newsFeedTemplate.SetActive (false);
 		SP.messengerTemplate.SetActive (false);
+		deactivateChildren ();
 		SP.messengerFix.SetActive (false);
 		SP.mesAmisFix.SetActive (false);
 		SP.notifSo.SetActive (false);
@@ -373,6 +382,7 @@ public class GameState : MonoBehaviour {
 			SP.mesAmisTemplate.SetActive (false);
 			SP.newsFeedTemplate.SetActive (false);
 			SP.messengerTemplate.SetActive (false);
+			deactivateChildren ();
 			SP.messengerFix.SetActive (false);
 			SP.mesAmisFix.SetActive (false);
 			SP.notifSo.SetActive (false);
@@ -413,6 +423,7 @@ public class GameState : MonoBehaviour {
 		SP.mesAmisTemplate.SetActive (false);
 		SP.newsFeedTemplate.SetActive (false);
 		SP.messengerTemplate.SetActive (false);
+		deactivateChildren ();
 		SP.messengerFix.SetActive (false);
 		SP.mesAmisFix.SetActive (false);
 		SP.notifSo.SetActive (false);
@@ -455,6 +466,7 @@ public class GameState : MonoBehaviour {
 		SP.mesAmisTemplate.SetActive (false);
 		SP.newsFeedTemplate.SetActive (false);
 		SP.messengerTemplate.SetActive (false);
+		deactivateChildren ();
 		SP.messengerFix.SetActive (false);
 		SP.mesAmisFix.SetActive (false);
 		SP.notifSo.SetActive (false);
@@ -490,6 +502,7 @@ public class GameState : MonoBehaviour {
 		SP.mesAmisTemplate.SetActive (false);
 		SP.newsFeedTemplate.SetActive (false);
 		SP.messengerTemplate.SetActive (false);
+		deactivateChildren ();
 		SP.messengerFix.SetActive (false);
 		SP.mesAmisFix.SetActive (false);
 		SP.notifSo.SetActive (false);
@@ -562,6 +575,18 @@ public class GameState : MonoBehaviour {
 		SP.C6info.SetActive (false);
 		SP.CB1info.SetActive (false);
 		SP.C1info.SetActive (false);
+	}
+
+	public void deactivateChildren () {
+
+		LayoutElement[] allChildren = SP.messengerTemplate.GetComponentsInChildren<LayoutElement>();
+
+		foreach (LayoutElement item in allChildren) {
+			item.gameObject.SetActive (false);
+			
+		}
+
+
 	}
 
 
