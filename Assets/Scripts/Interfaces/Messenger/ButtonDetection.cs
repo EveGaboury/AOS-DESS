@@ -3,169 +3,121 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
-public class ButtonDetection : MonoBehaviour, IPointerClickHandler
+public class ButtonDetection : MonoBehaviour/*, IPointerClickHandler*/
 {
-	public Color newColor;
+	private GameObject messengerManager;
 
-	public DialogueManager dialogueManager;
+	private string[] oneTwoThreeViveLAlgerie = new string[] {"Alpha1","Alpha2","Alpha3"};
 
-	int currentIndex = 0;
+	private Color currentColor, highlitedColor, normalColor;
 
-	void Start()
+	KeyCode currentKey;
+
+	[HideInInspector]
+	public bool answerTheQuestion = false;
+
+	private string currentQuestion;
+
+	void Start ()
 	{
-		ColorBlock colorBlock = transform.GetComponent<Button>().colors;
-		colorBlock.highlightedColor = newColor;	
-		transform.GetComponent<Button>().colors = colorBlock;
+		messengerManager = GameObject.Find ("DialogueManager");
+
+		highlitedColor = Color.red;
+
+		normalColor = Color.white;
 	}
 
-	public void OnPointerClick(PointerEventData pointerEventData)
+	void Update()
 	{
-		if ((pointerEventData.button == PointerEventData.InputButton.Left) || (pointerEventData.button == PointerEventData.InputButton.Right)) 
+		CheckIfKeyWasPressed ();
+		if (this.gameObject.GetComponent<DialogueTrigger>().conversationSwitchOn == true) 
 		{
-//			dialogueManager.GetComponent<DialogueManager> ().test = "This is the name of the button that has been clicked: " + bttnName + "\n"+ "This is the ID of the button that has been clicked: "+ bttnID.ToString();
-//			dialogueManager.GetComponent<DialogueManager> ().test = dialogueManager.GetComponent<DialogueManager> ().HelloWorld("test");
-//			Debug.Log (bttnName + " Game Object Clicked!" + bttnID);
+			CheckWhatQuestionIsCurrentlyDisplayed ();
+		}
+
+	}
+
+	public void CheckWhatQuestionIsCurrentlyDisplayed() 
+	{
+		for (int j = 0; j < messengerManager.GetComponent<DialogueManager>().listeDePhrases.Count; j++) 
+		{
+			if (messengerManager.GetComponent<DialogueManager>().sentences.Count  == 1) 
+			{
+				messengerManager.GetComponent<DialogueManager> ().EndDialogue ();
+			}
+			else if (messengerManager.GetComponent<DialogueManager>().sentences.Count == 2) 
+			{
+				currentQuestion = "Q4";
+				RegulateSomeShit ();
+
+//				Debug.Log ("From ButtonDetedtion(): " + messengerManager.GetComponent<DialogueTrigger>().dialogue.sentences[j]);
+			}
+			else if (messengerManager.GetComponent<DialogueManager>().sentences.Count  == 3) 
+			{
+				currentQuestion = "Q3";
+				RegulateSomeShit ();
+
+//				Debug.Log ("From ButtonDetedtion(): " + messengerManager.GetComponent<DialogueTrigger>().dialogue.sentences[j]);
+			}
+			else if (messengerManager.GetComponent<DialogueManager>().sentences.Count  == 4) 
+			{
+				answerTheQuestion = true;
+				currentQuestion = "Q2";
+				RegulateSomeShit (); 
+				answerTheQuestion = false;
+//				Debug.Log ("From ButtonDetedtion(): " + messengerManager.GetComponent<DialogueTrigger>().dialogue.sentences[j]);
+			}
 		}
 	}
 
-	public void CheckWhatQuestionIsCurrentlyDisplayed(/*int k*/)
+
+	void CheckIfKeyWasPressed()
 	{
-		DialogueManager dlg = dialogueManager.GetComponent<DialogueManager> ();
-
-//		Debug.Log ("test: "+ dlg.sentences.Count);
-
-		for (int i = 0; i < dlg.listeDePhrases.Count; i++) 
+		foreach (KeyCode pressedKey in System.Enum.GetValues(typeof(KeyCode))) 
 		{
-			if (dlg.sentences.Count == 0) 
+			if (Input.GetKeyDown(pressedKey))
 			{
-				dlg.SetNameOfButtonsZERO ();
+				currentKey = pressedKey;
+				currentColor = highlitedColor;
+				ManageButtonColor ();
 
-				if (dlg.listeDeBouttons[i].name == this.gameObject.name) 
+				for (int i = 0; i < oneTwoThreeViveLAlgerie.Length; i++) 
 				{
-					dlg.prefab = dlg.yourHistory;
-					dlg.InstantiateStuff (name + "Q04");
-//					Debug.Log ("Boutton a ete presse: " + name);
+					if (pressedKey.ToString() == oneTwoThreeViveLAlgerie[i])
+					{
+						messengerManager.GetComponent<DialogueManager> ().DisplayNextSentence ();
+						CheckWhatQuestionIsCurrentlyDisplayed ();
+					}
 				}
-
-
-//				Debug.Log ("Phrases restantes: " + dlg.sentences.Count);
 			}
-			else if (dlg.sentences.Count == 1) 
+			else if (Input.GetKeyUp(pressedKey))
 			{
-				dlg.SetNameOfButtonsONE ();
-
-				if (dlg.listeDeBouttons[i].name == this.gameObject.name) 
-				{
-					dlg.prefab = dlg.yourHistory;
-					dlg.InstantiateStuff (name + "Q03");
-//					Debug.Log ("Boutton a ete presse: " + name);
-				}
-
-//				Debug.Log ("Phrases restantes: " +  dlg.sentences.Count);
+				currentKey = pressedKey;
+				currentColor = normalColor;
+				ManageButtonColor ();
 			}
-			else if (dlg.sentences.Count == 2) 
-			{
-				dlg.SetNameOfButtonsTWO ();
-
-				if (dlg.listeDeBouttons[i].name == this.gameObject.name) 
-				{
-					dlg.prefab = dlg.yourHistory;
-					dlg.InstantiateStuff (name + "Q02");
-//					Debug.Log ("Boutton a ete presse: " + name);
-				}
-					
-//				Debug.Log ("Phrases restanates: " + dlg.sentences.Count);
-			}
-			else if (dlg.sentences.Count == 3) 
-			{
-				dlg.SetNameOfButtonsTHREE ();
-
-				if (dlg.listeDeBouttons[i].name == this.gameObject.name) 
-				{
-					dlg.prefab = dlg.yourHistory;
-					dlg.InstantiateStuff (name + "Q01");
-//					Debug.Log ("Boutton a ete presse: " + name);
-				}
-
-//				Debug.Log (this.gameObject.name);
-//				Debug.Log ("test: "+ dlg.sentences.Count);
-			}
-
-			//			Debug.Log (dlg.listeDePhrases.IndexOf(dlg.listeDePhrases[i]));
-
-			//			if (dlg.listeDePhrases.IndexOf(dlg.listeDePhrases[0]) == 0) 
-			//			{
-			//				Debug.Log (dlg.sentences.Count);
-			//				Debug.Log (dlg.listeDePhrases[0]);
-			//			}
 		}
+	}
 
+	void ManageButtonColor() 
+	{
+		for (int i = 0; i < 3; i++) 
+		{
+			if (currentKey.ToString () == oneTwoThreeViveLAlgerie [i].ToString ()) 
+			{
+				messengerManager.GetComponent<DialogueManager>().listeDeBouttons[i].gameObject.GetComponent<Image> ().color = currentColor;
+			}
+		}
+	}
 
-//		Debug.Log (dlg.listeDePhrases.IndexOf("question 1"));
-		//k = 1;
+	void RegulateSomeShit()
+	{
+		//answerTheQuestion = true;
 
-		//currentIndex = k;
+		messengerManager.GetComponent<DialogueManager> ().currentMarkerOfQuestions = currentQuestion;
 
-//		Debug.Log (dlg.listeDePhrases.Count);
+		messengerManager.GetComponent<DialogueManager> ().UpdateNameOfButtons ();
 
-
-		//if (k >= dlg.listeDePhrases.Count && k < 0)
-//		{
-			//return;
-//		}
-
-
-//		for (int i = 1; i < (dlg.listeDePhrases.Count + 1); i++) 
-//		{
-
-//			Debug.Log (dlg.nextSentence);
-
-//			if (dlg.listeDePhrases[i] == /*dlg.sentences.Contains(dlg.sentences[i])*/dialogueManager.GetComponent<DialogueManager> ().nextSentence) 
-//			{
-//				Debug.Log ("From ButtonDetection(): " + dialogueManager.GetComponent<DialogueManager> ().nextSentence);
-//			}
-
-//			if (dlg.listeDePhrases[i] == dialogueManager.GetComponent<DialogueManager> ().nextSentence) 
-//			{
-//				Debug.Log ("From ButtonDetection(): " + dlg.listeDePhrases[i]);
-//
-//				dlg.listeDeBouttons[i].GetComponentInChildren<TextMeshProUGUI> ().text = "Answer0" + i + " , Q0" +i;
-//
-//				foreach (GameObject bttn in dlg.listeDeBouttons) 
-//				{
-//					bttn.GetComponentInChildren<TextMeshProUGUI> ().text = "test"/*"Answer0" + i + " , Q0" +i*/;
-//					//				sentences.Enqueue (sentence);
-//				}
-//			}
-//		}
-			
-//		for (int i = 0; i < dlg.listeDePhrases.Count; i++)
-//		{
-//			if (dlg.listeDePhrases [i] == dialogueManager.GetComponent<DialogueManager> ().nextSentence) 
-//			{
-//				this.gameObject.GetComponentInChildren<TextMeshProUGUI> ().text = "Answer0" + i + " , Q0" + i;
-//				Debug.Log ("success: " + name);
-//			}
-
-//			if (dlg.listeDeBouttons[i] == this.gameObject) 
-//			{
-//				this.gameObject.GetComponentInChildren<TextMeshProUGUI> ().text = "Answer0" + i + " , Q0" + i;
-//				Debug.Log ("success: " + name);
-//			}
-
-//			if (dlg.listeDeBouttons[i] == this.gameObject) 
-//			{		
-//				foreach (GameObject item in dlg.listeDeBouttons) 
-//				{
-//					if (item.name == "Asnwer01") 
-//					{
-//						Debug.Log(item.name);
-//					}
-//
-//					item.text = "Answer0" + i + " , Q0" + i;
-//				}
-//			}
-//			Debug.Log ("The next sentence to be displayed is: " + dialogueManager.GetComponent<DialogueManager> ().nextSentence);
-//		}
+		//answerTheQuestion = false;
 	}
 }

@@ -7,7 +7,8 @@ public class DialogueTrigger : MonoBehaviour
 {
 	public Dialogue dialogue;
 
-	private bool conversationSwitchOn; 
+	[HideInInspector]
+	public bool conversationSwitchOn = false; 
 
 	private GameObject reference;
 
@@ -24,11 +25,6 @@ public class DialogueTrigger : MonoBehaviour
 			if (child.GetComponent<Button>() && child.tag == "MarieEvePoirier") 
 			{
 				allTheObjectsInTheSceneWithAButton.Add (child.gameObject);
-
-//				for (int i = 0; i < allTheObjectsInTheSceneWithAButton.Count; i++)
-//				{
-//					Debug.Log(allTheObjectsInTheSceneWithAButton[i].name);
-//				}
 			}
 		}
 	}
@@ -37,11 +33,16 @@ public class DialogueTrigger : MonoBehaviour
 	{
 		if (conversationSwitchOn == false) 
 		{
+			conversationSwitchOn = true;
+
 			FindObjectOfType<DialogueManager> ().StartDialogue (dialogue);
 
-			conversationSwitchOn = !conversationSwitchOn;
+//			Destroy (allTheObjectsInTheSceneWithAButton [0].GetComponent<Button> ());
 
 			allTheObjectsInTheSceneWithAButton [0].GetComponent<Button> ().enabled = false;
+			allTheObjectsInTheSceneWithAButton [0].GetComponent<Button> ().interactable = false;
+
+			conversationSwitchOn = false;
 		}
 	}
 }

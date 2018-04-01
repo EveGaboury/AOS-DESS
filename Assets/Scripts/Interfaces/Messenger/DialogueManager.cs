@@ -7,8 +7,8 @@ using System;
 
 public class DialogueManager : MonoBehaviour
 {
-	public TextMeshProUGUI nameText/*, dialogueText*/;
-	public GameObject messengerCanvas, partnerHistory, yourHistory;
+	public TextMeshProUGUI nameText;
+	public GameObject messengerCanvas, conversationPartner, yourAnswers;
 	public Transform conversationHistory;
 
 	[HideInInspector]
@@ -21,14 +21,14 @@ public class DialogueManager : MonoBehaviour
 	public List<string> listeDePhrases = new List<string>(), listeNomsDeBouttons = new List<string>();
 
 	[HideInInspector]
-	public string nextSentence;
+	public string nextSentence, currentMarkerOfQuestions;
 
 	[HideInInspector]
 	public GameObject prefab;
 
-	private Dialogue dialogue;
-
 	private Transform answerButtonsParent;
+
+	private Dialogue dialogue;
 
 	void Awake()
 	{
@@ -46,11 +46,29 @@ public class DialogueManager : MonoBehaviour
 
 		FetchButtonsInOrderToMakeAList ();
 
-		SetNameOfButtonsTHREE ();
+		currentMarkerOfQuestions = "Q1";
+		UpdateNameOfButtons ();
 	}
 
+//	void Update()
+//	{
+//		if (Input.GetKeyUp(KeyCode.Y)) 
+//		{
+//			DisplayNextSentence ();
+//			Debug.Log (sentences.Count);
+//
+//			for (int i = 0; i < listeDeBouttons.Count; i++) 
+//			{
+//				Debug.Log ("From DialogueManager(): " + listeDeBouttons[i].name);
+//			}
+//
+//			Debug.Log ("The EndDialogue () method has been called.");
+//			EndDialogue ();
+//		}
+//	}
+
 	public void StartDialogue(Dialogue dialogue)
-	{
+	{ 
 		sentences.Clear ();
 
 		foreach (string sentence in dialogue.sentences) 
@@ -68,37 +86,39 @@ public class DialogueManager : MonoBehaviour
 		{
 			EndDialogue ();
 			return;
+		} 
+		else if (sentences.Count > 0) 
+		{
+			nextSentence = sentences.Dequeue (); 
+
+			prefab = conversationPartner;
+			InstantiateStuff(nextSentence);
 		}
+		
 
-		nextSentence = sentences.Dequeue ();
-
-//		Debug.Log (nextSentence);
-
-//		dialogueText.GetComponent<TextMeshProUGUI>().text = nextSentence;
-
-		prefab = partnerHistory;
-		InstantiateStuff(nextSentence);
+		//if (this.gameObject.GetComponent<ButtonDetection>().answerTheQuestion == true) 
+		//{
+			prefab = yourAnswers;
+			InstantiateStuff(nextSentence + " test");
+		//}
 	}
 
 	public void EndDialogue ()
 	{
 		for (int i = 0; i < listeDeBouttons.Count; i++) 
 		{
-			if (listeDeBouttons[i].name == "ContinueConversation") 
+			if (listeDeBouttons[i].gameObject != null) 
 			{
-				listeDeBouttons [i].GetComponentInChildren<TextMeshProUGUI> ().text = "End of conversation.";
-//				Debug.Log ("End of conversation.");
+				listeDeBouttons[i].GetComponentInChildren<TextMeshProUGUI>().text = "<size=16>End of conversation.</size>";
+
+				listeDeBouttons [i].GetComponent<Button> ().enabled = false;
+
+				Debug.Log ("End of conversation.");
 			}
 		}
-	}		
+	}	 
 
-	public void PickAButton()
-	{
-		DisplayNextSentence ();
-//		prefab = yourHistory;
-	}		
-
-	public void InstantiateStuff(string dialogue)
+	void InstantiateStuff(string dialogue)
 	{
 		GameObject dialogueInstance = Instantiate (prefab, conversationHistory.position, Quaternion.identity) as GameObject;
 
@@ -109,23 +129,24 @@ public class DialogueManager : MonoBehaviour
 		dialogueInstance.GetComponentInChildren<TextMeshProUGUI> ().text = dialogue;
 	}
 
- 	void FetchButtonsInOrderToMakeAList()
+ 	void FetchButtonsInOrderToMakeAList() 
 	{
 		Transform[] allChildren = answerButtonsParent.GetComponentsInChildren<Transform> ();
 
 		foreach (Transform child in allChildren) 
 		{
-			if (child.GetComponent<Button>() != null && child.tag == "AnswerButton") 
+			if (child.gameObject.GetComponent<Button> () != null && child.gameObject.tag == "AnswerButton")
 			{	
 				listeDeBouttons.Add (child.gameObject);
+
+//				for (int i = 0; i < listeDeBouttons.Count; i++)
+//				{
+//					Debug.Log ("From DialogueManager(), the current value of allChildren is: "+ listeDeBouttons[i].name);
+//				} 
+//
 				listeNomsDeBouttons.Add (child.name);
 			} 
 		}
-//		for (int i = 0; i < 4; i++) 
-//		{
-//			Debug.Log (/*"listeDeBouttons: " + listeDeBouttons.Count + "\n" + "listeNomsDeBouttons: " + listeNomsDeBouttons.Count*/
-//				"listeDeBouttons: " + listeDeBouttons[i].name + "\n" + "listeNomsDeBouttons: " + listeNomsDeBouttons[i]);
-//		}
 	}
 
 	public void ActivateAndDeactivateMessengerCanvas()
@@ -140,70 +161,13 @@ public class DialogueManager : MonoBehaviour
 		}
 	}
 
-	public void SetNameOfButtonsTHREE()
+	public void UpdateNameOfButtons()
 	{
 		for (int i = 0; i < listeDeBouttons.Count; i++) 
 		{
 			if (listeDeBouttons[i].gameObject.name == listeNomsDeBouttons[i]) 
 			{
-				listeDeBouttons[i].GetComponentInChildren<TextMeshProUGUI>().text = listeNomsDeBouttons[i] + " Q1";
-			}
-		}
-	}
-
-	public void SetNameOfButtonsTWO()
-	{
-		for (int i = 1; i < listeDeBouttons.Count; i++) 
-		{
-			if (listeDeBouttons[i].gameObject.name == "Answer01") 
-			{
-				listeDeBouttons[i].GetComponentInChildren<TextMeshProUGUI>().text = "Answer01 , Q02";
-			}
-			if (listeDeBouttons[i].gameObject.name == "Answer02") 
-			{
-				listeDeBouttons[i].GetComponentInChildren<TextMeshProUGUI>().text = "Answer02, Q02";
-			}
-			if (listeDeBouttons[i].gameObject.name == "Answer03") 
-			{
-				listeDeBouttons[i].GetComponentInChildren<TextMeshProUGUI>().text = "Answer03 , Q02";
-			}
-		}
-	}
-
-	public void SetNameOfButtonsONE()
-	{
-		for (int i = 1; i < listeDeBouttons.Count; i++) 
-		{
-			if (listeDeBouttons[i].gameObject.name == "Answer01") 
-			{
-				listeDeBouttons[i].GetComponentInChildren<TextMeshProUGUI>().text = "Answer01 , Q03";
-			}
-			if (listeDeBouttons[i].gameObject.name == "Answer02") 
-			{
-				listeDeBouttons[i].GetComponentInChildren<TextMeshProUGUI>().text = "Answer02, Q03";
-			}
-			if (listeDeBouttons[i].gameObject.name == "Answer03") 
-			{
-				listeDeBouttons[i].GetComponentInChildren<TextMeshProUGUI>().text = "Answer03 , Q03";
-			}
-		}
-	}
-
-	public void SetNameOfButtonsZERO()
-	{
-		for (int i = 1; i < listeDeBouttons.Count; i++) 
-		{
-			if (listeDeBouttons[i].gameObject.name == "Answer01") 
-			{
-				listeDeBouttons[i].GetComponentInChildren<TextMeshProUGUI>().text = "Answer01 , Q04";
-			}
-			if (listeDeBouttons[i].gameObject.name == "Answer02") 
-			{
-				listeDeBouttons[i].GetComponentInChildren<TextMeshProUGUI>().text = "Answer02, Q04";
-			}
-			if (listeDeBouttons[i].gameObject.name == "Answer03") 
-			{
-				listeDeBouttons[i].GetComponentInChildren<TextMeshProUGUI>().text = "Answer03 , Q04";
+				listeDeBouttons[i].GetComponentInChildren<TextMeshProUGUI>().text = listeNomsDeBouttons[i] + " " + currentMarkerOfQuestions;
 			}
 		}
 	}
