@@ -12,7 +12,6 @@ public class SoundDesignScript : MonoBehaviour
 public AudioClip[] soundClickList;
 public AudioClip[] soundtypingList;
 
-
 public AudioSource audioSourceSD;
 
 

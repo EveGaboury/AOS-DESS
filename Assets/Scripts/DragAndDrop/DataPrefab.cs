@@ -11,6 +11,8 @@ public class DataPrefab : MonoBehaviour
 
 	public AudioClip clipToBePlayed;
 
+	public AudioClip soundWriting;
+
 	public AnimationClip animCLIP;
 
 	public GameObject soundManager;
@@ -22,13 +24,16 @@ public class DataPrefab : MonoBehaviour
 
 	void Start()
 	{
+		
 		animator = GetComponent<Animator> ();
 	}
 
 	void Update()
 	{
+		
 		if (animClipIsPlaying == true) 
 		{
+			//PlaySound ();
 			justAnotherBoool = false;
 			CheckIfClipIsPlaying ();
 		}
@@ -39,6 +44,7 @@ public class DataPrefab : MonoBehaviour
 		if (animator.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).IsName (currentlyPlayingClip) &&
 			animator.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).normalizedTime >= 1.0f) 
 		{
+			
 			animClipIsPlaying = false;
 
 			animator.SetBool ("onClick", false);
@@ -55,6 +61,13 @@ public class DataPrefab : MonoBehaviour
 	public void PlayAudio()
 	{
 		soundManager.GetComponent<AudioSource> ().PlayOneShot (clipToBePlayed,0.5f);
+	}
+
+	public void PlaySound()
+	{
+		Debug.Log("Le son d'ecriture devrait être joué là");
+		soundManager.GetComponent<AudioSource> ().PlayOneShot (soundWriting);
+
 	}
 
 	public void PlaySoundOnceButtonInstantiated()
