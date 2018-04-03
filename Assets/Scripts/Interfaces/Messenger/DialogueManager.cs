@@ -21,10 +21,13 @@ public class DialogueManager : MonoBehaviour
 	public List<string> listeDePhrases = new List<string>(), listeNomsDeBouttons = new List<string>();
 
 	[HideInInspector]
-	public string nextSentence, currentMarkerOfQuestions;
+	public string nextSentence, currentMarkerOfQuestions, currentTextValueOfButton;
 
 	[HideInInspector]
 	public GameObject prefab;
+
+	[HideInInspector]
+	public bool hasConversationEnded = false;
 
 	private Transform answerButtonsParent;
 
@@ -32,6 +35,10 @@ public class DialogueManager : MonoBehaviour
 
 	void Awake()
 	{
+		answerButtonsParent = messengerCanvas.GetComponent<Transform>().Find ("Conversation");  
+
+		FetchButtonsInOrderToMakeAList ();
+
 		if (messengerCanvas.activeSelf == true) 
 		{
 			messengerCanvas.SetActive (false);
@@ -40,30 +47,35 @@ public class DialogueManager : MonoBehaviour
 
 	void Start ()
 	{
-		answerButtonsParent = messengerCanvas.GetComponent<Transform>().Find ("Conversation"); 
-
 		sentences = new Queue<string> ();
 
-		FetchButtonsInOrderToMakeAList ();
-
 		currentMarkerOfQuestions = "Q1";
-		UpdateNameOfButtons ();
 	}
 
 //	void Update()
 //	{
-//		if (Input.GetKeyUp(KeyCode.Y)) 
+//		if (sentences.Count == 0) 
 //		{
-//			DisplayNextSentence ();
-//			Debug.Log (sentences.Count);
-//
-//			for (int i = 0; i < listeDeBouttons.Count; i++) 
+//			for (int i = 0; i < this.gameObject.GetComponent<ButtonDetection> ().whatCouldGoWrong.Length; i++) 
 //			{
-//				Debug.Log ("From DialogueManager(): " + listeDeBouttons[i].name);
+//				this.gameObject.GetComponent<ButtonDetection> ().whatCouldGoWrong [2] = false;
 //			}
+//		}
+//		else if (sentences.Count == 1) 
+//		{
+//			this.gameObject.GetComponent<ButtonDetection> ().whatCouldGoWrong [1] = true;
 //
-//			Debug.Log ("The EndDialogue () method has been called.");
-//			EndDialogue ();
+//			this.gameObject.GetComponent<ButtonDetection> ().whatCouldGoWrong [1] = false;
+//			this.gameObject.GetComponent<ButtonDetection> ().whatCouldGoWrong [0] = false;
+//			this.gameObject.GetComponent<ButtonDetection> ().whatCouldGoWrong [2] = false;
+//		}
+//		else if (sentences.Count == 2) 
+//		{
+//			this.gameObject.GetComponent<ButtonDetection> ().whatCouldGoWrong [2] = true;
+//
+//			this.gameObject.GetComponent<ButtonDetection> ().whatCouldGoWrong [2] = false;
+//			this.gameObject.GetComponent<ButtonDetection> ().whatCouldGoWrong [0] = false;
+//			this.gameObject.GetComponent<ButtonDetection> ().whatCouldGoWrong [1] = false;
 //		}
 //	}
 
@@ -78,38 +90,30 @@ public class DialogueManager : MonoBehaviour
 		}
 
 		DisplayNextSentence ();
+		UpdateNameOfButtons ();
 	}
 
-	public void DisplayNextSentence ()
+	public void DisplayNextSentence () 
 	{
-		if (sentences.Count == 0) 
-		{
-			EndDialogue ();
-			return;
-		} 
-		else if (sentences.Count > 0) 
+		if (sentences.Count > 0) 
 		{
 			nextSentence = sentences.Dequeue (); 
 
 			prefab = conversationPartner;
 			InstantiateStuff(nextSentence);
+			this.gameObject.GetComponent<ButtonDetection> ().CheckWhatQuestionIsCurrentlyDisplayed ();
 		}
-		
-
-		//if (this.gameObject.GetComponent<ButtonDetection>().answerTheQuestion == true) 
-		//{
-			prefab = yourAnswers;
-			InstantiateStuff(nextSentence + " test");
-		//}
 	}
 
 	public void EndDialogue ()
 	{
+		hasConversationEnded = true;
+
 		for (int i = 0; i < listeDeBouttons.Count; i++) 
 		{
 			if (listeDeBouttons[i].gameObject != null) 
 			{
-				listeDeBouttons[i].GetComponentInChildren<TextMeshProUGUI>().text = "<size=16>End of conversation.</size>";
+				listeDeBouttons[i].GetComponentInChildren<TextMeshProUGUI>().text = "<size=14>Fin de la conversation.</size>";
 
 				listeDeBouttons [i].GetComponent<Button> ().enabled = false;
 
@@ -118,7 +122,7 @@ public class DialogueManager : MonoBehaviour
 		}
 	}	 
 
-	void InstantiateStuff(string dialogue)
+	public void InstantiateStuff(string dialogue)
 	{
 		GameObject dialogueInstance = Instantiate (prefab, conversationHistory.position, Quaternion.identity) as GameObject;
 
@@ -165,9 +169,11 @@ public class DialogueManager : MonoBehaviour
 	{
 		for (int i = 0; i < listeDeBouttons.Count; i++) 
 		{
+			currentTextValueOfButton = listeNomsDeBouttons [i] + " " + currentMarkerOfQuestions; 
+
 			if (listeDeBouttons[i].gameObject.name == listeNomsDeBouttons[i]) 
 			{
-				listeDeBouttons[i].GetComponentInChildren<TextMeshProUGUI>().text = listeNomsDeBouttons[i] + " " + currentMarkerOfQuestions;
+				listeDeBouttons[i].GetComponentInChildren<TextMeshProUGUI>().text = currentTextValueOfButton;  
 			}
 		}
 	}

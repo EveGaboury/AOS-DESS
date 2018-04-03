@@ -164,7 +164,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fcb0b62f63b8c04cb097b7496e01ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reponsesSophieQ1: []
+  reponsesSophieQ2: []
+  reponseMarieEveASophieQ1: []
   answerTheQuestion: 0
+  whatCouldGoWrong: 000000
 --- !u!114 &8600597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1404,9 +1408,9 @@ MonoBehaviour:
     m_Left: 0
     m_Right: 0
     m_Top: 0
-    m_Bottom: 0
+    m_Bottom: 200
   m_ChildAlignment: 1
-  m_Spacing: 0
+  m_Spacing: 50
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
@@ -2139,7 +2143,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fcb0b62f63b8c04cb097b7496e01ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reponsesSophieQ1: []
+  reponsesSophieQ2: []
+  reponseMarieEveASophieQ1: []
   answerTheQuestion: 0
+  whatCouldGoWrong: 000000
 --- !u!114 &347196173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2331,6 +2339,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1537398282}
         m_MethodName: CheckWhatQuestionIsCurrentlyDisplayed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1537398282}
+        m_MethodName: DetectPlayerAnswers
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2780,6 +2799,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1537398282}
         m_MethodName: CheckWhatQuestionIsCurrentlyDisplayed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1537398282}
+        m_MethodName: DetectPlayerAnswers
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4032,7 +4062,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fcb0b62f63b8c04cb097b7496e01ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reponsesSophieQ1: []
+  reponsesSophieQ2: []
+  reponseMarieEveASophieQ1: []
   answerTheQuestion: 0
+  whatCouldGoWrong: 000000
 --- !u!114 &963584207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4044,7 +4078,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fcb0b62f63b8c04cb097b7496e01ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reponsesSophieQ1: []
+  reponsesSophieQ2: []
+  reponseMarieEveASophieQ1: []
   answerTheQuestion: 0
+  whatCouldGoWrong: 000000
 --- !u!1 &980970781
 GameObject:
   m_ObjectHideFlags: 0
@@ -4964,7 +5002,9 @@ MonoBehaviour:
   listeNomsDeBouttons: []
   nextSentence: 
   currentMarkerOfQuestions: 
+  currentTextValueOfButton: 
   prefab: {fileID: 0}
+  hasConversationEnded: 0
 --- !u!1 &1291975118
 GameObject:
   m_ObjectHideFlags: 0
@@ -5746,9 +5786,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1537398281}
+  - component: {fileID: 1537398282}
   - component: {fileID: 1256960078}
   - component: {fileID: 1537398280}
-  - component: {fileID: 1537398282}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -5770,12 +5810,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     sentences:
-    - question 1
-    - question 2
-    - question 3
-    - question 4
-    - Mon cell est mort. Ciao!
+    - "Ostie... Sophie.. Conn\xE8cte-toi.. C'est tellement grave.. Pis, j'ai presque
+      plus de batterie. Fuck... Est-ce que t'es au courant ???"
+    - "HOLY SHIT. Un gars d'\xE9tudes litt\xE9raires vient de m\xEAme dire qu'elle
+      se serait pendue... pendue dans son local de recherche..."
+    - "Reste plus 2%... Je pourrais plus te r\xE9pondre. Je vais bient\xF4t retourner
+      chez moi. Pr\xE9viens moi direct quand t'es de nouveau \xE0 Montr\xE9al.. Je
+      vais pas te laisser seule dans ce moment."
   conversationSwitchOn: 0
+  allTheObjectsInTheSceneWithAButton: []
 --- !u!4 &1537398281
 Transform:
   m_ObjectHideFlags: 0
@@ -5801,7 +5844,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fcb0b62f63b8c04cb097b7496e01ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reponsesSophieQ1:
+  - "Oui..... Je comprends pas.. Mais pourquoi, pourquoi ? Tout avait l'air d'aller.
+    J'ai fucking rien remarqu\xE9. \xC7a se trouve, il y avait des signes... Pis j'ai
+    juste rien vu.. "
+  - "Ses parents m'ont envoy\xE9 un courriel... Je l'ai appris de m\xEAme. Mais tabernack,
+    un suicide.....  En sais-tu plus ? Es-tu sur place ?"
+  - "Je comprends rien..  Ts\xE9, elle avait l'air bien... Elle me disait que son
+    doctorat se passait bien et toute... Pis pourquoi \xE0 l'Universit\xE9 ? Est-ce
+    que \xE7a serait li\xE9 \xE0 l'\xE9cole ? "
+  reponsesSophieQ2:
+  - "WHAT THE FUCK. Pendue ? J'ai l'image en t\xEAte... C'est juste horrible... C'est
+    juste de plus en plus glauque..."
+  - "Oh mon dieu......Pendant que moi j'\xE9tais au chalet...... \xE7a se produisait.....???
+    J'ai besoin de toi Marie-Eve... "
+  - "Fuck, fuck, fuck.......Dans son local de recherche ? Ostie que c'est creep..
+    Mais qu'est ce qui s'est pass\xE9 ???"
+  reponseMarieEveASophieQ1:
+  - "Sophie.. Ne t'en fais pas... Tu sais bien que \xE7a marche pas comme \xE7a..
+    Ne culpabilises pas.. "
+  - "Je suis \xE0 l'UMAQ. L'ambulance vient tout juste de partir. L'universit\xE9
+    essaye de calmer le monde. La police emp\xEAche d'acc\xE9der au 5\xE8me \xE9tage.
+    \ C'est un peu la folie.. mais je sais pas plus que \xE7a. "
+  - "Peut-\xEAtre qu'elle te disait pas tout.. C'est certain que faire \xE7a \xE0
+    l'universit\xE9, \xE7a doit avoir un sens..."
   answerTheQuestion: 0
+  whatCouldGoWrong: 0000
 --- !u!1 &1589422692
 GameObject:
   m_ObjectHideFlags: 0
@@ -6121,7 +6189,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fcb0b62f63b8c04cb097b7496e01ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reponsesSophieQ1: []
+  reponsesSophieQ2: []
+  reponseMarieEveASophieQ1: []
   answerTheQuestion: 0
+  whatCouldGoWrong: 000000
 --- !u!114 &1671431078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6535,7 +6607,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fcb0b62f63b8c04cb097b7496e01ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reponsesSophieQ1: []
+  reponsesSophieQ2: []
+  reponseMarieEveASophieQ1: []
   answerTheQuestion: 0
+  whatCouldGoWrong: 000000
 --- !u!114 &1805106117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7247,6 +7323,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1256960078}
         m_MethodName: DisplayNextSentence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1537398282}
+        m_MethodName: DetectPlayerAnswers
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

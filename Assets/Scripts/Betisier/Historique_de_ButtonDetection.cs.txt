@@ -3,160 +3,162 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
-public class ButtonDetection : MonoBehaviour, IPointerClickHandler
+public class ButtonDetection : MonoBehaviour/*, IPointerClickHandler*/
 {
-	public DialogueManager dialogueManager;
+	[TextArea(3,10)]
+	public string[] reponsesSophieQ1, reponsesSophieQ2, reponseMarieEveASophieQ1;
 
-	int currentIndex = 0;
+	[HideInInspector]
+	public bool answerTheQuestion = false;
 
-//	public void OnPointerClick(PointerEventData pointerEventData)
-//	{
-//		Debug.Log (name);
-//
-//		if ((pointerEventData.button == PointerEventData.InputButton.Left) || (pointerEventData.button == PointerEventData.InputButton.Right)) 
-//		{
-//
-//		}
-//	}
+	private GameObject messengerManager;
 
-	public void CheckWhatQuestionIsCurrentlyDisplayed(/*int k*/)
+	private string[] oneTwoThreeViveLAlgerie = new string[] {"Alpha1","Alpha2","Alpha3"};
+
+	private Color currentColor, highlitedColor, normalColor;
+
+	private KeyCode currentKey;
+
+	private string currentQuestion;
+
+	void Start ()
 	{
-		DialogueManager dlg = dialogueManager.GetComponent<DialogueManager> ();
+		messengerManager = GameObject.Find ("DialogueManager");
 
-//		Debug.Log ("test: "+ dlg.sentences.Count);
+		highlitedColor = Color.red; 
 
-		for (int i = 0; i < dlg.listeDePhrases.Count; i++) 
+		normalColor = Color.white;
+	}
+
+	void Update()
+	{
+		CheckIfKeyWasPressed ();
+		ActivateAndDeactivateAnswerButtons ();
+	}
+
+	public void CheckWhatQuestionIsCurrentlyDisplayed() 
+	{
+		if (messengerManager.GetComponent<DialogueManager>().sentences.Count == 0) 
 		{
-			if (dlg.sentences.Count == 0) 
-			{
-				dlg.SetNameOfButtonsZERO ();
-
-				if (dlg.listeDeBouttons[i].name == this.gameObject.name) 
-				{
-					dlg.prefab = dlg.yourHistory;
-					dlg.InstantiateStuff (name + "Q04");
-//					Debug.Log ("Boutton a ete presse: " + name);
-				}
-
-
-//				Debug.Log ("Phrases restantes: " + dlg.sentences.Count);
-			}
-			else if (dlg.sentences.Count == 1) 
-			{
-				dlg.SetNameOfButtonsONE ();
-
-				if (dlg.listeDeBouttons[i].name == this.gameObject.name) 
-				{
-					dlg.prefab = dlg.yourHistory;
-					dlg.InstantiateStuff (name + "Q03");
-//					Debug.Log ("Boutton a ete presse: " + name);
-				}
-
-//				Debug.Log ("Phrases restantes: " +  dlg.sentences.Count);
-			}
-			else if (dlg.sentences.Count == 2) 
-			{
-				dlg.SetNameOfButtonsTWO ();
-
-				if (dlg.listeDeBouttons[i].name == this.gameObject.name) 
-				{
-					dlg.prefab = dlg.yourHistory;
-					dlg.InstantiateStuff (name + "Q02");
-//					Debug.Log ("Boutton a ete presse: " + name);
-				}
-					
-//				Debug.Log ("Phrases restanates: " + dlg.sentences.Count);
-			}
-			else if (dlg.sentences.Count == 3) 
-			{
-				dlg.SetNameOfButtonsTHREE ();
-
-				if (dlg.listeDeBouttons[i].name == this.gameObject.name) 
-				{
-					dlg.prefab = dlg.yourHistory;
-					dlg.InstantiateStuff (name + "Q01");
-//					Debug.Log ("Boutton a ete presse: " + name);
-				}
-
-//				Debug.Log (this.gameObject.name);
-//				Debug.Log ("test: "+ dlg.sentences.Count);
-			}
-
-			//			Debug.Log (dlg.listeDePhrases.IndexOf(dlg.listeDePhrases[i]));
-
-			//			if (dlg.listeDePhrases.IndexOf(dlg.listeDePhrases[0]) == 0) 
-			//			{
-			//				Debug.Log (dlg.sentences.Count);
-			//				Debug.Log (dlg.listeDePhrases[0]);
-			//			}
+			messengerManager.GetComponent<DialogueManager> ().EndDialogue ();
+//			Debug.Log ("From ButtonDetedtion(): " + messengerManager.GetComponent<DialogueTrigger>().dialogue.sentences[j]);
 		}
+		else if (messengerManager.GetComponent<DialogueManager>().sentences.Count  == 1) 
+		{
+			currentQuestion = "Q2";
+			RegulateSomeShit ();
+//			DetectPlayerAnswers ();
+		}
+		else if (messengerManager.GetComponent<DialogueManager>().sentences.Count  == 2) 
+		{
+			currentQuestion = "Q1";
+			RegulateSomeShit (); 
+//			DetectPlayerAnswers ();
+		}
+	}
 
 
-//		Debug.Log (dlg.listeDePhrases.IndexOf("question 1"));
-		//k = 1;
+	void CheckIfKeyWasPressed()
+	{
+		foreach (KeyCode pressedKey in System.Enum.GetValues(typeof(KeyCode))) 
+		{
+			if (Input.GetKeyDown(pressedKey))
+			{
+				currentKey = pressedKey;
+				currentColor = highlitedColor;
+				ManageButtonColor ();
 
-		//currentIndex = k;
+				for (int j = 0; j < messengerManager.GetComponent<DialogueManager> ().listeDeBouttons.Count; j++) 
+				{
+					if (pressedKey.ToString() == oneTwoThreeViveLAlgerie[j])
+					{
+						messengerManager.GetComponent<DialogueManager> ().DisplayNextSentence ();
 
-//		Debug.Log (dlg.listeDePhrases.Count);
+						if (pressedKey.ToString() == oneTwoThreeViveLAlgerie[0])
+						{
+							
+						}
+						if (pressedKey.ToString() == oneTwoThreeViveLAlgerie[1])
+						{
 
+						}
+						if (pressedKey.ToString() == oneTwoThreeViveLAlgerie[2])
+						{
 
-		//if (k >= dlg.listeDePhrases.Count && k < 0)
-//		{
-			//return;
-//		}
+						}
+					}
+				}
+			}
+			else if (Input.GetKeyUp(pressedKey))
+			{
+				currentKey = pressedKey;
+				currentColor = normalColor;
+				ManageButtonColor ();
+			}
+		}
+	}
 
+	void ManageButtonColor() 
+	{
+		for (int k = 0; k < 3; k++)
+		{
+			if (currentKey.ToString () == oneTwoThreeViveLAlgerie [k].ToString ()) 
+			{
+				if (messengerManager.GetComponent<DialogueManager> ().hasConversationEnded == false)
+				{
+					messengerManager.GetComponent<DialogueManager> ().listeDeBouttons [k].gameObject.GetComponent<Image> ().color = currentColor;
+				}
+				else if(messengerManager.GetComponent<DialogueManager> ().hasConversationEnded == true)
+				{
+					messengerManager.GetComponent<DialogueManager> ().listeDeBouttons [k].gameObject.GetComponent<Image> ().color = normalColor;
+				}
+			}
+		}
+	}
 
-//		for (int i = 1; i < (dlg.listeDePhrases.Count + 1); i++) 
-//		{
+	void DetectPlayerAnswers()
+	{
+		for (int i = 0; i < messengerManager.GetComponent<DialogueManager>().listeDeBouttons.Count; i++)  
+		{
+			if (EventSystem.current.currentSelectedGameObject.gameObject.name == messengerManager.GetComponent<DialogueManager> ().listeDeBouttons [i].name)
+			{
+				if (EventSystem.current.currentSelectedGameObject.name == "Answer01"/* || currentKey.ToString () == oneTwoThreeViveLAlgerie[0]*/) 
+				{
+				Debug.Log ("From ButtonDetection() && DetectPlayerAnswers(): \n" + messengerManager.GetComponent<DialogueManager> ().listeDeBouttons [i].name + currentQuestion);
+				}
+				if (EventSystem.current.currentSelectedGameObject.name == "Answer02"/* || currentKey.ToString () == oneTwoThreeViveLAlgerie[1]*/) 
+				{
+					Debug.Log ("From ButtonDetection() && DetectPlayerAnswers():: \n" + messengerManager.GetComponent<DialogueManager> ().listeDeBouttons [i].name + currentQuestion);
+				}
+				if (EventSystem.current.currentSelectedGameObject.name == "Answer03"/* || currentKey.ToString () == oneTwoThreeViveLAlgerie[2]*/) 
+				{
+					Debug.Log ("From ButtonDetection() && DetectPlayerAnswers(): \n" + messengerManager.GetComponent<DialogueManager> ().listeDeBouttons [i].name + currentQuestion);
+				}
+			}
+		}
+	}
 
-//			Debug.Log (dlg.nextSentence);
+	void RegulateSomeShit()
+	{
+		messengerManager.GetComponent<DialogueManager> ().currentMarkerOfQuestions = currentQuestion;
 
-//			if (dlg.listeDePhrases[i] == /*dlg.sentences.Contains(dlg.sentences[i])*/dialogueManager.GetComponent<DialogueManager> ().nextSentence) 
-//			{
-//				Debug.Log ("From ButtonDetection(): " + dialogueManager.GetComponent<DialogueManager> ().nextSentence);
-//			}
+		messengerManager.GetComponent<DialogueManager> ().UpdateNameOfButtons ();
 
-//			if (dlg.listeDePhrases[i] == dialogueManager.GetComponent<DialogueManager> ().nextSentence) 
-//			{
-//				Debug.Log ("From ButtonDetection(): " + dlg.listeDePhrases[i]);
-//
-//				dlg.listeDeBouttons[i].GetComponentInChildren<TextMeshProUGUI> ().text = "Answer0" + i + " , Q0" +i;
-//
-//				foreach (GameObject bttn in dlg.listeDeBouttons) 
-//				{
-//					bttn.GetComponentInChildren<TextMeshProUGUI> ().text = "test"/*"Answer0" + i + " , Q0" +i*/;
-//					//				sentences.Enqueue (sentence);
-//				}
-//			}
-//		}
-			
-//		for (int i = 0; i < dlg.listeDePhrases.Count; i++)
-//		{
-//			if (dlg.listeDePhrases [i] == dialogueManager.GetComponent<DialogueManager> ().nextSentence) 
-//			{
-//				this.gameObject.GetComponentInChildren<TextMeshProUGUI> ().text = "Answer0" + i + " , Q0" + i;
-//				Debug.Log ("success: " + name);
-//			}
+//		DetectPlayerAnswers ();
+	}
 
-//			if (dlg.listeDeBouttons[i] == this.gameObject) 
-//			{
-//				this.gameObject.GetComponentInChildren<TextMeshProUGUI> ().text = "Answer0" + i + " , Q0" + i;
-//				Debug.Log ("success: " + name);
-//			}
-
-//			if (dlg.listeDeBouttons[i] == this.gameObject) 
-//			{		
-//				foreach (GameObject item in dlg.listeDeBouttons) 
-//				{
-//					if (item.name == "Asnwer01") 
-//					{
-//						Debug.Log(item.name);
-//					}
-//
-//					item.text = "Answer0" + i + " , Q0" + i;
-//				}
-//			}
-//			Debug.Log ("The next sentence to be displayed is: " + dialogueManager.GetComponent<DialogueManager> ().nextSentence);
-//		}
+	void ActivateAndDeactivateAnswerButtons()
+	{
+		for (int l = 0; l < this.gameObject.GetComponent<DialogueManager>().listeDeBouttons.Count; l++) 
+		{
+			if (this.gameObject.GetComponent<DialogueTrigger>().conversationSwitchOn == false) 
+			{
+				this.gameObject.GetComponent<DialogueManager> ().listeDeBouttons [l].gameObject.GetComponent<Button> ().enabled = false;
+			}
+			else if(this.gameObject.GetComponent<DialogueTrigger>().conversationSwitchOn == true)
+			{
+				this.gameObject.GetComponent<DialogueManager> ().listeDeBouttons [l].gameObject.GetComponent<Button> ().enabled = true;
+			}
+		}
 	}
 }
