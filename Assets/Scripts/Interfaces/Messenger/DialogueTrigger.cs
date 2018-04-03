@@ -12,7 +12,8 @@ public class DialogueTrigger : MonoBehaviour
 
 	private GameObject reference;
 
-	private List<GameObject> allTheObjectsInTheSceneWithAButton = new List<GameObject>();
+	[HideInInspector]
+	public List<GameObject> allTheObjectsInTheSceneWithAButton = new List<GameObject>();
 
 	void Start()
 	{
@@ -42,7 +43,7 @@ public class DialogueTrigger : MonoBehaviour
 			allTheObjectsInTheSceneWithAButton [0].GetComponent<Button> ().enabled = false;
 			allTheObjectsInTheSceneWithAButton [0].GetComponent<Button> ().interactable = false;
 
-			conversationSwitchOn = false;
+//			conversationSwitchOn = false;
 		}
 	}
 }
