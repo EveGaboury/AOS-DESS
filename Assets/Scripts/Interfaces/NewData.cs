@@ -23,7 +23,7 @@ public class NewData : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 	{
 		prefab = this.gameObject;
 		startingText = prefab.GetComponentInChildren<TMP_Text> ().text;
-		parentToBe = GameObject.Find ("Content_InventorySlot");
+		parentToBe = GameObject.Find ("BackGroundImage");
 	}
 
 	public void OnPointerEnter(PointerEventData eventData)

@@ -2,16 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class DataPrefab : MonoBehaviour 
+public class DataPrefab : MonoBehaviour
 {  
 	public Sprite finalSprite;
 	
 	public string currentlyPlayingClip;
 
-	public AudioClip clipToBePlayed;
-
-	public AudioClip soundWriting;
+	public AudioClip clipToBePlayed, soundWriting;
 
 	public AnimationClip animCLIP;
 
@@ -24,30 +23,29 @@ public class DataPrefab : MonoBehaviour
 
 	void Start()
 	{
-		
 		animator = GetComponent<Animator> ();
 	}
 
 	void Update()
 	{
-		
 		if (animClipIsPlaying == true) 
 		{
-			//PlaySound ();
 			justAnotherBoool = false;
-			CheckIfClipIsPlaying ();
+				
+			CheckIfClipIsDonePlaying ();
 		}
 	}
 
-	void CheckIfClipIsPlaying()
+	void CheckIfClipIsDonePlaying()
 	{
 		if (animator.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).IsName (currentlyPlayingClip) &&
 			animator.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).normalizedTime >= 1.0f) 
 		{
-			
+
 			animClipIsPlaying = false;
 
 			animator.SetBool ("onClick", false);
+
 
 			if (animClipIsPlaying == false && justAnotherBoool == false) 
 			{
@@ -57,17 +55,15 @@ public class DataPrefab : MonoBehaviour
 			}
 		}
 	}
-
+		
 	public void PlayAudio()
 	{
 		soundManager.GetComponent<AudioSource> ().PlayOneShot (clipToBePlayed,0.5f);
 	}
 
-	public void PlaySound()
+	public void PlayWritingSound()
 	{
-		Debug.Log("Le son d'ecriture devrait être joué là");
 		soundManager.GetComponent<AudioSource> ().PlayOneShot (soundWriting);
-
 	}
 
 	public void PlaySoundOnceButtonInstantiated()
@@ -79,7 +75,8 @@ public class DataPrefab : MonoBehaviour
 
 	void CreateButtonAndAssignScript()
 	{
-		Button btn = this.gameObject.AddComponent<Button> ();
-		btn.onClick.AddListener(PlaySoundOnceButtonInstantiated);
+		Button btn = this.gameObject.AddComponent<Button> () as Button;
+
+		btn.GetComponent<Button>().onClick.AddListener(PlaySoundOnceButtonInstantiated);
 	}
 }
