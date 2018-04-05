@@ -9,19 +9,13 @@ public class ForceReUpdate : MonoBehaviour {
 
 	void OnEnable() {
 
-
-
 		StartCoroutine(wait());
 		Canvas.ForceUpdateCanvases();
-
 	}
 
 
 	IEnumerator wait () {
 		yield return new WaitForSeconds (0.001f);
 		SR.scrollFacebook.verticalNormalizedPosition = 0f;	
-
-
-
 	}
 }
