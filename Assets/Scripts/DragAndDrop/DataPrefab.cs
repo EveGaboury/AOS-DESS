@@ -10,7 +10,7 @@ public class DataPrefab : MonoBehaviour
 	
 	public string currentlyPlayingClip;
 
-	public AudioClip clipToBePlayed, soundWriting;
+	public AudioClip clipToBePlayed;
 
 	public AnimationClip animCLIP;
 
@@ -61,10 +61,6 @@ public class DataPrefab : MonoBehaviour
 		soundManager.GetComponent<AudioSource> ().PlayOneShot (clipToBePlayed,0.5f);
 	}
 
-	public void PlayWritingSound()
-	{
-		soundManager.GetComponent<AudioSource> ().PlayOneShot (soundWriting);
-	}
 
 	public void PlaySoundOnceButtonInstantiated()
 	{

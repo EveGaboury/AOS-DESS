@@ -10,6 +10,8 @@ public class ButtonManager: MonoBehaviour {
 
 	public StartPosition SP;
 	public GameState GS;
+	public SoundDesignScript SDS;
+
 
 	//public Button iconFb;
 	public Button accueilButton;
@@ -52,6 +54,8 @@ public class ButtonManager: MonoBehaviour {
 
 
 
+
+
 	void Start () 
 	{
 
@@ -60,6 +64,8 @@ public class ButtonManager: MonoBehaviour {
 
 		boutonRougeBrowser.GetComponent <Button> ();
 		boutonRougeBrowser.onClick.AddListener (TaskonClickBoutonRouge);
+
+
 
 //		wrongButton.GetComponent<Button> ();
 //		wrongButton.onClick.AddListener (TaskOnClickForgotFacebook);
@@ -105,10 +111,12 @@ public class ButtonManager: MonoBehaviour {
 			wrongImage.sprite = vrai;
 			SP.fauxText.SetActive (false);
 			SP.vraiText.SetActive (true);
+
 		} else {
 			SP.fauxText.SetActive (true);
 			SP.vraiText.SetActive (false);
 			wrongImage.sprite = pasvrai;
+			//SDS.GetComponent<SoundDesignScript> ().OnclickSoundTrash ();
 		}
 	}
 
