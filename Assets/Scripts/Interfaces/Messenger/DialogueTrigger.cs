@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+
 
 public class DialogueTrigger : MonoBehaviour
 {
@@ -10,14 +12,22 @@ public class DialogueTrigger : MonoBehaviour
 	[HideInInspector]
 	public bool conversationSwitchOn = false; 
 
-	private GameObject reference;
-
 	[HideInInspector]
 	public List<GameObject> allTheObjectsInTheSceneWithAButton = new List<GameObject>();
+
+	private GameObject reference;
+
+	private DialogueManager dlgManager;
+
+	private ButtonDetection bttDetection;
 
 	void Start()
 	{
 		reference = GameObject.Find ("CanvasEve");
+
+		dlgManager = this.gameObject.GetComponent<DialogueManager> ();
+
+		bttDetection = this.gameObject.GetComponent<ButtonDetection> ();
 
 		Transform[] allChildren = reference.gameObject.GetComponentsInChildren<Transform> (true);
 
@@ -38,12 +48,8 @@ public class DialogueTrigger : MonoBehaviour
 
 			FindObjectOfType<DialogueManager> ().StartDialogue (dialogue);
 
-//			Destroy (allTheObjectsInTheSceneWithAButton [0].GetComponent<Button> ());
-
 			allTheObjectsInTheSceneWithAButton [0].GetComponent<Button> ().enabled = false;
 			allTheObjectsInTheSceneWithAButton [0].GetComponent<Button> ().interactable = false;
-
-//			conversationSwitchOn = false;
 		}
 	}
 }

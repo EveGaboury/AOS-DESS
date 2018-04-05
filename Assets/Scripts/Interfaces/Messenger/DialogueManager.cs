@@ -33,6 +33,10 @@ public class DialogueManager : MonoBehaviour
 
 	private Dialogue dialogue;
 
+	private ButtonDetection bttnDtct;
+
+	private DialogueTrigger dlgTrigger;
+
 	void Awake()
 	{
 		answerButtonsParent = messengerCanvas.GetComponent<Transform>().Find ("Conversation");  
@@ -49,35 +53,16 @@ public class DialogueManager : MonoBehaviour
 	{
 		sentences = new Queue<string> ();
 
-		currentMarkerOfQuestions = "Q1";
+		bttnDtct = this.gameObject.GetComponent<ButtonDetection> ();
+
+		dlgTrigger = this.gameObject.GetComponent<DialogueTrigger> ();
 	}
 
-//	void Update()
-//	{
-//		if (sentences.Count == 0) 
-//		{
-//			for (int i = 0; i < this.gameObject.GetComponent<ButtonDetection> ().whatCouldGoWrong.Length; i++) 
-//			{
-//				this.gameObject.GetComponent<ButtonDetection> ().whatCouldGoWrong [2] = false;
-//			}
-//		}
-//		else if (sentences.Count == 1) 
-//		{
-//			this.gameObject.GetComponent<ButtonDetection> ().whatCouldGoWrong [1] = true;
-//
-//			this.gameObject.GetComponent<ButtonDetection> ().whatCouldGoWrong [1] = false;
-//			this.gameObject.GetComponent<ButtonDetection> ().whatCouldGoWrong [0] = false;
-//			this.gameObject.GetComponent<ButtonDetection> ().whatCouldGoWrong [2] = false;
-//		}
-//		else if (sentences.Count == 2) 
-//		{
-//			this.gameObject.GetComponent<ButtonDetection> ().whatCouldGoWrong [2] = true;
-//
-//			this.gameObject.GetComponent<ButtonDetection> ().whatCouldGoWrong [2] = false;
-//			this.gameObject.GetComponent<ButtonDetection> ().whatCouldGoWrong [0] = false;
-//			this.gameObject.GetComponent<ButtonDetection> ().whatCouldGoWrong [1] = false;
-//		}
-//	}
+
+	void Update()
+	{
+		Debug.Log ("From DialogueManager(), the value of sentences.count is: " + sentences.Count);
+	}
 
 	public void StartDialogue(Dialogue dialogue)
 	{ 
@@ -90,18 +75,22 @@ public class DialogueManager : MonoBehaviour
 		}
 
 		DisplayNextSentence ();
-		UpdateNameOfButtons ();
 	}
 
 	public void DisplayNextSentence () 
 	{
-		if (sentences.Count > 0) 
+		if (sentences.Count == 0) 
+		{
+			EndDialogue ();
+		}
+		else if (sentences.Count > 0) 
 		{
 			nextSentence = sentences.Dequeue (); 
 
+			bttnDtct.WillItWorkIDontKnow ();
+
 			prefab = conversationPartner;
 			InstantiateStuff(nextSentence);
-			this.gameObject.GetComponent<ButtonDetection> ().CheckWhatQuestionIsCurrentlyDisplayed ();
 		}
 	}
 
@@ -141,13 +130,8 @@ public class DialogueManager : MonoBehaviour
 		{
 			if (child.gameObject.GetComponent<Button> () != null && child.gameObject.tag == "AnswerButton")
 			{	
-				listeDeBouttons.Add (child.gameObject);
+				listeDeBouttons.Add (child.gameObject); 
 
-//				for (int i = 0; i < listeDeBouttons.Count; i++)
-//				{
-//					Debug.Log ("From DialogueManager(), the current value of allChildren is: "+ listeDeBouttons[i].name);
-//				} 
-//
 				listeNomsDeBouttons.Add (child.name);
 			} 
 		}
@@ -162,19 +146,6 @@ public class DialogueManager : MonoBehaviour
 		else if(messengerCanvas.activeSelf == false)
 		{
 			messengerCanvas.SetActive (true);
-		}
-	}
-
-	public void UpdateNameOfButtons()
-	{
-		for (int i = 0; i < listeDeBouttons.Count; i++) 
-		{
-			currentTextValueOfButton = listeNomsDeBouttons [i] + " " + currentMarkerOfQuestions; 
-
-			if (listeDeBouttons[i].gameObject.name == listeNomsDeBouttons[i]) 
-			{
-				listeDeBouttons[i].GetComponentInChildren<TextMeshProUGUI>().text = currentTextValueOfButton;  
-			}
 		}
 	}
 }

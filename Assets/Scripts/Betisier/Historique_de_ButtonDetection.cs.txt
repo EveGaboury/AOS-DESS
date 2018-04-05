@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
 public class ButtonDetection : MonoBehaviour/*, IPointerClickHandler*/
 {
@@ -10,6 +11,9 @@ public class ButtonDetection : MonoBehaviour/*, IPointerClickHandler*/
 
 	[HideInInspector]
 	public bool answerTheQuestion = false;
+
+	//[HideInInspector]
+	public bool[] whatCouldGoWrong = new bool[] {false, false};
 
 	private GameObject messengerManager;
 
@@ -21,6 +25,8 @@ public class ButtonDetection : MonoBehaviour/*, IPointerClickHandler*/
 
 	private string currentQuestion;
 
+	private float minimumTime = .3f;
+	    
 	void Start ()
 	{
 		messengerManager = GameObject.Find ("DialogueManager");
@@ -32,71 +38,94 @@ public class ButtonDetection : MonoBehaviour/*, IPointerClickHandler*/
 
 	void Update()
 	{
-		CheckIfKeyWasPressed ();
 		ActivateAndDeactivateAnswerButtons ();
-	}
 
-	public void CheckWhatQuestionIsCurrentlyDisplayed() 
-	{
-		if (messengerManager.GetComponent<DialogueManager>().sentences.Count == 0) 
-		{
-			messengerManager.GetComponent<DialogueManager> ().EndDialogue ();
-//			Debug.Log ("From ButtonDetedtion(): " + messengerManager.GetComponent<DialogueTrigger>().dialogue.sentences[j]);
-		}
-		else if (messengerManager.GetComponent<DialogueManager>().sentences.Count  == 1) 
-		{
-			currentQuestion = "Q2";
-			RegulateSomeShit ();
-//			DetectPlayerAnswers ();
-		}
-		else if (messengerManager.GetComponent<DialogueManager>().sentences.Count  == 2) 
-		{
-			currentQuestion = "Q1";
-			RegulateSomeShit (); 
-//			DetectPlayerAnswers ();
-		}
-	}
+//		CheckIfKeyWasPressed ();
+
+//		WillItWorkIDontKnow ();
+
+//		Debug.Log (EventSystem.current.currentSelectedGameObject);
+	} 
+
+//	public void CheckWhatQuestionIsCurrentlyDisplayed() 
+//	{
+//		if (messengerManager.GetComponent<DialogueManager>().sentences.Count == 0) 
+//		{
+//			messengerManager.GetComponent<DialogueManager> ().EndDialogue ();
+//		}
+//		else if (messengerManager.GetComponent<DialogueManager>().sentences.Count  == 1) 
+//		{
+//			whatCouldGoWrong [0] = true;
+//
+//			RegulateSomeShit ();
+//
+//			whatCouldGoWrong [0] = false;
+//
+//		}
+//		else if (messengerManager.GetComponent<DialogueManager>().sentences.Count  == 2)
+//		{
+//			whatCouldGoWrong [1] = true;
+//
+//			RegulateSomeShit ();
+//
+//			whatCouldGoWrong [1] = false;
+//		}
+//	}
+
+//	void CheckIfKeyWasPressed()
+//	{
+//		foreach (KeyCode pressedKey in System.Enum.GetValues(typeof(KeyCode))) 
+//		{
+//			if (Input.GetKeyDown(pressedKey))
+//			{
+//				currentKey = pressedKey;
+//				currentColor = highlitedColor;
+//				ManageButtonColor ();
+//
+//				for (int j = 0; j < messengerManager.GetComponent<DialogueManager> ().listeDeBouttons.Count; j++) 
+//				{
+//					if (pressedKey.ToString() == oneTwoThreeViveLAlgerie[j])
+//					{
+//						messengerManager.GetComponent<DialogueManager> ().DisplayNextSentence ();
+
+//						if (pressedKey.ToString () == oneTwoThreeViveLAlgerie [j]) 
+//						{
+//							if (messengerManager.GetComponent<DialogueManager> ().listeDeBouttons.Count == 1) 
+//							{
+//								oneTwoThreeViveLAlgerie [0]
+//								oneTwoThreeViveLAlgerie [1]
+//								oneTwoThreeViveLAlgerie [2]
+//							}
+//							else if (messengerManager.GetComponent<DialogueManager> ().listeDeBouttons.Count == 2) 
+//							{
+//
+//							}
+//						}
 
 
-	void CheckIfKeyWasPressed()
-	{
-		foreach (KeyCode pressedKey in System.Enum.GetValues(typeof(KeyCode))) 
-		{
-			if (Input.GetKeyDown(pressedKey))
-			{
-				currentKey = pressedKey;
-				currentColor = highlitedColor;
-				ManageButtonColor ();
-
-				for (int j = 0; j < messengerManager.GetComponent<DialogueManager> ().listeDeBouttons.Count; j++) 
-				{
-					if (pressedKey.ToString() == oneTwoThreeViveLAlgerie[j])
-					{
-						messengerManager.GetComponent<DialogueManager> ().DisplayNextSentence ();
-
-						if (pressedKey.ToString() == oneTwoThreeViveLAlgerie[0])
-						{
-							
-						}
-						if (pressedKey.ToString() == oneTwoThreeViveLAlgerie[1])
-						{
-
-						}
-						if (pressedKey.ToString() == oneTwoThreeViveLAlgerie[2])
-						{
-
-						}
-					}
-				}
-			}
-			else if (Input.GetKeyUp(pressedKey))
-			{
-				currentKey = pressedKey;
-				currentColor = normalColor;
-				ManageButtonColor ();
-			}
-		}
-	}
+//						if (pressedKey.ToString() == oneTwoThreeViveLAlgerie[0])
+//						{
+//							Debug.Log ("From ButtonDetection() && CheckIfKeyWasPressed(): \n" + messengerManager.GetComponent<DialogueManager> ().listeDeBouttons [j].name + " sentences.Count: " + messengerManager.GetComponent<DialogueManager>().sentences.Count);
+//						}
+//						if (pressedKey.ToString() == oneTwoThreeViveLAlgerie[1])
+//						{
+//							Debug.Log ("From ButtonDetection() && CheckIfKeyWasPressed(): \n" + messengerManager.GetComponent<DialogueManager> ().listeDeBouttons [j].name + " sentences.Count: " + messengerManager.GetComponent<DialogueManager>().sentences.Count);
+//						}
+//						if (pressedKey.ToString() == oneTwoThreeViveLAlgerie[2])
+//						{
+//							Debug.Log ("From ButtonDetection() && CheckIfKeyWasPressed(): \n" + messengerManager.GetComponent<DialogueManager> ().listeDeBouttons [j].name + " sentences.Count: " + messengerManager.GetComponent<DialogueManager>().sentences.Count);
+//						}
+//					}
+//				}
+//			}
+//			else if (Input.GetKeyUp(pressedKey))
+//			{
+//				currentKey = pressedKey;
+//				currentColor = normalColor;
+//				ManageButtonColor ();
+//			}
+//		}
+//	}
 
 	void ManageButtonColor() 
 	{
@@ -116,35 +145,56 @@ public class ButtonDetection : MonoBehaviour/*, IPointerClickHandler*/
 		}
 	}
 
-	void DetectPlayerAnswers()
+//	public void DetectPlayerAnswers() 
+//	{
+//		for (int i = 0; i < messengerManager.GetComponent<DialogueManager> ().listeDeBouttons.Count; i++)
+//		{
+//			if (EventSystem.current.currentSelectedGameObject.gameObject.name == messengerManager.GetComponent<DialogueManager> ().listeDeBouttons [i].name)
+//			{
+//				if (EventSystem.current.currentSelectedGameObject.name == "Answer01") 
+//				{
+//					Debug.Log ("From ButtonDetection() && DetectPlayerAnswers(): \n"
+//						+ messengerManager.GetComponent<DialogueManager> ().listeDeBouttons [i].name 
+//						+ " sentences.Count:"+
+//						+ messengerManager.GetComponent<DialogueManager>().sentences.Count);
+//				}
+//				if (EventSystem.current.currentSelectedGameObject.name == "Answer02") 
+//				{
+//					Debug.Log ("From ButtonDetection() && DetectPlayerAnswers():: \n" 
+//						+ messengerManager.GetComponent<DialogueManager> ().listeDeBouttons [i].name 
+//						+ " sentences.Count:"+
+//						+ messengerManager.GetComponent<DialogueManager>().sentences.Count);
+//				}
+//				if (EventSystem.current.currentSelectedGameObject.name == "Answer03")
+//				{
+//					Debug.Log ("From ButtonDetection() && DetectPlayerAnswers(): \n"
+//						+ messengerManager.GetComponent<DialogueManager> ().listeDeBouttons [i].name 
+//						+ " sentences.Count:"+
+//						+ messengerManager.GetComponent<DialogueManager>().sentences.Count);
+//				}
+//			}
+//		}
+//	}
+
+	public void RegulateSomeShit()
 	{
-		for (int i = 0; i < messengerManager.GetComponent<DialogueManager>().listeDeBouttons.Count; i++)  
+//		messengerManager.GetComponent<DialogueManager> ().currentMarkerOfQuestions = currentQuestion;
+//
+//		messengerManager.GetComponent<DialogueManager> ().UpdateNameOfButtons ();
+
+		for (int i = 0; i < messengerManager.GetComponent<DialogueManager> ().listeDeBouttons.Count; i++) 
 		{
-			if (EventSystem.current.currentSelectedGameObject.gameObject.name == messengerManager.GetComponent<DialogueManager> ().listeDeBouttons [i].name)
+			if (messengerManager.GetComponent<DialogueManager> ().sentences.Count == 1) 
 			{
-				if (EventSystem.current.currentSelectedGameObject.name == "Answer01"/* || currentKey.ToString () == oneTwoThreeViveLAlgerie[0]*/) 
-				{
-				Debug.Log ("From ButtonDetection() && DetectPlayerAnswers(): \n" + messengerManager.GetComponent<DialogueManager> ().listeDeBouttons [i].name + currentQuestion);
-				}
-				if (EventSystem.current.currentSelectedGameObject.name == "Answer02"/* || currentKey.ToString () == oneTwoThreeViveLAlgerie[1]*/) 
-				{
-					Debug.Log ("From ButtonDetection() && DetectPlayerAnswers():: \n" + messengerManager.GetComponent<DialogueManager> ().listeDeBouttons [i].name + currentQuestion);
-				}
-				if (EventSystem.current.currentSelectedGameObject.name == "Answer03"/* || currentKey.ToString () == oneTwoThreeViveLAlgerie[2]*/) 
-				{
-					Debug.Log ("From ButtonDetection() && DetectPlayerAnswers(): \n" + messengerManager.GetComponent<DialogueManager> ().listeDeBouttons [i].name + currentQuestion);
-				}
+				messengerManager.GetComponent<DialogueManager> ().listeDeBouttons [i].GetComponentInChildren<TextMeshProUGUI> ().text = reponsesSophieQ2 [i];
+				WillItWorkIDontKnow ();
+			}
+			else if (messengerManager.GetComponent<DialogueManager> ().sentences.Count == 2) 
+			{
+				messengerManager.GetComponent<DialogueManager> ().listeDeBouttons [i].GetComponentInChildren<TextMeshProUGUI> ().text = reponsesSophieQ1 [i];
+				WillItWorkIDontKnow ();
 			}
 		}
-	}
-
-	void RegulateSomeShit()
-	{
-		messengerManager.GetComponent<DialogueManager> ().currentMarkerOfQuestions = currentQuestion;
-
-		messengerManager.GetComponent<DialogueManager> ().UpdateNameOfButtons ();
-
-//		DetectPlayerAnswers ();
 	}
 
 	void ActivateAndDeactivateAnswerButtons()
@@ -161,4 +211,77 @@ public class ButtonDetection : MonoBehaviour/*, IPointerClickHandler*/
 			}
 		}
 	}
+
+	void WillItWorkIDontKnow()    
+	{
+//		messengerManager.GetComponent<DialogueManager>().prefab = messengerManager.GetComponent<DialogueManager>().yourAnswers;
+//
+//		bool localBool = true;
+//
+//		if (messengerManager.GetComponent<DialogueManager>().sentences.Count == 1) 
+//		{
+//			if ( whatCouldGoWrong[0] == true) 
+//			{
+//				if (localBool == true)
+//				{
+//					if (EventSystem.current.currentSelectedGameObject == this.gameObject.GetComponent<DialogueManager>().listeDeBouttons[0] 
+//						|| currentKey.ToString() == oneTwoThreeViveLAlgerie[0])
+//					{
+//						messengerManager.GetComponent<DialogueManager>().InstantiateStuff(reponsesSophieQ1 [0]) ;
+//						localBool = false;
+//					}
+//					if (EventSystem.current.currentSelectedGameObject == this.gameObject.GetComponent<DialogueManager>().listeDeBouttons[1]
+//						|| currentKey.ToString() == oneTwoThreeViveLAlgerie[1])
+//					{
+//						messengerManager.GetComponent<DialogueManager>().InstantiateStuff(reponsesSophieQ1 [1]);
+//						localBool = false;
+//					}
+//					if (EventSystem.current.currentSelectedGameObject == this.gameObject.GetComponent<DialogueManager>().listeDeBouttons[2]
+//						|| currentKey.ToString() == oneTwoThreeViveLAlgerie[2])
+//					{
+//						messengerManager.GetComponent<DialogueManager>().InstantiateStuff(reponsesSophieQ1 [2]);
+//						localBool = false;
+//					}
+//				}
+//				localBool = false;
+//			}
+//		}
+//
+//		if (messengerManager.GetComponent<DialogueManager>().sentences.Count == 2)
+//		{
+//			if (whatCouldGoWrong[1] == true)  
+//			{
+//				if (localBool == true)
+//				{
+					if (EventSystem.current.currentSelectedGameObject == this.gameObject.GetComponent<DialogueManager>().listeDeBouttons[0] 
+						|| currentKey.ToString() == oneTwoThreeViveLAlgerie[0])
+					{
+			Debug.Log ("Success: " + EventSystem.current.currentSelectedGameObject);
+						//messengerManager.GetComponent<DialogueManager>().InstantiateStuff(reponsesSophieQ1 [0]);
+					}
+					if (EventSystem.current.currentSelectedGameObject == this.gameObject.GetComponent<DialogueManager>().listeDeBouttons[1]
+						|| currentKey.ToString() == oneTwoThreeViveLAlgerie[1])
+					{
+			Debug.Log ("Success: " + EventSystem.current.currentSelectedGameObject);
+						//messengerManager.GetComponent<DialogueManager>().InstantiateStuff(reponsesSophieQ1 [1]);
+					}
+					if (EventSystem.current.currentSelectedGameObject == this.gameObject.GetComponent<DialogueManager>().listeDeBouttons[2]
+						|| currentKey.ToString() == oneTwoThreeViveLAlgerie[2])
+					{
+			Debug.Log ("Success: " + EventSystem.current.currentSelectedGameObject);
+						//messengerManager.GetComponent<DialogueManager>().InstantiateStuff(reponsesSophieQ1 [2]);
+					}
+//				}
+//			}
+//		}
+	}
+
+//	IEnumerator ChangeBoolValues() 
+//	{
+//		whatCouldGoWrong [1] = true;
+//
+//		yield return new WaitForSeconds (1.0f);
+//
+//		whatCouldGoWrong [1] = false;
+//	}
 }

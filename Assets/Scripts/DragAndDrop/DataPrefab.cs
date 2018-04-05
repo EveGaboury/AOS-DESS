@@ -24,6 +24,8 @@ public class DataPrefab : MonoBehaviour
 	void Start()
 	{
 		animator = GetComponent<Animator> ();
+
+		this.gameObject.GetComponent<Button> ().onClick.AddListener (PlayWritingSound);
 	}
 
 	void Update()
