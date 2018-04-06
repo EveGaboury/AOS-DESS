@@ -99,6 +99,47 @@ public class GameState : MonoBehaviour {
 		SP.profilFred.SetActive (false);
 	}
 
+	//bouton deconnection du facebook
+	public void deconnectionFB () {
+		
+		SP.facebookConnexion.SetActive (true);
+		SP.facebookConnInPage.SetActive (true);
+
+		SP.pageNewFeedTemplate.SetActive (false);
+		SP.rechercheTemplate.SetActive (false);
+		SP.mesAmisFix.SetActive (false);
+		SP.facebookHeader.SetActive (false);
+		SP.wrongPassword.SetActive (false);
+		SP.messengerTemplate.SetActive (false);
+		deactivateChildren ();
+		SP.notifSo.SetActive (false);
+		SP.notifCass.SetActive (false);
+		SP.pageProfilTemplate.SetActive (false);
+		SP.newsFeedTemplate.SetActive (false);
+		SP.mesAmisTemplate.SetActive (false);
+		SP.messengerFix.SetActive (false);
+		SP.passwordTemplate.SetActive (false);
+		SP.fixCass.SetActive (false);
+		SP.fixSo.SetActive (false);
+		SP.pageNewFeedTemplate.SetActive (false);
+
+		SP.profilYann.SetActive (false);
+		SP.profilMarieEve2.SetActive (false);
+		SP.profilMarieEve1.SetActive (false);
+		SP.profilHugo2.SetActive (false);
+		SP.profilHugo1.SetActive (false);
+		SP.profilAdrien2.SetActive (false);
+		SP.profilAdrien1.SetActive (false);
+		SP.profilSophie.SetActive (false);
+		SP.profilCass.SetActive (false);
+		SP.profilFred.SetActive (false);
+
+
+		BM.toggleNotifCass.isOn = false;
+		BM.toggleNotifSo.isOn = false;
+	}
+
+
 	//accueil de TonLivre
 	public void accueil ()
 	{
@@ -216,6 +257,7 @@ public class GameState : MonoBehaviour {
 		if (soOpenFacebook) {
 			SP.fixSo.SetActive (true);
 			SP.SoMessMarieEveMessenger.SetActive (true);
+			SP.conversation.SetActive (true);
 		} else {
 			SP.fixCass.SetActive (true);
 		}

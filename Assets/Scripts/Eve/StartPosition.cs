@@ -45,6 +45,7 @@ public class StartPosition : MonoBehaviour {
 	public GameObject toggleNotifCass;
 	public GameObject shortCutSophieFB;
 	public GameObject shortCutCassFB;
+	public GameObject conversation;
 
 	public GameObject SoMessMarieEveMessenger;
 

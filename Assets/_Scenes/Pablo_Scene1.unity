@@ -299,6 +299,77 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1 &23745671
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1612063375048026, guid: 56bb84020f3b14c47b6c6531abe338d9,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 23745673}
+  - component: {fileID: 23745672}
+  - component: {fileID: 1256960078}
+  - component: {fileID: 1537398280}
+  m_Layer: 0
+  m_Name: DialogueManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &23745672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114581440415992338, guid: 56bb84020f3b14c47b6c6531abe338d9,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 23745671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcb0b62f63b8c04cb097b7496e01ee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reponsesSophieQ1:
+  - "Oui..... Je comprends pas.. Mais pourquoi, pourquoi ? Tout avait l'air d'aller.
+    J'ai fucking rien remarqu\xE9. \xC7a se trouve, il y avait des signes... Pis j'ai
+    juste rien vu.. "
+  - "Ses parents m'ont envoy\xE9 un courriel... Je l'ai appris de m\xEAme. Mais tabernack,
+    un suicide.....  En sais-tu plus ? Es-tu sur place ?"
+  - "Je comprends rien..  Ts\xE9, elle avait l'air bien... Elle me disait que son
+    doctorat se passait bien et toute... Pis pourquoi \xE0 l'Universit\xE9 ? Est-ce
+    que \xE7a serait li\xE9 \xE0 l'\xE9cole ? "
+  reponsesSophieQ2:
+  - "WHAT THE FUCK. Pendue ? J'ai l'image en t\xEAte... C'est juste horrible... C'est
+    juste de plus en plus glauque..."
+  - "Oh mon dieu......Pendant que moi j'\xE9tais au chalet...... \xE7a se produisait.....???
+    J'ai besoin de toi Marie-Eve... "
+  - "Fuck, fuck, fuck.......Dans son local de recherche ? Ostie que c'est creep..
+    Mais qu'est ce qui s'est pass\xE9 ???"
+  reponseMarieEveASophieQ1:
+  - "Sophie.. Ne t'en fais pas... Tu sais bien que \xE7a marche pas comme \xE7a..
+    Ne culpabilises pas.. "
+  - "Je suis \xE0 l'UMAQ. L'ambulance vient tout juste de partir. L'universit\xE9
+    essaye de calmer le monde. La police emp\xEAche d'acc\xE9der au 5\xE8me \xE9tage.
+    \ C'est un peu la folie.. mais je sais pas plus que \xE7a. "
+  - "Peut-\xEAtre qu'elle te disait pas tout.. C'est certain que faire \xE7a \xE0
+    l'universit\xE9, \xE7a doit avoir un sens..."
+  answerTheQuestion: 0
+  whatCouldGoWrong: 0000
+--- !u!4 &23745673
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4415338831442478, guid: 56bb84020f3b14c47b6c6531abe338d9,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 23745671}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &58851713
 GameObject:
   m_ObjectHideFlags: 0
@@ -4937,10 +5008,10 @@ CanvasRenderer:
 --- !u!114 &1256960078
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114729777757345868, guid: 889a6fd6ad97a4b47bbcb7bcdfcbc329,
+  m_PrefabParentObject: {fileID: 114141242522401876, guid: 56bb84020f3b14c47b6c6531abe338d9,
     type: 2}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1537398279}
+  m_GameObject: {fileID: 23745671}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8476cb92c2e04da41a03a8e33b7796a2, type: 3}
@@ -5733,32 +5804,13 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1527473300}
---- !u!1 &1537398279
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1229071540468298, guid: 889a6fd6ad97a4b47bbcb7bcdfcbc329,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1537398281}
-  - component: {fileID: 1537398282}
-  - component: {fileID: 1256960078}
-  - component: {fileID: 1537398280}
-  m_Layer: 0
-  m_Name: DialogueManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!114 &1537398280
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114420732777784448, guid: 889a6fd6ad97a4b47bbcb7bcdfcbc329,
+  m_PrefabParentObject: {fileID: 114926798730054390, guid: 56bb84020f3b14c47b6c6531abe338d9,
     type: 2}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1537398279}
+  m_GameObject: {fileID: 23745671}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1821533899ea6ea42be16025e5ad7abd, type: 3}
@@ -5775,57 +5827,6 @@ MonoBehaviour:
       vais pas te laisser seule dans ce moment."
   conversationSwitchOn: 0
   allTheObjectsInTheSceneWithAButton: []
---- !u!4 &1537398281
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4701449426827138, guid: 889a6fd6ad97a4b47bbcb7bcdfcbc329,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1537398279}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1537398282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1537398279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcb0b62f63b8c04cb097b7496e01ee7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reponsesSophieQ1:
-  - "Oui..... Je comprends pas.. Mais pourquoi, pourquoi ? Tout avait l'air d'aller.
-    J'ai fucking rien remarqu\xE9. \xC7a se trouve, il y avait des signes... Pis j'ai
-    juste rien vu.. "
-  - "Ses parents m'ont envoy\xE9 un courriel... Je l'ai appris de m\xEAme. Mais tabernack,
-    un suicide.....  En sais-tu plus ? Es-tu sur place ?"
-  - "Je comprends rien..  Ts\xE9, elle avait l'air bien... Elle me disait que son
-    doctorat se passait bien et toute... Pis pourquoi \xE0 l'Universit\xE9 ? Est-ce
-    que \xE7a serait li\xE9 \xE0 l'\xE9cole ? "
-  reponsesSophieQ2:
-  - "WHAT THE FUCK. Pendue ? J'ai l'image en t\xEAte... C'est juste horrible... C'est
-    juste de plus en plus glauque..."
-  - "Oh mon dieu......Pendant que moi j'\xE9tais au chalet...... \xE7a se produisait.....???
-    J'ai besoin de toi Marie-Eve... "
-  - "Fuck, fuck, fuck.......Dans son local de recherche ? Ostie que c'est creep..
-    Mais qu'est ce qui s'est pass\xE9 ???"
-  reponseMarieEveASophieQ1:
-  - "Sophie.. Ne t'en fais pas... Tu sais bien que \xE7a marche pas comme \xE7a..
-    Ne culpabilises pas.. "
-  - "Je suis \xE0 l'UMAQ. L'ambulance vient tout juste de partir. L'universit\xE9
-    essaye de calmer le monde. La police emp\xEAche d'acc\xE9der au 5\xE8me \xE9tage.
-    \ C'est un peu la folie.. mais je sais pas plus que \xE7a. "
-  - "Peut-\xEAtre qu'elle te disait pas tout.. C'est certain que faire \xE7a \xE0
-    l'universit\xE9, \xE7a doit avoir un sens..."
-  answerTheQuestion: 0
-  whatCouldGoWrong: 0000
 --- !u!1 &1589422692
 GameObject:
   m_ObjectHideFlags: 0
@@ -6873,8 +6874,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1462730229}
   m_HandleRect: {fileID: 1462730227}
   m_Direction: 2
-  m_Value: 0.9999998
-  m_Size: 0.51145583
+  m_Value: 0.99999994
+  m_Size: 0.5114559
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
