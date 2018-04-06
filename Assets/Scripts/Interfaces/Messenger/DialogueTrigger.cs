@@ -9,7 +9,7 @@ public class DialogueTrigger : MonoBehaviour
 {
 	public Dialogue dialogue;
 
-	[HideInInspector]
+	//[HideInInspector]
 	public bool conversationSwitchOn = false; 
 
 	[HideInInspector]

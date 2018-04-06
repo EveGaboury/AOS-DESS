@@ -7,7 +7,7 @@ using System;
 
 public class DialogueManager : MonoBehaviour
 {
-	public TextMeshProUGUI nameText;
+	//public TextMeshProUGUI nameText;
 	public GameObject messengerCanvas, conversationPartner, yourAnswers;
 	public Transform conversationHistory;
 
@@ -26,7 +26,7 @@ public class DialogueManager : MonoBehaviour
 	[HideInInspector]
 	public GameObject prefab;
 
-	[HideInInspector]
+	//[HideInInspector]
 	public bool hasConversationEnded = false;
 
 	private Transform answerButtonsParent;
