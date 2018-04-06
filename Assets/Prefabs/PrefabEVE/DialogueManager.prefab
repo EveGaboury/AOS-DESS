@@ -1,0 +1,129 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1612063375048026}
+  m_IsPrefabParent: 1
+--- !u!1 &1612063375048026
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4415338831442478}
+  - component: {fileID: 114581440415992338}
+  - component: {fileID: 114141242522401876}
+  - component: {fileID: 114926798730054390}
+  m_Layer: 0
+  m_Name: DialogueManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4415338831442478
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1612063375048026}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114141242522401876
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1612063375048026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8476cb92c2e04da41a03a8e33b7796a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 0}
+  messengerCanvas: {fileID: 0}
+  conversationPartner: {fileID: 1222132454124306, guid: 4352de7e431e24f4ea4599daa6222a95,
+    type: 2}
+  yourAnswers: {fileID: 1952162457035900, guid: 9ffe06e4651412a469b616239356a377,
+    type: 2}
+  conversationHistory: {fileID: 0}
+  listeDeBouttons: []
+  listeDePhrases: []
+  listeNomsDeBouttons: []
+  nextSentence: 
+  currentMarkerOfQuestions: 
+  currentTextValueOfButton: 
+  prefab: {fileID: 0}
+  hasConversationEnded: 0
+--- !u!114 &114581440415992338
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1612063375048026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcb0b62f63b8c04cb097b7496e01ee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reponsesSophieQ1:
+  - "Oui..... Je comprends pas.. Mais pourquoi, pourquoi ? Tout avait l'air d'aller.
+    J'ai fucking rien remarqu\xE9. \xC7a se trouve, il y avait des signes... Pis j'ai
+    juste rien vu.. "
+  - "Ses parents m'ont envoy\xE9 un courriel... Je l'ai appris de m\xEAme. Mais tabernack,
+    un suicide.....  En sais-tu plus ? Es-tu sur place ?"
+  - "Je comprends rien..  Ts\xE9, elle avait l'air bien... Elle me disait que son
+    doctorat se passait bien et toute... Pis pourquoi \xE0 l'Universit\xE9 ? Est-ce
+    que \xE7a serait li\xE9 \xE0 l'\xE9cole ? "
+  reponsesSophieQ2:
+  - "WHAT THE FUCK. Pendue ? J'ai l'image en t\xEAte... C'est juste horrible... C'est
+    juste de plus en plus glauque..."
+  - "Oh mon dieu......Pendant que moi j'\xE9tais au chalet...... \xE7a se produisait.....???
+    J'ai besoin de toi Marie-Eve... "
+  - "Fuck, fuck, fuck.......Dans son local de recherche ? Ostie que c'est creep..
+    Mais qu'est ce qui s'est pass\xE9 ???"
+  reponseMarieEveASophieQ1:
+  - "Sophie.. Ne t'en fais pas... Tu sais bien que \xE7a marche pas comme \xE7a..
+    Ne culpabilises pas.. "
+  - "Je suis \xE0 l'UMAQ. L'ambulance vient tout juste de partir. L'universit\xE9
+    essaye de calmer le monde. La police emp\xEAche d'acc\xE9der au 5\xE8me \xE9tage.
+    \ C'est un peu la folie.. mais je sais pas plus que \xE7a. "
+  - "Peut-\xEAtre qu'elle te disait pas tout.. C'est certain que faire \xE7a \xE0
+    l'universit\xE9, \xE7a doit avoir un sens..."
+  answerTheQuestion: 0
+  whatCouldGoWrong: 0000
+--- !u!114 &114926798730054390
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1612063375048026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1821533899ea6ea42be16025e5ad7abd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - "Ostie... Sophie.. Conn\xE8cte-toi.. C'est tellement grave.. Pis, j'ai presque
+      plus de batterie. Fuck... Est-ce que t'es au courant ???"
+    - "HOLY SHIT. Un gars d'\xE9tudes litt\xE9raires vient de m\xEAme dire qu'elle
+      se serait pendue... pendue dans son local de recherche..."
+    - "Reste plus 2%... Je pourrais plus te r\xE9pondre. Je vais bient\xF4t retourner
+      chez moi. Pr\xE9viens moi direct quand t'es de nouveau \xE0 Montr\xE9al.. Je
+      vais pas te laisser seule dans ce moment."
+  conversationSwitchOn: 0
+  allTheObjectsInTheSceneWithAButton: []

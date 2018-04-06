@@ -4039,6 +4039,63 @@ MonoBehaviour:
   reponseMarieEveASophieQ1: []
   answerTheQuestion: 0
   whatCouldGoWrong: 000000
+--- !u!1001 &965485199
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4415338831442478, guid: 56bb84020f3b14c47b6c6531abe338d9, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415338831442478, guid: 56bb84020f3b14c47b6c6531abe338d9, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415338831442478, guid: 56bb84020f3b14c47b6c6531abe338d9, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415338831442478, guid: 56bb84020f3b14c47b6c6531abe338d9, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415338831442478, guid: 56bb84020f3b14c47b6c6531abe338d9, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415338831442478, guid: 56bb84020f3b14c47b6c6531abe338d9, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415338831442478, guid: 56bb84020f3b14c47b6c6531abe338d9, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415338831442478, guid: 56bb84020f3b14c47b6c6531abe338d9, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114141242522401876, guid: 56bb84020f3b14c47b6c6531abe338d9,
+        type: 2}
+      propertyPath: nameText
+      value: 
+      objectReference: {fileID: 896117968}
+    - target: {fileID: 114141242522401876, guid: 56bb84020f3b14c47b6c6531abe338d9,
+        type: 2}
+      propertyPath: messengerCanvas
+      value: 
+      objectReference: {fileID: 2061960891}
+    - target: {fileID: 114141242522401876, guid: 56bb84020f3b14c47b6c6531abe338d9,
+        type: 2}
+      propertyPath: conversationHistory
+      value: 
+      objectReference: {fileID: 183875092}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 56bb84020f3b14c47b6c6531abe338d9, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &980970781
 GameObject:
   m_ObjectHideFlags: 0
@@ -4934,33 +4991,12 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1248514526}
---- !u!114 &1256960078
+--- !u!114 &1256960078 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114729777757345868, guid: 889a6fd6ad97a4b47bbcb7bcdfcbc329,
+  m_PrefabParentObject: {fileID: 114141242522401876, guid: 56bb84020f3b14c47b6c6531abe338d9,
     type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1537398279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
+  m_PrefabInternal: {fileID: 965485199}
   m_Script: {fileID: 11500000, guid: 8476cb92c2e04da41a03a8e33b7796a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nameText: {fileID: 896117968}
-  messengerCanvas: {fileID: 2061960891}
-  conversationPartner: {fileID: 1222132454124306, guid: 4352de7e431e24f4ea4599daa6222a95,
-    type: 2}
-  yourAnswers: {fileID: 1952162457035900, guid: 9ffe06e4651412a469b616239356a377,
-    type: 2}
-  conversationHistory: {fileID: 183875092}
-  listeDeBouttons: []
-  listeDePhrases: []
-  listeNomsDeBouttons: []
-  nextSentence: 
-  currentMarkerOfQuestions: 
-  currentTextValueOfButton: 
-  prefab: {fileID: 0}
-  hasConversationEnded: 0
 --- !u!1 &1291975118
 GameObject:
   m_ObjectHideFlags: 0
@@ -5733,99 +5769,12 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1527473300}
---- !u!1 &1537398279
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1229071540468298, guid: 889a6fd6ad97a4b47bbcb7bcdfcbc329,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1537398281}
-  - component: {fileID: 1537398282}
-  - component: {fileID: 1256960078}
-  - component: {fileID: 1537398280}
-  m_Layer: 0
-  m_Name: DialogueManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1537398280
+--- !u!114 &1537398280 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114420732777784448, guid: 889a6fd6ad97a4b47bbcb7bcdfcbc329,
+  m_PrefabParentObject: {fileID: 114926798730054390, guid: 56bb84020f3b14c47b6c6531abe338d9,
     type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1537398279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
+  m_PrefabInternal: {fileID: 965485199}
   m_Script: {fileID: 11500000, guid: 1821533899ea6ea42be16025e5ad7abd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    sentences:
-    - "Ostie... Sophie.. Conn\xE8cte-toi.. C'est tellement grave.. Pis, j'ai presque
-      plus de batterie. Fuck... Est-ce que t'es au courant ???"
-    - "HOLY SHIT. Un gars d'\xE9tudes litt\xE9raires vient de m\xEAme dire qu'elle
-      se serait pendue... pendue dans son local de recherche..."
-    - "Reste plus 2%... Je pourrais plus te r\xE9pondre. Je vais bient\xF4t retourner
-      chez moi. Pr\xE9viens moi direct quand t'es de nouveau \xE0 Montr\xE9al.. Je
-      vais pas te laisser seule dans ce moment."
-  conversationSwitchOn: 0
-  allTheObjectsInTheSceneWithAButton: []
---- !u!4 &1537398281
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4701449426827138, guid: 889a6fd6ad97a4b47bbcb7bcdfcbc329,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1537398279}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1537398282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1537398279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcb0b62f63b8c04cb097b7496e01ee7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reponsesSophieQ1:
-  - "Oui..... Je comprends pas.. Mais pourquoi, pourquoi ? Tout avait l'air d'aller.
-    J'ai fucking rien remarqu\xE9. \xC7a se trouve, il y avait des signes... Pis j'ai
-    juste rien vu.. "
-  - "Ses parents m'ont envoy\xE9 un courriel... Je l'ai appris de m\xEAme. Mais tabernack,
-    un suicide.....  En sais-tu plus ? Es-tu sur place ?"
-  - "Je comprends rien..  Ts\xE9, elle avait l'air bien... Elle me disait que son
-    doctorat se passait bien et toute... Pis pourquoi \xE0 l'Universit\xE9 ? Est-ce
-    que \xE7a serait li\xE9 \xE0 l'\xE9cole ? "
-  reponsesSophieQ2:
-  - "WHAT THE FUCK. Pendue ? J'ai l'image en t\xEAte... C'est juste horrible... C'est
-    juste de plus en plus glauque..."
-  - "Oh mon dieu......Pendant que moi j'\xE9tais au chalet...... \xE7a se produisait.....???
-    J'ai besoin de toi Marie-Eve... "
-  - "Fuck, fuck, fuck.......Dans son local de recherche ? Ostie que c'est creep..
-    Mais qu'est ce qui s'est pass\xE9 ???"
-  reponseMarieEveASophieQ1:
-  - "Sophie.. Ne t'en fais pas... Tu sais bien que \xE7a marche pas comme \xE7a..
-    Ne culpabilises pas.. "
-  - "Je suis \xE0 l'UMAQ. L'ambulance vient tout juste de partir. L'universit\xE9
-    essaye de calmer le monde. La police emp\xEAche d'acc\xE9der au 5\xE8me \xE9tage.
-    \ C'est un peu la folie.. mais je sais pas plus que \xE7a. "
-  - "Peut-\xEAtre qu'elle te disait pas tout.. C'est certain que faire \xE7a \xE0
-    l'universit\xE9, \xE7a doit avoir un sens..."
-  answerTheQuestion: 0
-  whatCouldGoWrong: 0000
 --- !u!1 &1589422692
 GameObject:
   m_ObjectHideFlags: 0
