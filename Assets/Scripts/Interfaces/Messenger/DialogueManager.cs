@@ -8,7 +8,7 @@ using System;
 public class DialogueManager : MonoBehaviour
 {
 	//public TextMeshProUGUI nameText;
-	public GameObject messengerCanvas, conversationPartner, yourAnswers;
+	public GameObject dialog, conversationPartner, yourAnswers;
 	public Transform conversationHistory;
 
 	[HideInInspector]
@@ -39,14 +39,9 @@ public class DialogueManager : MonoBehaviour
 
 	void Awake()
 	{
-		answerButtonsParent = messengerCanvas.GetComponent<Transform>().Find ("Conversation");  
+		answerButtonsParent = dialog.GetComponent<Transform>();  
 
 		FetchButtonsInOrderToMakeAList ();
-
-		if (messengerCanvas.activeSelf == true) 
-		{
-			messengerCanvas.SetActive (false);
-		}
 	}
 
 	void Start ()
@@ -115,7 +110,7 @@ public class DialogueManager : MonoBehaviour
 	{
 		GameObject dialogueInstance = Instantiate (prefab, conversationHistory.position, Quaternion.identity) as GameObject;
 
-		dialogueInstance.GetComponent<Transform> ().SetParent (conversationHistory);
+		dialogueInstance.GetComponent<Transform> ().SetParent (conversationHistory, false);
 
 		dialogueInstance.GetComponent<Transform> ().localScale = new Vector2 (prefab.GetComponent<Transform>().localScale.x, prefab.GetComponent<Transform>().localScale.y);
 
@@ -134,18 +129,6 @@ public class DialogueManager : MonoBehaviour
 
 				listeNomsDeBouttons.Add (child.name);
 			} 
-		}
-	}
-
-	public void ActivateAndDeactivateMessengerCanvas()
-	{
-		if (messengerCanvas.activeSelf == true) 
-		{
-			messengerCanvas.SetActive (false);
-		} 
-		else if(messengerCanvas.activeSelf == false)
-		{
-			messengerCanvas.SetActive (true);
 		}
 	}
 }
