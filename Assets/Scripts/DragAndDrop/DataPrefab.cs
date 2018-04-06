@@ -21,12 +21,13 @@ public class DataPrefab : MonoBehaviour
 	[HideInInspector]
 	public bool animClipIsPlaying = false, justAnotherBoool = true;
 
-	void Start()
-	{
-		animator = GetComponent<Animator> ();
-
-		this.gameObject.GetComponent<Button> ().onClick.AddListener (PlayWritingSound);
-	}
+	//Pablo, il va falloir regler le play writting sound qui n'existe pas...
+//	void Start()
+//	{
+//		animator = GetComponent<Animator> ();
+//
+//		this.gameObject.GetComponent<Button> ().onClick.AddListener (Playwrittingsound) ;
+//	}
 
 	void Update()
 	{
