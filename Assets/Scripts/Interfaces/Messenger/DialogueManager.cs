@@ -37,10 +37,19 @@ public class DialogueManager : MonoBehaviour
 
 	private DialogueTrigger dlgTrigger;
 
+	public scrollRectPosition SRP;
+	public ForceReUpdate Force;
+	public ScrollRect scrollfacebook;
+	public Scrollbar scrollBarFacebook;
+
+	public bool boulesale = false;
+
+	float timer = 0.1f, timer2 = 0.1f, timer3 = 0.1f;
+
+
 	void Awake()
 	{
 		answerButtonsParent = dialog.GetComponent<Transform>();  
-
 		FetchButtonsInOrderToMakeAList ();
 	}
 
@@ -57,7 +66,26 @@ public class DialogueManager : MonoBehaviour
 	void Update()
 	{
 		Debug.Log ("From DialogueManager(), the value of sentences.count is: " + sentences.Count);
+
+
+		if (boulesale)
+		{
+			timer -= Time.deltaTime;
+			if (timer <= 0f)
+			{
+				scrollBarFacebook.value -= 1.0f;
+				Debug.Log ("allo j'existe");
+				timer2 -= Time.deltaTime;
+				if (timer2 <= 0f) 
+				{
+					boulesale = false;
+					timer2 = 0.1f;
+					timer = 0.1f;
+				}
+			}
+		}
 	}
+
 
 	public void StartDialogue(Dialogue dialogue)
 	{ 
@@ -72,20 +100,22 @@ public class DialogueManager : MonoBehaviour
 		DisplayNextSentence ();
 	}
 
+
 	public void DisplayNextSentence () 
 	{
-		if (sentences.Count == 0) 
-		{
+		Canvas.ForceUpdateCanvases ();
+
+		if (sentences.Count == 0) {
 			EndDialogue ();
-		}
-		else if (sentences.Count > 0) 
-		{
+		} else if (sentences.Count > 0) {
 			nextSentence = sentences.Dequeue (); 
 
 			bttnDtct.WillItWorkIDontKnow ();
 
 			prefab = conversationPartner;
-			InstantiateStuff(nextSentence);
+			InstantiateStuff (nextSentence);
+			boulesale = true;
+			Canvas.ForceUpdateCanvases ();
 		}
 	}
 
@@ -108,9 +138,14 @@ public class DialogueManager : MonoBehaviour
 
 	public void InstantiateStuff(string dialogue)
 	{
+		boulesale = true;
+		Canvas.ForceUpdateCanvases ();
+		
 		GameObject dialogueInstance = Instantiate (prefab, conversationHistory.position, Quaternion.identity) as GameObject;
 
 		dialogueInstance.GetComponent<Transform> ().SetParent (conversationHistory, false);
+
+		dialogueInstance.GetComponent<Transform> ().SetAsLastSibling ();
 
 		dialogueInstance.GetComponent<Transform> ().localScale = new Vector2 (prefab.GetComponent<Transform>().localScale.x, prefab.GetComponent<Transform>().localScale.y);
 

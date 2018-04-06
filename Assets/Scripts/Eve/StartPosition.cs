@@ -45,7 +45,6 @@ public class StartPosition : MonoBehaviour {
 	public GameObject toggleNotifCass;
 	public GameObject shortCutSophieFB;
 	public GameObject shortCutCassFB;
-	public GameObject conversation;
 
 	public GameObject SoMessMarieEveMessenger;
 
@@ -213,7 +212,6 @@ public class StartPosition : MonoBehaviour {
 		listContentMess.SetActive (true);
 		listContentTrash.SetActive (false);
 		listContentBrouillon.SetActive (false);
-
 
 		avisDeces.SetActive (false);
 		shortCutDeces.SetActive (false);

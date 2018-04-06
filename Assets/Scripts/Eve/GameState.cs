@@ -20,9 +20,7 @@ public class GameState : MonoBehaviour {
 	public bool soOpenFacebook = false;
 
 
-	
 	void Update (){	
-
 	//game state facebook
 	if (ButtonFBSophie.activeSelf == true) {
 		soOpenFacebook = true;
@@ -257,7 +255,7 @@ public class GameState : MonoBehaviour {
 		if (soOpenFacebook) {
 			SP.fixSo.SetActive (true);
 			SP.SoMessMarieEveMessenger.SetActive (true);
-			SP.conversation.SetActive (true);
+			SP.messengerTemplate.SetActive (true);
 		} else {
 			SP.fixCass.SetActive (true);
 		}

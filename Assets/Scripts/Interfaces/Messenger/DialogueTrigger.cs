@@ -21,6 +21,8 @@ public class DialogueTrigger : MonoBehaviour
 
 	private ButtonDetection bttDetection;
 
+	public Scrollbar scrollfacebook;
+
 	void Start()
 	{
 		reference = GameObject.Find ("CanvasEve");
