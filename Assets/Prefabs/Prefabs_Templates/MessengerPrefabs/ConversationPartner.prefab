@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 224720171754737486}
   - component: {fileID: 222301666763752074}
   - component: {fileID: 114127400234551540}
-  - component: {fileID: 114522011657092832}
+  - component: {fileID: 114081630656965518}
   m_Layer: 0
   m_Name: ConversationPartner
   m_TagString: Untagged
@@ -63,6 +63,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114081630656965518
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1222132454124306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f95f3564268e46c99cd12f24effd091, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptManager: {fileID: 0}
+  scrollFacebook: {fileID: 0}
 --- !u!114 &114127400234551540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -223,19 +236,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114522011657092832
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1222132454124306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43631a306698a4dc9a1e8c5ac701d83b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scriptManager: {fileID: 0}
-  scrollFacebook: {fileID: 0}
 --- !u!222 &222082217533586908
 CanvasRenderer:
   m_ObjectHideFlags: 1

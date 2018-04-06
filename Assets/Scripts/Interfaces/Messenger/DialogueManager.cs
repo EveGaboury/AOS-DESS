@@ -38,7 +38,15 @@ public class DialogueManager : MonoBehaviour
 	private DialogueTrigger dlgTrigger;
 
 	public scrollRectPosition SRP;
-	private ForceReUpdate Force;
+	public ForceReUpdate Force;
+	public ForceReupdatePrefab FRP;
+	public ScrollRect scrollfacebook;
+	public Scrollbar scrollBarFacebook;
+
+	public bool boulesale = false;
+
+	float timer = 0.1f, timer2 = 0.1f, timer3 = 0.1f;
+
 
 	void Awake()
 	{
@@ -61,11 +69,31 @@ public class DialogueManager : MonoBehaviour
 	{
 		Debug.Log ("From DialogueManager(), the value of sentences.count is: " + sentences.Count);
 
+
+		if (boulesale) {
+
+			timer -= Time.deltaTime;
+			if (timer <= 0f) {
+				//scrollfacebook.verticalNormalizedPosition -= 1.0f;	
+				scrollBarFacebook.value -= 1.0f;
+				Debug.Log ("allo j'existe");
+				timer2 -= Time.deltaTime;
+				if (timer2 <= 0f) {
+					boulesale = false;
+					//scrollfacebook.verticalNormalizedPosition += 0.01f;		
+					}
+			}
+		}
 	}
 
 
 	public void StartDialogue(Dialogue dialogue)
 	{ 
+
+		boulesale = true;
+		Canvas.ForceUpdateCanvases ();
+
+
 		sentences.Clear ();
 
 		foreach (string sentence in dialogue.sentences) 
@@ -75,7 +103,13 @@ public class DialogueManager : MonoBehaviour
 		}
 
 		DisplayNextSentence ();
+	
+		//boulesale = false;
 	}
+//	IEnumerator wait () {
+//		yield return new WaitForSeconds (0.001f);
+//		scrollfacebook.verticalNormalizedPosition = 0f;		
+//	}
 
 	public void DisplayNextSentence () 
 	{

@@ -24,7 +24,6 @@ public class ForceReUpdate : MonoBehaviour {
 
 	IEnumerator wait () {
 		yield return new WaitForSeconds (0.001f);
-		scrollFacebook.GetComponent <scrollRectPosition> ().scrollFacebook.verticalNormalizedPosition = 0f;	
 		scrollFacebook.verticalNormalizedPosition = 0f;	
 	}
 }
