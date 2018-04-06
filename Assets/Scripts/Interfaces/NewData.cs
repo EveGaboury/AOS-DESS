@@ -19,9 +19,9 @@ public class NewData : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
 	float currentAlphaValue;
 
-	public GameObject soundManager;
+	//public GameObject soundManager;
 
-	public AudioClip soundwriting;
+	//public AudioClip soundwriting;
 
 
 	public void Start()
@@ -65,7 +65,7 @@ public class NewData : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 	{
 		
 
-		PlaySoundWriting ();
+		//PlaySoundWriting ();
 		resultatBlocNotes.GetComponent<Animator> ().SetBool ("onClick", true);
 
 		resultatBlocNotes.GetComponent<DataPrefab> ().animClipIsPlaying = true;
@@ -89,24 +89,24 @@ public class NewData : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 //		Debug.Log ("Hello World!");
 	}
 
-	public void PlaySoundWriting()
-	{
-
-	//	soundManager.GetComponent<AudioSource>().PlayOneShot(soundwriting);
-
-		soundManager.GetComponent<AudioSource> ().clip = soundwriting;
-
-		soundManager.GetComponent<AudioSource>().PlayDelayed(0.75f);
-
-
-		//5.0f,sound_writing); 
-		//soundManager.audioSourceSD.clip = sound_itunes; 
-
-		//AudioSource audioSource = GetComponent<AudioSource>();
-		//soundManager.audioSourceSD.PlayDelayed(5);
-
-
-		//AudioSource audioSource = GetComponent<AudioSource>();
-		//audioSource.PlayDelayed(10);
-	}
+//	public void PlaySoundWriting()
+//	{
+//
+//	//	soundManager.GetComponent<AudioSource>().PlayOneShot(soundwriting);
+//
+//		soundManager.GetComponent<AudioSource> ().clip = soundwriting;
+//
+//		soundManager.GetComponent<AudioSource>().PlayDelayed(0.75f);
+//
+//
+//		//5.0f,sound_writing); 
+//		//soundManager.audioSourceSD.clip = sound_itunes; 
+//
+//		//AudioSource audioSource = GetComponent<AudioSource>();
+//		//soundManager.audioSourceSD.PlayDelayed(5);
+//
+//
+//		//AudioSource audioSource = GetComponent<AudioSource>();
+//		//audioSource.PlayDelayed(10);
+//	}
 }
