@@ -37,6 +37,9 @@ public class DialogueManager : MonoBehaviour
 
 	private DialogueTrigger dlgTrigger;
 
+	public scrollRectPosition SRP;
+	private ForceReUpdate Force;
+
 	void Awake()
 	{
 		answerButtonsParent = dialog.GetComponent<Transform>();  
@@ -57,7 +60,9 @@ public class DialogueManager : MonoBehaviour
 	void Update()
 	{
 		Debug.Log ("From DialogueManager(), the value of sentences.count is: " + sentences.Count);
+
 	}
+
 
 	public void StartDialogue(Dialogue dialogue)
 	{ 
@@ -108,9 +113,12 @@ public class DialogueManager : MonoBehaviour
 
 	public void InstantiateStuff(string dialogue)
 	{
+		
 		GameObject dialogueInstance = Instantiate (prefab, conversationHistory.position, Quaternion.identity) as GameObject;
 
 		dialogueInstance.GetComponent<Transform> ().SetParent (conversationHistory, false);
+
+		dialogueInstance.GetComponent<Transform> ().SetAsLastSibling ();
 
 		dialogueInstance.GetComponent<Transform> ().localScale = new Vector2 (prefab.GetComponent<Transform>().localScale.x, prefab.GetComponent<Transform>().localScale.y);
 

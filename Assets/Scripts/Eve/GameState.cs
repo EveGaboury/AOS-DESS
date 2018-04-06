@@ -257,7 +257,7 @@ public class GameState : MonoBehaviour {
 		if (soOpenFacebook) {
 			SP.fixSo.SetActive (true);
 			SP.SoMessMarieEveMessenger.SetActive (true);
-			SP.conversation.SetActive (true);
+			SP.messengerTemplate.SetActive (true);
 		} else {
 			SP.fixCass.SetActive (true);
 		}

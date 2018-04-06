@@ -5,9 +5,17 @@ using UnityEngine.UI;
 
 public class ForceReUpdate : MonoBehaviour {
 
-	public scrollRectPosition SR;
+	//public scrollRectPosition SR;
+	public GameObject scriptManager;
+	public ScrollRect scrollFacebook;
 
-	void OnEnable() {
+
+	void Start () {
+
+	
+	}
+
+	public void OnEnable() {
 
 		StartCoroutine(wait());
 		Canvas.ForceUpdateCanvases();
@@ -16,6 +24,7 @@ public class ForceReUpdate : MonoBehaviour {
 
 	IEnumerator wait () {
 		yield return new WaitForSeconds (0.001f);
-		SR.scrollFacebook.verticalNormalizedPosition = 0f;	
+		scrollFacebook.GetComponent <scrollRectPosition> ().scrollFacebook.verticalNormalizedPosition = 0f;	
+		scrollFacebook.verticalNormalizedPosition = 0f;	
 	}
 }
