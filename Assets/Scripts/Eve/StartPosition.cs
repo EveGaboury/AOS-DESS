@@ -213,7 +213,6 @@ public class StartPosition : MonoBehaviour {
 		listContentTrash.SetActive (false);
 		listContentBrouillon.SetActive (false);
 
-
 		avisDeces.SetActive (false);
 		shortCutDeces.SetActive (false);
 	}

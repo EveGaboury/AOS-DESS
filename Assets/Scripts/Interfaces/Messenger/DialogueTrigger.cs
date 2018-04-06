@@ -48,19 +48,10 @@ public class DialogueTrigger : MonoBehaviour
 		{
 			conversationSwitchOn = true;
 
-//			StartCoroutine(wait());
-//			scrollfacebook.value = 0.0f;		
-//			Canvas.ForceUpdateCanvases ();
-
 			FindObjectOfType<DialogueManager> ().StartDialogue (dialogue);
 
 			allTheObjectsInTheSceneWithAButton [0].GetComponent<Button> ().enabled = false;
 			allTheObjectsInTheSceneWithAButton [0].GetComponent<Button> ().interactable = false;
 		}
 	}
-
-//	IEnumerator wait () {
-//		yield return new WaitForSeconds (0.001f);
-//		scrollfacebook.value = 0.0f;		
-//	}
 }

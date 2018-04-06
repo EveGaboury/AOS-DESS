@@ -20,9 +20,7 @@ public class GameState : MonoBehaviour {
 	public bool soOpenFacebook = false;
 
 
-	
 	void Update (){	
-
 	//game state facebook
 	if (ButtonFBSophie.activeSelf == true) {
 		soOpenFacebook = true;

@@ -50,7 +50,6 @@ public class DialogueManager : MonoBehaviour
 	void Awake()
 	{
 		answerButtonsParent = dialog.GetComponent<Transform>();  
-
 		FetchButtonsInOrderToMakeAList ();
 	}
 
@@ -90,7 +89,6 @@ public class DialogueManager : MonoBehaviour
 
 	public void StartDialogue(Dialogue dialogue)
 	{ 
-
 		sentences.Clear ();
 
 		foreach (string sentence in dialogue.sentences) 
@@ -100,13 +98,11 @@ public class DialogueManager : MonoBehaviour
 		}
 
 		DisplayNextSentence ();
-	
-
 	}
+
 
 	public void DisplayNextSentence () 
 	{
-		//boulesale = true;
 		Canvas.ForceUpdateCanvases ();
 
 		if (sentences.Count == 0) {
