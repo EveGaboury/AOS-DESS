@@ -8,15 +8,24 @@ using System.Linq;
 
 [RequireComponent(typeof(AudioSource))]
 public class ChangeMusic : MonoBehaviour
-{	
-	//public Button activatingButton;
+{
+	//Public
 	public AudioClip[] clipList;
 
-	public List<GameObject> testList = new List<GameObject> ();
+	public List<GameObject> listeToggleChansons = new List<GameObject> ();
 
+	public GameObject displayTitle;
+
+	public Toggle testButton;
+
+	//Private
 	AudioSource audioSource;
+
 	int currentAudioIndex = 0;
+
 	bool isAudioPlaying;
+
+	GameObject canvasEve;
 
 	void Awake()
 	{
@@ -33,7 +42,24 @@ public class ChangeMusic : MonoBehaviour
 
 	void Start() 
 	{
-		RetrieveAllButtons ();
+		canvasEve = GameObject.Find ("CanvasEve");
+
+		RetrieveAllChildrenGameObjectsOfiTunes ();
+
+		ActivateAndDeactive ();
+	}
+
+	void Update() 
+	{	
+		Debug.Log (audioSource.clip.name + " est en train de jouer");
+
+		HighlightCurrentlyPlayingSongButton ();
+
+		if (audioSource.time == audioSource.clip.length) 
+		{
+			//Debug.Log (audioSource.clip.name + " a terminer de jouer");
+			PlayNextMusic ();
+		}
 	}
 
 	public void PlayMusicAtIndex(int k)
@@ -42,9 +68,13 @@ public class ChangeMusic : MonoBehaviour
 		{
 			return;
 		}
+
 		audioSource.Stop ();
+
 		currentAudioIndex = k;
+
 		audioSource.clip = clipList[currentAudioIndex];
+
 		audioSource.Play ();
 	}
 
@@ -65,15 +95,6 @@ public class ChangeMusic : MonoBehaviour
 
 		PlayMusicAtIndex(k);
 	}
-		
-	void Update()
-	{	
-		if (audioSource.time == audioSource.clip.length) 
-		{
-			Debug.Log (audioSource.clip.name + " a terminer de jouer");
-			PlayNextMusic ();
-		}
-	}
 
 	public void ActivateAndDeactivateMusicInterface()
 	{
@@ -89,50 +110,77 @@ public class ChangeMusic : MonoBehaviour
 		}
 	}
 
-	void RetrieveAllButtons()
+	public void ActivateAndDeactive()
 	{
-		Component[] displayText;
-
-		displayText = GetComponentsInChildren (typeof(TextMeshProUGUI));
-
-		if (displayText != null)
+		if (gameObject.activeSelf == true) 
 		{
-			foreach (TextMeshProUGUI item in displayText)
-			{
-				testList.Add (item.gameObject);
-//				Debug.Log (testList.Count);
-
-//				item.text = "";
-//				item.text = item.gameObject.name;
-//
-//				if (displayText.Length <= clipList.Length) 
-//				{
-//					Debug.Log ("l'array displayText est de taille: " + displayText.Length + " donc est plus PETIT ou egal a la taille de l'array clipList: " + clipList.Length);
-//				} 
-//				else 
-//				{
-//					Debug.Log ("l'array displayText est de taille: " + displayText.Length + " donc est plus GRAND ou egal a la taille de l'array clipList: " + clipList.Length);
-//				}
-			}
-		} 
-		else
+			gameObject.SetActive (false);
+		}
+		else if (gameObject.activeSelf == false) 
 		{
-			return;
+			gameObject.SetActive (true);
 		}
 	}
 
-	public void PauseAndUnpauseMusic()
+	void RetrieveAllChildrenGameObjectsOfiTunes()
 	{
-		if (audioSource != null) 
+		Transform[] allChildrenOfThisGameObject = GetComponentsInChildren<Transform>(true);
+
+		foreach (Transform child in allChildrenOfThisGameObject) 
 		{
-			if (audioSource.isPlaying) 
+			if (child.GetComponent<Toggle>() != null) 
 			{
-				audioSource.Pause ();	
-			} 
-			else 
-			{
-				audioSource.UnPause ();
-			}		
+				listeToggleChansons.Add (child.gameObject);
+			}
 		}
+
+		for (int i = 0; i < listeToggleChansons.Count; i++) 
+		{
+			listeToggleChansons [i].GetComponentInChildren<TextMeshProUGUI> ().text = "<size=18>" + clipList [i].name + "</size>" ;
+		}
+	}
+
+//	IEnumerator DisplayTheNameOfCurrentlyPlayingClip()
+//	{
+//		GameObject instantiateDisplayer = Instantiate (displayTitle, canvasEve.transform, Quaternion.identity) as GameObject;
+//
+//		instantiateDisplayer.GetComponentInChildren<TMPro> ().text = audioSource.clip.name;
+//
+//		yield return new WaitForSeconds (5.0f);
+//
+//		DestroyObject (instantiateDisplayer);
+//	}
+
+	void HighlightCurrentlyPlayingSongButton()
+	{
+//		Toggle trololo = listeToggleChansons [currentAudioIndex].GetComponent<Toggle> ();
+//
+//		ColorBlock cb = trololo.colors;
+//		cb.normalColor = Color.green;
+//
+//		trololo.colors = cb;
+
+//		Toggle t = testButton.GetComponent<Toggle> ();
+//
+//		ColorBlock cb = t.colors;
+//		cb.normalColor = Color.cyan;
+//
+//		t.colors = cb;
+
+		//for (int k = 0; k < listeToggleChansons.Count; k++) 
+		//{
+			if (clipList[0] == 0) 
+			{
+			print ("Success! clipList[currentAudioIndex]=" + clipList[currentAudioIndex]);
+			}
+			else if (clipList[1] == 1) 
+			{
+			print ("Success! clipList[currentAudioIndex]=" + clipList[currentAudioIndex]);
+			}
+			else if (clipList[2] == 2) 
+			{
+			print ("Success! clipList[currentAudioIndex]=" + clipList[currentAudioIndex]);
+			}
+		//}
 	}
 }
