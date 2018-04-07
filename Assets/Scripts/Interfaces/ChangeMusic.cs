@@ -169,18 +169,23 @@ public class ChangeMusic : MonoBehaviour
 
 		//for (int k = 0; k < listeToggleChansons.Count; k++) 
 		//{
-			if (clipList[0] == 0) 
-			{
-			print ("Success! clipList[currentAudioIndex]=" + clipList[currentAudioIndex]);
-			}
-			else if (clipList[1] == 1) 
-			{
-			print ("Success! clipList[currentAudioIndex]=" + clipList[currentAudioIndex]);
-			}
-			else if (clipList[2] == 2) 
-			{
-			print ("Success! clipList[currentAudioIndex]=" + clipList[currentAudioIndex]);
-			}
-		//}
+
+
+
+
+//
+//			if (clipList[0] == 0) 
+//			{
+//			print ("Success! clipList[currentAudioIndex]=" + clipList[currentAudioIndex]);
+//			}
+//			else if (clipList[1] == 1) 
+//			{
+//			print ("Success! clipList[currentAudioIndex]=" + clipList[currentAudioIndex]);
+//			}
+//			else if (clipList[2] == 2) 
+//			{
+//			print ("Success! clipList[currentAudioIndex]=" + clipList[currentAudioIndex]);
+//			}
+//		//}
 	}
 }
