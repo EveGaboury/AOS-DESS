@@ -16,8 +16,6 @@ public class ChangeMusic : MonoBehaviour
 
 	public GameObject displayTitle;
 
-	public Toggle testButton;
-
 	//Private
 	AudioSource audioSource;
 
@@ -26,6 +24,8 @@ public class ChangeMusic : MonoBehaviour
 	bool isAudioPlaying;
 
 	GameObject canvasEve;
+
+	Color initialColor, isPlayingColor;
 
 	void Awake()
 	{
@@ -38,26 +38,37 @@ public class ChangeMusic : MonoBehaviour
 		audioSource.clip = clipList[currentAudioIndex];
 
 		audioSource.Play ();
+
+		//StartCoroutine (DisplayCurrentlyPlayingSongName());
 	}
 
 	void Start() 
 	{
 		canvasEve = GameObject.Find ("CanvasEve");
 
+		initialColor = Color.white;
+
+		isPlayingColor = Color.green; 
+
 		RetrieveAllChildrenGameObjectsOfiTunes ();
+
+//		HighlightCurrentlyPlayingSongButton ();
 
 		ActivateAndDeactive ();
 	}
 
 	void Update() 
-	{	
-		Debug.Log (audioSource.clip.name + " est en train de jouer");
+	{
+		CrossFadeBetweenTunes (); 
 
-		HighlightCurrentlyPlayingSongButton ();
+		if ((audioSource.isPlaying == true) && (audioSource.time <= .5f)) 
+		{
+			StartCoroutine (DisplayCurrentlyPlayingSongName());
+			Debug.Log ("AudioSource is playing: " + audioSource.clip.name);
+		}
 
 		if (audioSource.time == audioSource.clip.length) 
 		{
-			//Debug.Log (audioSource.clip.name + " a terminer de jouer");
 			PlayNextMusic ();
 		}
 	}
@@ -76,6 +87,10 @@ public class ChangeMusic : MonoBehaviour
 		audioSource.clip = clipList[currentAudioIndex];
 
 		audioSource.Play ();
+
+		//StartCoroutine (DisplayCurrentlyPlayingSongName());
+
+		HighlightCurrentlyPlayingSongButton ();
 	}
 
 	public void PlayNextMusic()
@@ -136,56 +151,83 @@ public class ChangeMusic : MonoBehaviour
 
 		for (int i = 0; i < listeToggleChansons.Count; i++) 
 		{
-			listeToggleChansons [i].GetComponentInChildren<TextMeshProUGUI> ().text = "<size=18>" + clipList [i].name + "</size>" ;
+			listeToggleChansons [i].GetComponentInChildren<TextMeshProUGUI> ().text = "<size=18>" + clipList [i].name + "</size>";
 		}
 	}
 
-//	IEnumerator DisplayTheNameOfCurrentlyPlayingClip()
-//	{
-//		GameObject instantiateDisplayer = Instantiate (displayTitle, canvasEve.transform, Quaternion.identity) as GameObject;
-//
-//		instantiateDisplayer.GetComponentInChildren<TMPro> ().text = audioSource.clip.name;
-//
-//		yield return new WaitForSeconds (5.0f);
-//
-//		DestroyObject (instantiateDisplayer);
-//	}
-
-	void HighlightCurrentlyPlayingSongButton()
+	void HighlightCurrentlyPlayingSongButton() 
 	{
-//		Toggle trololo = listeToggleChansons [currentAudioIndex].GetComponent<Toggle> ();
-//
-//		ColorBlock cb = trololo.colors;
-//		cb.normalColor = Color.green;
-//
-//		trololo.colors = cb;
+		for (int k = 0; k < listeToggleChansons.Count; k++)
+		{
+			if (audioSource.clip.name == clipList [k].name)
+			{
+				Toggle localToggle = listeToggleChansons [k].GetComponent<Toggle> ();
 
-//		Toggle t = testButton.GetComponent<Toggle> ();
-//
-//		ColorBlock cb = t.colors;
-//		cb.normalColor = Color.cyan;
-//
-//		t.colors = cb;
+				ColorBlock localColorBlock = localToggle.colors;
+				localColorBlock.normalColor = isPlayingColor;
 
-		//for (int k = 0; k < listeToggleChansons.Count; k++) 
-		//{
+				localToggle.colors = localColorBlock;
 
+				Debug.Log ("Success! clipList[currentAudioIndex]=" + clipList [k].name);
+			}  
+			else
+			{
+				Toggle localToggle = listeToggleChansons [k].GetComponent<Toggle> ();
 
+				ColorBlock localColorBlock = localToggle.colors;
+				localColorBlock.normalColor = initialColor;
 
-
-//
-//			if (clipList[0] == 0) 
-//			{
-//			print ("Success! clipList[currentAudioIndex]=" + clipList[currentAudioIndex]);
-//			}
-//			else if (clipList[1] == 1) 
-//			{
-//			print ("Success! clipList[currentAudioIndex]=" + clipList[currentAudioIndex]);
-//			}
-//			else if (clipList[2] == 2) 
-//			{
-//			print ("Success! clipList[currentAudioIndex]=" + clipList[currentAudioIndex]);
-//			}
-//		//}
+				localToggle.colors = localColorBlock;
+			}
+		}
 	}
-}
+
+	IEnumerator DisplayCurrentlyPlayingSongName()
+	{
+		//Methode #1
+
+		displayTitle.SetActive (true);
+
+		displayTitle.GetComponentInChildren<TextMeshProUGUI> ().text = audioSource.clip.name;
+
+		yield return new WaitForSeconds (5.0f);
+
+		displayTitle.SetActive (false);
+
+		//Methode #2
+//		GameObject barreLancementRapide = GameObject.Find("Enfant_BarreGriseHaut");
+//		barreLancementRapide.AddComponent<TextMeshProUGUI> ();
+//		barreLancementRapide.GetComponent<TextMeshProUGUI> ().text = "<size=14>" + audioSource.clip.name + "</size>";
+//		barreLancementRapide.GetComponent<Transform> ().position.x += Time.deltaTime;
+//
+//		float maxleft = 500.0f, initialPosition = -500.0f;
+//
+//		if (barreLancementRapide.GetComponent<Transform> ().position.x >= maxleft) 
+//		{
+//			barreLancementRapide.GetComponent<Transform> ().position.x = initialPosition;
+//		}
+	}
+
+	void CrossFadeBetweenTunes ()
+	{
+		if (audioSource.isPlaying)
+		{
+			//Si la chanson est à 90% ecoulée
+			if (audioSource.time >= ((audioSource.clip.length / 10) * 9)) 
+			{
+				if (audioSource.volume >= 0.0f) 
+				{
+					audioSource.volume -= Time.deltaTime;
+				}
+			}
+			//Si la chanson est à 10% commencée
+			else if (audioSource.time <= (audioSource.clip.length / 10)) 
+			{
+				if (audioSource.volume <= 1.0f)
+				{
+					audioSource.volume += Time.deltaTime;
+				}
+			}
+		}
+	}
+} 
