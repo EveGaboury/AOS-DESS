@@ -21,6 +21,8 @@ public class AudioButtons : MonoBehaviour
 
 	AudioClip currentAudioCLip;
 
+	float lowPitchRange = 0.9f, highPitchRange = 1.05f;
+
 	void Start()
 	{
 		soundPlayer = this.gameObject.GetComponent<AudioSource> ();
@@ -71,7 +73,9 @@ public class AudioButtons : MonoBehaviour
 
 	void DetermineButtonSoundToBePlayed()
 	{
-		soundPlayer.pitch = Random.Range (-3.0f , 3.0f);
+		float randomPitch = Random.Range (lowPitchRange, highPitchRange);
+
+		soundPlayer.pitch = randomPitch;
 		soundPlayer.PlayOneShot (currentAudioCLip, 1.0f);
 	}
 }
