@@ -363,6 +363,7 @@ GameObject:
   - component: {fileID: 58851714}
   - component: {fileID: 58851717}
   - component: {fileID: 58851716}
+  - component: {fileID: 58851718}
   - component: {fileID: 58851715}
   m_Layer: 5
   m_Name: BouttonGmail
@@ -478,6 +479,17 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 58851713}
+--- !u!114 &58851718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 58851713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f13c9786038a4450bbd9aa40c11a3ac3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &83931131
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,6 +657,7 @@ GameObject:
   - component: {fileID: 120611740}
   - component: {fileID: 120611742}
   - component: {fileID: 120611741}
+  - component: {fileID: 120611743}
   m_Layer: 5
   m_Name: BarreGriseHaut
   m_TagString: Sophie
@@ -707,6 +720,17 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 120611739}
+--- !u!114 &120611743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 120611739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f13c9786038a4450bbd9aa40c11a3ac3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &124691022
 GameObject:
   m_ObjectHideFlags: 0
@@ -4003,6 +4027,7 @@ GameObject:
   - component: {fileID: 927724438}
   - component: {fileID: 927724441}
   - component: {fileID: 927724440}
+  - component: {fileID: 927724442}
   - component: {fileID: 927724439}
   m_Layer: 5
   m_Name: BoutonPhoto
@@ -4107,6 +4132,17 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 927724437}
+--- !u!114 &927724442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 927724437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f13c9786038a4450bbd9aa40c11a3ac3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &940232664
 GameObject:
   m_ObjectHideFlags: 0
@@ -4443,6 +4479,7 @@ GameObject:
   - component: {fileID: 980970782}
   - component: {fileID: 980970785}
   - component: {fileID: 980970784}
+  - component: {fileID: 980970786}
   - component: {fileID: 980970783}
   m_Layer: 5
   m_Name: BouttonMusique
@@ -4558,6 +4595,17 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 980970781}
+--- !u!114 &980970786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 980970781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f13c9786038a4450bbd9aa40c11a3ac3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1006736580
 GameObject:
   m_ObjectHideFlags: 0
@@ -5986,7 +6034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7e1f7c47824dd14298edb2acf914421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClipByInterface: []
+  audioClipByInterface: {fileID: 0}
   childObjectsContainingButtons: []
   parentObjects: []
 --- !u!82 &1589422698
@@ -6467,6 +6515,7 @@ GameObject:
   - component: {fileID: 1863316149}
   - component: {fileID: 1863316152}
   - component: {fileID: 1863316151}
+  - component: {fileID: 1863316153}
   - component: {fileID: 1863316150}
   m_Layer: 5
   m_Name: BouttonInternet
@@ -6604,6 +6653,17 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1863316148}
+--- !u!114 &1863316153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1863316148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f13c9786038a4450bbd9aa40c11a3ac3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1881094228
 GameObject:
   m_ObjectHideFlags: 0
@@ -7055,6 +7115,7 @@ GameObject:
   - component: {fileID: 1966291528}
   - component: {fileID: 1966291530}
   - component: {fileID: 1966291529}
+  - component: {fileID: 1966291531}
   - component: {fileID: 12026534}
   m_Layer: 5
   m_Name: BouttonTrash
@@ -7117,6 +7178,17 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1966291527}
+--- !u!114 &1966291531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1966291527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f13c9786038a4450bbd9aa40c11a3ac3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2002681943
 GameObject:
   m_ObjectHideFlags: 0
@@ -7281,11 +7353,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -7577,6 +7649,7 @@ GameObject:
   - component: {fileID: 2128213734}
   - component: {fileID: 2128213736}
   - component: {fileID: 2128213735}
+  - component: {fileID: 2128213737}
   m_Layer: 5
   m_Name: BarreGriseBas
   m_TagString: Sophie
@@ -7638,6 +7711,17 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2128213733}
+--- !u!114 &2128213737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2128213733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f13c9786038a4450bbd9aa40c11a3ac3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2136168274
 GameObject:
   m_ObjectHideFlags: 0
