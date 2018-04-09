@@ -54,8 +54,6 @@ public class ButtonManager: MonoBehaviour {
 
 
 
-
-
 	void Start () 
 	{
 
@@ -64,8 +62,6 @@ public class ButtonManager: MonoBehaviour {
 
 		boutonRougeBrowser.GetComponent <Button> ();
 		boutonRougeBrowser.onClick.AddListener (TaskonClickBoutonRouge);
-
-
 
 		wrongButton.GetComponent<Button> ();
 		wrongButton.onClick.AddListener (TaskOnClickForgotFacebook);

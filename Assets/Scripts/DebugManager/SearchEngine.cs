@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class SearchEngine: MonoBehaviour
 {
@@ -14,11 +15,16 @@ public class SearchEngine: MonoBehaviour
 
 	public StartPosition SP;
 	public SoundDesignScript SDS;
+	public Animation A;
+
 
 	void Start()
 	{
 		//ClearContent ();
 		TextMeshPro searchBar = GetComponent<TextMeshPro>();
+
+
+
 	}
 
 	void OnDisable()
@@ -26,17 +32,18 @@ public class SearchEngine: MonoBehaviour
 		Debug.Log ("clear");
 		ClearContent ();
 	}
-
-
+		
     //prend une chaine de charactere, puis renvoit un resultat
     public void SearchFacebook(string userSearch)
     {
 
 		//mettre ça dans une fonction pour déterminer quel est l'engin en train d'être chercher
-		if (searchBar.text == "www.tonlivre.com") 
+		if ((searchBar.text == "www.tonlivre.com") || (searchBar.text == "tonlivre.com"))
 		{
 			
-			Debug.Log ("facebook is correct");
+			SP.iconFBonglet.SetActive (true);
+
+			StartCoroutine (Wait());
 			SP.facebookCanvas.SetActive (true);
 			SP.facebookConnexion.SetActive (true);
 			SP.facebookConnInPage.SetActive (true);
@@ -47,16 +54,18 @@ public class SearchEngine: MonoBehaviour
 			SP.shortCutFacebook.SetActive (true);
 			SDS.GetComponent<SoundDesignScript> ().OnclickSoundBrowserRight (); 
 
+
 		} 
 		else 
 		{
+			SP.iconFBonglet.SetActive (true);
+			StartCoroutine (Wait ());
 			Debug.Log ("facebook is in-correct");
 			SP.notFound.SetActive (true);
 			SP.facebookCanvas.SetActive (false);
 			SDS.GetComponent<SoundDesignScript> ().OnclickSoundBrowserError (); 
 
 		}
-
 
 		//if (searchBar.text == "www.google.com") 
 		//{
@@ -116,6 +125,14 @@ public class SearchEngine: MonoBehaviour
 	{
 		Debug.Log ("clear2");
 		searchBar.text = "";
+
+	}
+
+	IEnumerator Wait()
+	{
+		yield return new WaitForSeconds(4f);
+
+
 
 	}
 }
