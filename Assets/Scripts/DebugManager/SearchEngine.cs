@@ -15,16 +15,13 @@ public class SearchEngine: MonoBehaviour
 
 	public StartPosition SP;
 	public SoundDesignScript SDS;
-	public Animation A;
 
+	public Sprite finalFacebook;
 
 	void Start()
 	{
 		//ClearContent ();
 		TextMeshPro searchBar = GetComponent<TextMeshPro>();
-
-
-
 	}
 
 	void OnDisable()
@@ -36,47 +33,20 @@ public class SearchEngine: MonoBehaviour
     //prend une chaine de charactere, puis renvoit un resultat
     public void SearchFacebook(string userSearch)
     {
-
 		//mettre ça dans une fonction pour déterminer quel est l'engin en train d'être chercher
 		if ((searchBar.text == "www.tonlivre.com") || (searchBar.text == "tonlivre.com"))
 		{
-			
-			SP.iconFBonglet.SetActive (true);
-
-			StartCoroutine (Wait());
-			SP.facebookCanvas.SetActive (true);
-			SP.facebookConnexion.SetActive (true);
-			SP.facebookConnInPage.SetActive (true);
-			SP.notFound.SetActive (false);
-			SP.pageProfilTemplate.SetActive (false);
-			SP.buttonHeaderCass.SetActive (false);
-			SP.passwordTemplate.SetActive (false);
-			SP.shortCutFacebook.SetActive (true);
-			SDS.GetComponent<SoundDesignScript> ().OnclickSoundBrowserRight (); 
-
-
+			SP.loading_Onglet.SetActive (true);
+			StartCoroutine (WaitAllo());
 		} 
+
 		else 
 		{
-			SP.iconFBonglet.SetActive (true);
-			StartCoroutine (Wait ());
-			Debug.Log ("facebook is in-correct");
-			SP.notFound.SetActive (true);
-			SP.facebookCanvas.SetActive (false);
-			SDS.GetComponent<SoundDesignScript> ().OnclickSoundBrowserError (); 
-
+			SP.loading_Onglet.SetActive (true);
+			StartCoroutine (WaitAllo2());
 		}
 
-		//if (searchBar.text == "www.google.com") 
-		//{
-		//	Debug.Log ("google is correct");
-		//	SP.shortCut.SetActive (true);
-		//	SP.notFound.SetActive (false);
-	//	} else
-		//	SP.shortCut.SetActive (false);
-
-		if (searchBar.text == "www.avis-deces-cassandra-royer.fr") 
-		{
+		if (searchBar.text == "www.avis-deces-cassandra-royer.fr") {
 			Debug.Log ("avis is correct");
 			SDS.GetComponent<SoundDesignScript> ().OnclickSoundBrowserRight (); 
 			SP.avisDeces.SetActive (true);
@@ -84,8 +54,7 @@ public class SearchEngine: MonoBehaviour
 			SP.shortCutDeces.SetActive (true);
 
 		} else
-			SP.notFound.SetActive (true);
-		
+			WaitAllo2 ();
     }
 
 //    public  void SearchYoutube()
@@ -128,11 +97,32 @@ public class SearchEngine: MonoBehaviour
 
 	}
 
-	IEnumerator Wait()
+	IEnumerator WaitAllo()
+	{
+		yield return new WaitForSeconds(3f);
+
+		if ((searchBar.text == "www.tonlivre.com") || (searchBar.text == "tonlivre.com")) 
+		{
+			SP.onglet_text.SetActive (true);
+			SP.facebookCanvas.SetActive (true);
+			SP.facebookConnexion.SetActive (true);
+			SP.facebookConnInPage.SetActive (true);
+			SP.notFound.SetActive (false);
+			SP.pageProfilTemplate.SetActive (false);
+			SP.buttonHeaderCass.SetActive (false);
+			SP.passwordTemplate.SetActive (false);
+			SP.shortCutFacebook.SetActive (true);
+			SDS.GetComponent<SoundDesignScript> ().OnclickSoundBrowserRight (); 
+		} 
+	}
+
+	IEnumerator WaitAllo2()
 	{
 		yield return new WaitForSeconds(4f);
 
-
-
+		SP.notFound.SetActive (true);
+		SP.facebookCanvas.SetActive (false);
+		SDS.GetComponent<SoundDesignScript> ().OnclickSoundBrowserError (); 
 	}
 }
+
