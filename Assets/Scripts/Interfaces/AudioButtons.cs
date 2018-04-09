@@ -10,6 +10,8 @@ public class AudioButtons : MonoBehaviour
 
 	public List<GameObject> childObjectsContainingButtons = new List<GameObject>(), parentObjects = new List<GameObject>();
 
+	public GameObject targetObject;
+
 	string gmailCanvas = "GmailCanvas 1"
 	, deskTopCanvas = "DesktopCanvas"
 	, messengerCanvas = "MessengerCanvas"
@@ -36,7 +38,7 @@ public class AudioButtons : MonoBehaviour
 
 	void SearchAllButtonsInTheHierarchy()
 	{
-		Transform[] allChildren = GetComponentsInChildren<Transform> (true);
+		Transform[] allChildren = targetObject.GetComponentsInChildren<Transform> (true);
 
 		foreach (Transform child in allChildren) 
 		{
