@@ -10,6 +10,10 @@ public class GameState : MonoBehaviour {
 
 	public StartPosition SP;
 	public ButtonManager BM;
+	public StatutConnection SC;
+	public ForceReUpdate FR;
+	public scrollRectPosition SRP;
+
 
 	//game state
 	public GameObject sessionCass;
@@ -69,6 +73,7 @@ public class GameState : MonoBehaviour {
 		SP.folderTrashCass.SetActive (false);
 		SP.blocNoteCanvas.SetActive (true);
 	}
+
 
 	//boutonRouge du Browser
 	public void bouttonRouge () {
@@ -147,7 +152,6 @@ public class GameState : MonoBehaviour {
 
 		SP.messengerTemplate.SetActive (false);
 		deactivateChildren ();
-	
 		SP.amisTemplate.SetActive (false);
 		SP.newsFeedTemplate.SetActive (true);
 		SP.messengerFix.SetActive (false);
@@ -261,6 +265,16 @@ public class GameState : MonoBehaviour {
 		} else {
 			SP.fixCass.SetActive (true);
 		}
+
+			SP.fixCass.SetActive (false);
+			deactivateChildren ();
+			SP.messengerTemplate.SetActive (true);
+			SC.OnClick_Messenger ();
+			SP.SoMessMarieEveMessenger.SetActive (true);
+			SP.messengerTemplate2.SetActive (false);
+			suiteConvo.SetActive (true);
+			ChildrenSuiteConvo ();
+			FR.OnEnable ();
 	}
 
 	public void shortCutFacebook () {
@@ -621,42 +635,48 @@ public class GameState : MonoBehaviour {
 
 	public void deactivateChildren () 
 	{
-
 		LayoutElement[] allChildren = SP.messengerTemplate.GetComponentsInChildren<LayoutElement>();
 
 		foreach (LayoutElement item in allChildren)
 		{
 			item.gameObject.SetActive (false);
 		}
-			
 	}
+		
 
-//	public void ChildrenSuiteConvo ()
-//	{
-//		Transform[] localTransformChildren = suiteConvo.GetComponentsInChildren <Transform> ();
-//
-//		if (suiteConvo.activeSelf == true) 
-//		{
-//			for (int i = 0; i < localTransformChildren.Length; i++)
-//			{
-//				localTransformChildren [i].gameObject.SetActive (true);
-//			}
-//		}
-//		else if (suiteConvo.activeSelf == false)
-//		{
-//			for (int i = 0; i < localTransformChildren.Length; i++)
-//			{
-//				localTransformChildren [i].gameObject.SetActive (false);
-//			}
-//		}
-
-	public void ChildrenSuiteConvo(/*Transform transform, bool value*/)
+	public void ChildrenSuiteConvo()
 	{
 		foreach (Transform child in suiteConvo.transform)
 		{
 			child.gameObject.SetActive(true);
-
-			//ChildrenSuiteConvo(child, value);
 		}
+	}
+
+	public void MessengerSoME () {
+
+		SP.fixCass.SetActive (false);
+		deactivateChildren ();
+		SP.messengerTemplate.SetActive (true);
+		SC.OnClick_Messenger ();
+		SP.SoMessMarieEveMessenger.SetActive (true);
+		SP.messengerTemplate2.SetActive (false);
+		suiteConvo.SetActive (true);
+		ChildrenSuiteConvo ();
+		FR.OnEnable ();
+	}
+
+	public void MessengerSoCass (){
+
+		suiteConvo.SetActive (false);
+		SP.fixCass.SetActive (false);
+		SP.SoMessPoMessenger.SetActive (false);
+		SP.SoMessYoMessenger.SetActive (false);
+		SP.messengerTemplate.SetActive (false);
+		SP.messengerTemplate2.SetActive (true);
+		SP.SoMessCassMessenger.SetActive (true);
+		SC.InitialState ();
+		deactivateChildren ();
+		SRP.InvertStart ();
+		FR.OnEnable ();
 	}
 }

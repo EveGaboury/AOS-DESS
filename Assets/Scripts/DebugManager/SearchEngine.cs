@@ -15,16 +15,11 @@ public class SearchEngine: MonoBehaviour
 
 	public StartPosition SP;
 	public SoundDesignScript SDS;
-	public Animation A;
-
 
 	void Start()
 	{
 		//ClearContent ();
 		TextMeshPro searchBar = GetComponent<TextMeshPro>();
-
-
-
 	}
 
 	void OnDisable()
@@ -36,11 +31,9 @@ public class SearchEngine: MonoBehaviour
     //prend une chaine de charactere, puis renvoit un resultat
     public void SearchFacebook(string userSearch)
     {
-
 		//mettre ça dans une fonction pour déterminer quel est l'engin en train d'être chercher
 		if ((searchBar.text == "www.tonlivre.com") || (searchBar.text == "tonlivre.com"))
 		{
-			
 			SP.iconFBonglet.SetActive (true);
 			StartCoroutine (WaitAllo());
 		} 
@@ -48,19 +41,10 @@ public class SearchEngine: MonoBehaviour
 		else 
 		{
 			SP.iconFBonglet.SetActive (true);
-			StartCoroutine (WaitAllo());
+			StartCoroutine (WaitAllo2());
 		}
 
-		//if (searchBar.text == "www.google.com") 
-		//{
-		//	Debug.Log ("google is correct");
-		//	SP.shortCut.SetActive (true);
-		//	SP.notFound.SetActive (false);
-	//	} else
-		//	SP.shortCut.SetActive (false);
-
-		if (searchBar.text == "www.avis-deces-cassandra-royer.fr") 
-		{
+		if (searchBar.text == "www.avis-deces-cassandra-royer.fr") {
 			Debug.Log ("avis is correct");
 			SDS.GetComponent<SoundDesignScript> ().OnclickSoundBrowserRight (); 
 			SP.avisDeces.SetActive (true);
@@ -68,8 +52,7 @@ public class SearchEngine: MonoBehaviour
 			SP.shortCutDeces.SetActive (true);
 
 		} else
-			SP.notFound.SetActive (true);
-		
+			WaitAllo2 ();
     }
 
 //    public  void SearchYoutube()
@@ -116,7 +99,8 @@ public class SearchEngine: MonoBehaviour
 	{
 		yield return new WaitForSeconds(4f);
 
-		if ((searchBar.text == "www.tonlivre.com") || (searchBar.text == "tonlivre.com")) {
+		if ((searchBar.text == "www.tonlivre.com") || (searchBar.text == "tonlivre.com")) 
+		{
 			SP.facebookCanvas.SetActive (true);
 			SP.facebookConnexion.SetActive (true);
 			SP.facebookConnInPage.SetActive (true);
@@ -126,14 +110,16 @@ public class SearchEngine: MonoBehaviour
 			SP.passwordTemplate.SetActive (false);
 			SP.shortCutFacebook.SetActive (true);
 			SDS.GetComponent<SoundDesignScript> ().OnclickSoundBrowserRight (); 
-		} else {
-			Debug.Log ("facebook is in-correct");
-			SP.notFound.SetActive (true);
-			SP.facebookCanvas.SetActive (false);
-			SDS.GetComponent<SoundDesignScript> ().OnclickSoundBrowserError (); 
-		}
+		} 
+	}
 
+	IEnumerator WaitAllo2()
+	{
+		yield return new WaitForSeconds(4f);
 
+		SP.notFound.SetActive (true);
+		SP.facebookCanvas.SetActive (false);
+		SDS.GetComponent<SoundDesignScript> ().OnclickSoundBrowserError (); 
 	}
 }
 

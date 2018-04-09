@@ -48,6 +48,11 @@ public class StartPosition : MonoBehaviour {
 	public GameObject iconFBonglet;
 
 	public GameObject SoMessMarieEveMessenger;
+	public GameObject SoMessCassMessenger;
+	public GameObject SoMessYoMessenger;
+	public GameObject SoMessPoMessenger;
+	public GameObject messengerTemplate2;
+
 
 	//facebook scriptable
 	public GameObject profilCassScriptable;
