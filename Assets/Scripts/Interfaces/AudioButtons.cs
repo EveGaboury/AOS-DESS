@@ -6,7 +6,7 @@ using UnityEngine.Audio;
 
 public class AudioButtons : MonoBehaviour 
 {
-	public AudioClip[] audioClipByInterface;
+	public AudioClip/*[]*/ audioClipByInterface;
 
 	public List<GameObject> childObjectsContainingButtons = new List<GameObject>(), parentObjects = new List<GameObject>();
 
@@ -28,7 +28,10 @@ public class AudioButtons : MonoBehaviour
 		soundPlayer = this.gameObject.GetComponent<AudioSource> ();
 
 		SearchAllButtonsInTheHierarchy ();
-		SortButtonsByParent ();
+
+//		SortButtonsByParent ();
+
+		AddSoundToButton ();
 	}
 
 	void SearchAllButtonsInTheHierarchy()
@@ -48,34 +51,42 @@ public class AudioButtons : MonoBehaviour
 		}
 	}
 
-	void SortButtonsByParent()
-	{
-		for (int i = 0; i < parentObjects.Count; i++)
-		{
-			if (parentObjects[i].gameObject.name == gmailCanvas) 
-			{
-				if (parentObjects[i].gameObject.GetComponentsInChildren<Transform>(true) != null) 
-				{
-					for (int j = 0; j < childObjectsContainingButtons.Count; j++) 
-					{
-						if (childObjectsContainingButtons[j].gameObject != null) 
-						{
-							childObjectsContainingButtons [j].gameObject.tag = "Gmail";
-
-//							currentAudioCLip = audioClipByInterface[0];
-							DetermineButtonSoundToBePlayed ();
-						}
-					}
-				}
-			}
-		}
-	}
+//	void SortButtonsByParent()
+//	{
+//		for (int i = 0; i < parentObjects.Count; i++)
+//		{
+//			if (parentObjects[i].gameObject.name == gmailCanvas) 
+//			{
+//				if (parentObjects[i].gameObject.GetComponentsInChildren<Transform>(true) != null) 
+//				{
+//					for (int j = 0; j < childObjectsContainingButtons.Count; j++) 
+//					{
+//						if (childObjectsContainingButtons[j].gameObject != null) 
+//						{
+//							childObjectsContainingButtons [j].gameObject.tag = "Gmail";
+//
+////							currentAudioCLip = audioClipByInterface[0];
+//							DetermineButtonSoundToBePlayed ();
+//						}
+//					}
+//				}
+//			}
+//		}
+//	}
 
 	void DetermineButtonSoundToBePlayed()
 	{
 		float randomPitch = Random.Range (lowPitchRange, highPitchRange);
 
 		soundPlayer.pitch = randomPitch;
-		soundPlayer.PlayOneShot (currentAudioCLip, 1.0f);
+		soundPlayer.PlayOneShot (audioClipByInterface, 1.0f);
+	}
+
+	void AddSoundToButton()
+	{
+		for (int j = 0; j < childObjectsContainingButtons.Count; j++)
+		{
+			childObjectsContainingButtons [j].GetComponent<Button> ().onClick.AddListener (DetermineButtonSoundToBePlayed);
+		}
 	}
 }
