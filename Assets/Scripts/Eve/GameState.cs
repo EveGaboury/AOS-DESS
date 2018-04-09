@@ -19,6 +19,8 @@ public class GameState : MonoBehaviour {
 	public GameObject ButtonFBSophie;
 	public bool soOpenFacebook = false;
 
+	public GameObject suiteConvo;
+
 
 	void Update (){	
 	//game state facebook
@@ -617,18 +619,44 @@ public class GameState : MonoBehaviour {
 		SP.C1info.SetActive (false);
 	}
 
-	public void deactivateChildren () {
+	public void deactivateChildren () 
+	{
 
 		LayoutElement[] allChildren = SP.messengerTemplate.GetComponentsInChildren<LayoutElement>();
 
-		foreach (LayoutElement item in allChildren) {
+		foreach (LayoutElement item in allChildren)
+		{
 			item.gameObject.SetActive (false);
-			
 		}
-
-
+			
 	}
 
+//	public void ChildrenSuiteConvo ()
+//	{
+//		Transform[] localTransformChildren = suiteConvo.GetComponentsInChildren <Transform> ();
+//
+//		if (suiteConvo.activeSelf == true) 
+//		{
+//			for (int i = 0; i < localTransformChildren.Length; i++)
+//			{
+//				localTransformChildren [i].gameObject.SetActive (true);
+//			}
+//		}
+//		else if (suiteConvo.activeSelf == false)
+//		{
+//			for (int i = 0; i < localTransformChildren.Length; i++)
+//			{
+//				localTransformChildren [i].gameObject.SetActive (false);
+//			}
+//		}
 
+	public void ChildrenSuiteConvo(/*Transform transform, bool value*/)
+	{
+		foreach (Transform child in suiteConvo.transform)
+		{
+			child.gameObject.SetActive(true);
 
+			//ChildrenSuiteConvo(child, value);
+		}
+	}
 }

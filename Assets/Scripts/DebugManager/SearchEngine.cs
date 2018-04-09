@@ -42,29 +42,13 @@ public class SearchEngine: MonoBehaviour
 		{
 			
 			SP.iconFBonglet.SetActive (true);
-
-			StartCoroutine (Wait());
-			SP.facebookCanvas.SetActive (true);
-			SP.facebookConnexion.SetActive (true);
-			SP.facebookConnInPage.SetActive (true);
-			SP.notFound.SetActive (false);
-			SP.pageProfilTemplate.SetActive (false);
-			SP.buttonHeaderCass.SetActive (false);
-			SP.passwordTemplate.SetActive (false);
-			SP.shortCutFacebook.SetActive (true);
-			SDS.GetComponent<SoundDesignScript> ().OnclickSoundBrowserRight (); 
-
-
+			StartCoroutine (WaitAllo());
 		} 
+
 		else 
 		{
 			SP.iconFBonglet.SetActive (true);
-			StartCoroutine (Wait ());
-			Debug.Log ("facebook is in-correct");
-			SP.notFound.SetActive (true);
-			SP.facebookCanvas.SetActive (false);
-			SDS.GetComponent<SoundDesignScript> ().OnclickSoundBrowserError (); 
-
+			StartCoroutine (WaitAllo());
 		}
 
 		//if (searchBar.text == "www.google.com") 
@@ -128,11 +112,28 @@ public class SearchEngine: MonoBehaviour
 
 	}
 
-	IEnumerator Wait()
+	IEnumerator WaitAllo()
 	{
 		yield return new WaitForSeconds(4f);
 
+		if ((searchBar.text == "www.tonlivre.com") || (searchBar.text == "tonlivre.com")) {
+			SP.facebookCanvas.SetActive (true);
+			SP.facebookConnexion.SetActive (true);
+			SP.facebookConnInPage.SetActive (true);
+			SP.notFound.SetActive (false);
+			SP.pageProfilTemplate.SetActive (false);
+			SP.buttonHeaderCass.SetActive (false);
+			SP.passwordTemplate.SetActive (false);
+			SP.shortCutFacebook.SetActive (true);
+			SDS.GetComponent<SoundDesignScript> ().OnclickSoundBrowserRight (); 
+		} else {
+			Debug.Log ("facebook is in-correct");
+			SP.notFound.SetActive (true);
+			SP.facebookCanvas.SetActive (false);
+			SDS.GetComponent<SoundDesignScript> ().OnclickSoundBrowserError (); 
+		}
 
 
 	}
 }
+
