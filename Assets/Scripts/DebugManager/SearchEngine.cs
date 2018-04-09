@@ -13,6 +13,7 @@ public class SearchEngine: MonoBehaviour
 	bool notActive = false, clearOnceDone;
 
 	public StartPosition SP;
+	public SoundDesignScript SDS;
 
 	void Start()
 	{
@@ -34,6 +35,7 @@ public class SearchEngine: MonoBehaviour
 		//mettre ça dans une fonction pour déterminer quel est l'engin en train d'être chercher
 		if (searchBar.text == "www.tonlivre.com") 
 		{
+			
 			Debug.Log ("facebook is correct");
 			SP.facebookCanvas.SetActive (true);
 			SP.facebookConnexion.SetActive (true);
@@ -43,6 +45,7 @@ public class SearchEngine: MonoBehaviour
 			SP.buttonHeaderCass.SetActive (false);
 			SP.passwordTemplate.SetActive (false);
 			SP.shortCutFacebook.SetActive (true);
+			SDS.GetComponent<SoundDesignScript> ().OnclickSoundBrowserRight (); 
 
 		} 
 		else 
@@ -50,22 +53,27 @@ public class SearchEngine: MonoBehaviour
 			Debug.Log ("facebook is in-correct");
 			SP.notFound.SetActive (true);
 			SP.facebookCanvas.SetActive (false);
+			SDS.GetComponent<SoundDesignScript> ().OnclickSoundBrowserError (); 
 
 		}
 
 
-		if (searchBar.text == "www.google.com") {
-			Debug.Log ("google is correct");
-			SP.shortCut.SetActive (true);
-			SP.notFound.SetActive (false);
-		} else
-			SP.shortCut.SetActive (false);
+		//if (searchBar.text == "www.google.com") 
+		//{
+		//	Debug.Log ("google is correct");
+		//	SP.shortCut.SetActive (true);
+		//	SP.notFound.SetActive (false);
+	//	} else
+		//	SP.shortCut.SetActive (false);
 
-		if (searchBar.text == "www.avis-deces-cassandra-royer.fr") {
+		if (searchBar.text == "www.avis-deces-cassandra-royer.fr") 
+		{
 			Debug.Log ("avis is correct");
+			SDS.GetComponent<SoundDesignScript> ().OnclickSoundBrowserRight (); 
 			SP.avisDeces.SetActive (true);
 			SP.notFound.SetActive (false);
 			SP.shortCutDeces.SetActive (true);
+
 		} else
 			SP.notFound.SetActive (true);
 		

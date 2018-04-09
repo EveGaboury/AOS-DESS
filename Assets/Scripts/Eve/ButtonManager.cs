@@ -107,6 +107,7 @@ public class ButtonManager: MonoBehaviour {
 	 void TaskOnClickForgotFacebook ()
 	{
 		if ((reponsecorrecte == inputfieldWrongText.text) || (reponsecorrecte2 == inputfieldWrongText.text)) {
+			SDS.GetComponent<SoundDesignScript> ().OnclickSoundTLRight ();
 			SP.questionOne.SetActive (true);
 			wrongImage.sprite = vrai;
 			SP.fauxText.SetActive (false);
@@ -116,7 +117,7 @@ public class ButtonManager: MonoBehaviour {
 			SP.fauxText.SetActive (true);
 			SP.vraiText.SetActive (false);
 			wrongImage.sprite = pasvrai;
-			//SDS.GetComponent<SoundDesignScript> ().OnclickSoundTrash ();
+			SDS.GetComponent<SoundDesignScript> ().OnclickSoundTLWrong ();
 		}
 	}
 
@@ -125,11 +126,14 @@ public class ButtonManager: MonoBehaviour {
 		if ((reponseQuestion1 == inputfieldQuestion1.text) || (reponseQuestion1a == inputfieldQuestion1.text))
 		{
 			Debug.Log ("bonne réponse");
+			SDS.GetComponent<SoundDesignScript> ().OnclickSoundTLRight ();
 			question1Image.sprite = vrai;
 			SP.question2.SetActive (true);
 
 		} else {
+			SDS.GetComponent<SoundDesignScript> ().OnclickSoundTLWrong ();
 			question1Image.sprite = pasvrai;
+
 		}
 
 		if (easter == inputfieldQuestion1.text) {
@@ -140,9 +144,11 @@ public class ButtonManager: MonoBehaviour {
 	void TaskOnClickQuestion3 ()
 	{
 		if ((reponseQuestion3 == inputfieldQuestion3.text) || (reponseQuestion3a == inputfieldQuestion3.text)) {
+			SDS.GetComponent<SoundDesignScript> ().OnclickSoundTLRight ();
 			question3Image.sprite = vrai;
 			SP.bouttonfinal.SetActive (true);
 		} else {
+			SDS.GetComponent<SoundDesignScript> ().OnclickSoundTLWrong ();
 			question3Image.sprite = pasvrai;
 		}
 	}
