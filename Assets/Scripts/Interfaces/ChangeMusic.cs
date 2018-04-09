@@ -10,20 +10,22 @@ using System.Linq;
 public class ChangeMusic : MonoBehaviour
 {
 	//Public
-	public AudioClip[] clipList;
-
-	public List<GameObject> listeToggleChansons = new List<GameObject> ();
+	public AudioClip[] clipList, cueEmotion;
 
 	public GameObject displayTitle;
 
+	public AudioSource audioSource1, audioSource2;
+
 	//Private
+	List<GameObject> listeNomsChansons = new List<GameObject> ();
+
 	AudioSource audioSource;
 
 	int currentAudioIndex = 0;
 
 	bool isAudioPlaying;
 
-	GameObject canvasEve;
+	GameObject canvasEve, iTunes;
 
 	Color initialColor, isPlayingColor;
 
@@ -38,8 +40,6 @@ public class ChangeMusic : MonoBehaviour
 		audioSource.clip = clipList[currentAudioIndex];
 
 		audioSource.Play ();
-
-		//StartCoroutine (DisplayCurrentlyPlayingSongName());
 	}
 
 	void Start() 
@@ -50,11 +50,15 @@ public class ChangeMusic : MonoBehaviour
 
 		isPlayingColor = Color.green; 
 
+		iTunes = GameObject.Find ("iTunesCanvas");
+
 		RetrieveAllChildrenGameObjectsOfiTunes ();
 
-//		HighlightCurrentlyPlayingSongButton ();
+		HighlightCurrentlyPlayingSongButton ();
 
 		ActivateAndDeactive ();
+
+		DetectAudioSources ();
 	}
 
 	void Update() 
@@ -88,8 +92,6 @@ public class ChangeMusic : MonoBehaviour
 
 		audioSource.Play ();
 
-		//StartCoroutine (DisplayCurrentlyPlayingSongName());
-
 		HighlightCurrentlyPlayingSongButton ();
 	}
 
@@ -111,81 +113,40 @@ public class ChangeMusic : MonoBehaviour
 		PlayMusicAtIndex(k);
 	}
 
-	public void ActivateAndDeactivateMusicInterface()
+	public void RandomizeNextSong()
 	{
-		if (this.gameObject.activeSelf) 
-		{
-			this.gameObject.SetActive (false);
-			Debug.Log (gameObject.name + " is active");
-		} 
-		else 
-		{
-			this.gameObject.SetActive (true);
-			Debug.Log (gameObject.name + " is inactive");
-		}
+		//Do the thingy!
 	}
 
 	public void ActivateAndDeactive()
 	{
-		if (gameObject.activeSelf == true) 
+		if (iTunes.gameObject.activeSelf == true) 
 		{
-			gameObject.SetActive (false);
+			iTunes.gameObject.SetActive (false);
 		}
-		else if (gameObject.activeSelf == false) 
+		else if (iTunes.gameObject.activeSelf == false) 
 		{
-			gameObject.SetActive (true);
-		}
-	}
-
-	void RetrieveAllChildrenGameObjectsOfiTunes()
-	{
-		Transform[] allChildrenOfThisGameObject = GetComponentsInChildren<Transform>(true);
-
-		foreach (Transform child in allChildrenOfThisGameObject) 
-		{
-			if (child.GetComponent<Toggle>() != null) 
-			{
-				listeToggleChansons.Add (child.gameObject);
-			}
-		}
-
-		for (int i = 0; i < listeToggleChansons.Count; i++) 
-		{
-			listeToggleChansons [i].GetComponentInChildren<TextMeshProUGUI> ().text = "<size=18>" + clipList [i].name + "</size>";
+			iTunes.gameObject.SetActive (true);
 		}
 	}
 
 	void HighlightCurrentlyPlayingSongButton() 
 	{
-		for (int k = 0; k < listeToggleChansons.Count; k++)
+		for (int k = 0; k < listeNomsChansons.Count; k++)
 		{
 			if (audioSource.clip.name == clipList [k].name)
 			{
-				Toggle localToggle = listeToggleChansons [k].GetComponent<Toggle> ();
-
-				ColorBlock localColorBlock = localToggle.colors;
-				localColorBlock.normalColor = isPlayingColor;
-
-				localToggle.colors = localColorBlock;
-
-				Debug.Log ("Success! clipList[currentAudioIndex]=" + clipList [k].name);
+				listeNomsChansons [k].GetComponent<Image> ().color = isPlayingColor;
 			}  
 			else
 			{
-				Toggle localToggle = listeToggleChansons [k].GetComponent<Toggle> ();
-
-				ColorBlock localColorBlock = localToggle.colors;
-				localColorBlock.normalColor = initialColor;
-
-				localToggle.colors = localColorBlock;
+				listeNomsChansons [k].GetComponent<Image> ().color = initialColor;
 			}
 		}
 	}
 
 	IEnumerator DisplayCurrentlyPlayingSongName()
 	{
-		//Methode #1
-
 		displayTitle.SetActive (true);
 
 		displayTitle.GetComponentInChildren<TextMeshProUGUI> ().text = audioSource.clip.name;
@@ -193,26 +154,13 @@ public class ChangeMusic : MonoBehaviour
 		yield return new WaitForSeconds (5.0f);
 
 		displayTitle.SetActive (false);
-
-		//Methode #2
-//		GameObject barreLancementRapide = GameObject.Find("Enfant_BarreGriseHaut");
-//		barreLancementRapide.AddComponent<TextMeshProUGUI> ();
-//		barreLancementRapide.GetComponent<TextMeshProUGUI> ().text = "<size=14>" + audioSource.clip.name + "</size>";
-//		barreLancementRapide.GetComponent<Transform> ().position.x += Time.deltaTime;
-//
-//		float maxleft = 500.0f, initialPosition = -500.0f;
-//
-//		if (barreLancementRapide.GetComponent<Transform> ().position.x >= maxleft) 
-//		{
-//			barreLancementRapide.GetComponent<Transform> ().position.x = initialPosition;
-//		}
 	}
 
 	void CrossFadeBetweenTunes ()
 	{
 		if (audioSource.isPlaying)
 		{
-			//Si la chanson est à 90% ecoulée
+			//Si la chanson est à 10% de la fin
 			if (audioSource.time >= ((audioSource.clip.length / 10) * 9)) 
 			{
 				if (audioSource.volume >= 0.0f) 
@@ -228,6 +176,60 @@ public class ChangeMusic : MonoBehaviour
 					audioSource.volume += Time.deltaTime;
 				}
 			}
+		}
+	}
+
+//	public void FadeInFadeOutCueEmotion()
+//	{
+//		for (int j = 0; j < clipList.Length; j++)
+//		{
+//			if (clipList[j] && audioSource1.isPlaying == true) 
+//			{
+//				/*audioSource1.volume = .5f;*/
+//
+//				/*audioSource2.PlayOneShot(cueEmotion [j]);*/
+//					
+//				int j = [j];
+//				StartCoroutine(FadeCueEmotion(j));
+//
+//				/*audioSource1.volume = 1.0f;*/
+//			}
+//		}
+//	}
+//
+//	IEnumerator FadeCueEmotion(int j)
+//	{
+//     	audioSource1.volume = .5f;
+//		audioSource2.PlayOneShot(cueEmotion [j]);
+//		yield return new WaitForSeconds (5.0f);
+//		audioSource1.volume = 1.0f;
+//	}
+
+	void DetectAudioSources()
+	{
+		AudioSource[] localAudioSources = this.gameObject.GetComponents<AudioSource> ();
+
+		Debug.Log ("Sur l'objet " + name + " il y a: " + localAudioSources.Length + " AudioSources().");
+
+		audioSource1 = localAudioSources [0];
+		audioSource2 = localAudioSources [1]; 
+	}
+
+	void RetrieveAllChildrenGameObjectsOfiTunes()
+	{
+		Transform[] allChildrenOfThisGameObject = iTunes.gameObject.GetComponentsInChildren<Transform>(true);
+
+		foreach (Transform child in allChildrenOfThisGameObject) 
+		{
+			if (child.GetComponent<Image>() != null && child.name.Contains("Button_")) 
+			{
+				listeNomsChansons.Add (child.gameObject);
+			}
+		}
+
+		for (int i = 0; i < listeNomsChansons.Count; i++) 
+		{
+			listeNomsChansons [i].GetComponentInChildren<TextMeshProUGUI> ().text = "<size=18>" + clipList [i].name + "</size>";
 		}
 	}
 } 
