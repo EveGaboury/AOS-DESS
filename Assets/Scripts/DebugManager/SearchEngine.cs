@@ -16,6 +16,8 @@ public class SearchEngine: MonoBehaviour
 	public StartPosition SP;
 	public SoundDesignScript SDS;
 
+	public Sprite finalFacebook;
+
 	void Start()
 	{
 		//ClearContent ();
@@ -34,13 +36,13 @@ public class SearchEngine: MonoBehaviour
 		//mettre ça dans une fonction pour déterminer quel est l'engin en train d'être chercher
 		if ((searchBar.text == "www.tonlivre.com") || (searchBar.text == "tonlivre.com"))
 		{
-			SP.iconFBonglet.SetActive (true);
+			SP.loading_Onglet.SetActive (true);
 			StartCoroutine (WaitAllo());
 		} 
 
 		else 
 		{
-			SP.iconFBonglet.SetActive (true);
+			SP.loading_Onglet.SetActive (true);
 			StartCoroutine (WaitAllo2());
 		}
 
@@ -97,10 +99,11 @@ public class SearchEngine: MonoBehaviour
 
 	IEnumerator WaitAllo()
 	{
-		yield return new WaitForSeconds(4f);
+		yield return new WaitForSeconds(3f);
 
 		if ((searchBar.text == "www.tonlivre.com") || (searchBar.text == "tonlivre.com")) 
 		{
+			SP.onglet_text.SetActive (true);
 			SP.facebookCanvas.SetActive (true);
 			SP.facebookConnexion.SetActive (true);
 			SP.facebookConnInPage.SetActive (true);
