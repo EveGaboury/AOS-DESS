@@ -52,11 +52,11 @@ public class ChangeMusic : MonoBehaviour
 
 		iTunes = GameObject.Find ("iTunesCanvas");
 
-		RetrieveAllChildrenGameObjectsOfiTunes ();
+//		RetrieveAllChildrenGameObjectsOfiTunes ();
 
 		HighlightCurrentlyPlayingSongButton ();
 
-		ActivateAndDeactive ();
+		//ActivateAndDeactive ();
 
 		DetectAudioSources ();
 	}
@@ -67,7 +67,7 @@ public class ChangeMusic : MonoBehaviour
 
 		if ((audioSource.isPlaying == true) && (audioSource.time <= .5f)) 
 		{
-			StartCoroutine (DisplayCurrentlyPlayingSongName());
+			StartCoroutine (DisplayCurrentlyPlayingSongName()); 
 			Debug.Log ("AudioSource is playing: " + audioSource.clip.name);
 		}
 
@@ -211,25 +211,25 @@ public class ChangeMusic : MonoBehaviour
 
 		Debug.Log ("Sur l'objet " + name + " il y a: " + localAudioSources.Length + " AudioSources().");
 
-		audioSource1 = localAudioSources [0];
-		audioSource2 = localAudioSources [1]; 
+		//audioSource1 = localAudioSources [0];
+		//audioSource2 = localAudioSources [1]; 
 	}
 
-	void RetrieveAllChildrenGameObjectsOfiTunes()
-	{
-		Transform[] allChildrenOfThisGameObject = iTunes.gameObject.GetComponentsInChildren<Transform>(true);
-
-		foreach (Transform child in allChildrenOfThisGameObject) 
-		{
-			if (child.GetComponent<Image>() != null && child.name.Contains("Button_")) 
-			{
-				listeNomsChansons.Add (child.gameObject);
-			}
-		}
-
-		for (int i = 0; i < listeNomsChansons.Count; i++) 
-		{
-			listeNomsChansons [i].GetComponentInChildren<TextMeshProUGUI> ().text = "<size=18>" + clipList [i].name + "</size>";
-		}
-	}
+//	void RetrieveAllChildrenGameObjectsOfiTunes()
+//	{
+//		Transform[] allChildrenOfThisGameObject = iTunes.gameObject.GetComponentsInChildren<Transform>(true);
+//
+//		foreach (Transform child in allChildrenOfThisGameObject) 
+//		{
+//			if (child.GetComponent<Image>() != null && child.name.Contains("Button_")) 
+//			{
+//				listeNomsChansons.Add (child.gameObject);
+//			}
+//		}
+//
+//		for (int i = 0; i < listeNomsChansons.Count; i++) 
+//		{
+//			listeNomsChansons [i].GetComponentInChildren<TextMeshProUGUI> ().text = "<size=18>" + clipList [i].name + "</size>";
+//		}
+//	}
 } 
