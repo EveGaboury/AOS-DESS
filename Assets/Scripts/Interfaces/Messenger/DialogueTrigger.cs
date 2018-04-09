@@ -23,6 +23,8 @@ public class DialogueTrigger : MonoBehaviour
 
 	public Scrollbar scrollfacebook;
 
+	bool activateConversation = false;
+
 	void Start()
 	{
 		reference = GameObject.Find ("CanvasEve");
@@ -44,14 +46,12 @@ public class DialogueTrigger : MonoBehaviour
 
 	public void TriggerDialogue()
 	{
-		if (conversationSwitchOn == false) 
+		if (conversationSwitchOn == false && activateConversation == false)
 		{
 			conversationSwitchOn = true;
+			activateConversation = true;
 
-			FindObjectOfType<DialogueManager> ().StartDialogue (dialogue);
-
-			allTheObjectsInTheSceneWithAButton [0].GetComponent<Button> ().enabled = false;
-			allTheObjectsInTheSceneWithAButton [0].GetComponent<Button> ().interactable = false;
+			FindObjectOfType<DialogueManager> ().StartDialogue (dialogue);		
 		}
 	}
 }

@@ -45,9 +45,15 @@ public class StartPosition : MonoBehaviour {
 	public GameObject toggleNotifCass;
 	public GameObject shortCutSophieFB;
 	public GameObject shortCutCassFB;
-	public GameObject iconFBonglet;
+	public GameObject loading_Onglet;
+	public GameObject onglet_text;
 
 	public GameObject SoMessMarieEveMessenger;
+	public GameObject SoMessCassMessenger;
+	public GameObject SoMessYoMessenger;
+	public GameObject SoMessPoMessenger;
+	public GameObject messengerTemplate2;
+
 
 	//facebook scriptable
 	public GameObject profilCassScriptable;
@@ -160,7 +166,7 @@ public class StartPosition : MonoBehaviour {
 		buttonHeaderSophie.SetActive (false);
 		notifSo.SetActive (false);
 		notifCass.SetActive (false);
-		iconFBonglet.SetActive (false);
+		loading_Onglet.SetActive (false);
 
 		pageNewFeedTemplate.SetActive (false);
 		profilYann.SetActive (false);
