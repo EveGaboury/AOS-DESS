@@ -655,12 +655,11 @@ public class GameState : MonoBehaviour {
 	public void MessengerSoME () {
 
 		SP.fixCass.SetActive (false);
-		deactivateChildren ();
 		SP.messengerTemplate.SetActive (true);
-		SC.OnClick_Messenger ();
 		SP.SoMessMarieEveMessenger.SetActive (true);
 		SP.messengerTemplate2.SetActive (false);
 		suiteConvo.SetActive (true);
+		SC.OnClick_Messenger ();
 		ChildrenSuiteConvo ();
 		FR.OnEnable ();
 	}
@@ -674,6 +673,39 @@ public class GameState : MonoBehaviour {
 		SP.messengerTemplate.SetActive (false);
 		SP.messengerTemplate2.SetActive (true);
 		SP.SoMessCassMessenger.SetActive (true);
+		SP.SoMessCassMessenger.transform.SetAsFirstSibling ();
+		SC.InitialState ();
+		deactivateChildren ();
+		SRP.InvertStart ();
+		FR.OnEnable ();
+	}
+
+	public void MessengerSoYann (){
+
+		suiteConvo.SetActive (false);
+		SP.fixCass.SetActive (false);
+		SP.SoMessCassMessenger.SetActive (false);
+		SP.SoMessPoMessenger.SetActive (false);
+		SP.messengerTemplate.SetActive (false);
+		SP.messengerTemplate2.SetActive (true);
+		SP.SoMessYoMessenger.SetActive (true);
+		SP.SoMessYoMessenger.transform.SetAsFirstSibling ();
+		SC.InitialState ();
+		deactivateChildren ();
+		SRP.InvertStart ();
+		FR.OnEnable ();
+	}
+
+	public void MessengerSoPO (){
+
+		suiteConvo.SetActive (false);
+		SP.fixCass.SetActive (false);
+		SP.SoMessCassMessenger.SetActive (false);
+		SP.SoMessYoMessenger.SetActive (false);
+		SP.messengerTemplate.SetActive (false);
+		SP.messengerTemplate2.SetActive (true);
+		SP.SoMessPoMessenger.SetActive (true);
+		SP.SoMessPoMessenger.transform.SetAsFirstSibling ();
 		SC.InitialState ();
 		deactivateChildren ();
 		SRP.InvertStart ();
