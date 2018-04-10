@@ -32,64 +32,18 @@ public class SearchEngine: MonoBehaviour
 		
     //prend une chaine de charactere, puis renvoit un resultat
     public void SearchFacebook(string userSearch)
-    {
+	{
 		//mettre ça dans une fonction pour déterminer quel est l'engin en train d'être chercher
-		if ((searchBar.text == "www.tonlivre.com") || (searchBar.text == "tonlivre.com"))
+		if ((searchBar.text == "www.tonlivre.com") || (searchBar.text == "tonlivre.com") || (searchBar.text == "www.avis-décès-cassandra-royer.fr"))
 		{
 			SP.loading_Onglet.SetActive (true);
-			StartCoroutine (WaitAllo());
-		} 
-
-		else 
+			StartCoroutine (WaitAllo ());
+		} else 
 		{
 			SP.loading_Onglet.SetActive (true);
-			StartCoroutine (WaitAllo2());
+			StartCoroutine (WaitAllo2 ());
 		}
-
-		if (searchBar.text == "www.avis-décès-cassandra-royer.fr") {
-			Debug.Log ("avis is correct");
-			SDS.GetComponent<SoundDesignScript> ().OnclickSoundBrowserRight (); 
-			SP.avisDeces.SetActive (true);
-			SP.notFound.SetActive (false);
-			SP.shortCutDeces.SetActive (true);
-
-		} else
-			WaitAllo2 ();
-    }
-
-//    public  void SearchYoutube()
-//    {
-//
-//		if (searchBar.text == "youtube.com" ) 
-//		{
-//			Debug.Log ("your query is correct");
-//		} 
-//		else 
-//		{
-//			Debug.Log ("your query is in-correct");
-//		}
-//
-//		ClearContent ();
-//    
-
-
-	//Sert à gérer les entrées de clavier dans l'inputField
-//	public void UpdateInputField()
-//	{
-//		Debug.Log("Data has been inputed");
-//
-//		if (searchBar.text == "")
-//		{
-//			deleteButton.SetActive(false)
-//		}
-//		else
-//		{
-//			searchBar.ActivateInputField ();
-//			searchBar.Select ();
-//			deleteButton.SetActive(true);
-//		}
-//	}
-
+	}
 	public void ClearContent()
 	{
 		Debug.Log ("clear2");
@@ -116,11 +70,20 @@ public class SearchEngine: MonoBehaviour
 			SP.shortCutFacebook.SetActive (true);
 			SDS.GetComponent<SoundDesignScript> ().OnclickSoundBrowserRight (); 
 		} 
+
+		if (searchBar.text == "www.avis-décès-cassandra-royer.fr") 
+		{
+			Debug.Log ("avis is correct");
+			SDS.GetComponent<SoundDesignScript> ().OnclickSoundBrowserRight (); 
+			SP.avisDeces.SetActive (true);
+			SP.notFound.SetActive (false);
+			SP.shortCutDeces.SetActive (true);
+		} 
 	}
 
 	IEnumerator WaitAllo2()
 	{
-		yield return new WaitForSeconds(4f);
+		yield return new WaitForSeconds(2f);
 
 		SP.notFound.SetActive (true);
 		SP.facebookCanvas.SetActive (false);
@@ -129,3 +92,35 @@ public class SearchEngine: MonoBehaviour
 	}
 }
 
+//    public  void SearchYoutube()
+//    {
+//
+//		if (searchBar.text == "youtube.com" ) 
+//		{
+//			Debug.Log ("your query is correct");
+//		} 
+//		else 
+//		{
+//			Debug.Log ("your query is in-correct");
+//		}
+//
+//		ClearContent ();
+//    
+
+
+//Sert à gérer les entrées de clavier dans l'inputField
+//	public void UpdateInputField()
+//	{
+//		Debug.Log("Data has been inputed");
+//
+//		if (searchBar.text == "")
+//		{
+//			deleteButton.SetActive(false)
+//		}
+//		else
+//		{
+//			searchBar.ActivateInputField ();
+//			searchBar.Select ();
+//			deleteButton.SetActive(true);
+//		}
+//	}
