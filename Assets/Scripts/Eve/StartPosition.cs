@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class StartPosition : MonoBehaviour {
 
+	public GameObject introduction;
+
 	//gamobjects commun
 	public GameObject desktopCanvas;
 	public GameObject switchSessionCanvas;
@@ -47,6 +49,8 @@ public class StartPosition : MonoBehaviour {
 	public GameObject shortCutCassFB;
 	public GameObject loading_Onglet;
 	public GameObject onglet_text;
+	public GameObject facebookimage;
+	public GameObject animloading;
 
 	public GameObject SoMessMarieEveMessenger;
 	public GameObject SoMessCassMessenger;
@@ -145,6 +149,8 @@ public class StartPosition : MonoBehaviour {
 
 	void Start () 
 	{
+		introduction.SetActive (true);
+
 		switchSessionCanvas.SetActive (false);
 		blocNoteCanvas.SetActive (true);
 		fenetrePoireCanvas.SetActive (false);

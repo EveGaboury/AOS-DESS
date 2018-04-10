@@ -46,7 +46,7 @@ public class SearchEngine: MonoBehaviour
 			StartCoroutine (WaitAllo2());
 		}
 
-		if (searchBar.text == "www.avis-deces-cassandra-royer.fr") {
+		if (searchBar.text == "www.avis-décès-cassandra-royer.fr") {
 			Debug.Log ("avis is correct");
 			SDS.GetComponent<SoundDesignScript> ().OnclickSoundBrowserRight (); 
 			SP.avisDeces.SetActive (true);
@@ -103,7 +103,8 @@ public class SearchEngine: MonoBehaviour
 
 		if ((searchBar.text == "www.tonlivre.com") || (searchBar.text == "tonlivre.com")) 
 		{
-			SP.onglet_text.SetActive (true);
+			SP.facebookimage.SetActive (true);
+			SP.onglet_text.SetActive (true);	
 			SP.facebookCanvas.SetActive (true);
 			SP.facebookConnexion.SetActive (true);
 			SP.facebookConnInPage.SetActive (true);
@@ -111,6 +112,7 @@ public class SearchEngine: MonoBehaviour
 			SP.pageProfilTemplate.SetActive (false);
 			SP.buttonHeaderCass.SetActive (false);
 			SP.passwordTemplate.SetActive (false);
+			SP.animloading.SetActive (false);
 			SP.shortCutFacebook.SetActive (true);
 			SDS.GetComponent<SoundDesignScript> ().OnclickSoundBrowserRight (); 
 		} 
@@ -122,6 +124,7 @@ public class SearchEngine: MonoBehaviour
 
 		SP.notFound.SetActive (true);
 		SP.facebookCanvas.SetActive (false);
+		SP.animloading.SetActive (false);
 		SDS.GetComponent<SoundDesignScript> ().OnclickSoundBrowserError (); 
 	}
 }
