@@ -33,45 +33,50 @@ public class ChangeMusic : MonoBehaviour
 	{
 		isAudioPlaying = true;
 
-		audioSource = GetComponent<AudioSource>();
+		//audioSource = GetComponent<AudioSource>();
 
-		audioSource.Stop ();
+		iTunes = GameObject.Find ("iTunesCanvas");
+		ActivateAndDeactive ();
 
-		audioSource.clip = clipList[currentAudioIndex];
 
-		audioSource.Play ();
 	}
 
 	void Start() 
 	{
+		DetectAudioSources ();
+
+		audioSource1.clip = clipList[currentAudioIndex]; 
+
+		audioSource1.Stop ();
+
+		audioSource1.clip = clipList[currentAudioIndex];
+
+		audioSource1.Play ();
+
 		canvasEve = GameObject.Find ("CanvasEve");
 
 		initialColor = Color.white;
 
 		isPlayingColor = Color.green; 
 
-		iTunes = GameObject.Find ("iTunesCanvas");
-
-//		RetrieveAllChildrenGameObjectsOfiTunes ();
+		RetrieveAllChildrenGameObjectsOfiTunes ();
 
 		HighlightCurrentlyPlayingSongButton ();
 
-		//ActivateAndDeactive ();
-
-		DetectAudioSources ();
+		//displayTitle.SetActive (false);
 	}
 
 	void Update() 
 	{
 		CrossFadeBetweenTunes (); 
 
-		if ((audioSource.isPlaying == true) && (audioSource.time <= .5f)) 
+		if ((audioSource1.isPlaying == true)/* && (audioSource1.time <= .5f)*/) 
 		{
 			StartCoroutine (DisplayCurrentlyPlayingSongName()); 
-			Debug.Log ("AudioSource is playing: " + audioSource.clip.name);
+			Debug.Log ("AudioSource is playing: " + audioSource1.clip.name);
 		}
 
-		if (audioSource.time == audioSource.clip.length) 
+		if (audioSource1.time == audioSource1.clip.length) 
 		{
 			PlayNextMusic ();
 		}
@@ -84,13 +89,13 @@ public class ChangeMusic : MonoBehaviour
 			return;
 		}
 
-		audioSource.Stop ();
+		audioSource1.Stop ();
 
 		currentAudioIndex = k;
 
-		audioSource.clip = clipList[currentAudioIndex];
+		audioSource1.clip = clipList[currentAudioIndex];
 
-		audioSource.Play ();
+		audioSource1.Play ();
 
 		HighlightCurrentlyPlayingSongButton ();
 	}
@@ -134,7 +139,7 @@ public class ChangeMusic : MonoBehaviour
 	{
 		for (int k = 0; k < listeNomsChansons.Count; k++)
 		{
-			if (audioSource.clip.name == clipList [k].name)
+			if (audioSource1.clip.name == clipList [k].name)
 			{
 				listeNomsChansons [k].GetComponent<Image> ().color = isPlayingColor;
 			}  
@@ -149,7 +154,7 @@ public class ChangeMusic : MonoBehaviour
 	{
 		displayTitle.SetActive (true);
 
-		displayTitle.GetComponentInChildren<TextMeshProUGUI> ().text = audioSource.clip.name;
+		displayTitle.GetComponentInChildren<TextMeshProUGUI> ().text = audioSource1.clip.name;
 
 		yield return new WaitForSeconds (5.0f);
 
@@ -158,24 +163,24 @@ public class ChangeMusic : MonoBehaviour
 
 	void CrossFadeBetweenTunes ()
 	{
-		if (audioSource.isPlaying)
+		if (audioSource1.isPlaying)
 		{
 			//Si la chanson est à 10% de la fin
-			if (audioSource.time >= ((audioSource.clip.length / 10) * 9)) 
+			if (audioSource1.time >= ((audioSource1.clip.length / 10) * 9)) 
 			{
-				if (audioSource.volume >= 0.0f) 
+				if (audioSource1.volume >= 0.0f) 
 				{
-					audioSource.volume -= Time.deltaTime;
+					audioSource1.volume -= Time.deltaTime;
 				}
 			}
 			//Si la chanson est à 10% commencée
-			else if (audioSource.time <= (audioSource.clip.length / 10)) 
-			{
-				if (audioSource.volume <= 1.0f)
-				{
-					audioSource.volume += Time.deltaTime;
-				}
-			}
+//			else if (audioSource1.time <= (audioSource.clip.length / 10)) 
+//			{
+//				if (audioSource1.volume <= 1.0f)
+//				{
+//					audioSource1.volume += Time.deltaTime;
+//				}
+//			}
 		}
 	}
 
@@ -196,7 +201,7 @@ public class ChangeMusic : MonoBehaviour
 //			}
 //		}
 //	}
-//
+
 //	IEnumerator FadeCueEmotion(int j)
 //	{
 //     	audioSource1.volume = .5f;
@@ -209,27 +214,28 @@ public class ChangeMusic : MonoBehaviour
 	{
 		AudioSource[] localAudioSources = this.gameObject.GetComponents<AudioSource> ();
 
-		Debug.Log ("Sur l'objet " + name + " il y a: " + localAudioSources.Length + " AudioSources().");
+		audioSource1 = localAudioSources [0];
 
-		//audioSource1 = localAudioSources [0];
-		//audioSource2 = localAudioSources [1]; 
+		audioSource2 = localAudioSources [1]; 
+
+		//Debug.Log ("Sur l'objet " + name + " il y a: " + localAudioSources.Length + " AudioSources().");
 	}
 
-//	void RetrieveAllChildrenGameObjectsOfiTunes()
-//	{
-//		Transform[] allChildrenOfThisGameObject = iTunes.gameObject.GetComponentsInChildren<Transform>(true);
-//
-//		foreach (Transform child in allChildrenOfThisGameObject) 
-//		{
-//			if (child.GetComponent<Image>() != null && child.name.Contains("Button_")) 
-//			{
-//				listeNomsChansons.Add (child.gameObject);
-//			}
-//		}
-//
-//		for (int i = 0; i < listeNomsChansons.Count; i++) 
-//		{
-//			listeNomsChansons [i].GetComponentInChildren<TextMeshProUGUI> ().text = "<size=18>" + clipList [i].name + "</size>";
-//		}
-//	}
+	void RetrieveAllChildrenGameObjectsOfiTunes()
+	{
+		Transform[] allChildrenOfThisGameObject = iTunes.gameObject.GetComponentsInChildren<Transform>(true);
+
+		foreach (Transform child in allChildrenOfThisGameObject) 
+		{
+			if (child.GetComponent<Image>() != null && child.name.Contains("Button_")) 
+			{
+				listeNomsChansons.Add (child.gameObject);
+			}
+		}
+
+		for (int i = 0; i < listeNomsChansons.Count; i++) 
+		{
+			listeNomsChansons [i].GetComponentInChildren<TextMeshProUGUI> ().text = "<size=18>" + clipList [i].name + "</size>";
+		}
+	}
 } 
