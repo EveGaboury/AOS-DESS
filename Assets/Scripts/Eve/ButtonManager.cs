@@ -98,6 +98,8 @@ public class ButtonManager: MonoBehaviour {
 		SP.facebookHeader.SetActive (false);
 		SP.browserCanvas.SetActive (false);
 		SP.facebookCanvas.SetActive (false);
+		SP.mesAmisTemplate.SetActive (false);
+		SP.messengerFix.SetActive (false);
 	}
 		
 	 void TaskOnClickForgotFacebook ()

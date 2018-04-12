@@ -117,6 +117,7 @@ public class GameState : MonoBehaviour {
 		SP.wrongPassword.SetActive (false);
 		SP.messengerTemplate.SetActive (false);
 		deactivateChildren ();
+		SP.messengerTemplate2.SetActive (false);
 		SP.notifSo.SetActive (false);
 		SP.notifCass.SetActive (false);
 		SP.pageProfilTemplate.SetActive (false);
