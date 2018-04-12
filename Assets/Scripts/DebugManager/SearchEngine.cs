@@ -36,10 +36,12 @@ public class SearchEngine: MonoBehaviour
 		if ((searchBar.text == "www.tonlivre.com") || (searchBar.text == "tonlivre.com") || (searchBar.text == "www.avis-décès-cassandra-royer.fr"))
 		{
 			SP.loading_Onglet.SetActive (true);
+			StopAllCoroutines ();
 			StartCoroutine (WaitAllo ());
 		} else 
 		{
 			SP.loading_Onglet.SetActive (true);
+			StopAllCoroutines ();
 			StartCoroutine (WaitAllo2 ());
 		}
 	}
