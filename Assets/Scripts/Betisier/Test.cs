@@ -9,8 +9,6 @@ using System.Collections.Generic;
 
 public class Test : MonoBehaviour
 {
-
-
 //	public float writtingSpeed;
 //
 //	void Update()
@@ -33,13 +31,14 @@ public class Test : MonoBehaviour
 //		}
 //	}
 
-//	void Start()
-//	{
-//		AudioSource[] chms = FindObjectsOfType (typeof(AudioSource)) as AudioSource[]; 
-//
-//		for (int i = 0; i < chms.Length; i++) 
-//		{
+	void Start()
+	{
+		AudioSource[] chms = FindObjectsOfType (typeof(AudioSource)) as AudioSource[]; 
+
+		for (int i = 0; i < chms.Length; i++) 
+		{
+//			Debug.Log (chms.Length);
 //			Debug.Log (chms[i].gameObject.name);
-//		}
-//	}
+		}
+	}
 } 

@@ -39,11 +39,15 @@ public class DataPrefab : MonoBehaviour
 			CheckIfClipIsDonePlaying ();
 		}
 
-		if (soundManager.GetComponent<AudioSource> ().isPlaying == true/*&& (soundManager.GetComponent<AudioSource> ().clip.name == clipToBePlayed.name)*/) 
+		if ((this.gameObject.GetComponent<Button> () != null) 
+			&& (soundManager.GetComponent<AudioButtons> ().audioSource2.isPlaying == true) 
+			/*&& (soundManager.GetComponent<AudioSource> ().clip.name == clipToBePlayed.name)*/) 
 		{
 			this.gameObject.GetComponent<Button> ().enabled = false; 
 		} 
-		else if ((this.gameObject.GetComponent<Button> () != null) && (soundManager.GetComponent<AudioSource> ().isPlaying == false))
+		else if ((this.gameObject.GetComponent<Button> () != null) 
+			&& (soundManager.GetComponent<AudioButtons> ().audioSource2.isPlaying == false) 
+			/*&& (soundManager.GetComponent<AudioSource> ().clip.name != clipToBePlayed.name)*/)
 		{
 			this.gameObject.GetComponent<Button> ().enabled = true; 
 		} 
@@ -72,13 +76,18 @@ public class DataPrefab : MonoBehaviour
 		
 	public void PlayAudio()
 	{
-		soundManager.GetComponent<AudioSource> ().Stop ();
-
-		soundManager.GetComponent<AudioSource> ().PlayOneShot (clipToBePlayed,0.5f);
+		soundManager.GetComponent<AudioButtons> ().audioSource2.PlayOneShot (clipToBePlayed,0.5f);
+		//soundManager.GetComponent<AudioSource> ().PlayOneShot (clipToBePlayed,0.5f);
 	}
 
 	public void PlaySoundOnceButtonInstantiated()
 	{
+		Debug.Log ("PlaySoundOnceButtonInstantiated() has been called"); 
+
+		soundManager.GetComponent<AudioButtons> ().audioSource2.Stop ();
+
+		//soundManager.GetComponent<AudioSource> ().Stop ();
+
 		PlayAudio ();
 	}
 

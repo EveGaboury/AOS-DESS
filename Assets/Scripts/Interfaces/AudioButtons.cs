@@ -12,6 +12,8 @@ public class AudioButtons : MonoBehaviour
 
 	public GameObject targetObject;
 
+	public AudioSource audioSource1, audioSource2;
+
 	string gmailCanvas = "GmailCanvas 1"
 	, deskTopCanvas = "DesktopCanvas"
 	, messengerCanvas = "MessengerCanvas"
@@ -27,6 +29,8 @@ public class AudioButtons : MonoBehaviour
 
 	void Start()
 	{
+		DetectAudioSources ();
+
 		soundPlayer = this.gameObject.GetComponent<AudioSource> ();
 
 		SearchAllButtonsInTheHierarchy ();
@@ -90,5 +94,16 @@ public class AudioButtons : MonoBehaviour
 		{
 			childObjectsContainingButtons [j].GetComponent<Button> ().onClick.AddListener (DetermineButtonSoundToBePlayed);
 		}
+	}
+
+	public void DetectAudioSources()
+	{
+		AudioSource[] localAudioSources = this.gameObject.GetComponents<AudioSource> ();
+
+		audioSource1 = localAudioSources [0];
+
+		audioSource2 = localAudioSources [1]; 
+
+		//Debug.Log ("Sur l'objet " + name + " il y a: " + localAudioSources.Length + " AudioSources().");
 	}
 }
