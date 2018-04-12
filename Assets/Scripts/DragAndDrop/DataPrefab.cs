@@ -16,10 +16,14 @@ public class DataPrefab : MonoBehaviour
 
 	public GameObject soundManager;
 
-	Animator animator;
-
 	[HideInInspector]
 	public bool animClipIsPlaying = false, justAnotherBoool = true;
+
+	Animator animator;
+
+	float nextFire = 0.0f, timeIncrement = 0.0f; 
+
+	bool isAudioClipPlaying;
 
 	void Start()
 	{
@@ -34,6 +38,15 @@ public class DataPrefab : MonoBehaviour
 				
 			CheckIfClipIsDonePlaying ();
 		}
+
+		if (soundManager.GetComponent<AudioSource> ().isPlaying == true/*&& (soundManager.GetComponent<AudioSource> ().clip.name == clipToBePlayed.name)*/) 
+		{
+			this.gameObject.GetComponent<Button> ().enabled = false; 
+		} 
+		else if ((this.gameObject.GetComponent<Button> () != null) && (soundManager.GetComponent<AudioSource> ().isPlaying == false))
+		{
+			this.gameObject.GetComponent<Button> ().enabled = true; 
+		} 
 	}
 
 	void CheckIfClipIsDonePlaying()
@@ -46,11 +59,12 @@ public class DataPrefab : MonoBehaviour
 
 			animator.SetBool ("onClick", false);
 
-
 			if (animClipIsPlaying == false && justAnotherBoool == false) 
 			{
-				PlayAudio ();
 				CreateButtonAndAssignScript ();
+
+				PlayAudio ();
+
 				this.gameObject.GetComponent<Image> ().overrideSprite = finalSprite;
 			}
 		}
@@ -58,21 +72,20 @@ public class DataPrefab : MonoBehaviour
 		
 	public void PlayAudio()
 	{
+		soundManager.GetComponent<AudioSource> ().Stop ();
+
 		soundManager.GetComponent<AudioSource> ().PlayOneShot (clipToBePlayed,0.5f);
 	}
 
-
 	public void PlaySoundOnceButtonInstantiated()
 	{
-		soundManager.GetComponent<AudioSource> ().Stop ();
 		PlayAudio ();
-		Debug.Log(name + " has been clicked.");
 	}
 
 	void CreateButtonAndAssignScript()
 	{
 		Button btn = this.gameObject.AddComponent<Button> () as Button;
 
-		btn.GetComponent<Button>().onClick.AddListener(PlaySoundOnceButtonInstantiated);
+		btn.GetComponent<Button>().onClick.AddListener(PlaySoundOnceButtonInstantiated); 
 	}
 }

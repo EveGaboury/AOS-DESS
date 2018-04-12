@@ -26,7 +26,6 @@ public class SearchEngine: MonoBehaviour
 
 	void OnDisable()
 	{
-		Debug.Log ("clear");
 		ClearContent ();
 	}
 		
@@ -46,9 +45,7 @@ public class SearchEngine: MonoBehaviour
 	}
 	public void ClearContent()
 	{
-		Debug.Log ("clear2");
 		searchBar.text = "";
-
 	}
 
 	IEnumerator WaitAllo()

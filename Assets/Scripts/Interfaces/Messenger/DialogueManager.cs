@@ -65,7 +65,7 @@ public class DialogueManager : MonoBehaviour
 
 	void Update()
 	{
-		Debug.Log ("From DialogueManager(), the value of sentences.count is: " + sentences.Count);
+		//Debug.Log ("From DialogueManager(), the value of sentences.count is: " + sentences.Count);
 
 
 		if (boulesale)
