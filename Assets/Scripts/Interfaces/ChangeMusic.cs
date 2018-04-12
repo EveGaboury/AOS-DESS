@@ -36,9 +36,12 @@ public class ChangeMusic : MonoBehaviour
 		//audioSource = GetComponent<AudioSource>();
 
 		iTunes = GameObject.Find ("iTunesCanvas");
-		ActivateAndDeactive ();
 
+		RetrieveAllChildrenGameObjectsOfiTunes ();
 
+	
+
+		Debug.Log (iTunes);      
 	}
 
 	void Start() 
@@ -59,9 +62,11 @@ public class ChangeMusic : MonoBehaviour
 
 		isPlayingColor = Color.green; 
 
-		RetrieveAllChildrenGameObjectsOfiTunes ();
+
 
 		HighlightCurrentlyPlayingSongButton ();
+
+		ActivateAndDeactive ();
 
 		//displayTitle.SetActive (false);
 	}
@@ -230,12 +235,14 @@ public class ChangeMusic : MonoBehaviour
 			if (child.GetComponent<Image>() != null && child.name.Contains("Button_")) 
 			{
 				listeNomsChansons.Add (child.gameObject);
+
+
 			}
 		}
 
-		for (int i = 0; i < listeNomsChansons.Count; i++) 
-		{
-			listeNomsChansons [i].GetComponentInChildren<TextMeshProUGUI> ().text = "<size=18>" + clipList [i].name + "</size>";
-		}
+//		for (int i = 0; i < listeNomsChansons.Count; i++) 
+//		{
+//			listeNomsChansons [i].GetComponentInChildren<TextMeshProUGUI> ().text = "<size=18>" + clipList [i].name + "</size>";
+//		}
 	}
 } 
