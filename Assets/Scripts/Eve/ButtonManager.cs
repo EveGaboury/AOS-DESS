@@ -100,6 +100,33 @@ public class ButtonManager: MonoBehaviour {
 		SP.facebookCanvas.SetActive (false);
 		SP.mesAmisTemplate.SetActive (false);
 		SP.messengerFix.SetActive (false);
+		SP.facebookCanvas.SetActive (false);
+		SP.messengerTemplate.SetActive (false);
+		GS.deactivateChildren ();
+		SP.passwordTemplate.SetActive (false);
+
+		SP.notifSo.SetActive (false);
+		SP.notifCass.SetActive (false);
+		SP.pageProfilTemplate.SetActive (false);
+		SP.newsFeedTemplate.SetActive (false);
+		SP.mesAmisTemplate.SetActive (false);
+		SP.messengerFix.SetActive (false);
+		SP.passwordTemplate.SetActive (false);
+		SP.fixCass.SetActive (false);
+		SP.fixSo.SetActive (false);
+		SP.pageNewFeedTemplate.SetActive (false);
+
+		SP.profilYann.SetActive (false);
+		SP.profilMarieEve2.SetActive (false);
+		SP.profilMarieEve1.SetActive (false);
+		SP.profilHugo2.SetActive (false);
+		SP.profilHugo1.SetActive (false);
+		SP.profilAdrien2.SetActive (false);
+		SP.profilAdrien1.SetActive (false);
+		SP.profilSophie.SetActive (false);
+		SP.profilCass.SetActive (false);
+		SP.profilFred.SetActive (false);
+
 	}
 		
 	 void TaskOnClickForgotFacebook ()

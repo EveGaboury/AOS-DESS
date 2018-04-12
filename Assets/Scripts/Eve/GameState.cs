@@ -102,6 +102,12 @@ public class GameState : MonoBehaviour {
 		SP.profilSophie.SetActive (false);
 		SP.profilCass.SetActive (false);
 		SP.profilFred.SetActive (false);
+
+		SP.facebookHeader.SetActive (false);
+		SP.browserCanvas.SetActive (false);
+		SP.facebookCanvas.SetActive (false);
+		SP.mesAmisTemplate.SetActive (false);
+		SP.messengerFix.SetActive (false);
 	}
 
 	//bouton deconnection du facebook
@@ -309,6 +315,7 @@ public class GameState : MonoBehaviour {
 		SP.pageProfilTemplate.SetActive (true);
 		SP.facebookInfoScriptable.SetActive (true);
 		SP.pageNewFeedTemplate.SetActive (true);
+		SP.messengerTemplate2.SetActive (false);
 
 		SP.profilSophie.SetActive (true);
 		SP.profilCass.SetActive (false);
