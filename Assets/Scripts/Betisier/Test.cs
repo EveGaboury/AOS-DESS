@@ -9,7 +9,12 @@ using System.Collections.Generic;
 
 public class Test : MonoBehaviour
 {
+	void Start()
+	{
+		var searchAllObjectsInTheScene = FindObjectsOfType<ChangeMusic>();
 
+		Debug.Log ("From Test.cs && " + searchAllObjectsInTheScene.Length);
+	}
 }
 
 //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\

@@ -150,7 +150,7 @@ public class StartPosition : MonoBehaviour {
 
 	void Start () 
 	{
-//		introduction.SetActive (true);
+		introduction.SetActive (true);
 
 		switchSessionCanvas.SetActive (false);
 		blocNoteCanvas.SetActive (true);

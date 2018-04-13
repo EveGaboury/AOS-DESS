@@ -6,7 +6,6 @@ using UnityEngine.UI;
 using TMPro;
 using System.Linq;
 
-[RequireComponent(typeof(AudioSource))]
 public class ChangeMusic : MonoBehaviour
 {
 	//Public
