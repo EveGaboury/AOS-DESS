@@ -37,7 +37,7 @@ public class AudioButtons : MonoBehaviour
 
 //		SortButtonsByParent ();
 
-		AddSoundToButton ();
+		//AddSoundToButton ();
 	}
 
 	void SearchAllButtonsInTheHierarchy()
@@ -49,7 +49,7 @@ public class AudioButtons : MonoBehaviour
 			if (child.gameObject.GetComponent<Button> ()) 
 			{
 				childObjectsContainingButtons.Add (child.gameObject);
-				child.gameObject.AddComponent<CursorScript> ();
+				//child.gameObject.AddComponent<CursorScript> ();
 			} 
 			else 
 			{
@@ -81,21 +81,21 @@ public class AudioButtons : MonoBehaviour
 //		}
 //	}
 
-	void DetermineButtonSoundToBePlayed()
-	{
-		float randomPitch = Random.Range (lowPitchRange, highPitchRange);
+//	void DetermineButtonSoundToBePlayed()
+//	{
+//		float randomPitch = Random.Range (lowPitchRange, highPitchRange);
+//
+//		this.gameObject.GetComponent<AudioSourceManagerScript> ().audioSourceBoutons.pitch = randomPitch;
+//		this.gameObject.GetComponent<AudioSourceManagerScript> ().audioSourceBoutons.PlayOneShot (audioClipByInterface, 1.0f);
+//	}
 
-		this.gameObject.GetComponent<AudioSourceManagerScript> ().audioSourceBoutons.pitch = randomPitch;
-		this.gameObject.GetComponent<AudioSourceManagerScript> ().audioSourceBoutons.PlayOneShot (audioClipByInterface, 1.0f);
-	}
-
-	void AddSoundToButton()
-	{
-		for (int j = 0; j < childObjectsContainingButtons.Count; j++)
-		{
-			childObjectsContainingButtons [j].GetComponent<Button> ().onClick.AddListener (DetermineButtonSoundToBePlayed);
-		}
-	}
+//	void AddSoundToButton()
+//	{
+//		for (int j = 0; j < childObjectsContainingButtons.Count; j++)
+//		{
+//			childObjectsContainingButtons [j].GetComponent<Button> ().onClick.AddListener (DetermineButtonSoundToBePlayed);
+//		}
+//	}	
 
 	public void DetectAudioSources()
 	{
