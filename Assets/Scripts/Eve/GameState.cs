@@ -156,6 +156,7 @@ public class GameState : MonoBehaviour {
 	public void accueil ()
 	{
 		SP.pageProfilTemplate.SetActive (false);
+		SP.messengerTemplate2.SetActive (false);
 
 		SP.messengerTemplate.SetActive (false);
 		deactivateChildren ();
