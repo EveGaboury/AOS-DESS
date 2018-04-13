@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class StartPosition : MonoBehaviour {
 
 	public GameObject introduction;
+	public GameObject imageIntro;
 
 	//gamobjects commun
 	public GameObject desktopCanvas;

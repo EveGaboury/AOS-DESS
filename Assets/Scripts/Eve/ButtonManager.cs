@@ -11,7 +11,7 @@ public class ButtonManager: MonoBehaviour {
 	public StartPosition SP;
 	public GameState GS;
 	public SoundDesignScript SDS;
-
+	public AnimatorManager AM;
 
 	//public Button iconFb;
 	public Button accueilButton;
@@ -48,6 +48,8 @@ public class ButtonManager: MonoBehaviour {
 
 	public Button iconFb;
 
+	public Button boutondemarrer_sophie;
+
 
 	public Toggle toggleNotifCass;
 	public Toggle toggleNotifSo;
@@ -81,7 +83,12 @@ public class ButtonManager: MonoBehaviour {
 
 		iconFb.GetComponent <Button> ();
 		iconFb.onClick.AddListener (GS.accueil);
+	
+		boutondemarrer_sophie.GetComponent <Button> ();
+		boutondemarrer_sophie.onClick.AddListener(TaskonClickDemarrer);
 	}
+	
+
 
 	void TaskOnClickTrash () 
 	{
@@ -177,6 +184,14 @@ public class ButtonManager: MonoBehaviour {
 			question3Image.sprite = pasvrai;
 		}
 	}
+
+	void TaskonClickDemarrer ()
+	{
+		SP.imageIntro.SetActive (false);
+		SDS.OnClickSoundNotificationCourriel ();
+		AM.popUpAnim ();
+	}
+
 		
 	public void ClearContent ()
 	{
