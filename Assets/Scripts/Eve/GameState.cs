@@ -72,6 +72,7 @@ public class GameState : MonoBehaviour {
 		SP.fenetreFolderCass.SetActive (false);
 		SP.folderTrashCass.SetActive (false);
 		SP.blocNoteCanvas.SetActive (true);
+		SP.postFinal.SetActive (true);
 	}
 
 
@@ -291,6 +292,8 @@ public class GameState : MonoBehaviour {
 		SP.facebookConnexion.SetActive (true);
 		SP.mesAmisFix.SetActive (false);
 		SP.facebookConnInPage.SetActive (true);
+		SP.facebook_Image.SetActive (true);
+		SP.onglet_text.SetActive (true);
 
 	}
 		
