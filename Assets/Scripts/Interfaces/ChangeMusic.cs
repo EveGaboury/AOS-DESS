@@ -38,10 +38,6 @@ public class ChangeMusic : MonoBehaviour
 		iTunes = GameObject.Find ("iTunesCanvas");
 
 		RetrieveAllChildrenGameObjectsOfiTunes ();
-
-	
-
-		Debug.Log (iTunes);      
 	}
 
 	void Start() 
@@ -62,13 +58,9 @@ public class ChangeMusic : MonoBehaviour
 
 		isPlayingColor = Color.green; 
 
-
-
 		HighlightCurrentlyPlayingSongButton ();
 
-		ActivateAndDeactive ();
-
-		//displayTitle.SetActive (false);
+		//ActivateAndDeactive ();
 	}
 
 	void Update() 
@@ -78,7 +70,7 @@ public class ChangeMusic : MonoBehaviour
 		if ((audioSource1.isPlaying == true)/* && (audioSource1.time <= .5f)*/) 
 		{
 			StartCoroutine (DisplayCurrentlyPlayingSongName()); 
-			Debug.Log ("AudioSource is playing: " + audioSource1.clip.name);
+			//Debug.Log ("AudioSource is playing: " + audioSource1.clip.name);
 		}
 
 		if (audioSource1.time == audioSource1.clip.length) 
@@ -235,14 +227,12 @@ public class ChangeMusic : MonoBehaviour
 			if (child.GetComponent<Image>() != null && child.name.Contains("Button_")) 
 			{
 				listeNomsChansons.Add (child.gameObject);
-
-
 			}
 		}
 
-//		for (int i = 0; i < listeNomsChansons.Count; i++) 
-//		{
-//			listeNomsChansons [i].GetComponentInChildren<TextMeshProUGUI> ().text = "<size=18>" + clipList [i].name + "</size>";
-//		}
+		for (int i = 0; i < listeNomsChansons.Count; i++) 
+		{
+			listeNomsChansons [i].GetComponentInChildren<TextMeshProUGUI> ().text = "<size=18>" + clipList [i].name + "</size>";
+		}
 	}
 } 
