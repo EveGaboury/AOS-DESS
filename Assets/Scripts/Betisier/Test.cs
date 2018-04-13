@@ -9,6 +9,54 @@ using System.Collections.Generic;
 
 public class Test : MonoBehaviour
 {
+
+}
+//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
+
+// BOUT DE CODE POUR CHARGER LES SPRITES PAR CODE POUR LE CURSEUR
+
+//	private GameObject testSubject;
+//
+//	private SpriteRenderer spriteRenderer;
+//
+//	public Sprite finalSpriteImage, startingSpriteImage;
+//
+//	public string finalSpriteText, startingSpriteText;
+//
+//	void Start() 
+//	{
+//		testSubject = GameObject.Find ("PlainImage");
+//
+//		UnityEngine.Object[] sprites = Resources.LoadAll ("", typeof(Sprite)); 
+//
+//		Debug.Log (sprites.Length); 
+//
+//		for (int i = 0; i < sprites.Length; i++) 
+//		{
+//			if (sprites[i].name == finalSpriteText) 
+//			{
+//				finalSpriteImage = sprites [i] as Sprite;
+//			}
+//			else if (sprites[i].name == startingSpriteText)
+//			{
+//				startingSpriteImage = sprites[i] as Sprite;   
+//			}
+//		}
+//	}
+
+
+//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
+
+
+
+
+
+
+
+//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
+
+//BOUT DE CODE POUR ANIMER LES LETTRES DANS LES BULLES DE TEXTE DU MESSENGER
+
 //	public float writtingSpeed;
 //
 //	void Update()
@@ -31,14 +79,4 @@ public class Test : MonoBehaviour
 //		}
 //	}
 
-	void Start()
-	{
-		AudioSource[] chms = FindObjectsOfType (typeof(AudioSource)) as AudioSource[]; 
-
-		for (int i = 0; i < chms.Length; i++) 
-		{
-//			Debug.Log (chms.Length);
-//			Debug.Log (chms[i].gameObject.name);
-		}
-	}
-} 
+//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
