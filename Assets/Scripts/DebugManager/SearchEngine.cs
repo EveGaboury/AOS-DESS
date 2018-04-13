@@ -35,14 +35,16 @@ public class SearchEngine: MonoBehaviour
 		//mettre ça dans une fonction pour déterminer quel est l'engin en train d'être chercher
 		if ((searchBar.text == "www.tonlivre.com") || (searchBar.text == "tonlivre.com") || (searchBar.text == "www.avis-décès-cassandra-royer.fr"))
 		{
+			SP.facebook_Image.SetActive (false);
 			SP.loading_Onglet.SetActive (true);
 			StopAllCoroutines ();
-			StartCoroutine (WaitAllo ());
+			StartCoroutine (WaitAlloTrue ());
 		} else 
 		{
+			SP.facebook_Image.SetActive (false);
 			SP.loading_Onglet.SetActive (true);
 			StopAllCoroutines ();
-			StartCoroutine (WaitAllo2 ());
+			StartCoroutine (WaitAlloWrong ());
 		}
 	}
 	public void ClearContent()
@@ -50,7 +52,7 @@ public class SearchEngine: MonoBehaviour
 		searchBar.text = "";
 	}
 
-	IEnumerator WaitAllo()
+	IEnumerator WaitAlloTrue()
 	{
 		yield return new WaitForSeconds(3f);
 
@@ -80,7 +82,7 @@ public class SearchEngine: MonoBehaviour
 		} 
 	}
 
-	IEnumerator WaitAllo2()
+	IEnumerator WaitAlloWrong()
 	{
 		yield return new WaitForSeconds(2f);
 

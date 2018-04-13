@@ -21,6 +21,7 @@ public class StartPosition : MonoBehaviour {
 	public GameObject notFound;
 	public GameObject shortCut;
 	public GameObject shortCutFacebook;
+	public GameObject facebook_Image;
 
 	//===================================================================================================================
 
@@ -81,6 +82,7 @@ public class StartPosition : MonoBehaviour {
 	public GameObject profilSophie;
 	public GameObject profilCass;
 	public GameObject profilFred;
+	public GameObject postFinal;
 
 	//facebook mot de passe oublie
 	public GameObject questionOne;

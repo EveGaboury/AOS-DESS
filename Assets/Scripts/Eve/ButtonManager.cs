@@ -47,6 +47,7 @@ public class ButtonManager: MonoBehaviour {
 	[HideInInspector] public string clear ="";
 
 	public Button iconFb;
+	public Button shortCutFacebook;
 
 	public Button boutondemarrer_sophie;
 
@@ -86,6 +87,10 @@ public class ButtonManager: MonoBehaviour {
 	
 		boutondemarrer_sophie.GetComponent <Button> ();
 		boutondemarrer_sophie.onClick.AddListener(TaskonClickDemarrer);
+
+		shortCutFacebook.GetComponent <Button> ();
+		shortCutFacebook.onClick.AddListener (GS.shortCutFacebook);
+
 	}
 	
 
@@ -122,6 +127,10 @@ public class ButtonManager: MonoBehaviour {
 		SP.fixCass.SetActive (false);
 		SP.fixSo.SetActive (false);
 		SP.pageNewFeedTemplate.SetActive (false);
+		SP.facebook_Image.SetActive (false);
+		SP.animloading.SetActive (false);
+		SP.onglet_text.SetActive (false);
+		SP.avisDeces.SetActive (false);
 
 		SP.profilYann.SetActive (false);
 		SP.profilMarieEve2.SetActive (false);
