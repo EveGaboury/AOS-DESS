@@ -6,38 +6,27 @@ using UnityEngine.Audio;
 
 public class AudioButtons : MonoBehaviour 
 {
-	public AudioClip/*[]*/ audioClipByInterface;
+	//Public
+	public AudioClip tocButtonSound;
 
-	public List<GameObject> childObjectsContainingButtons = new List<GameObject>(), parentObjects = new List<GameObject>();
+	public List<GameObject> childObjectsContainingButtons = new List<GameObject>();
 
 	public GameObject targetObject;
 
-	public AudioSource audioSource1, audioSource2;
-
-	string gmailCanvas = "GmailCanvas 1"
-	, deskTopCanvas = "DesktopCanvas"
-	, messengerCanvas = "MessengerCanvas"
-	, facebookCanvas = "FacebookCanvas"
-	, browserCanvas = "BrowserCanvas"
-	, startMessengerConversation = "StartMessengerConversation";
-
-	AudioSource soundPlayer;
-
+	//Private
 	AudioClip currentAudioCLip;
 
 	float lowPitchRange = 0.9f, highPitchRange = 1.05f;
 
+	AudioSourceManagerScript ASMS_buttons;
+
 	void Start()
 	{
-		DetectAudioSources ();
-
-		soundPlayer = this.gameObject.GetComponent<AudioSource> ();
+		ASMS_buttons = this.gameObject.GetComponent<AudioSourceManagerScript> ();
 
 		SearchAllButtonsInTheHierarchy ();
 
-//		SortButtonsByParent ();
-
-		//AddSoundToButton ();
+		AddSoundToButton ();
 	}
 
 	void SearchAllButtonsInTheHierarchy()
@@ -50,61 +39,23 @@ public class AudioButtons : MonoBehaviour
 			{
 				childObjectsContainingButtons.Add (child.gameObject);
 				//child.gameObject.AddComponent<CursorScript> ();
-			} 
-			else 
-			{
-				parentObjects.Add (child.gameObject);
 			}
 		}
 	}
 
-//	void SortButtonsByParent()
-//	{
-//		for (int i = 0; i < parentObjects.Count; i++)
-//		{
-//			if (parentObjects[i].gameObject.name == gmailCanvas) 
-//			{
-//				if (parentObjects[i].gameObject.GetComponentsInChildren<Transform>(true) != null) 
-//				{
-//					for (int j = 0; j < childObjectsContainingButtons.Count; j++) 
-//					{
-//						if (childObjectsContainingButtons[j].gameObject != null) 
-//						{
-//							childObjectsContainingButtons [j].gameObject.tag = "Gmail";
-//
-////							currentAudioCLip = audioClipByInterface[0];
-//							DetermineButtonSoundToBePlayed ();
-//						}
-//					}
-//				}
-//			}
-//		}
-//	}
-
-//	void DetermineButtonSoundToBePlayed()
-//	{
-//		float randomPitch = Random.Range (lowPitchRange, highPitchRange);
-//
-//		this.gameObject.GetComponent<AudioSourceManagerScript> ().audioSourceBoutons.pitch = randomPitch;
-//		this.gameObject.GetComponent<AudioSourceManagerScript> ().audioSourceBoutons.PlayOneShot (audioClipByInterface, 1.0f);
-//	}
-
-//	void AddSoundToButton()
-//	{
-//		for (int j = 0; j < childObjectsContainingButtons.Count; j++)
-//		{
-//			childObjectsContainingButtons [j].GetComponent<Button> ().onClick.AddListener (DetermineButtonSoundToBePlayed);
-//		}
-//	}	
-
-	public void DetectAudioSources()
+	void DetermineButtonSoundToBePlayed()
 	{
-		AudioSource[] localAudioSources = this.gameObject.GetComponents<AudioSource> ();
+		float randomPitch = Random.Range (lowPitchRange, highPitchRange);
 
-		audioSource1 = localAudioSources [0];
+		ASMS_buttons.audioSourceBoutons.pitch = randomPitch;
+		ASMS_buttons.audioSourceBoutons.PlayOneShot (tocButtonSound, 1.0f);
+	}
 
-		audioSource2 = localAudioSources [1]; 
-
-		//Debug.Log ("Sur l'objet " + name + " il y a: " + localAudioSources.Length + " AudioSources().");
+	void AddSoundToButton()
+	{
+		for (int j = 0; j < childObjectsContainingButtons.Count; j++)
+		{
+			childObjectsContainingButtons [j].GetComponent<Button> ().onClick.AddListener (DetermineButtonSoundToBePlayed);
+		}
 	}
 }

@@ -13,7 +13,7 @@ public class Test : MonoBehaviour
 	{
 		var searchAllObjectsInTheScene = FindObjectsOfType<ChangeMusic>();
 
-		Debug.Log ("From Test.cs && " + searchAllObjectsInTheScene.Length);
+		Debug.Log ("From Test.cs && " + searchAllObjectsInTheScene.Length + "\n" + searchAllObjectsInTheScene);
 	}
 }
 

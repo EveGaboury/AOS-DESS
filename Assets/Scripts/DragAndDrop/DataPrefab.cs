@@ -6,28 +6,34 @@ using UnityEngine.EventSystems;
 
 public class DataPrefab : MonoBehaviour
 {  
+	//Public
 	public Sprite finalSprite;
-	
+
 	public string currentlyPlayingClip;
 
 	public AudioClip clipToBePlayed;
 
 	public AnimationClip animCLIP;
 
-	public GameObject soundManager;
-
 	[HideInInspector]
 	public bool animClipIsPlaying = false, justAnotherBoool = true;
 
+	//Private
 	Animator animator;
 
 	float nextFire = 0.0f, timeIncrement = 0.0f; 
 
 	bool isAudioClipPlaying;
 
+	AudioSource ASMS_Data;
+
 	void Start()
 	{
 		animator = GetComponent<Animator> ();
+
+		GameObject localGameObject = GameObject.Find ("SoundManager");
+
+		ASMS_Data = localGameObject.gameObject.GetComponent<AudioSourceManagerScript> ().audioSourceData;
 	}
 
 	void Update()
@@ -35,18 +41,18 @@ public class DataPrefab : MonoBehaviour
 		if (animClipIsPlaying == true) 
 		{
 			justAnotherBoool = false;
-				
+
 			CheckIfClipIsDonePlaying ();
 		}
 
 		if ((this.gameObject.GetComponent<Button> () != null) 
-			&& (soundManager.GetComponent<AudioButtons> ().audioSource2.isPlaying == true) 
+			&& (ASMS_Data.isPlaying == true) 
 			/*&& (soundManager.GetComponent<AudioSource> ().clip.name == clipToBePlayed.name)*/) 
 		{
 			this.gameObject.GetComponent<Button> ().enabled = false; 
 		} 
 		else if ((this.gameObject.GetComponent<Button> () != null) 
-			&& (soundManager.GetComponent<AudioButtons> ().audioSource2.isPlaying == false) 
+			&& (ASMS_Data.isPlaying == false) 
 			/*&& (soundManager.GetComponent<AudioSource> ().clip.name != clipToBePlayed.name)*/)
 		{
 			this.gameObject.GetComponent<Button> ().enabled = true; 
@@ -73,20 +79,16 @@ public class DataPrefab : MonoBehaviour
 			}
 		}
 	}
-		
+
 	public void PlayAudio()
 	{
-		soundManager.GetComponent<AudioButtons> ().audioSource2.PlayOneShot (clipToBePlayed,0.5f);
-		//soundManager.GetComponent<AudioSource> ().PlayOneShot (clipToBePlayed,0.5f);
+		//this.gameObject.GetComponent<AudioSourceManagerScript> ().audioSourceData.PlayOneShot (clipToBePlayed,0.5f);
+		ASMS_Data.PlayOneShot (clipToBePlayed,0.5f);
 	}
 
 	public void PlaySoundOnceButtonInstantiated()
 	{
-		Debug.Log ("PlaySoundOnceButtonInstantiated() has been called"); 
-
-		soundManager.GetComponent<AudioButtons> ().audioSource2.Stop ();
-
-		//soundManager.GetComponent<AudioSource> ().Stop ();
+		ASMS_Data.Stop ();
 
 		PlayAudio ();
 	}

@@ -6,7 +6,7 @@ public class AudioSourceManagerScript : MonoBehaviour
 {
 	public AudioSource audioSourceData, audioSourceBoutons, audioSourceClicksEtTyping, audioSourceCueEmotion, audioSourceMusique;
 
-	void Start()
+	void Awake()
 	{
 		DetectAudioSources ();
 	}

@@ -6,7 +6,6 @@ using UnityEngine.UI;
 using TMPro;
 using System.Linq;
 
-[RequireComponent(typeof(AudioSource))]
 public class ChangeMusic : MonoBehaviour
 {
 	//Public
@@ -14,7 +13,7 @@ public class ChangeMusic : MonoBehaviour
 
 	public GameObject displayTitle;
 
-	public AudioSource audioSource1, audioSource2;
+	//public AudioSource audioSource1, audioSource2;
 
 	//Private
 	List<GameObject> listeNomsChansons = new List<GameObject> ();
@@ -31,10 +30,6 @@ public class ChangeMusic : MonoBehaviour
 
 	void Awake()
 	{
-		isAudioPlaying = true;
-
-		//audioSource = GetComponent<AudioSource>();
-
 		iTunes = GameObject.Find ("iTunesCanvas");
 
 		RetrieveAllChildrenGameObjectsOfiTunes ();
@@ -42,8 +37,8 @@ public class ChangeMusic : MonoBehaviour
 
 	void Start() 
 	{
-		DetectAudioSources ();
-
+		//DetectAudioSources ();
+		this.gameObject.GetComponent<AudioSourceManagerScript>().audioSourceMusique.clip
 		audioSource1.clip = clipList[currentAudioIndex]; 
 
 		audioSource1.Stop ();
@@ -51,6 +46,8 @@ public class ChangeMusic : MonoBehaviour
 		audioSource1.clip = clipList[currentAudioIndex];
 
 		audioSource1.Play ();
+
+		isAudioPlaying = true;
 
 		canvasEve = GameObject.Find ("CanvasEve");
 
@@ -65,12 +62,11 @@ public class ChangeMusic : MonoBehaviour
 
 	void Update() 
 	{
-		CrossFadeBetweenTunes (); 
+		//CrossFadeBetweenTunes (); 
 
 		if ((audioSource1.isPlaying == true)/* && (audioSource1.time <= .5f)*/) 
 		{
-			StartCoroutine (DisplayCurrentlyPlayingSongName()); 
-			//Debug.Log ("AudioSource is playing: " + audioSource1.clip.name);
+			StartCoroutine (DisplayCurrentlyPlayingSongName());
 		}
 
 		if (audioSource1.time == audioSource1.clip.length) 
@@ -115,11 +111,6 @@ public class ChangeMusic : MonoBehaviour
 		PlayMusicAtIndex(k);
 	}
 
-	public void RandomizeNextSong()
-	{
-		//Do the thingy!
-	}
-
 	public void ActivateAndDeactive()
 	{
 		if (iTunes.gameObject.activeSelf == true) 
@@ -157,30 +148,70 @@ public class ChangeMusic : MonoBehaviour
 
 		displayTitle.SetActive (false);
 	}
+		
+//	void DetectAudioSources()
+//	{
+//		AudioSource[] localAudioSources = this.gameObject.GetComponents<AudioSource> ();
+//
+//		audioSource1 = localAudioSources [0];
+//
+//		audioSource2 = localAudioSources [1];
+//	}
 
-	void CrossFadeBetweenTunes ()
+	void RetrieveAllChildrenGameObjectsOfiTunes()
 	{
-		if (audioSource1.isPlaying)
+		Transform[] allChildrenOfThisGameObject = iTunes.gameObject.GetComponentsInChildren<Transform>(true);
+
+		foreach (Transform child in allChildrenOfThisGameObject) 
 		{
-			//Si la chanson est à 10% de la fin
-			if (audioSource1.time >= ((audioSource1.clip.length / 10) * 9)) 
+			if (child.GetComponent<Image>() != null && child.name.Contains("Button_")) 
 			{
-				if (audioSource1.volume >= 0.0f) 
-				{
-					audioSource1.volume -= Time.deltaTime;
-				}
+				listeNomsChansons.Add (child.gameObject);
 			}
-			//Si la chanson est à 10% commencée
-//			else if (audioSource1.time <= (audioSource.clip.length / 10)) 
-//			{
-//				if (audioSource1.volume <= 1.0f)
-//				{
-//					audioSource1.volume += Time.deltaTime;
-//				}
-//			}
+		}
+
+		for (int i = 0; i < listeNomsChansons.Count; i++) 
+		{
+			listeNomsChansons [i].GetComponentInChildren<TextMeshProUGUI> ().text = "<size=18>" + clipList [i].name + "</size>";
 		}
 	}
 
+	//	void CrossFadeBetweenTunes ()
+	//	{
+	//		if (audioSource1.isPlaying)
+	//		{
+	//			//Si la chanson est à 10% de la fin
+	//			if (audioSource1.time >= ((audioSource1.clip.length / 10) * 9)) 
+	//			{
+	//				if (audioSource1.volume >= 0.0f) 
+	//				{
+	//					audioSource1.volume -= Time.deltaTime;
+	//				}
+	//			}
+	//			//Si la chanson est à 10% commencée
+	//			else if (audioSource1.time <= (audioSource.clip.length / 10)) 
+	//			{
+	//				if (audioSource1.volume <= 1.0f)
+	//				{
+	//					audioSource1.volume += Time.deltaTime;
+	//				}
+	//			}
+	//		}
+	//	}
+}
+
+
+
+
+
+
+
+
+//	public void RandomizeNextSong()
+//	{
+//		//Do the thingy!
+//	}
+//
 //	public void FadeInFadeOutCueEmotion()
 //	{
 //		for (int j = 0; j < clipList.Length; j++)
@@ -206,33 +237,3 @@ public class ChangeMusic : MonoBehaviour
 //		yield return new WaitForSeconds (5.0f);
 //		audioSource1.volume = 1.0f;
 //	}
-
-	void DetectAudioSources()
-	{
-		AudioSource[] localAudioSources = this.gameObject.GetComponents<AudioSource> ();
-
-		audioSource1 = localAudioSources [0];
-
-		audioSource2 = localAudioSources [1]; 
-
-		//Debug.Log ("Sur l'objet " + name + " il y a: " + localAudioSources.Length + " AudioSources().");
-	}
-
-	void RetrieveAllChildrenGameObjectsOfiTunes()
-	{
-		Transform[] allChildrenOfThisGameObject = iTunes.gameObject.GetComponentsInChildren<Transform>(true);
-
-		foreach (Transform child in allChildrenOfThisGameObject) 
-		{
-			if (child.GetComponent<Image>() != null && child.name.Contains("Button_")) 
-			{
-				listeNomsChansons.Add (child.gameObject);
-			}
-		}
-
-		for (int i = 0; i < listeNomsChansons.Count; i++) 
-		{
-			listeNomsChansons [i].GetComponentInChildren<TextMeshProUGUI> ().text = "<size=18>" + clipList [i].name + "</size>";
-		}
-	}
-} 
