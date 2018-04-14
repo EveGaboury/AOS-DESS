@@ -12,6 +12,8 @@ public class ButtonManager: MonoBehaviour {
 	public GameState GS;
 	public SoundDesignScript SDS;
 	public AnimatorManager AM;
+	public ForceReUpdate FR;
+
 
 	//public Button iconFb;
 	public Button accueilButton;
@@ -37,8 +39,8 @@ public class ButtonManager: MonoBehaviour {
 	public TMP_InputField inputfieldQuestion1;
 	private string reponseQuestion1 = "Paris", reponseQuestion1a = "paris";
 
-	public Button question3Button;
-	public Image question3Image;
+	public Button question2Button;
+	public Image question2Image;
 	public TMP_InputField inputfieldQuestion3;
 	private string reponseQuestion3 = "Zeus", reponseQuestion3a = "zeus";
 	private string easter = "pablololol";
@@ -72,8 +74,8 @@ public class ButtonManager: MonoBehaviour {
 		question1Button.GetComponent <Button> ();
 		question1Button.onClick.AddListener (TaskOnClickQuestion1);
 
-		question3Button.GetComponent <Button> ();
-		question3Button.onClick.AddListener (TaskOnClickQuestion3);
+		question2Button.GetComponent <Button> ();
+		question2Button.onClick.AddListener (TaskOnClickQuestion2);
 
 		accueilButton.GetComponent <Button> ();
 		accueilButton.onClick.AddListener (GS.accueil);
@@ -153,11 +155,13 @@ public class ButtonManager: MonoBehaviour {
 			wrongImage.sprite = vrai;
 			SP.fauxText.SetActive (false);
 			SP.vraiText.SetActive (true);
+			FR.OnEnable();
 
 		} else {
 			SP.fauxText.SetActive (true);
 			SP.vraiText.SetActive (false);
 			wrongImage.sprite = pasvrai;
+			FR.OnEnable();
 			SDS.GetComponent<SoundDesignScript> ().OnclickSoundTLWrong ();
 		}
 	}
@@ -169,11 +173,13 @@ public class ButtonManager: MonoBehaviour {
 			Debug.Log ("bonne réponse");
 			SDS.GetComponent<SoundDesignScript> ().OnclickSoundTLRight ();
 			question1Image.sprite = vrai;
+			FR.OnEnable();
 			SP.question2.SetActive (true);
 
 		} else {
 			SDS.GetComponent<SoundDesignScript> ().OnclickSoundTLWrong ();
 			question1Image.sprite = pasvrai;
+			FR.OnEnable();
 
 		}
 
@@ -182,15 +188,17 @@ public class ButtonManager: MonoBehaviour {
 		}
 	}
 
-	void TaskOnClickQuestion3 ()
+	void TaskOnClickQuestion2 ()
 	{
 		if ((reponseQuestion3 == inputfieldQuestion3.text) || (reponseQuestion3a == inputfieldQuestion3.text)) {
 			SDS.GetComponent<SoundDesignScript> ().OnclickSoundTLRight ();
-			question3Image.sprite = vrai;
+			question2Image.sprite = vrai;
 			SP.bouttonfinal.SetActive (true);
+			FR.OnEnable();
 		} else {
 			SDS.GetComponent<SoundDesignScript> ().OnclickSoundTLWrong ();
-			question3Image.sprite = pasvrai;
+			question2Image.sprite = pasvrai;
+			FR.OnEnable();
 		}
 	}
 
