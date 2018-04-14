@@ -197,7 +197,7 @@ public class ButtonManager: MonoBehaviour {
 	void TaskonClickDemarrer ()
 	{
 		SP.imageIntro.SetActive (false);
-		SDS.OnClickSoundNotificationCourriel ();
+		SDS.GetComponent<SoundDesignScript> ().OnClickSoundNotificationCourriel ();
 		AM.popUpAnim ();
 	}
 

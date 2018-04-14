@@ -58,7 +58,7 @@ public class ChangeMusic : MonoBehaviour
 	{
 		//CrossFadeBetweenTunes (); 
 
-		if (ASMS_Music.audioSourceMusique.isPlaying == true) 
+		if (ASMS_Music.audioSourceMusique.isPlaying == true && ASMS_Music.audioSourceMusique.time <= .5f) 
 		{
 			StartCoroutine (DisplayCurrentlyPlayingSongName());
 		}
