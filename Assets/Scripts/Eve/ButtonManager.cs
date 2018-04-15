@@ -34,15 +34,25 @@ public class ButtonManager: MonoBehaviour {
 	public Sprite pasvrai;
 	public Sprite initial;
 
-	public Button question1Button;
-	public Image question1Image;
-	public TMP_InputField inputfieldQuestion1;
+
+	//Question 1 _ Paris
+	public Button questionParisButton;
+	public Image questionParisImage;
+	public TMP_InputField inputfieldQuestionParis;
 	private string reponseQuestion1 = "Paris", reponseQuestion1a = "paris";
 
-	public Button question2Button;
-	public Image question2Image;
-	public TMP_InputField inputfieldQuestion3;
-	private string reponseQuestion3 = "Zeus", reponseQuestion3a = "zeus";
+	//Question_ Picture
+	public GameObject adrienQuestion;
+	public Button questionAdrienButton;
+
+	//Question 3 _ Zeus
+	public TMP_InputField inputfieldQuestionZeus;
+	private string reponseQuestionZeus = "Zeus", reponseQuestionZeus2 = "zeus";
+	public Button questionZeusButton;
+	public Image questionZeusImage;
+
+
+
 	private string easter = "pablololol";
 	public GameObject pablo;
 
@@ -71,11 +81,11 @@ public class ButtonManager: MonoBehaviour {
 		wrongButton.GetComponent<Button> ();
 		wrongButton.onClick.AddListener (TaskOnClickForgotFacebook);
 
-		question1Button.GetComponent <Button> ();
-		question1Button.onClick.AddListener (TaskOnClickQuestion1);
+		questionParisButton.GetComponent <Button> ();
+		questionParisButton.onClick.AddListener (TaskOnClickQuestion1);
 
-		question2Button.GetComponent <Button> ();
-		question2Button.onClick.AddListener (TaskOnClickQuestion2);
+		questionAdrienButton.GetComponent <Button> ();
+		questionAdrienButton.onClick.AddListener (TaskOnClickQuestion2);
 
 		accueilButton.GetComponent <Button> ();
 		accueilButton.onClick.AddListener (GS.accueil);
@@ -155,52 +165,56 @@ public class ButtonManager: MonoBehaviour {
 			wrongImage.sprite = vrai;
 			SP.fauxText.SetActive (false);
 			SP.vraiText.SetActive (true);
-			FR.OnEnable();
 
 		} else {
 			SP.fauxText.SetActive (true);
 			SP.vraiText.SetActive (false);
 			wrongImage.sprite = pasvrai;
-			FR.OnEnable();
 			SDS.GetComponent<SoundDesignScript> ().OnclickSoundTLWrong ();
 		}
 	}
 
 	void TaskOnClickQuestion1 ()
 	{
-		if ((reponseQuestion1 == inputfieldQuestion1.text) || (reponseQuestion1a == inputfieldQuestion1.text))
+		if ((reponseQuestion1 == inputfieldQuestionParis.text) || (reponseQuestion1a == inputfieldQuestionParis.text))
 		{
 			Debug.Log ("bonne réponse");
 			SDS.GetComponent<SoundDesignScript> ().OnclickSoundTLRight ();
-			question1Image.sprite = vrai;
-			FR.OnEnable();
+			questionParisImage.sprite = vrai;
 			SP.question2.SetActive (true);
-
+			Canvas.ForceUpdateCanvases ();
 		} else {
 			SDS.GetComponent<SoundDesignScript> ().OnclickSoundTLWrong ();
-			question1Image.sprite = pasvrai;
-			FR.OnEnable();
-
+			questionParisImage.sprite = pasvrai;
+			Canvas.ForceUpdateCanvases ();
 		}
 
-		if (easter == inputfieldQuestion1.text) {
+		if (easter == inputfieldQuestionParis.text) {
 			pablo.SetActive (true);
 		}
 	}
 
+	void TaskOnClickBoutton ()
+	{
+		adrienQuestion.SetActive (true);
+	}
+
+
 	void TaskOnClickQuestion2 ()
 	{
-		if ((reponseQuestion3 == inputfieldQuestion3.text) || (reponseQuestion3a == inputfieldQuestion3.text)) {
+		if ((reponseQuestionZeus == inputfieldQuestionZeus.text) || (reponseQuestionZeus2 == inputfieldQuestionZeus.text)) {
 			SDS.GetComponent<SoundDesignScript> ().OnclickSoundTLRight ();
-			question2Image.sprite = vrai;
+			questionZeusImage.sprite = vrai;
 			SP.bouttonfinal.SetActive (true);
-			FR.OnEnable();
+			Canvas.ForceUpdateCanvases ();
 		} else {
 			SDS.GetComponent<SoundDesignScript> ().OnclickSoundTLWrong ();
-			question2Image.sprite = pasvrai;
-			FR.OnEnable();
+			questionZeusImage.sprite = pasvrai;
+			Canvas.ForceUpdateCanvases ();
 		}
 	}
+
+
 
 	void TaskonClickDemarrer ()
 	{
@@ -213,6 +227,6 @@ public class ButtonManager: MonoBehaviour {
 	public void ClearContent ()
 	{
 		inputfieldWrongText.text = "";
-		inputfieldQuestion1.text = "";
+		inputfieldQuestionParis.text = "";
 	}
 }

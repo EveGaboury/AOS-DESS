@@ -36,12 +36,12 @@ public class GameState : MonoBehaviour {
 			BM.wrongImage.sprite = BM.initial;
 		}
 
-		if (BM.clear == BM.inputfieldQuestion1.text) {
-			BM.question1Image.sprite = BM.initial;
+		if (BM.clear == BM.inputfieldQuestionParis.text) {
+			BM.questionParisImage.sprite = BM.initial;
 		}
 
-		if (BM.clear == BM.inputfieldQuestion3.text) {
-			BM.question3Image.sprite = BM.initial;
+		if (BM.clear == BM.inputfieldQuestionZeus.text) {
+			BM.questionZeusImage.sprite = BM.initial;
 		}
 	}
 
