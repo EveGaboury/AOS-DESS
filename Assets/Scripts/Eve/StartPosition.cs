@@ -58,6 +58,14 @@ public class StartPosition : MonoBehaviour {
 	public GameObject SoMessCassMessenger;
 	public GameObject SoMessYoMessenger;
 	public GameObject SoMessPoMessenger;
+
+	public GameObject CassMessPaMessenger;
+	public GameObject CassMessAdrienMessenger;
+	public GameObject CassMessHugoMessenger;
+	public GameObject CassMessA1Messenger;
+	public GameObject CassMessSophieMessenger;
+	public GameObject CassMessA2Messenger;
+
 	public GameObject messengerTemplate2;
 
 

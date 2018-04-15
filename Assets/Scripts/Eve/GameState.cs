@@ -106,6 +106,8 @@ public class GameState : MonoBehaviour {
 		SP.profilCass.SetActive (false);
 		SP.profilFred.SetActive (false);
 
+		SP.CassMessPaMessenger.SetActive (false);
+
 		SP.facebookHeader.SetActive (false);
 		SP.browserCanvas.SetActive (false);
 		SP.facebookCanvas.SetActive (false);
@@ -148,6 +150,8 @@ public class GameState : MonoBehaviour {
 		SP.profilSophie.SetActive (false);
 		SP.profilCass.SetActive (false);
 		SP.profilFred.SetActive (false);
+
+		SP.CassMessPaMessenger.SetActive (false);
 
 		BM.toggleNotifCass.isOn = false;
 		BM.toggleNotifSo.isOn = false;
@@ -295,6 +299,7 @@ public class GameState : MonoBehaviour {
 			SP.fixCass.SetActive (true);
 			SP.messengerTemplate2.SetActive (true);
 			SP.messengerTemplate.SetActive (true);
+			SP.CassMessPaMessenger.SetActive (true);
 
 			SP.dialogueMessenger.SetActive (false);
 			SP.SoMessMarieEveMessenger.SetActive (false);
@@ -379,9 +384,8 @@ public class GameState : MonoBehaviour {
 		SP.pageProfilTemplate.SetActive (true);
 		SP.facebookInfoScriptable.SetActive (true);
 		SP.pageNewFeedTemplate.SetActive (true);
-
-
 		SP.profilCass.SetActive (true);
+
 		SP.profilSophie.SetActive (false);
 		SP.profilMarieEve1.SetActive (false);
 		SP.profilMarieEve2.SetActive (false);
@@ -407,6 +411,7 @@ public class GameState : MonoBehaviour {
 		SP.mesAmisFix.SetActive (false);
 		SP.notifSo.SetActive (false);
 		SP.rechercheTemplate.SetActive (false);
+		SP.messengerTemplate2.SetActive (false);
 	}
 
 	public void BoutonAdrien ()
@@ -733,7 +738,8 @@ public class GameState : MonoBehaviour {
 		FR.OnEnable ();
 	}
 
-	public void MessengerSoPO (){
+	public void MessengerSoPO ()
+	{
 
 		suiteConvo.SetActive (false);
 		SP.fixCass.SetActive (false);
@@ -747,5 +753,71 @@ public class GameState : MonoBehaviour {
 		deactivateChildren ();
 		SRP.InvertStart ();
 		FR.OnEnable ();
+	}
+
+	public void MessengerCassPa()
+	{
+		SP.CassMessPaMessenger.SetActive (true);
+		SP.CassMessAdrienMessenger.SetActive (false);
+		SP.CassMessHugoMessenger.SetActive (false);
+		SP.CassMessA1Messenger.SetActive (false);
+		SP.CassMessSophieMessenger.SetActive (false);
+		SP.CassMessA2Messenger.SetActive (false);
+	
+	}
+
+	public void MessengerCassAdrien(){
+
+		SP.CassMessAdrienMessenger.SetActive (true);
+		SP.CassMessPaMessenger.SetActive (false);
+		SP.CassMessHugoMessenger.SetActive (false);
+		SP.CassMessA1Messenger.SetActive (false);
+		SP.CassMessSophieMessenger.SetActive (false);
+		SP.CassMessA2Messenger.SetActive (false);
+
+	}
+
+	public void MessengerCassHugo (){
+
+		SP.CassMessHugoMessenger.SetActive (true);
+		SP.CassMessAdrienMessenger.SetActive (false);
+		SP.CassMessPaMessenger.SetActive (false);
+		SP.CassMessA1Messenger.SetActive (false);
+		SP.CassMessSophieMessenger.SetActive (false);
+		SP.CassMessA2Messenger.SetActive (false);
+
+	}
+
+	public void MessengerCassA1 (){
+
+		SP.CassMessA1Messenger.SetActive (true);
+		SP.CassMessHugoMessenger.SetActive (false);
+		SP.CassMessAdrienMessenger.SetActive (false);
+		SP.CassMessPaMessenger.SetActive (false);
+		SP.CassMessSophieMessenger.SetActive (false);
+		SP.CassMessA2Messenger.SetActive (false);
+
+	}
+
+	public void MessengerCassSophie (){
+
+		SP.CassMessSophieMessenger.SetActive (true);
+		SP.CassMessA1Messenger.SetActive (false);
+		SP.CassMessHugoMessenger.SetActive (false);
+		SP.CassMessAdrienMessenger.SetActive (false);
+		SP.CassMessPaMessenger.SetActive (false);
+		SP.CassMessA2Messenger.SetActive (false);
+
+	}
+
+	public void MessengerCassA2 (){
+
+		SP.CassMessA2Messenger.SetActive (true);
+		SP.CassMessSophieMessenger.SetActive (false);
+		SP.CassMessA1Messenger.SetActive (false);
+		SP.CassMessHugoMessenger.SetActive (false);
+		SP.CassMessAdrienMessenger.SetActive (false);
+		SP.CassMessPaMessenger.SetActive (false);
+	
 	}
 }
