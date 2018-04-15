@@ -32,8 +32,8 @@ public class GameState : MonoBehaviour {
 		soOpenFacebook = true;
 	} 
 		//icon wrong password facebook
-		if (BM.clear == BM.inputfieldWrongText.text) {
-			BM.wrongImage.sprite = BM.initial;
+		if (BM.clear == BM.FBconfirmationInputField.text) {
+			BM.FBconfirmationImage.sprite = BM.initial;
 		}
 
 		if (BM.clear == BM.inputfieldQuestionParis.text) {

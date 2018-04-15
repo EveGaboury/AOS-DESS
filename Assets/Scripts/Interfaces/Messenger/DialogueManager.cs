@@ -63,7 +63,7 @@ public class DialogueManager : MonoBehaviour
 	}
 
 
-	void Update()
+	public void Update()
 	{
 		//Debug.Log ("From DialogueManager(), the value of sentences.count is: " + sentences.Count);
 

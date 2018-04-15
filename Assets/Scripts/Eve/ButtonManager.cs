@@ -13,6 +13,8 @@ public class ButtonManager: MonoBehaviour {
 	public SoundDesignScript SDS;
 	public AnimatorManager AM;
 	public ForceReUpdate FR;
+	public scrollRectPosition SRP;
+	public DialogueManager DM;
 
 
 	//public Button iconFb;
@@ -24,11 +26,13 @@ public class ButtonManager: MonoBehaviour {
 	//bouton Browser
 	public Button boutonRougeBrowser;
 
+	//===========================================================================================================
+
 	//inputfield et boutton pour facebook mot de passe
-	public Button wrongButton;
-	public Image wrongImage;
-	public TMP_InputField inputfieldWrongText;
-	private string reponsecorrecte = "cassandraroyer@courriel.fr", reponsecorrecte2 = "Cassandraroyer@courriel.fr" ; 
+	public Button FBconfirmationButton;
+	public Image FBconfirmationImage;
+	public TMP_InputField FBconfirmationInputField;
+	private string reponsecorrecteCass = "cassandraroyer@courriel.fr", reponsecorrecte2Cass = "Cassandraroyer@courriel.fr" ; 
 
 	public Sprite vrai;
 	public Sprite pasvrai;
@@ -51,6 +55,8 @@ public class ButtonManager: MonoBehaviour {
 	public Button questionZeusButton;
 	public Image questionZeusImage;
 
+	public VerticalLayoutGroup _vertLayoutGroup;
+	public ContentSizeFitter _ContentSizeFitter;
 
 
 	private string easter = "pablololol";
@@ -78,14 +84,17 @@ public class ButtonManager: MonoBehaviour {
 		boutonRougeBrowser.GetComponent <Button> ();
 		boutonRougeBrowser.onClick.AddListener (TaskonClickBoutonRouge);
 
-		wrongButton.GetComponent<Button> ();
-		wrongButton.onClick.AddListener (TaskOnClickForgotFacebook);
+		FBconfirmationButton.GetComponent<Button> ();
+		FBconfirmationButton.onClick.AddListener (TaskOnClickForgotFacebook);
 
 		questionParisButton.GetComponent <Button> ();
 		questionParisButton.onClick.AddListener (TaskOnClickQuestion1);
 
 		questionAdrienButton.GetComponent <Button> ();
-		questionAdrienButton.onClick.AddListener (TaskOnClickQuestion2);
+		questionAdrienButton.onClick.AddListener (TaskOnClickQuestionAdrien);
+
+		questionZeusButton.GetComponent <Button> ();
+		questionZeusButton.onClick.AddListener (TaskOnClickQuestion2);
 
 		accueilButton.GetComponent <Button> ();
 		accueilButton.onClick.AddListener (GS.accueil);
@@ -159,17 +168,17 @@ public class ButtonManager: MonoBehaviour {
 		
 	 void TaskOnClickForgotFacebook ()
 	{
-		if ((reponsecorrecte == inputfieldWrongText.text) || (reponsecorrecte2 == inputfieldWrongText.text)) {
+		if ((reponsecorrecteCass == FBconfirmationInputField.text) || (reponsecorrecte2Cass == FBconfirmationInputField.text)) {
 			SDS.GetComponent<SoundDesignScript> ().OnclickSoundTLRight ();
 			SP.questionOne.SetActive (true);
-			wrongImage.sprite = vrai;
+			FBconfirmationImage.sprite = vrai;
 			SP.fauxText.SetActive (false);
 			SP.vraiText.SetActive (true);
 
 		} else {
 			SP.fauxText.SetActive (true);
 			SP.vraiText.SetActive (false);
-			wrongImage.sprite = pasvrai;
+			FBconfirmationImage.sprite = pasvrai;
 			SDS.GetComponent<SoundDesignScript> ().OnclickSoundTLWrong ();
 		}
 	}
@@ -194,19 +203,33 @@ public class ButtonManager: MonoBehaviour {
 		}
 	}
 
-	void TaskOnClickBoutton ()
-	{
-		adrienQuestion.SetActive (true);
+	void TaskOnClickQuestionAdrien (){
+		
+		SP.question3.SetActive (true);
+		DM.boulesale = true;
+		DM.Update ();
+		Canvas.ForceUpdateCanvases();
+		_vertLayoutGroup.SetLayoutVertical();
+		_ContentSizeFitter.enabled = true;
+		_ContentSizeFitter.SetLayoutVertical();
+		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.passwordTemplate.transform );
+		_ContentSizeFitter.enabled = false;
 	}
 
 
-	void TaskOnClickQuestion2 ()
+	void TaskOnClickQuestion2()
 	{
 		if ((reponseQuestionZeus == inputfieldQuestionZeus.text) || (reponseQuestionZeus2 == inputfieldQuestionZeus.text)) {
 			SDS.GetComponent<SoundDesignScript> ().OnclickSoundTLRight ();
 			questionZeusImage.sprite = vrai;
 			SP.bouttonfinal.SetActive (true);
-			Canvas.ForceUpdateCanvases ();
+			Canvas.ForceUpdateCanvases();
+			_vertLayoutGroup.SetLayoutVertical();
+			_ContentSizeFitter.enabled = true;
+			_ContentSizeFitter.SetLayoutVertical();
+			LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.passwordTemplate.transform );
+			_ContentSizeFitter.enabled = false;
+
 		} else {
 			SDS.GetComponent<SoundDesignScript> ().OnclickSoundTLWrong ();
 			questionZeusImage.sprite = pasvrai;
@@ -226,7 +249,7 @@ public class ButtonManager: MonoBehaviour {
 		
 	public void ClearContent ()
 	{
-		inputfieldWrongText.text = "";
+		FBconfirmationInputField.text = "";
 		inputfieldQuestionParis.text = "";
 	}
 }
