@@ -6,12 +6,12 @@ using UnityEngine.EventSystems;
 
 public class StatutConnection : MonoBehaviour {
 
+	public StartPosition SP;
+	public GameState GS;
 
 	public Image statutConnection;
 	public Sprite boutonVert;
 	public Button marieEve;
-
-	public GameObject dialogBox;
 
 	public RectTransform viewPort;
 
@@ -33,12 +33,13 @@ public class StatutConnection : MonoBehaviour {
 
 	public void OnClick_Messenger () 
 	{
-		if (statutConnection.sprite.name == "bouton_vert") 
-		{
+		if (GS.soOpenFacebook) {
 			Debug.Log ("ok c'est chill");
-			dialogBox.SetActive (true);
+			SP.dialogueMessenger.SetActive (true);
 			viewPort.sizeDelta = changedState2;
 			viewPort.localPosition = changedState3;
+		} else {
+			SP.dialogueMessenger.SetActive (false);
 		}
 	}
 
@@ -56,6 +57,6 @@ public class StatutConnection : MonoBehaviour {
 	{
 		viewPort.sizeDelta = initialState2;
 		viewPort.localPosition = initialState3;
-		dialogBox.SetActive (false);
+		SP.dialogueMessenger.SetActive (false);
 	}
 }

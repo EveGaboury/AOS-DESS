@@ -7,8 +7,11 @@ using System;
 
 public class DialogueManager : MonoBehaviour
 {
+
+	public StartPosition SP;
+
 	//public TextMeshProUGUI nameText;
-	public GameObject dialog, conversationPartner, yourAnswers;
+	public GameObject conversationPartner, yourAnswers;
 	public Transform conversationHistory;
 
 	[HideInInspector]
@@ -49,7 +52,7 @@ public class DialogueManager : MonoBehaviour
 
 	void Awake()
 	{
-		answerButtonsParent = dialog.GetComponent<Transform>();  
+		answerButtonsParent = SP.dialogueMessenger.GetComponent<Transform>();  
 		FetchButtonsInOrderToMakeAList ();
 	}
 
@@ -66,7 +69,6 @@ public class DialogueManager : MonoBehaviour
 	public void Update()
 	{
 		//Debug.Log ("From DialogueManager(), the value of sentences.count is: " + sentences.Count);
-
 
 		if (boulesale)
 		{

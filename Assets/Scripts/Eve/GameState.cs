@@ -13,6 +13,8 @@ public class GameState : MonoBehaviour {
 	public StatutConnection SC;
 	public ForceReUpdate FR;
 	public scrollRectPosition SRP;
+	public DialogueTrigger DT;
+	public DialogueManager DM;
 
 
 	//game state
@@ -147,7 +149,6 @@ public class GameState : MonoBehaviour {
 		SP.profilCass.SetActive (false);
 		SP.profilFred.SetActive (false);
 
-
 		BM.toggleNotifCass.isOn = false;
 		BM.toggleNotifSo.isOn = false;
 	}
@@ -247,13 +248,11 @@ public class GameState : MonoBehaviour {
 		
 	public void Messenger () {
 
-		SP.messengerTemplate.SetActive (true);
-		SP.messengerFix.SetActive (true);
-
 		SP.rechercheTemplate.SetActive (false);
 		SP.pageProfilTemplate.SetActive (false);
 		SP.newsFeedTemplate.SetActive (false);
 		SP.mesAmisFix.SetActive (false);
+		SP.mesAmisTemplate.SetActive (false);
 
 		SP.pageNewFeedTemplate.SetActive (false);
 		SP.profilYann.SetActive (false);
@@ -266,24 +265,50 @@ public class GameState : MonoBehaviour {
 		SP.profilSophie.SetActive (false);
 		SP.profilCass.SetActive (false);
 		SP.profilFred.SetActive (false);
+
 	
-		if (soOpenFacebook) {
+		if (soOpenFacebook) 
+		{
 			SP.fixSo.SetActive (true);
 			SP.SoMessMarieEveMessenger.SetActive (true);
+			SP.SoMessMarieEveMessenger.SetActive (true);
 			SP.messengerTemplate.SetActive (true);
-		} else {
-			SP.fixCass.SetActive (true);
-		}
+			SP.dialogueMessenger.SetActive (true);
+			SP.messengerTemplate.SetActive (true);
+			SP.SoMessMarieEveMessenger.SetActive (true);
+			SP.messengerTemplate2.SetActive (true);
+			SP.messengerFix.SetActive (true);
 
 			SP.fixCass.SetActive (false);
-			deactivateChildren ();
-			SP.messengerTemplate.SetActive (true);
+			DT.TriggerDialogue ();
 			SC.OnClick_Messenger ();
-			SP.SoMessMarieEveMessenger.SetActive (true);
-			SP.messengerTemplate2.SetActive (false);
+			deactivateChildren ();
+
 			suiteConvo.SetActive (true);
 			ChildrenSuiteConvo ();
 			FR.OnEnable ();
+			SP.SoMessMarieEveMessenger.SetActive (true);
+
+		} else {
+
+			SP.messengerFix.SetActive (true);
+			SP.fixCass.SetActive (true);
+			SP.messengerTemplate2.SetActive (true);
+			SP.messengerTemplate.SetActive (true);
+
+			SP.dialogueMessenger.SetActive (false);
+			SP.SoMessMarieEveMessenger.SetActive (false);
+		
+			SP.fixSo.SetActive (false);
+
+			SC.OnClick_Messenger ();
+
+			deactivateChildren ();
+
+			FR.OnEnable ();
+		}
+			DM.boulesale = true;
+			DM.Update ();
 	}
 
 	public void shortCutFacebook () {

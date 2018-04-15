@@ -97,6 +97,8 @@ public class StartPosition : MonoBehaviour {
 	public GameObject messengerFix;	
 	public GameObject fixCass;
 	public GameObject fixSo;
+	public GameObject dialogueMessenger;
+
 
 	//facebook Amis
 	public GameObject mesAmisTemplate;
@@ -191,7 +193,7 @@ public class StartPosition : MonoBehaviour {
 
 		facebookConnInPage.SetActive (false);
 		shortCutSophieFB.SetActive (false);
-		shortCutCassFB.SetActive (false);
+		//shortCutCassFB.SetActive (false);
 
 		questionOne.SetActive (false);
 		question2.SetActive (false);

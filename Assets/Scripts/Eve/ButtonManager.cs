@@ -111,10 +111,7 @@ public class ButtonManager: MonoBehaviour {
 
 		shortCutFacebook.GetComponent <Button> ();
 		shortCutFacebook.onClick.AddListener (GS.shortCutFacebook);
-
 	}
-	
-
 
 	void TaskOnClickTrash () 
 	{
@@ -163,7 +160,6 @@ public class ButtonManager: MonoBehaviour {
 		SP.profilSophie.SetActive (false);
 		SP.profilCass.SetActive (false);
 		SP.profilFred.SetActive (false);
-
 	}
 		
 	 void TaskOnClickForgotFacebook ()
@@ -236,16 +232,13 @@ public class ButtonManager: MonoBehaviour {
 			Canvas.ForceUpdateCanvases ();
 		}
 	}
-
-
-
+		
 	void TaskonClickDemarrer ()
 	{
 		SP.imageIntro.SetActive (false);
 		SDS.GetComponent<SoundDesignScript> ().OnClickSoundNotificationCourriel ();
 		AM.popUpAnim ();
 	}
-
 		
 	public void ClearContent ()
 	{
