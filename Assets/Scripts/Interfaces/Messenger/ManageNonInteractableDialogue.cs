@@ -122,11 +122,11 @@ public class ManageNonInteractableDialogue : MonoBehaviour
 		}
 	}
 
-	void FindAllGameObjectsWithTags()
-	{
-		for (int i = 0; i < UnityEditorInternal.InternalEditorUtility.tags.Length; i++) 
-		{
-			Debug.Log(UnityEditorInternal.InternalEditorUtility.tags[i]);
-		}
-	}
+//	void FindAllGameObjectsWithTags()
+//	{
+//		for (int i = 0; i < UnityEditorInternal.InternalEditorUtility.tags.Length; i++) 
+//		{
+//			Debug.Log(UnityEditorInternal.InternalEditorUtility.tags[i]);
+//		}
+//	}
 }
