@@ -11,9 +11,15 @@ public class Test : MonoBehaviour
 {
 	void Start()
 	{
-		var searchAllObjectsInTheScene = FindObjectsOfType<ChangeMusic>();
+		var searchAllObjectsInTheScene = FindObjectsOfType<CursorScript>();
 
-		Debug.Log ("From Test.cs && " + searchAllObjectsInTheScene.Length + "\n" + searchAllObjectsInTheScene);
+		Debug.Log ("From Test.cs && searchAllObjectsInTheScene: " + searchAllObjectsInTheScene.Length);
+
+		for (int i = 0; i < searchAllObjectsInTheScene.Length; i++)
+		{
+			Debug.Log ("The " + searchAllObjectsInTheScene[i].name + " gameObject is n°" + i % searchAllObjectsInTheScene.Length + "out of " + searchAllObjectsInTheScene.Length);
+		}
+
 	}
 }
 
