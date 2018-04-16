@@ -107,6 +107,16 @@ public class GameState : MonoBehaviour {
 		SP.profilFred.SetActive (false);
 
 		SP.CassMessPaMessenger.SetActive (false);
+		SP.CassMessA1Messenger.SetActive (false);
+		SP.CassMessA2Messenger.SetActive (false);
+		SP.CassMessSophieMessenger.SetActive (false);
+		SP.CassMessHugoMessenger.SetActive (false);
+		SP.CassMessAdrienMessenger.SetActive (false);
+
+		SP.SoMessCassMessenger.SetActive (false);
+		SP.SoMessMarieEveMessenger.SetActive (false);
+		SP.SoMessPoMessenger.SetActive (false);
+		SP.SoMessYoMessenger.SetActive (false);
 
 		SP.facebookHeader.SetActive (false);
 		SP.browserCanvas.SetActive (false);
@@ -117,7 +127,7 @@ public class GameState : MonoBehaviour {
 
 	//bouton deconnection du facebook
 	public void deconnectionFB () {
-		
+			
 		SP.facebookConnexion.SetActive (true);
 		SP.facebookConnInPage.SetActive (true);
 
@@ -275,13 +285,22 @@ public class GameState : MonoBehaviour {
 		{
 			SP.fixSo.SetActive (true);
 			SP.SoMessMarieEveMessenger.SetActive (true);
-			SP.SoMessMarieEveMessenger.SetActive (true);
 			SP.messengerTemplate.SetActive (true);
 			SP.dialogueMessenger.SetActive (true);
 			SP.messengerTemplate.SetActive (true);
-			SP.SoMessMarieEveMessenger.SetActive (true);
 			SP.messengerTemplate2.SetActive (true);
 			SP.messengerFix.SetActive (true);
+
+			SP.SoMessCassMessenger.SetActive (false);
+			SP.SoMessPoMessenger.SetActive (false);
+			SP.SoMessYoMessenger.SetActive (false);
+
+			SP.CassMessPaMessenger.SetActive (false);
+			SP.CassMessAdrienMessenger.SetActive (false);
+			SP.CassMessHugoMessenger.SetActive (false);
+			SP.CassMessA1Messenger.SetActive (false);
+			SP.CassMessSophieMessenger.SetActive (false);
+			SP.CassMessA2Messenger.SetActive (false);
 
 			SP.fixCass.SetActive (false);
 			DT.TriggerDialogue ();
@@ -303,8 +322,12 @@ public class GameState : MonoBehaviour {
 
 			SP.dialogueMessenger.SetActive (false);
 			SP.SoMessMarieEveMessenger.SetActive (false);
-		
 			SP.fixSo.SetActive (false);
+
+			SP.SoMessCassMessenger.SetActive (false);
+			SP.SoMessMarieEveMessenger.SetActive (false);
+			SP.SoMessPoMessenger.SetActive (false);
+			SP.SoMessYoMessenger.SetActive (false);
 
 			SC.OnClick_Messenger ();
 
