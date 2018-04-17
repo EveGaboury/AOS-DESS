@@ -15,6 +15,7 @@ public class SearchEngine: MonoBehaviour
 
 	public StartPosition SP;
 	public SoundDesignScript SDS;
+	public GameState GS;
 
 	public Sprite finalFacebook;
 
@@ -58,6 +59,7 @@ public class SearchEngine: MonoBehaviour
 
 		if ((searchBar.text == "www.tonlivre.com") || (searchBar.text == "tonlivre.com")) 
 		{
+			GS.deconnectionFB ();
 			SP.facebookimage.SetActive (true);
 			SP.onglet_text.SetActive (true);	
 			SP.facebookCanvas.SetActive (true);
