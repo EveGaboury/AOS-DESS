@@ -9,17 +9,71 @@ using System.Collections.Generic;
 
 public class Test : MonoBehaviour
 {
+	public List<GameObject> testList = new List<GameObject>();
+
 	void Start()
 	{
-		var searchAllObjectsInTheScene = FindObjectsOfType<CursorScript>();
-
-		Debug.Log ("From Test.cs && searchAllObjectsInTheScene: " + searchAllObjectsInTheScene.Length);
-
-		for (int i = 0; i < searchAllObjectsInTheScene.Length; i++)
+		foreach (TMP_InputField obj in UnityEngine.Object.FindObjectsOfType(typeof(TMP_InputField)))
 		{
-			Debug.Log ("The " + searchAllObjectsInTheScene[i].name + " gameObject is n°" + i % searchAllObjectsInTheScene.Length + "out of " + searchAllObjectsInTheScene.Length);
+			testList.Add (obj.gameObject);
+			Debug.Log (obj.name);
 		}
 	}
+
+	void Update()
+	{
+		for (int i = 0; i < testList.Count; i++) 
+		{
+			if (EventSystem.current.currentSelectedGameObject == testList[i] && Input.GetKeyDown(KeyCode.Tab)) 
+			{
+				EventSystem.current.SetSelectedGameObject(testList [(i + 1) % testList.Count]);
+				Debug.Log ("From Test.cs, the current EventSystem.current.currentSelectedGameObject: " + EventSystem.current.currentSelectedGameObject);
+			}
+		}
+
+//		if (EventSystem.current.currentSelectedGameObject == testList[0]) 
+//		{
+//			Debug.Log ("From Test.cs, the current EventSystem.current.currentSelectedGameObject: " + EventSystem.current.currentSelectedGameObject);
+//		}
+//		else if (EventSystem.current.currentSelectedGameObject == testList[1]) 
+//		{
+//			Debug.Log ("From Test.cs, the current EventSystem.current.currentSelectedGameObject: " + EventSystem.current.currentSelectedGameObject);
+//		}
+	}
+//		Transform[] allChildren = GetComponentsInChildren<Transform> (true);
+//
+//		foreach (Transform child in allChildren) 
+//		{
+//			if (child.gameObject.GetComponent<Button> ()) 
+//			{
+//				testList.Add (child.gameObject);
+//				//child.gameObject.AddComponent<CursorScript> ();
+//			}
+//		}
+
+//public List<GameObject> testList = new List<GameObject>();
+//		UnityEngine.Object[] searchAllObjectsInTheScene = GameObject.FindObjectsOfType (typeof(TMP_InputField));
+//
+//		//TMP_InputField[] searchAllObjectsInTheScene = GetComponentsInChildren<TMP_InputField> (true);
+//
+//		for (int i = 0; i < searchAllObjectsInTheScene.Length; i++)
+//		{
+//			testList.Add (searchAllObjectsInTheScene[i].gameObject); 
+//
+//			Debug.Log ("The " + searchAllObjectsInTheScene[i].name + " gameObject is n°" + i % searchAllObjectsInTheScene.Length + " out of " + searchAllObjectsInTheScene.Length);
+//		}
+
+//	void Update()
+//	{
+//		if (EventSystem.current.currentSelectedGameObject== searchAllObjectsInTheScene[0]) 
+//		{
+//			Debug.Log ();
+//		}
+//		else if (EventSystem.current.currentSelectedGameObject== searchAllObjectsInTheScene[1]) 
+//		{
+//			Debug.Log ();
+//		}
+//	}
 
 	//BOUT DE CODE POUR ANIMER LES LETTRES DANS LES BULLES DE TEXTE DU MESSENGER
 
