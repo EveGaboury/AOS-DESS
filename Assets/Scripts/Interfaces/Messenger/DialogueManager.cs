@@ -49,6 +49,7 @@ public class DialogueManager : MonoBehaviour
 
 	float timer = 0.1f, timer2 = 0.1f, timer3 = 0.1f;
 
+	private GameObject dialogueInstance;
 
 	void Awake()
 	{
@@ -102,21 +103,26 @@ public class DialogueManager : MonoBehaviour
 		DisplayNextSentence ();
 	}
 
-
 	public void DisplayNextSentence () 
 	{
 		Canvas.ForceUpdateCanvases ();
 
-		if (sentences.Count == 0) {
+		if (sentences.Count == 0) 
+		{
 			EndDialogue ();
-		} else if (sentences.Count > 0) {
+			Canvas.ForceUpdateCanvases ();
+		}
+		else if (sentences.Count > 0)
+		{
 			nextSentence = sentences.Dequeue (); 
 
 			bttnDtct.WillItWorkIDontKnow ();
 
 			prefab = conversationPartner;
 			InstantiateStuff (nextSentence);
+
 			boulesale = true;
+
 			Canvas.ForceUpdateCanvases ();
 		}
 	}
@@ -142,8 +148,16 @@ public class DialogueManager : MonoBehaviour
 	{
 		boulesale = true;
 		Canvas.ForceUpdateCanvases ();
-		
-		GameObject dialogueInstance = Instantiate (prefab, conversationHistory.position, Quaternion.identity) as GameObject;
+
+		if (prefab == conversationPartner ) 
+		{
+			Debug.Log ("Le prefab étant instantié est celui de MARIE-EVE");
+		}
+		else if (prefab == yourAnswers) 
+		{
+			Debug.Log ("Le prefab étant instantié est celui de SOPHIE");
+		}
+		dialogueInstance = Instantiate (prefab, conversationHistory.position, Quaternion.identity) as GameObject;
 
 		dialogueInstance.GetComponent<Transform> ().SetParent (conversationHistory, false);
 
@@ -152,6 +166,8 @@ public class DialogueManager : MonoBehaviour
 		dialogueInstance.GetComponent<Transform> ().localScale = new Vector2 (prefab.GetComponent<Transform>().localScale.x, prefab.GetComponent<Transform>().localScale.y);
 
 		dialogueInstance.GetComponentInChildren<TextMeshProUGUI> ().text = dialogue;
+
+
 	}
 
  	void FetchButtonsInOrderToMakeAList() 

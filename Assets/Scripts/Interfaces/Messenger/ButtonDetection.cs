@@ -7,7 +7,7 @@ using System.Collections;
 public class ButtonDetection : MonoBehaviour/*, IPointerClickHandler*/
 {
 	[TextArea(3,10)]
-	public string[] reponsesSophieQ1, reponsesSophieQ2, reponseMarieEveASophieQ1;
+	public string[] reponsesSophieQ1, reponsesSophieQ2, reponseMarieEveASophieQ1,reponseMarieEveASophieQ2;
 
 	[HideInInspector]
 	public bool answerTheQuestion = false;
@@ -102,42 +102,78 @@ public class ButtonDetection : MonoBehaviour/*, IPointerClickHandler*/
 
 	public void WillItWorkIDontKnow()    
 	{
-		if ((EventSystem.current.currentSelectedGameObject == this.gameObject.GetComponent<DialogueManager>().listeDeBouttons[0]) || (currentKey.ToString() == oneTwoThreeViveLAlgerie[0]))
+		Debug.Log (EventSystem.current.currentSelectedGameObject);
+		if (messengerManager.GetComponent<DialogueManager> ().sentences.Count == 0) 
 		{
-			currentIndex = 0;
+			if ((EventSystem.current.currentSelectedGameObject == this.gameObject.GetComponent<DialogueManager>().listeDeBouttons[0]) || (currentKey.ToString() == oneTwoThreeViveLAlgerie[0]))
+			{
+				currentIndex = 0;
 
-			messengerManager.GetComponent<DialogueManager> ().prefab = messengerManager.GetComponent<DialogueManager> ().yourAnswers;
+				messengerManager.GetComponent<DialogueManager> ().prefab = messengerManager.GetComponent<DialogueManager> ().yourAnswers;
 
-			messengerManager.GetComponent<DialogueManager> ().InstantiateStuff (reponsesSophieQ1 [currentIndex]);
+				messengerManager.GetComponent<DialogueManager> ().InstantiateStuff (reponsesSophieQ2 [currentIndex]);
 
-			ThisWasATriumphImMakingANoteHereHugeSuccess ();
+				messengerManager.GetComponent<DialogueManager> ().prefab = messengerManager.GetComponent<DialogueManager> ().conversationPartner;
+				messengerManager.GetComponent<DialogueManager> ().InstantiateStuff (reponseMarieEveASophieQ2 [currentIndex]);
+			}
+			else if ((EventSystem.current.currentSelectedGameObject == this.gameObject.GetComponent<DialogueManager>().listeDeBouttons[1]) || (currentKey.ToString() == oneTwoThreeViveLAlgerie[1]))
+			{
+				currentIndex = 1;
+
+				messengerManager.GetComponent<DialogueManager> ().prefab = messengerManager.GetComponent<DialogueManager> ().yourAnswers;
+
+				messengerManager.GetComponent<DialogueManager> ().InstantiateStuff (reponsesSophieQ2 [currentIndex]);
+
+				messengerManager.GetComponent<DialogueManager> ().prefab = messengerManager.GetComponent<DialogueManager> ().conversationPartner;
+				messengerManager.GetComponent<DialogueManager> ().InstantiateStuff (reponseMarieEveASophieQ2 [currentIndex]);
+			}
+			else if ((EventSystem.current.currentSelectedGameObject == this.gameObject.GetComponent<DialogueManager>().listeDeBouttons[2]) ||( currentKey.ToString() == oneTwoThreeViveLAlgerie[2]))
+			{
+				currentIndex = 2;
+
+				messengerManager.GetComponent<DialogueManager> ().prefab = messengerManager.GetComponent<DialogueManager> ().yourAnswers;
+
+				messengerManager.GetComponent<DialogueManager> ().InstantiateStuff (reponsesSophieQ2 [currentIndex]);
+
+				messengerManager.GetComponent<DialogueManager> ().prefab = messengerManager.GetComponent<DialogueManager> ().conversationPartner;
+				messengerManager.GetComponent<DialogueManager> ().InstantiateStuff (reponseMarieEveASophieQ2 [currentIndex]);
+			}
 		}
-		else if ((EventSystem.current.currentSelectedGameObject == this.gameObject.GetComponent<DialogueManager>().listeDeBouttons[1]) || (currentKey.ToString() == oneTwoThreeViveLAlgerie[1]))
+		else if (messengerManager.GetComponent<DialogueManager> ().sentences.Count == 1) 
 		{
-			currentIndex = 1;
+			if ((EventSystem.current.currentSelectedGameObject == this.gameObject.GetComponent<DialogueManager>().listeDeBouttons[0]) || (currentKey.ToString() == oneTwoThreeViveLAlgerie[0]))
+			{
+				currentIndex = 0;
 
-			messengerManager.GetComponent<DialogueManager> ().prefab = messengerManager.GetComponent<DialogueManager> ().yourAnswers;
+				messengerManager.GetComponent<DialogueManager> ().prefab = messengerManager.GetComponent<DialogueManager> ().yourAnswers;
 
-			messengerManager.GetComponent<DialogueManager> ().InstantiateStuff (reponsesSophieQ1 [currentIndex]);
+				messengerManager.GetComponent<DialogueManager> ().InstantiateStuff (reponsesSophieQ1 [currentIndex]);
 
-			ThisWasATriumphImMakingANoteHereHugeSuccess ();
+				messengerManager.GetComponent<DialogueManager> ().prefab = messengerManager.GetComponent<DialogueManager> ().conversationPartner;
+				messengerManager.GetComponent<DialogueManager> ().InstantiateStuff (reponseMarieEveASophieQ1 [currentIndex]);
+			}
+			else if ((EventSystem.current.currentSelectedGameObject == this.gameObject.GetComponent<DialogueManager>().listeDeBouttons[1]) || (currentKey.ToString() == oneTwoThreeViveLAlgerie[1]))
+			{
+				currentIndex = 1;
+
+				messengerManager.GetComponent<DialogueManager> ().prefab = messengerManager.GetComponent<DialogueManager> ().yourAnswers;
+
+				messengerManager.GetComponent<DialogueManager> ().InstantiateStuff (reponsesSophieQ1 [currentIndex]);
+
+				messengerManager.GetComponent<DialogueManager> ().prefab = messengerManager.GetComponent<DialogueManager> ().conversationPartner;
+				messengerManager.GetComponent<DialogueManager> ().InstantiateStuff (reponseMarieEveASophieQ1 [currentIndex]);
+			}
+			else if ((EventSystem.current.currentSelectedGameObject == this.gameObject.GetComponent<DialogueManager>().listeDeBouttons[2]) ||( currentKey.ToString() == oneTwoThreeViveLAlgerie[2]))
+			{
+				currentIndex = 2;
+
+				messengerManager.GetComponent<DialogueManager> ().prefab = messengerManager.GetComponent<DialogueManager> ().yourAnswers;
+
+				messengerManager.GetComponent<DialogueManager> ().InstantiateStuff (reponsesSophieQ1 [currentIndex]);
+
+				messengerManager.GetComponent<DialogueManager> ().prefab = messengerManager.GetComponent<DialogueManager> ().conversationPartner;
+				messengerManager.GetComponent<DialogueManager> ().InstantiateStuff (reponseMarieEveASophieQ1 [currentIndex]);
+			}
 		}
-		else if ((EventSystem.current.currentSelectedGameObject == this.gameObject.GetComponent<DialogueManager>().listeDeBouttons[2]) ||( currentKey.ToString() == oneTwoThreeViveLAlgerie[2]))
-		{
-			currentIndex = 2;
-
-			messengerManager.GetComponent<DialogueManager> ().prefab = messengerManager.GetComponent<DialogueManager> ().yourAnswers;
-;
-			messengerManager.GetComponent<DialogueManager> ().InstantiateStuff (reponsesSophieQ1 [currentIndex]);
-
-			ThisWasATriumphImMakingANoteHereHugeSuccess ();
-		}
-	}
-
-	void ThisWasATriumphImMakingANoteHereHugeSuccess()
-	{
-		messengerManager.GetComponent<DialogueManager> ().prefab = messengerManager.GetComponent<DialogueManager> ().conversationPartner;
-
-		messengerManager.GetComponent<DialogueManager> ().InstantiateStuff (reponseMarieEveASophieQ1 [currentIndex]);
 	}
 }
