@@ -73,6 +73,14 @@ public class ButtonManager: MonoBehaviour {
 	public Toggle toggleNotifCass;
 	public Toggle toggleNotifSo;
 
+	//Introduction_Diacticiel
+
+	public Button firstData;
+	public Image panel;
+
+	//public GameObject leDroit;
+
+
 
 
 	void Start () 
@@ -111,6 +119,12 @@ public class ButtonManager: MonoBehaviour {
 
 		shortCutFacebook.GetComponent <Button> ();
 		shortCutFacebook.onClick.AddListener (GS.shortCutFacebook);
+
+
+
+		firstData.GetComponent <Button> ();
+		firstData.onClick.AddListener (TaskOnFirstData);
+
 	}
 
 	void TaskOnClickTrash () 
@@ -244,5 +258,15 @@ public class ButtonManager: MonoBehaviour {
 	{
 		FBconfirmationInputField.text = "";
 		inputfieldQuestionParis.text = "";
+	}
+
+
+	void TaskOnFirstData() 
+	{
+		panel.gameObject.SetActive (false);
+		//leDroit.gameObject.SetActive (false);
+		//lancer l'animation de la croix
+		//Lancer changement de la musique pour début du jeu
+		
 	}
 }
