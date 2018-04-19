@@ -11,7 +11,7 @@ public class ChangeMusic : MonoBehaviour
 	//Public
 	public AudioClip[] clipList, cueEmotion;
 
-	public GameObject displayTitle;
+	public GameObject displayTitle, iTunes;
 
 	//Private
 	List<GameObject> listeNomsChansons = new List<GameObject> ();
@@ -20,7 +20,7 @@ public class ChangeMusic : MonoBehaviour
 
 	bool isAudioPlaying;
 
-	GameObject canvasEve, iTunes;
+	GameObject canvasEve;
 
 	Color initialColor, isPlayingColor;
 
@@ -30,7 +30,7 @@ public class ChangeMusic : MonoBehaviour
 	{
 		ASMS_Music = this.gameObject.GetComponent<AudioSourceManagerScript> ();
 
-		iTunes = GameObject.Find ("iTunesCanvas");
+		//iTunes = GameObject.Find ("iTunesCanvas");
 
 		RetrieveAllChildrenGameObjectsOfiTunes ();
 	}

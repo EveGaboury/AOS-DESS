@@ -233,7 +233,7 @@ public class StartPosition : MonoBehaviour {
 		folderTrashSophie.SetActive (false);
 		fenetreFolderSo.SetActive (false);
 		memoWord.SetActive (false);
-		itunes.SetActive (false);
+		itunes.SetActive (false); 
 
 		gmailCanvas.SetActive (false);
 		listContentMess.SetActive (true);
