@@ -364,6 +364,7 @@ public class GameState : MonoBehaviour {
 		SP.facebookConnInPage.SetActive (false);
 		SP.mesAmisFix.SetActive (false);
 		SP.messengerFix.SetActive (false);
+		SP.messengerTemplate2.SetActive (false);
 
 	}
 		
@@ -727,6 +728,13 @@ public class GameState : MonoBehaviour {
 		SC.OnClick_Messenger ();
 		ChildrenSuiteConvo ();
 		FR.OnEnable ();
+		BM._vertLayoutGroup.SetLayoutVertical();
+		BM._ContentSizeFitter.enabled = true;
+		BM._ContentSizeFitter.SetLayoutVertical();
+		BM._ContentSizeFitter.enabled = false;
+		Canvas.ForceUpdateCanvases ();
+		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.passwordTemplate.transform );
+
 	}
 
 	public void MessengerSoCass (){
@@ -743,6 +751,13 @@ public class GameState : MonoBehaviour {
 		deactivateChildren ();
 		SRP.InvertStart ();
 		FR.OnEnable ();
+		BM._vertLayoutGroup.SetLayoutVertical();
+		BM._ContentSizeFitter.enabled = true;
+		BM._ContentSizeFitter.SetLayoutVertical();
+		BM._ContentSizeFitter.enabled = false;
+		Canvas.ForceUpdateCanvases ();
+		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.passwordTemplate.transform );
+
 	}
 
 	public void MessengerSoYann (){
@@ -759,6 +774,13 @@ public class GameState : MonoBehaviour {
 		deactivateChildren ();
 		SRP.InvertStart ();
 		FR.OnEnable ();
+		BM._vertLayoutGroup.SetLayoutVertical();
+		BM._ContentSizeFitter.enabled = true;
+		BM._ContentSizeFitter.SetLayoutVertical();
+		BM._ContentSizeFitter.enabled = false;
+		Canvas.ForceUpdateCanvases ();
+		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.passwordTemplate.transform );
+
 	}
 
 	public void MessengerSoPO ()
@@ -776,6 +798,12 @@ public class GameState : MonoBehaviour {
 		deactivateChildren ();
 		SRP.InvertStart ();
 		FR.OnEnable ();
+		BM._vertLayoutGroup.SetLayoutVertical();
+		BM._ContentSizeFitter.enabled = true;
+		BM._ContentSizeFitter.SetLayoutVertical();
+		BM._ContentSizeFitter.enabled = false;
+		Canvas.ForceUpdateCanvases ();
+		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.passwordTemplate.transform );
 	}
 
 	public void MessengerCassPa()
@@ -786,6 +814,17 @@ public class GameState : MonoBehaviour {
 		SP.CassMessA1Messenger.SetActive (false);
 		SP.CassMessSophieMessenger.SetActive (false);
 		SP.CassMessA2Messenger.SetActive (false);
+		SP.CassMessPaMessenger.transform.SetAsFirstSibling ();
+		SC.InitialState ();
+		deactivateChildren ();
+		SRP.InvertStart ();
+		FR.OnEnable ();
+		BM._vertLayoutGroup.SetLayoutVertical();
+		BM._ContentSizeFitter.enabled = true;
+		BM._ContentSizeFitter.SetLayoutVertical();
+		BM._ContentSizeFitter.enabled = false;
+		Canvas.ForceUpdateCanvases ();
+		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.passwordTemplate.transform );
 	
 	}
 
@@ -797,6 +836,17 @@ public class GameState : MonoBehaviour {
 		SP.CassMessA1Messenger.SetActive (false);
 		SP.CassMessSophieMessenger.SetActive (false);
 		SP.CassMessA2Messenger.SetActive (false);
+		SP.CassMessAdrienMessenger.transform.SetAsFirstSibling ();
+		SC.InitialState ();
+		deactivateChildren ();
+		SRP.InvertStart ();
+		FR.OnEnable ();
+		BM._vertLayoutGroup.SetLayoutVertical();
+		BM._ContentSizeFitter.enabled = true;
+		BM._ContentSizeFitter.SetLayoutVertical();
+		BM._ContentSizeFitter.enabled = false;
+		Canvas.ForceUpdateCanvases ();
+		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.passwordTemplate.transform );
 
 	}
 
@@ -808,6 +858,17 @@ public class GameState : MonoBehaviour {
 		SP.CassMessA1Messenger.SetActive (false);
 		SP.CassMessSophieMessenger.SetActive (false);
 		SP.CassMessA2Messenger.SetActive (false);
+		SP.CassMessHugoMessenger.transform.SetAsFirstSibling ();
+		SC.InitialState ();
+		deactivateChildren ();
+		SRP.InvertStart ();
+		FR.OnEnable ();
+		BM._vertLayoutGroup.SetLayoutVertical();
+		BM._ContentSizeFitter.enabled = true;
+		BM._ContentSizeFitter.SetLayoutVertical();
+		BM._ContentSizeFitter.enabled = false;
+		Canvas.ForceUpdateCanvases ();
+		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.passwordTemplate.transform );
 
 	}
 
@@ -819,6 +880,17 @@ public class GameState : MonoBehaviour {
 		SP.CassMessPaMessenger.SetActive (false);
 		SP.CassMessSophieMessenger.SetActive (false);
 		SP.CassMessA2Messenger.SetActive (false);
+		SP.CassMessA1Messenger.transform.SetAsFirstSibling ();
+		SC.InitialState ();
+		deactivateChildren ();
+		SRP.InvertStart ();
+		FR.OnEnable ();
+		BM._vertLayoutGroup.SetLayoutVertical();
+		BM._ContentSizeFitter.enabled = true;
+		BM._ContentSizeFitter.SetLayoutVertical();
+		BM._ContentSizeFitter.enabled = false;
+		Canvas.ForceUpdateCanvases ();
+		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.passwordTemplate.transform );
 
 	}
 
@@ -830,6 +902,17 @@ public class GameState : MonoBehaviour {
 		SP.CassMessAdrienMessenger.SetActive (false);
 		SP.CassMessPaMessenger.SetActive (false);
 		SP.CassMessA2Messenger.SetActive (false);
+		SP.CassMessSophieMessenger.transform.SetAsFirstSibling ();
+		SC.InitialState ();
+		deactivateChildren ();
+		SRP.InvertStart ();
+		FR.OnEnable ();
+		BM._vertLayoutGroup.SetLayoutVertical();
+		BM._ContentSizeFitter.enabled = true;
+		BM._ContentSizeFitter.SetLayoutVertical();
+		BM._ContentSizeFitter.enabled = false;
+		Canvas.ForceUpdateCanvases ();
+		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.passwordTemplate.transform );
 
 	}
 
@@ -841,6 +924,18 @@ public class GameState : MonoBehaviour {
 		SP.CassMessHugoMessenger.SetActive (false);
 		SP.CassMessAdrienMessenger.SetActive (false);
 		SP.CassMessPaMessenger.SetActive (false);
+		SP.CassMessA2Messenger.transform.SetAsFirstSibling ();
+		SC.InitialState ();
+		deactivateChildren ();
+		SRP.InvertStart ();
+		FR.OnEnable ();
+		BM._vertLayoutGroup.SetLayoutVertical();
+		BM._ContentSizeFitter.enabled = true;
+		BM._ContentSizeFitter.SetLayoutVertical();
+		BM._ContentSizeFitter.enabled = false;
+		Canvas.ForceUpdateCanvases ();
+		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.passwordTemplate.transform );
+
 	
 	}
 }
