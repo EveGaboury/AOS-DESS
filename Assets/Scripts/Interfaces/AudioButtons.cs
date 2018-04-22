@@ -44,12 +44,12 @@ public class AudioButtons : MonoBehaviour
 				child.gameObject.AddComponent<CursorScript> ();
 			}
 		}
-			
+
 		Transform[] sweetSummerChild = data.GetComponentsInChildren<Transform> (true);
 
-		foreach (Transform children in sweetSummerChild) 
+		foreach (Transform children in sweetSummerChild)
 		{
-			if (children.gameObject.GetComponent<DataPrefab> ()) 
+			if (children.gameObject.GetComponent<DataPrefab> ())
 			{
 				children.gameObject.AddComponent<CursorScript> ();
 			}
