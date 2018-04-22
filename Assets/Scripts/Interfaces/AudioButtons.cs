@@ -38,7 +38,7 @@ public class AudioButtons : MonoBehaviour
 			if (child.gameObject.GetComponent<Button> ()) 
 			{
 				childObjectsContainingButtons.Add (child.gameObject);
-				//child.gameObject.AddComponent<CursorScript> ();
+				child.gameObject.AddComponent<CursorScript> ();
 			}
 		}
 	}
