@@ -46,6 +46,8 @@ public class SearchEngine: MonoBehaviour
 			SP.loading_Onglet.SetActive (true);
 			StopAllCoroutines ();
 			StartCoroutine (WaitAlloWrong ());
+			SP.shortCutFacebook.SetActive (false);
+			SP.onglet_text.SetActive (false);
 		}
 	}
 	public void ClearContent()
