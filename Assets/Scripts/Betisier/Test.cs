@@ -9,6 +9,67 @@ using System.Collections.Generic;
 
 public class Test : MonoBehaviour
 {
+	void Start ()
+	{
+		Debug.Log ("\tstarting crossfade.");
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //BOUT DE CODE POUR ANIMER LES LETTRES DANS LES BULLES DE TEXTE DU MESSENGER
 
 //	public float writtingSpeed;
@@ -32,4 +93,3 @@ public class Test : MonoBehaviour
 //			yield return new WaitForSeconds (writtingSpeed);
 //		}
 //	}
-}

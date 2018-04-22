@@ -490,7 +490,6 @@ MonoBehaviour:
   cur_Clicked: cursor9
   cur_DataOUT: 
   cur_DataIN: 
-  timerChangeSpriteOnClick: 0
 --- !u!1 &83931131
 GameObject:
   m_ObjectHideFlags: 0
@@ -3053,6 +3052,7 @@ GameObject:
   - component: {fileID: 605069251}
   - component: {fileID: 605069255}
   - component: {fileID: 605069256}
+  - component: {fileID: 605069257}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3224,7 +3224,17 @@ MonoBehaviour:
   cur_Clicked: 
   cur_DataOUT: 
   cur_DataIN: 
-  timerChangeSpriteOnClick: 0
+--- !u!114 &605069257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 605069250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb9c534924aadee49833871f52b0904e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &635944247
 GameObject:
   m_ObjectHideFlags: 0
@@ -4151,7 +4161,6 @@ MonoBehaviour:
   cur_Clicked: cursor9
   cur_DataOUT: 
   cur_DataIN: 
-  timerChangeSpriteOnClick: 0
 --- !u!1 &940232664
 GameObject:
   m_ObjectHideFlags: 0
@@ -4616,7 +4625,6 @@ MonoBehaviour:
   cur_Clicked: cursor9
   cur_DataOUT: 
   cur_DataIN: 
-  timerChangeSpriteOnClick: 0
 --- !u!1 &1006736580
 GameObject:
   m_ObjectHideFlags: 0
@@ -4860,18 +4868,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b7104fa25af5104fbe23106f2e88a17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curTxt_BlocNotes: {fileID: 0}
-  curTxt_Button: {fileID: 0}
-  curTxt_DataOUT: {fileID: 0}
-  curTxt_DataIN: {fileID: 0}
-  cur_BlocNotes: Curseur1
-  cur_Bouton: curseur2
-  cur_DataOUT: curseur3
-  cur_DataIN: cursor4
-  startImage: {fileID: 0}
-  m_Animator: {fileID: 0}
-  mousePos: {x: 0, y: 0}
-  sprites: []
 --- !u!95 &1097110434
 Animator:
   serializedVersion: 3
@@ -6075,7 +6071,6 @@ MonoBehaviour:
   cur_Clicked: cursor9
   cur_DataOUT: 
   cur_DataIN: 
-  timerChangeSpriteOnClick: 0.5
 --- !u!114 &1492810447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6712,7 +6707,6 @@ MonoBehaviour:
   cur_Clicked: cursor9
   cur_DataOUT: 
   cur_DataIN: 
-  timerChangeSpriteOnClick: 0
 --- !u!1 &1881094228
 GameObject:
   m_ObjectHideFlags: 0
@@ -7316,7 +7310,6 @@ MonoBehaviour:
   cur_Clicked: cursor9
   cur_DataOUT: 
   cur_DataIN: 
-  timerChangeSpriteOnClick: 0
 --- !u!1 &2002681943
 GameObject:
   m_ObjectHideFlags: 0

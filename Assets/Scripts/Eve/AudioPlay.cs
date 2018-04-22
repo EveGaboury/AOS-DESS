@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioPlay : MonoBehaviour {
-
+public class AudioPlay : MonoBehaviour 
+{
 	public AudioSource audio;
 
 	// Use this for initialization
-//	void Start () {
-//
+//	void Start () 
+//	{
 //		AudioSource audio = GetComponent<AudioSource> ();
 //		audio.Play ();
-//		
 //	}
 }
