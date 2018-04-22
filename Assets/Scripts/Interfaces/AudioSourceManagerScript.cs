@@ -8,9 +8,13 @@ public class AudioSourceManagerScript : MonoBehaviour
 
 	AudioSource[] localAudioSources;
 
+	int testINT = 0, currentMarker = 0;
+
 	void Awake()
 	{
 		DetectAudioSources ();
+
+		currentMarker = 2;
 	}
 
 	public void DetectAudioSources()
@@ -18,71 +22,63 @@ public class AudioSourceManagerScript : MonoBehaviour
 		localAudioSources = this.gameObject.GetComponents<AudioSource> ();
 
 		audioSourceData = localAudioSources [0];
+		//audioSourceData.priority = 102;
 
 		audioSourceBoutons = localAudioSources [1]; 
+		//audioSourceBoutons.priority = 153;
 
 		audioSourceClicksEtTyping = localAudioSources [2];
+		//audioSourceClicksEtTyping.priority = 204 ;
 
 		audioSourceCueEmotion = localAudioSources [3];
+		//audioSourceCueEmotion.priority = 51;
 
 		audioSourceMusique = localAudioSources [4];
+		//audioSourceMusique.priority = 0;
+	}
+
+	IEnumerator WhenSoundClickScriptIsBeingCalled()
+	{
+		localAudioSources[0].volume = .7f;
+		localAudioSources[1].volume = .7f;
+		localAudioSources[3].volume = .7f;
+		localAudioSources[4].volume = .7f;
+
+		yield return new WaitForSeconds (localAudioSources[2].time);
+
+		localAudioSources[0].volume = 1f;
+		localAudioSources[1].volume = 1f;
+		localAudioSources[3].volume = 1f;
+		localAudioSources[4].volume = 1f;
+//		for (int i = 0; i < localAudioSources.Length; i++) 
+//		{
+//			if (localAudioSources[i] == 2)
+//			{
+//				return;
+//				Debug.Log ("Return has been called.");
+//			} 
+//			else
+//			{
+//				Debug.Log ("trolololo");
+//			}
+//		}
 	}
 
 //	void Update()
 //	{
-//		if (Input.GetKey(KeyCode.A)) 
+//		WhenSoundClickScriptIsBeingCalled ();
+//		if (Input.GetKeyDown(KeyCode.A)) 
 //		{
-//			//audioSourceData.GetComponent<AudioSource>().enabled = false;
-//			//localAudioSources [0].enabled = false;
-//			//Debug.Log ("The Alpha1 key has been pressed.");
+//			testINT += 1;
+//			Debug.Log ("From AudioSourceManagerScript.cs, the current value of testINT is: " + testINT);
+////			audioSourceMusique.pitch += .1f;
 //		}
-////		else if (Input.GetKeyUp(KeyCode.Alpha1))
-////		{
-////			localAudioSources [0].enabled = true;
-////		}
 //
-//
-//		if (Input.GetKey(KeyCode.Z)) 
+//		if (Input.GetKeyDown(KeyCode.B)) 
 //		{
-//			localAudioSources [1].enabled = false;
-//			//Debug.Log ("The Alpha2 key has been pressed.");
+//			testINT -= 1;
+//			Debug.Log ("From AudioSourceManagerScript.cs, the current value of testINT is: " + testINT);
+////			audioSourceMusique.pitch -= .1f;
 //		}
-////		else if (Input.GetKeyUp(KeyCode.Alpha2))
-////		{
-////			localAudioSources [1].enabled = true;
-////		}
-//
-//
-//		if (Input.GetKey(KeyCode.E)) 
-//		{
-//			localAudioSources [2].enabled = false;
-//			//Debug.Log ("The Alpha3 key has been pressed.");
-//		}
-////		else if (Input.GetKeyUp(KeyCode.Alpha3))
-////		{
-////			localAudioSources [2].enabled = true;
-////		}
-//
-//
-//		if (Input.GetKey(KeyCode.R)) 
-//		{
-//			localAudioSources [3].enabled = false;
-//			//Debug.Log ("The Alpha4 key has been pressed.");
-//		}
-////		else if (Input.GetKeyUp(KeyCode.Alpha4))
-////		{
-////			localAudioSources [3].enabled = true;
-////		}
-//
-//
-//		if (Input.GetKey(KeyCode.T)) 
-//		{
-//			localAudioSources [4].enabled = false;
-//			//Debug.Log ("The Alpha5 key has been pressed.");
-//		}
-////		else if (Input.GetKeyUp(KeyCode.Alpha5))
-////		{
-////			localAudioSources [4].enabled = true;
-////		}
-//	}
+//	}0
 }
