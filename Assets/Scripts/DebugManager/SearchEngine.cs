@@ -34,7 +34,7 @@ public class SearchEngine: MonoBehaviour
     public void SearchFacebook(string userSearch)
 	{
 		//mettre ça dans une fonction pour déterminer quel est l'engin en train d'être chercher
-		if ((searchBar.text == "www.tonlivre.com") || (searchBar.text == "tonlivre.com") || (searchBar.text == "www.avis-décès-cassandra-royer.fr"))
+		if ((searchBar.text == "www.tonlivre.com") || (searchBar.text == "tonlivre.com") || (searchBar.text == "www.avis-de-décès-cassandra-royer.fr") || (searchBar.text == "avis-de-décès-cassandra-royer.fr") || (searchBar.text == "www.avis-de-deces-cassandra-royer.fr") || (searchBar.text == "avis-de-deces-cassandra-royer.fr"))
 		{
 			SP.facebook_Image.SetActive (false);
 			SP.loading_Onglet.SetActive (true);
@@ -76,7 +76,7 @@ public class SearchEngine: MonoBehaviour
 			SDS.GetComponent<SoundDesignScript> ().OnclickSoundBrowserRight (); 
 		} 
 
-		if (searchBar.text == "www.avis-décès-cassandra-royer.fr") 
+		if ((searchBar.text == "www.avis-de-décès-cassandra-royer.fr") || (searchBar.text == "avis-de-décès-cassandra-royer.fr") || (searchBar.text == "www.avis-de-deces-cassandra-royer.fr") || (searchBar.text == "avis-de-deces-cassandra-royer.fr"))
 		{
 			Debug.Log ("avis is correct");
 			SDS.GetComponent<SoundDesignScript> ().OnclickSoundBrowserRight (); 
