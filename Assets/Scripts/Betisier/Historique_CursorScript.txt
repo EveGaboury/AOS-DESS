@@ -1,0 +1,365 @@
+using System;
+using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
+using UnityEngine.EventSystems;
+using System.Collections.Generic;
+//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//VERSION1\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
+public class CursorScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+{
+	//Public
+	public Sprite curTxt_BlocNotes, curTxt_Button, curTxt_DataOUT, curTxt_DataIN;
+
+	public string cur_BlocNotes, cur_Bouton, cur_DataOUT, cur_DataIN;
+
+	Vector2 hotSpot = Vector2.zero;
+
+	CursorMode cursorMode = CursorMode.Auto;
+
+	GameObject target;
+
+	UnityEngine.Object[] sprites;
+
+	void Start() 
+	{
+		RetrieveCursorsAndAssignThem ();
+
+		//target = GameObject.Find ("TestCursor");
+	}
+
+	public void OnPointerEnter (PointerEventData eventData)
+	{
+		if (gameObject.name == "DropZone") 
+		{
+			target.GetComponent<Image> ().sprite = target.GetComponent<MousePosition> ().curTxt_BlocNotes;
+
+			Debug.Log ("Yay! DropZone is True.");
+		}
+		else if (gameObject.GetComponent<Animator> () == true && gameObject.GetComponent<DataPrefab> () == true) 
+		{
+			target.GetComponent<Image> ().sprite = target.GetComponent<MousePosition> ().curTxt_DataIN;
+
+			Debug.Log ("Le curseur est sur une DATA, qui elle meme est dans le BLOC NOTES: " + name);
+		}
+		else if (gameObject.GetComponent<Button> () == true && gameObject.GetComponent<NewData> () == true) 
+		{
+			target.GetComponent<Image> ().sprite = target.GetComponent<MousePosition> ().curTxt_DataOUT;
+
+			Debug.Log ("Le curseur est sur un BOUTTON, qui declenche les DATA: " + name);
+		}
+		else if (gameObject.GetComponent<Button> () == true) 
+		{
+			target.GetComponent<Image> ().sprite = target.GetComponent<MousePosition> ().curTxt_Button;
+
+			//target.GetComponent<MousePosition>().m_Animator.SetBool("isClickable", true);
+
+			Debug.Log ("Le curseur est sur un BOUTTON: " + name);
+		}
+	}
+
+	public void OnPointerExit(PointerEventData onPointerExitEventData) 
+	{
+		//target.GetComponent<MousePosition>().m_Animator.SetBool("isClickable", false);
+
+		//target.GetComponent<Image> ().sprite = target.GetComponent<MousePosition> ().startImage;
+		
+		Cursor.SetCursor (null, hotSpot, cursorMode);
+	}
+
+//	public void test()
+//	{
+//		StartCoroutine (Testing());
+//	}
+//
+//	IEnumerator Testing()
+//	{
+//		target.GetComponent<MousePosition>().m_Animator.SetBool("isClickable", true);
+//
+//		yield return new WaitForSeconds (.5f);
+//
+//		target.GetComponent<MousePosition>().m_Animator.SetBool("isClickable", false);
+//		//target.GetComponent<MousePosition> ().m_Animator.SetTrigger ("hasBeenClicked");
+//	}
+
+	void RetrieveCursorsAndAssignThem()
+	{
+		sprites = Resources.LoadAll ("", typeof(Sprite));
+
+		for (int i = 0; i < sprites.Length; i++) 
+		{
+			if (sprites[i].name == cur_BlocNotes) 
+			{
+				curTxt_BlocNotes = sprites [i] as Sprite;
+			}
+			else if (sprites[i].name == cur_Bouton)
+			{
+				curTxt_Button = sprites[i] as Sprite;   
+			}
+			else if (sprites[i].name ==  cur_DataOUT) 
+			{
+				curTxt_DataOUT = sprites[i] as Sprite; 
+			}
+			else if (sprites[i].name ==  cur_DataIN) 
+			{
+				curTxt_DataIN = sprites[i] as Sprite; 
+			}
+		}
+	}
+}
+//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\VERSION1//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
+
+
+
+
+
+
+
+
+//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\VERSION2//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
+using System;
+using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
+using UnityEngine.EventSystems;
+using System.Collections.Generic;
+
+public class CursorScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+{
+	//Public
+	public Texture2D curTxt_BlocNotes, curTxt_Button, curTxt_Clicked, curTxt_DataOUT, curTxt_DataIN;
+
+	/*public*/ string cur_BlocNotes = "curseur3", cur_Bouton = "cursor8", cur_Clicked = "cursor9", cur_DataOUT = "cursor_7", cur_DataIN = "cursor4";
+
+	//public float timerChangeSpriteOnClick = .5f;
+
+	//Privée
+	Vector2 hotSpot = Vector2.zero;
+
+	CursorMode cursorMode = CursorMode.Auto;
+
+	List<GameObject> target = new List<GameObject>();
+
+	UnityEngine.Object[] allCursorTextures;
+
+	bool isCursorOnButton;
+
+	float nextFire = 0.0f, fireRate = 0.5f;
+
+	EventSystem m_EventSystem;
+
+	void Start() 
+	{
+		m_EventSystem = EventSystem.current;
+
+		RetrieveCursorsAndAssignThem (); 
+	}
+
+//	void OnDisable()
+//	{
+//		Cursor.SetCursor (curTxt_Button, hotSpot, cursorMode);
+//	}
+
+	void Update()
+	{
+//		for (int k = 0; k < target.Count; k++) 
+//		{
+//			if (target[k].GetComponent<CursorScript>()== true /*== this.gameObject && this.gameObject.activeInHierarchy == false*/) 
+//			{
+//				GameObject localObject = target [k];
+//				Debug.Log (localObject);
+//				if (localObject.activeSelf == false) 
+//				{
+//					Cursor.SetCursor (null, hotSpot, cursorMode);
+//				}
+				//Debug.Log ("Yay! Success. " + target[k].name);
+//			}
+//			Debug.Log (target[k].name);
+//		}
+
+//		GameObject currentlySelected = EventSystem.current.;
+//
+//		Debug.Log (currentlySelected);
+//
+//		if (currentlySelected.activeSelf == false)
+//		{
+//			Cursor.SetCursor (null, hotSpot, cursorMode);
+//		}
+//		for (int i = 0; i < 3; i++) 
+//		{
+//		if (m_EventSystem.currentSelectedGameObject.gameObject.GetComponent<Button> ().isActiveAndEnabled == false /*&&  GetComponent<Button> ().isActiveAndEnabled == true && GetComponent<Button> ().gameObject.activeInHierarchy == true
+//				&& (GetComponent<NewData> () == false || GetComponent<DataPrefab> () == false)*/) {
+//			Cursor.SetCursor (curTxt_Button, hotSpot, cursorMode);
+//		} 
+//		else 
+//		{
+//			Cursor.SetCursor (null, hotSpot, cursorMode);
+//		}
+//			if (Input.GetMouseButtonDown(i)) 
+//			{
+//				
+//			}
+//			else if (Input.GetMouseButtonUp(i))
+//			{
+//				if (m_EventSystem.currentSelectedGameObject.gameObject.GetComponent<Button>().gameObject.activeInHierarchy == false && m_EventSystem.currentSelectedGameObject != gameObject) 
+//				{
+//					Cursor.SetCursor (null, hotSpot, cursorMode);
+//				}
+//			}
+
+//		}
+
+//		Debug.Log (m_EventSystem.currentSelectedGameObject.name);
+//		if (test.activeInHierarchy == true)
+//		{
+//			Debug.Log ("The test gameObject is ACTIVE in the hierarchy." );
+//		}
+//		else if (test.activeInHierarchy == false) 
+//		{
+//			Debug.Log ("The test gameObject is IN-ACTIVE in the hierarchy." );
+//		}
+
+//		for (int i = 0; i < 3; i++)
+//		{
+//			if (Input.GetMouseButtonDown(i) /*&& isCursorOnButton == true*/) 
+//			{
+//				StartCoroutine (Testing ());
+//
+//				if (m_EventSystem.currentSelectedGameObject != gameObject)
+//				{
+//					Cursor.SetCursor (null, hotSpot, cursorMode);
+//					//Debug.Log("trolololol");
+//				}
+//				if (i == 0) 
+//				{
+//					Debug.Log("The current value of i is: " + i + " , so the LEFT mouse has been clicked");
+//				}
+//				else if (i == 1) 
+//				{
+//					Debug.Log("The current value of i is: " + i + " , so the MIDDLE mouse has been clicked");
+//				}
+//				if (i == 2) 
+//				{
+//					Debug.Log("The current value of i is: " + i + " , so the RIGHT mouse has been clicked");
+//				}
+				//			if ()
+				//			{
+				//StartCoroutine (Testing ());
+				//			}
+				//			else if (isCursorOnButton == false)
+				//			{
+				//				Cursor.SetCursor (null, hotSpot, cursorMode);
+				//			}
+			//} 
+			//		else if (isCursorOnButton == false)
+			//		{
+			//			Cursor.SetCursor (null, hotSpot, cursorMode);
+			//		}
+		//}
+	}
+
+	IEnumerator Testing() 
+	{
+		Debug.Log ("StartCoroutine (Testing()) is STARTING.");
+
+		//isCursorOnButton = false;
+
+		Cursor.SetCursor (curTxt_Clicked, hotSpot, cursorMode);
+
+		yield return new WaitForSeconds (1.5f);
+
+		//Cursor.SetCursor (null, hotSpot, cursorMode);
+
+		//isCursorOnButton = false;
+
+		Debug.Log ("StartCoroutine (Testing()) is ENDING.");
+	}
+
+	public void OnPointerEnter (PointerEventData eventData)
+	{
+		//target = eventData.hovered;
+		//target = m_EventSystem.currentSelectedGameObject.gameObject;
+
+		if (gameObject.name == "DropZone") 
+		{
+			Cursor.SetCursor (curTxt_BlocNotes, hotSpot, cursorMode);
+
+			//Debug.Log ("Yay! DropZone is True.");
+		}
+		else if (gameObject.GetComponent<Animator> () == true && gameObject.GetComponent<DataPrefab> () == true) 
+		{
+			Cursor.SetCursor (curTxt_DataIN, hotSpot, cursorMode);
+
+			//Debug.Log ("Le curseur est sur une DATA, qui elle meme est dans le BLOC NOTES: " + name);
+		}
+//		else if (gameObject.GetComponent<Button> ().enabled == true && gameObject.GetComponent<NewData> () == true) 
+//		{
+//
+//			Cursor.SetCursor (curTxt_DataOUT, hotSpot, cursorMode);
+//
+//			//Debug.Log ("Le curseur est sur un BOUTTON, qui declenche les DATA: " + name);
+//		}
+		else if (GetComponent<Button> () == true &&  GetComponent<Button> ().isActiveAndEnabled == true && GetComponent<Button> ().gameObject.activeInHierarchy == true
+			&& (GetComponent<NewData> () == false || GetComponent<DataPrefab> () == false)) 
+		{
+			//isCursorOnButton = true;
+
+
+
+			Cursor.SetCursor (curTxt_Button, hotSpot, cursorMode);
+
+//			if (Input.GetMouseButton(0) && isCursorOnButton == true)
+//			{
+//				Cursor.SetCursor (curTxt_Clicked, hotSpot, cursorMode);
+//				isCursorOnButton = false;
+//			}
+			//Debug.Log ("Le curseur est sur un BOUTTON: " + name);
+		}
+		else
+		{
+			Cursor.SetCursor (null, hotSpot, cursorMode);
+		}
+	}
+
+	public void Trololo()
+	{
+		//StartCoroutine(Testing ());
+		Cursor.SetCursor (null, hotSpot, cursorMode);
+	}
+
+	public void OnPointerExit(PointerEventData onPointerExitEventData) 
+	{
+		target = null;
+		Debug.Log ("OnPointerExit() has been called.");
+		Cursor.SetCursor (null, hotSpot, cursorMode);
+	}
+
+	void RetrieveCursorsAndAssignThem()
+	{
+		allCursorTextures = Resources.LoadAll ("", typeof(Texture2D));
+
+		for (int i = 0; i < allCursorTextures.Length; i++) 
+		{
+			if (allCursorTextures[i].name == cur_BlocNotes) 
+			{
+				curTxt_BlocNotes = allCursorTextures [i] as Texture2D;
+			}
+			else if (allCursorTextures[i].name == cur_Bouton)
+			{
+				curTxt_Button = allCursorTextures[i] as Texture2D;   
+			}
+			else if (allCursorTextures[i].name == cur_Clicked)
+			{
+				curTxt_Clicked = allCursorTextures[i] as Texture2D; 
+			}
+			else if (allCursorTextures[i].name ==  cur_DataOUT) 
+			{
+				curTxt_DataOUT = allCursorTextures[i] as Texture2D; 
+			}
+			else if (allCursorTextures[i].name ==  cur_DataIN) 
+			{
+				curTxt_DataIN = allCursorTextures[i] as Texture2D; 
+			}
+		}
+	}
+}
+//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\VERSION2//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\

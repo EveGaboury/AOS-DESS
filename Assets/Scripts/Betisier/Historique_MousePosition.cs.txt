@@ -1,0 +1,48 @@
+//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
+//using UnityEngine.UI;
+//
+//public class MousePosition : MonoBehaviour 
+//{
+//	//Public
+//	public Sprite curTxt_BlocNotes, curTxt_Button, curTxt_DataOUT, curTxt_DataIN;
+//
+//	public string cur_BlocNotes, cur_Bouton, cur_DataOUT, cur_DataIN;
+//
+//	[HideInInspector]
+//	public Sprite startImage;
+//
+//	[HideInInspector]
+//	public Animator m_Animator;
+//
+//	//Privée
+//	Vector2 mousePos;
+//
+//	UnityEngine.Object[] sprites;
+//
+//	void Start() 
+//	{
+//		//Cursor.visible = false;
+//	
+////		mousePos = new Vector2 ();
+//
+////		m_Animator = GetComponent<Animator> ();
+//
+////		for (int i = 0; i < sprites.Length; i++) 
+////		{
+////			if (sprites[i].name == "DefaultCursor") 
+////			{
+////				GetComponent<Image> ().sprite = sprites[i] as Sprite; 
+////			}
+////
+////		}
+//	}
+//
+////	void Update()
+////	{
+////		mousePos = Input.mousePosition; 
+////
+////		transform.position = mousePos;
+////	}
+//}
