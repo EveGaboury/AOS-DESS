@@ -9,10 +9,7 @@ using System.Collections.Generic;
 
 public class Test : MonoBehaviour
 {
-	void Start ()
-	{
-		Debug.Log ("\tstarting crossfade.");
-	}
+	
 }
 
 
