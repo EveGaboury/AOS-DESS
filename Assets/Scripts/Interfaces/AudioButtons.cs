@@ -25,6 +25,8 @@ public class AudioButtons : MonoBehaviour
 		ASMS_buttons = this.gameObject.GetComponent<AudioSourceManagerScript> ();
 
 		SearchAllButtonsInTheHierarchy ();
+		RetrieveChildrenOfData ();
+		SearchForGameObjectsWithToggleComponents ();
 
 		AddSoundToButton ();
 
@@ -44,14 +46,30 @@ public class AudioButtons : MonoBehaviour
 				child.gameObject.AddComponent<CursorScript> ();
 			}
 		}
+	}
 
+	void RetrieveChildrenOfData()
+	{
 		Transform[] sweetSummerChild = data.GetComponentsInChildren<Transform> (true);
 
 		foreach (Transform children in sweetSummerChild)
 		{
-			if (children.gameObject.GetComponent<DataPrefab> ())
+			if (children.gameObject.GetComponent<DataPrefab> () == true)
 			{
 				children.gameObject.AddComponent<CursorScript> ();
+			}
+		}
+	}
+
+	void SearchForGameObjectsWithToggleComponents()
+	{
+		Transform[] toggleSons = targetObject.GetComponentsInChildren<Transform> (true);
+
+		foreach (Transform sons in toggleSons)
+		{
+			if (sons.gameObject.GetComponent<Toggle> () == true)
+			{
+				sons.gameObject.AddComponent<CursorScript> ();
 			}
 		}
 	}
