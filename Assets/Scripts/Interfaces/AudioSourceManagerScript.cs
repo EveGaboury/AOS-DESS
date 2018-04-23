@@ -14,6 +14,8 @@ public class AudioSourceManagerScript : MonoBehaviour
 	{
 		DetectAudioSources ();
 
+		AssignAudioSourcesStartingValues ();
+
 		currentMarker = 2;
 	}
 
@@ -37,6 +39,20 @@ public class AudioSourceManagerScript : MonoBehaviour
 		//audioSourceMusique.priority = 0;
 	}
 
+
+	void AssignAudioSourcesStartingValues()
+	{
+		for (int i = 0; i < localAudioSources.Length; i++) 
+		{
+			localAudioSources [i].volume = 1.0f;
+			localAudioSources [i].priority = 128;
+		}
+	}
+	public void FadeSoundWhenClickIsPlaying()
+	{
+		StartCoroutine (WhenSoundClickScriptIsBeingCalled());
+	}
+
 	IEnumerator WhenSoundClickScriptIsBeingCalled()
 	{
 		localAudioSources[0].volume = .7f;
@@ -45,23 +61,14 @@ public class AudioSourceManagerScript : MonoBehaviour
 		localAudioSources[4].volume = .7f;
 
 		yield return new WaitForSeconds (localAudioSources[2].time);
+	}
 
-		localAudioSources[0].volume = 1f;
-		localAudioSources[1].volume = 1f;
-		localAudioSources[3].volume = 1f;
-		localAudioSources[4].volume = 1f;
-//		for (int i = 0; i < localAudioSources.Length; i++) 
-//		{
-//			if (localAudioSources[i] == 2)
-//			{
-//				return;
-//				Debug.Log ("Return has been called.");
-//			} 
-//			else
-//			{
-//				Debug.Log ("trolololo");
-//			}
-//		}
+	public void ResetAllAudioSourcesVolumeSliders()
+	{
+		for (int i = 0; i < localAudioSources.Length; i++)
+		{
+			localAudioSources [i].volume = 1f;
+		}
 	}
 
 //	void Update()

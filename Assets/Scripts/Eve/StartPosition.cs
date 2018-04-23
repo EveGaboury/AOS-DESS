@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class StartPosition : MonoBehaviour {
 
-	public GameObject introduction;
-	public GameObject imageIntro;
+//	public GameObject introduction;
+//	public GameObject imageIntro;
 
 	//gamobjects commun
 	public GameObject desktopCanvas;
@@ -160,13 +160,13 @@ public class StartPosition : MonoBehaviour {
 	public GameObject shortCutDeces;
 
 	//Introduction.
-	//public GameObject leDevoir;
-	//public GameObject voile;
+	public GameObject leDevoir;
+	public GameObject voile;
 
 
 	void Start () 
 	{
-		introduction.SetActive (true);
+		//introduction.SetActive (true);
 
 		switchSessionCanvas.SetActive (false);
 		blocNoteCanvas.SetActive (true);
@@ -250,6 +250,10 @@ public class StartPosition : MonoBehaviour {
 
 		avisDeces.SetActive (false);
 		shortCutDeces.SetActive (false);
+
+
+
+		leDevoir.SetActive (true);
 	}
 }
 
