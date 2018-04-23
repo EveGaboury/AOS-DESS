@@ -15,6 +15,7 @@ public class ButtonManager: MonoBehaviour {
 	public ForceReUpdate FR;
 	public scrollRectPosition SRP;
 	public DialogueManager DM;
+	public FadeOutScript FOS;
 
 
 	//public Button iconFb;
@@ -75,10 +76,10 @@ public class ButtonManager: MonoBehaviour {
 
 	//Introduction_Diacticiel
 
-	public Button firstData;
-	public Image panel;
 
-	//public GameObject leDroit;
+//	public Button firstData;
+//	public Button EndTuto;
+//	public GameObject leDevoir; 
 
 
 
@@ -122,9 +123,13 @@ public class ButtonManager: MonoBehaviour {
 
 
 
-		firstData.GetComponent <Button> ();
-		firstData.onClick.AddListener (TaskOnFirstData);
-
+//		firstData.GetComponent <Button> ();
+//		firstData.onClick.AddListener (TaskOnFirstData);
+//
+//
+//		EndTuto.GetComponent <Button> ();
+//		EndTuto.onClick.AddListener (TaskOnEndTuto);
+//
 	}
 
 	void TaskOnClickTrash () 
@@ -261,12 +266,25 @@ public class ButtonManager: MonoBehaviour {
 	}
 
 
+
 	void TaskOnFirstData() 
 	{
-		panel.gameObject.SetActive (false);
-		//leDroit.gameObject.SetActive (false);
+
+		FOS.startFading ();
+
+
 		//lancer l'animation de la croix
-		//Lancer changement de la musique pour début du jeu
-		
+		//Lancer changement de la musique pour déut du jeu
+
+	}
+
+	void TaskOnEndTuto() 
+	{
+		//c'est le boutonCroix.
+
+		//lancer l'animation de la croix
+		//Lancer changement de la musique pour déut du jeu
+	//
+
 	}
 }
