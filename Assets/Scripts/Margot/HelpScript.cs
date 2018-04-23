@@ -10,6 +10,7 @@ public class HelpScript : MonoBehaviour {
 
 
 
+
 	public TextMeshProUGUI TextAide;
 
 
@@ -18,7 +19,7 @@ public class HelpScript : MonoBehaviour {
 	public Button boutonHacking;
 	public Button boutonPosting;
 
-
+	private bool ConnextionTLDone;
 
 	// Use this for initialization
 	void Start () 
@@ -39,9 +40,9 @@ public class HelpScript : MonoBehaviour {
 		boutonHacking.GetComponent <Button> ();
 		boutonHacking.onClick.AddListener (TaskOnHacking);
 
-//		//Button boutonPosting = 
-//		boutonPosting.GetComponent <Button> ();
-//		boutonPosting.onClick.AddListener (TaskOnPosting);
+		//Button boutonPosting = 
+		boutonPosting.GetComponent <Button> ();
+		boutonPosting.onClick.AddListener (TaskOnPosting);
 
 
 
@@ -59,7 +60,15 @@ public class HelpScript : MonoBehaviour {
 
 	public void TaskOnConnexionTL () 
 	{
+
+		if (ConnextionTLDone == false) 
+		{
+
 		TextAide.text = ("TonLivre est une mine d'or d'informations. N'hésitez pas à aller observer des profils et chercher des personnes dans le moteur de recherche inclus dans TonLivre. ");
+
+		ConnextionTLDone = true;
+		}
+	
 	}
 
 	public void TaskOnHacking () 
@@ -67,10 +76,10 @@ public class HelpScript : MonoBehaviour {
 		TextAide.text = ("Pour publier un post sur TonLivre, appuyez sur l'icone de votre portrait pour accéder à votre fil d'actualité.");
 	}
 
-//	public void TaskOnPosting () 
-//	{
-//		TextAide.text = ("Maintenant que vous êtes sur son compte, pourquoi pas fouiller un peu ? Ceci n'est pas vraiment un conseil qu'une aide devrait donner. Excusez moi utilisateur.");
-//	}
+	public void TaskOnPosting () 
+	{
+		TextAide.text = ("Maintenant que vous êtes sur son compte, pourquoi pas fouiller un peu ?");
+	}
 }
 
 
