@@ -336,6 +336,7 @@ public class GameState : MonoBehaviour {
 			FR.OnEnable ();
 		}
 <<<<<<< HEAD
+<<<<<<< HEAD
 			Canvas.ForceUpdateCanvases ();
 			BM._vertLayoutGroup.SetLayoutVertical();
 			BM._ContentSizeFitter.enabled = false;
@@ -346,6 +347,10 @@ public class GameState : MonoBehaviour {
 			DM.boulesale = true;
 			DM.Update ();
 
+=======
+			DM.boulesale = true;
+			DM.Update ();
+>>>>>>> a899cef1d566a2d7ba1daa1eed0297c2d5db04ed
 =======
 			DM.boulesale = true;
 			DM.Update ();
@@ -742,6 +747,7 @@ public class GameState : MonoBehaviour {
 		ChildrenSuiteConvo ();
 		FR.OnEnable ();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> a899cef1d566a2d7ba1daa1eed0297c2d5db04ed
@@ -752,6 +758,10 @@ public class GameState : MonoBehaviour {
 		DM.Update ();
 		Canvas.ForceUpdateCanvases();
 =======
+=======
+		BM._vertLayoutGroup.SetLayoutVertical();
+		BM._ContentSizeFitter.enabled = true;
+>>>>>>> a899cef1d566a2d7ba1daa1eed0297c2d5db04ed
 		BM._ContentSizeFitter.SetLayoutVertical();
 		BM._ContentSizeFitter.enabled = false;
 		Canvas.ForceUpdateCanvases ();
@@ -775,6 +785,7 @@ public class GameState : MonoBehaviour {
 		SRP.InvertStart ();
 		FR.OnEnable ();
 <<<<<<< HEAD
+<<<<<<< HEAD
 	
 =======
 >>>>>>> a899cef1d566a2d7ba1daa1eed0297c2d5db04ed
@@ -785,10 +796,17 @@ public class GameState : MonoBehaviour {
 		DM.Update ();
 		Canvas.ForceUpdateCanvases();
 =======
+=======
+		BM._vertLayoutGroup.SetLayoutVertical();
+		BM._ContentSizeFitter.enabled = true;
+>>>>>>> a899cef1d566a2d7ba1daa1eed0297c2d5db04ed
 		BM._ContentSizeFitter.SetLayoutVertical();
 		BM._ContentSizeFitter.enabled = false;
 		Canvas.ForceUpdateCanvases ();
 		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.passwordTemplate.transform );
+<<<<<<< HEAD
+>>>>>>> a899cef1d566a2d7ba1daa1eed0297c2d5db04ed
+=======
 >>>>>>> a899cef1d566a2d7ba1daa1eed0297c2d5db04ed
 
 	}
@@ -808,6 +826,7 @@ public class GameState : MonoBehaviour {
 		SRP.InvertStart ();
 		FR.OnEnable ();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 =======
@@ -820,10 +839,17 @@ public class GameState : MonoBehaviour {
 		Canvas.ForceUpdateCanvases();
 
 =======
+=======
+		BM._vertLayoutGroup.SetLayoutVertical();
+		BM._ContentSizeFitter.enabled = true;
+>>>>>>> a899cef1d566a2d7ba1daa1eed0297c2d5db04ed
 		BM._ContentSizeFitter.SetLayoutVertical();
 		BM._ContentSizeFitter.enabled = false;
 		Canvas.ForceUpdateCanvases ();
 		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.passwordTemplate.transform );
+<<<<<<< HEAD
+>>>>>>> a899cef1d566a2d7ba1daa1eed0297c2d5db04ed
+=======
 >>>>>>> a899cef1d566a2d7ba1daa1eed0297c2d5db04ed
 
 	}
@@ -844,6 +870,7 @@ public class GameState : MonoBehaviour {
 		SRP.InvertStart ();
 		FR.OnEnable ();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	
 =======
@@ -856,10 +883,17 @@ public class GameState : MonoBehaviour {
 		Canvas.ForceUpdateCanvases();
 
 =======
+=======
+		BM._vertLayoutGroup.SetLayoutVertical();
+		BM._ContentSizeFitter.enabled = true;
+>>>>>>> a899cef1d566a2d7ba1daa1eed0297c2d5db04ed
 		BM._ContentSizeFitter.SetLayoutVertical();
 		BM._ContentSizeFitter.enabled = false;
 		Canvas.ForceUpdateCanvases ();
 		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.passwordTemplate.transform );
+<<<<<<< HEAD
+>>>>>>> a899cef1d566a2d7ba1daa1eed0297c2d5db04ed
+=======
 >>>>>>> a899cef1d566a2d7ba1daa1eed0297c2d5db04ed
 	}
 
@@ -877,6 +911,7 @@ public class GameState : MonoBehaviour {
 		SRP.InvertStart ();
 		FR.OnEnable ();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> a899cef1d566a2d7ba1daa1eed0297c2d5db04ed
@@ -887,10 +922,17 @@ public class GameState : MonoBehaviour {
 		DM.Update ();
 		Canvas.ForceUpdateCanvases();
 =======
+=======
+		BM._vertLayoutGroup.SetLayoutVertical();
+		BM._ContentSizeFitter.enabled = true;
+>>>>>>> a899cef1d566a2d7ba1daa1eed0297c2d5db04ed
 		BM._ContentSizeFitter.SetLayoutVertical();
 		BM._ContentSizeFitter.enabled = false;
 		Canvas.ForceUpdateCanvases ();
 		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.passwordTemplate.transform );
+<<<<<<< HEAD
+>>>>>>> a899cef1d566a2d7ba1daa1eed0297c2d5db04ed
+=======
 >>>>>>> a899cef1d566a2d7ba1daa1eed0297c2d5db04ed
 	
 	}
@@ -909,6 +951,7 @@ public class GameState : MonoBehaviour {
 		SRP.InvertStart ();
 		FR.OnEnable ();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> a899cef1d566a2d7ba1daa1eed0297c2d5db04ed
@@ -919,6 +962,10 @@ public class GameState : MonoBehaviour {
 		DM.Update ();
 		Canvas.ForceUpdateCanvases();
 =======
+=======
+		BM._vertLayoutGroup.SetLayoutVertical();
+		BM._ContentSizeFitter.enabled = true;
+>>>>>>> a899cef1d566a2d7ba1daa1eed0297c2d5db04ed
 		BM._ContentSizeFitter.SetLayoutVertical();
 		BM._ContentSizeFitter.enabled = false;
 		Canvas.ForceUpdateCanvases ();
@@ -941,6 +988,7 @@ public class GameState : MonoBehaviour {
 		SRP.InvertStart ();
 		FR.OnEnable ();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 
@@ -953,6 +1001,10 @@ public class GameState : MonoBehaviour {
 		DM.Update ();
 		Canvas.ForceUpdateCanvases();
 =======
+=======
+		BM._vertLayoutGroup.SetLayoutVertical();
+		BM._ContentSizeFitter.enabled = true;
+>>>>>>> a899cef1d566a2d7ba1daa1eed0297c2d5db04ed
 		BM._ContentSizeFitter.SetLayoutVertical();
 		BM._ContentSizeFitter.enabled = false;
 		Canvas.ForceUpdateCanvases ();
@@ -975,6 +1027,7 @@ public class GameState : MonoBehaviour {
 		SRP.InvertStart ();
 		FR.OnEnable ();
 <<<<<<< HEAD
+<<<<<<< HEAD
 	
 		
 
@@ -987,6 +1040,10 @@ public class GameState : MonoBehaviour {
 		DM.Update ();
 		Canvas.ForceUpdateCanvases();
 =======
+=======
+		BM._vertLayoutGroup.SetLayoutVertical();
+		BM._ContentSizeFitter.enabled = true;
+>>>>>>> a899cef1d566a2d7ba1daa1eed0297c2d5db04ed
 		BM._ContentSizeFitter.SetLayoutVertical();
 		BM._ContentSizeFitter.enabled = false;
 		Canvas.ForceUpdateCanvases ();
@@ -1009,6 +1066,7 @@ public class GameState : MonoBehaviour {
 		SRP.InvertStart ();
 		FR.OnEnable ();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	
 
@@ -1021,6 +1079,10 @@ public class GameState : MonoBehaviour {
 		DM.Update ();
 		Canvas.ForceUpdateCanvases();
 =======
+=======
+		BM._vertLayoutGroup.SetLayoutVertical();
+		BM._ContentSizeFitter.enabled = true;
+>>>>>>> a899cef1d566a2d7ba1daa1eed0297c2d5db04ed
 		BM._ContentSizeFitter.SetLayoutVertical();
 		BM._ContentSizeFitter.enabled = false;
 		Canvas.ForceUpdateCanvases ();
@@ -1043,6 +1105,7 @@ public class GameState : MonoBehaviour {
 		SRP.InvertStart ();
 		FR.OnEnable ();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	
 =======
@@ -1054,10 +1117,17 @@ public class GameState : MonoBehaviour {
 		DM.Update ();
 		Canvas.ForceUpdateCanvases();
 =======
+=======
+		BM._vertLayoutGroup.SetLayoutVertical();
+		BM._ContentSizeFitter.enabled = true;
+>>>>>>> a899cef1d566a2d7ba1daa1eed0297c2d5db04ed
 		BM._ContentSizeFitter.SetLayoutVertical();
 		BM._ContentSizeFitter.enabled = false;
 		Canvas.ForceUpdateCanvases ();
 		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.passwordTemplate.transform );
+<<<<<<< HEAD
+>>>>>>> a899cef1d566a2d7ba1daa1eed0297c2d5db04ed
+=======
 >>>>>>> a899cef1d566a2d7ba1daa1eed0297c2d5db04ed
 
 	
