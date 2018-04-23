@@ -201,25 +201,11 @@ public class ButtonManager: MonoBehaviour {
 			SDS.GetComponent<SoundDesignScript> ().OnclickSoundTLRight ();
 			questionParisImage.sprite = vrai;
 			SP.question2.SetActive (true);
-			DM.boulesale = true;
-			DM.Update ();
 			Canvas.ForceUpdateCanvases ();
-			_vertLayoutGroup.SetLayoutVertical();
-			_ContentSizeFitter.enabled = false;
-			_ContentSizeFitter.SetLayoutVertical();
-			LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.passwordTemplate.transform );
-			_ContentSizeFitter.enabled = true;
 		} else {
 			SDS.GetComponent<SoundDesignScript> ().OnclickSoundTLWrong ();
 			questionParisImage.sprite = pasvrai;
-			DM.boulesale = true;
-			DM.Update ();
 			Canvas.ForceUpdateCanvases ();
-			_vertLayoutGroup.SetLayoutVertical();
-			_ContentSizeFitter.enabled = false;
-			_ContentSizeFitter.SetLayoutVertical();
-			LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.passwordTemplate.transform );
-			_ContentSizeFitter.enabled = true;
 		}
 
 		if (easter == inputfieldQuestionParis.text) {
@@ -234,10 +220,10 @@ public class ButtonManager: MonoBehaviour {
 		DM.Update ();
 		Canvas.ForceUpdateCanvases();
 		_vertLayoutGroup.SetLayoutVertical();
-		_ContentSizeFitter.enabled = false;
+		_ContentSizeFitter.enabled = true;
 		_ContentSizeFitter.SetLayoutVertical();
 		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.passwordTemplate.transform );
-		_ContentSizeFitter.enabled = true;
+		_ContentSizeFitter.enabled = false;
 	}
 
 
@@ -247,14 +233,12 @@ public class ButtonManager: MonoBehaviour {
 			SDS.GetComponent<SoundDesignScript> ().OnclickSoundTLRight ();
 			questionZeusImage.sprite = vrai;
 			SP.bouttonfinal.SetActive (true);
-			DM.boulesale = true;
-			DM.Update ();
 			Canvas.ForceUpdateCanvases();
 			_vertLayoutGroup.SetLayoutVertical();
-			_ContentSizeFitter.enabled = false;
+			_ContentSizeFitter.enabled = true;
 			_ContentSizeFitter.SetLayoutVertical();
 			LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.passwordTemplate.transform );
-			_ContentSizeFitter.enabled = true;
+			_ContentSizeFitter.enabled = false;
 
 		} else {
 			SDS.GetComponent<SoundDesignScript> ().OnclickSoundTLWrong ();
