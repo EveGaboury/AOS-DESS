@@ -68,19 +68,19 @@ public class ButtonManager: MonoBehaviour {
 	public Button iconFb;
 	public Button shortCutFacebook;
 
-	public Button boutondemarrer_sophie;
+//	public Button boutondemarrer_sophie;
 
 
 	public Toggle toggleNotifCass;
 	public Toggle toggleNotifSo;
 
+
 	//Introduction_Diacticiel
 
 
-//	public Button firstData;
-//	public Button EndTuto;
-//	public GameObject leDevoir; 
-//	private bool EndTutoDone;
+	public Button firstData;
+	public Button EndTuto;
+	private bool EndTutoDone;
 
 
 
@@ -116,20 +116,20 @@ public class ButtonManager: MonoBehaviour {
 		iconFb.GetComponent <Button> ();
 		iconFb.onClick.AddListener (GS.accueil);
 	
-		boutondemarrer_sophie.GetComponent <Button> ();
-		boutondemarrer_sophie.onClick.AddListener(TaskonClickDemarrer);
+//		boutondemarrer_sophie.GetComponent <Button> ();
+//		boutondemarrer_sophie.onClick.AddListener(TaskonClickDemarrer);
 
 		shortCutFacebook.GetComponent <Button> ();
 		shortCutFacebook.onClick.AddListener (GS.shortCutFacebook);
 
 
 
-//		firstData.GetComponent <Button> ();
-//		firstData.onClick.AddListener (TaskOnFirstData);
-//
-//
-//		EndTuto.GetComponent <Button> ();
-//		EndTuto.onClick.AddListener (TaskOnEndTuto);
+		firstData.GetComponent <Button> ();
+		firstData.onClick.AddListener (TaskOnFirstData);
+
+
+		EndTuto.GetComponent <Button> ();
+		EndTuto.onClick.AddListener (TaskOnEndTuto);
 
 	}
 
@@ -271,9 +271,9 @@ public class ButtonManager: MonoBehaviour {
 		
 	void TaskonClickDemarrer ()
 	{
-		SP.imageIntro.SetActive (false);
-		SDS.GetComponent<SoundDesignScript> ().OnClickSoundNotificationCourriel ();
-		AM.popUpAnim ();
+		//SP.imageIntro.SetActive (false);
+//		SDS.GetComponent<SoundDesignScript> ().OnClickSoundNotificationCourriel ();
+//		AM.popUpAnim ();
 	}
 		
 	public void ClearContent ()
@@ -291,26 +291,27 @@ public class ButtonManager: MonoBehaviour {
 
 
 		//lancer l'animation de la croix
-		//Lancer changement de la musique pour déut du jeu
+	
 
 	}
 
 	void TaskOnEndTuto() 
 	{
 
-//		if (EndTutoDone == false) 
-//		
-//		
-//		{
-//			
-//
-//			//finAnimationBoutonCroix
-//
-//
-//			//Lancer changement de la musique pour déut du jeu
-//
-//			EndTutoDone = true;
-//		}
+		if (EndTutoDone == false) 
+		
+		
+		{
+			
+			SP.leDevoir.SetActive (false);
+			SDS.GetComponent<SoundDesignScript> ().OnClickSoundNotificationCourriel ();
+			AM.popUpAnim ();
+			//finAnimationBoutonCroix
+
+			//Lancer changement de la musique pour début du jeu
+
+			EndTutoDone = true;
+		}
 
 
 
