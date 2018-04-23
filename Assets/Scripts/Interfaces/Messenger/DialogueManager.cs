@@ -156,7 +156,7 @@ public class DialogueManager : MonoBehaviour
 
 		if (prefab == conversationPartner ) 
 		{
-			ASMS.GetComponent<AudioSourceManagerScript>().audioSourceClicksEtTyping.PlayOneShot (messengerSFX);
+//			ASMS.GetComponent<AudioSourceManagerScript>().audioSourceClicksEtTyping.PlayOneShot (messengerSFX);
 			Debug.Log ("Le prefab étant instantié est celui de MARIE-EVE");
 			//Si c'est bien le prefab de conversation de marie eve, alors faire l'animation de facebook messenger des trois petits points
 		}
