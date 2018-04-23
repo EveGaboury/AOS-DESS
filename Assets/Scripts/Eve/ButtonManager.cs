@@ -80,6 +80,7 @@ public class ButtonManager: MonoBehaviour {
 //	public Button firstData;
 //	public Button EndTuto;
 //	public GameObject leDevoir; 
+//	private bool EndTutoDone;
 
 
 
@@ -129,7 +130,7 @@ public class ButtonManager: MonoBehaviour {
 //
 //		EndTuto.GetComponent <Button> ();
 //		EndTuto.onClick.AddListener (TaskOnEndTuto);
-//
+
 	}
 
 	void TaskOnClickTrash () 
@@ -280,11 +281,22 @@ public class ButtonManager: MonoBehaviour {
 
 	void TaskOnEndTuto() 
 	{
-		//c'est le boutonCroix.
 
-		//lancer l'animation de la croix
-		//Lancer changement de la musique pour déut du jeu
-	//
+//		if (EndTutoDone == false) 
+//		
+//		
+//		{
+//			
+//
+//			//finAnimationBoutonCroix
+//
+//
+//			//Lancer changement de la musique pour déut du jeu
+//
+//			EndTutoDone = true;
+//		}
+
+
 
 	}
 }
