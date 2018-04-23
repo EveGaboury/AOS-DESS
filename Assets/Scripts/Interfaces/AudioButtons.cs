@@ -11,7 +11,7 @@ public class AudioButtons : MonoBehaviour
 
 	public List<GameObject> childObjectsContainingButtons = new List<GameObject>();
 
-	public GameObject targetObject;
+	public GameObject targetObject, data;
 
 	//Private
 	AudioClip currentAudioCLip;
@@ -27,6 +27,9 @@ public class AudioButtons : MonoBehaviour
 		SearchAllButtonsInTheHierarchy ();
 
 		AddSoundToButton ();
+
+		targetObject = GameObject.Find ("CanvasEve");
+		data = GameObject.Find ("Data");
 	}
 
 	void SearchAllButtonsInTheHierarchy()
@@ -39,6 +42,16 @@ public class AudioButtons : MonoBehaviour
 			{
 				childObjectsContainingButtons.Add (child.gameObject);
 				child.gameObject.AddComponent<CursorScript> ();
+			}
+		}
+
+		Transform[] sweetSummerChild = data.GetComponentsInChildren<Transform> (true);
+
+		foreach (Transform children in sweetSummerChild)
+		{
+			if (children.gameObject.GetComponent<DataPrefab> ())
+			{
+				children.gameObject.AddComponent<CursorScript> ();
 			}
 		}
 	}

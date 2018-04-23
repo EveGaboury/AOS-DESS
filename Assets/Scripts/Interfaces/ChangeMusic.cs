@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Collections;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using UnityEngine;
 using TMPro;
-using System.Linq;
 
 public class ChangeMusic : MonoBehaviour
 {
@@ -29,8 +28,6 @@ public class ChangeMusic : MonoBehaviour
 	void Awake()
 	{
 		ASMS_Music = this.gameObject.GetComponent<AudioSourceManagerScript> ();
-
-		//iTunes = GameObject.Find ("iTunesCanvas");
 
 		RetrieveAllChildrenGameObjectsOfiTunes ();
 	}
