@@ -159,6 +159,10 @@ public class StartPosition : MonoBehaviour {
 	public GameObject avisDeces;
 	public GameObject shortCutDeces;
 
+	//Introduction.
+	//public GameObject leDevoir;
+	//public GameObject voile;
+
 
 	void Start () 
 	{
@@ -173,7 +177,11 @@ public class StartPosition : MonoBehaviour {
 
 		shortCutFacebook.SetActive (false);
 
-		browserCanvas.SetActive (false);
+
+		//browser mis en true pour l'intro
+		browserCanvas.SetActive (true);
+
+
 		notFound.SetActive (false);
 		shortCut.SetActive (false);
 		pageProfilTemplate.SetActive (false);
