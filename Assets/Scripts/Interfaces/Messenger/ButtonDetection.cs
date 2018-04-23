@@ -102,7 +102,8 @@ public class ButtonDetection : MonoBehaviour/*, IPointerClickHandler*/
 
 	public void WillItWorkIDontKnow()    
 	{
-		Debug.Log (EventSystem.current.currentSelectedGameObject);
+		//Debug.Log (EventSystem.current.currentSelectedGameObject);
+
 		if (messengerManager.GetComponent<DialogueManager> ().sentences.Count == 0) 
 		{
 			if ((EventSystem.current.currentSelectedGameObject == this.gameObject.GetComponent<DialogueManager>().listeDeBouttons[0]) || (currentKey.ToString() == oneTwoThreeViveLAlgerie[0]))
