@@ -288,7 +288,7 @@ public class GameState : MonoBehaviour {
 			SP.messengerTemplate.SetActive (true);
 			SP.dialogueMessenger.SetActive (true);
 			SP.messengerTemplate.SetActive (true);
-			SP.messengerTemplate2.SetActive (true);
+			SP.messengerTemplate2.SetActive (false);
 			SP.messengerFix.SetActive (true);
 
 			SP.SoMessCassMessenger.SetActive (false);
@@ -320,10 +320,21 @@ public class GameState : MonoBehaviour {
 			SP.messengerTemplate.SetActive (true);
 			SP.CassMessPaMessenger.SetActive (true);
 
+			SP.CassMessSophieMessenger.SetActive (false);
+			SP.CassMessA1Messenger.SetActive (false);
+			SP.CassMessA2Messenger.SetActive(false);
+			SP.CassMessAdrienMessenger.SetActive (false);
+			SP.CassMessHugoMessenger.SetActive (false);
+
+			SP.SoMessCassMessenger.SetActive (false);
+			SP.SoMessPoMessenger.SetActive (false);
+			SP.SoMessYoMessenger.SetActive (false);
+
+
+
 			SP.dialogueMessenger.SetActive (false);
 			SP.SoMessMarieEveMessenger.SetActive (false);
 			SP.fixSo.SetActive (false);
-
 			SP.SoMessCassMessenger.SetActive (false);
 			SP.SoMessMarieEveMessenger.SetActive (false);
 			SP.SoMessPoMessenger.SetActive (false);
@@ -336,6 +347,9 @@ public class GameState : MonoBehaviour {
 			FR.OnEnable ();
 		}
 
+			DM.boulesale = true;
+			DM.Update ();
+
 			Canvas.ForceUpdateCanvases ();
 			BM._vertLayoutGroup.SetLayoutVertical();
 			BM._ContentSizeFitter.enabled = false;
@@ -343,9 +357,7 @@ public class GameState : MonoBehaviour {
 			LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.messengerTemplate.transform );
 			LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.messengerTemplate2.transform );
 			BM._ContentSizeFitter.enabled = true;
-			DM.boulesale = true;
-			DM.Update ();
-			SRP.InvertStart ();
+		
 	}
 
 	public void shortCutFacebook () {
@@ -742,6 +754,8 @@ public class GameState : MonoBehaviour {
 		BM._ContentSizeFitter.enabled = false;
 		BM._ContentSizeFitter.SetLayoutVertical();
 		BM._ContentSizeFitter.enabled = true;
+		DM.boulesale = true;
+		DM.Update ();
 		Canvas.ForceUpdateCanvases ();
 		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.messengerTemplate2.transform );
 
@@ -759,13 +773,15 @@ public class GameState : MonoBehaviour {
 		SP.SoMessCassMessenger.transform.SetAsFirstSibling ();
 		SC.InitialState ();
 		deactivateChildren ();
-		SRP.InvertStart ();
+	
 		FR.OnEnable ();
 
 		BM._vertLayoutGroup.SetLayoutVertical();
 		BM._ContentSizeFitter.enabled = false;
 		BM._ContentSizeFitter.SetLayoutVertical();
 		BM._ContentSizeFitter.enabled = true;
+		DM.boulesale = true;
+		DM.Update ();
 		Canvas.ForceUpdateCanvases ();
 		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.messengerTemplate2.transform );
 
@@ -784,7 +800,6 @@ public class GameState : MonoBehaviour {
 		SP.SoMessYoMessenger.transform.SetAsFirstSibling ();
 		SC.InitialState ();
 		deactivateChildren ();
-		SRP.InvertStart ();
 		FR.OnEnable ();
 
 
@@ -792,6 +807,8 @@ public class GameState : MonoBehaviour {
 		BM._ContentSizeFitter.enabled = false;
 		BM._ContentSizeFitter.SetLayoutVertical();
 		BM._ContentSizeFitter.enabled = true;
+		DM.boulesale = true;
+		DM.Update ();
 		Canvas.ForceUpdateCanvases ();
 		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.messengerTemplate2.transform );
 
@@ -810,7 +827,6 @@ public class GameState : MonoBehaviour {
 		SP.SoMessPoMessenger.transform.SetAsFirstSibling ();
 		SC.InitialState ();
 		deactivateChildren ();
-		SRP.InvertStart ();
 		FR.OnEnable ();
 
 
@@ -818,6 +834,8 @@ public class GameState : MonoBehaviour {
 		BM._ContentSizeFitter.enabled = false;
 		BM._ContentSizeFitter.SetLayoutVertical();
 		BM._ContentSizeFitter.enabled = true;
+		DM.boulesale = true;
+		DM.Update ();
 		Canvas.ForceUpdateCanvases ();
 		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.messengerTemplate2.transform );
 
@@ -834,13 +852,14 @@ public class GameState : MonoBehaviour {
 		SP.CassMessPaMessenger.transform.SetAsFirstSibling ();
 		SC.InitialState ();
 		deactivateChildren ();
-		SRP.InvertStart ();
 		FR.OnEnable ();
 
 		BM._vertLayoutGroup.SetLayoutVertical();
 		BM._ContentSizeFitter.enabled = false;
 		BM._ContentSizeFitter.SetLayoutVertical();
 		BM._ContentSizeFitter.enabled = true;
+		DM.boulesale = true;
+		DM.Update ();
 		Canvas.ForceUpdateCanvases ();
 		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.messengerTemplate2.transform );
 
@@ -857,7 +876,6 @@ public class GameState : MonoBehaviour {
 		SP.CassMessAdrienMessenger.transform.SetAsFirstSibling ();
 		SC.InitialState ();
 		deactivateChildren ();
-		SRP.InvertStart ();
 		FR.OnEnable ();
 
 
@@ -865,6 +883,8 @@ public class GameState : MonoBehaviour {
 		BM._ContentSizeFitter.enabled = false;
 		BM._ContentSizeFitter.SetLayoutVertical();
 		BM._ContentSizeFitter.enabled = true;
+		DM.boulesale = true;
+		DM.Update ();
 		Canvas.ForceUpdateCanvases ();
 		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.messengerTemplate2.transform );
 
@@ -882,7 +902,7 @@ public class GameState : MonoBehaviour {
 		SP.CassMessHugoMessenger.transform.SetAsFirstSibling ();
 		SC.InitialState ();
 		deactivateChildren ();
-		SRP.InvertStart ();
+
 		FR.OnEnable ();
 	
 
@@ -890,6 +910,8 @@ public class GameState : MonoBehaviour {
 		BM._ContentSizeFitter.enabled = false;
 		BM._ContentSizeFitter.SetLayoutVertical();
 		BM._ContentSizeFitter.enabled = true;
+		DM.boulesale = true;
+		DM.Update ();
 		Canvas.ForceUpdateCanvases ();
 		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.messengerTemplate2.transform );
 
@@ -906,7 +928,6 @@ public class GameState : MonoBehaviour {
 		SP.CassMessA1Messenger.transform.SetAsFirstSibling ();
 		SC.InitialState ();
 		deactivateChildren ();
-		SRP.InvertStart ();
 		FR.OnEnable ();
 
 
@@ -914,6 +935,8 @@ public class GameState : MonoBehaviour {
 		BM._ContentSizeFitter.enabled = false;
 		BM._ContentSizeFitter.SetLayoutVertical();
 		BM._ContentSizeFitter.enabled = true;
+		DM.boulesale = true;
+		DM.Update ();
 		Canvas.ForceUpdateCanvases ();
 		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.messengerTemplate2.transform );
 
@@ -930,7 +953,6 @@ public class GameState : MonoBehaviour {
 		SP.CassMessSophieMessenger.transform.SetAsFirstSibling ();
 		SC.InitialState ();
 		deactivateChildren ();
-		SRP.InvertStart ();
 		FR.OnEnable ();
 
 
@@ -939,6 +961,8 @@ public class GameState : MonoBehaviour {
 		BM._ContentSizeFitter.enabled = false;
 		BM._ContentSizeFitter.SetLayoutVertical();
 		BM._ContentSizeFitter.enabled = true;
+		DM.boulesale = true;
+		DM.Update ();
 		Canvas.ForceUpdateCanvases ();
 		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.messengerTemplate2.transform );
 
@@ -955,7 +979,6 @@ public class GameState : MonoBehaviour {
 		SP.CassMessA2Messenger.transform.SetAsFirstSibling ();
 		SC.InitialState ();
 		deactivateChildren ();
-		SRP.InvertStart ();
 		FR.OnEnable ();
 
 
@@ -963,6 +986,8 @@ public class GameState : MonoBehaviour {
 		BM._ContentSizeFitter.enabled = false;
 		BM._ContentSizeFitter.SetLayoutVertical();
 		BM._ContentSizeFitter.enabled = true;
+		DM.boulesale = true;
+		DM.Update ();
 		Canvas.ForceUpdateCanvases ();
 		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.messengerTemplate2.transform );
 
