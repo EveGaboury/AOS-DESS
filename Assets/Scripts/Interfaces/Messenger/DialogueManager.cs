@@ -13,6 +13,13 @@ public class DialogueManager : MonoBehaviour
 	//public TextMeshProUGUI nameText;
 	public GameObject conversationPartner, yourAnswers;
 	public Transform conversationHistory;
+	public scrollRectPosition SRP;
+	public ForceReUpdate Force;
+	public ScrollRect scrollfacebook;
+	public Scrollbar scrollBarFacebook;
+	public bool boulesale = false;
+
+	public AudioClip messengerSFX;
 
 	[HideInInspector]
 	public Queue<string> sentences;
@@ -40,16 +47,11 @@ public class DialogueManager : MonoBehaviour
 
 	private DialogueTrigger dlgTrigger;
 
-	public scrollRectPosition SRP;
-	public ForceReUpdate Force;
-	public ScrollRect scrollfacebook;
-	public Scrollbar scrollBarFacebook;
-
-	public bool boulesale = false;
-
-	float timer = 0.1f, timer2 = 0.1f, timer3 = 0.1f;
+	private float timer = 0.1f, timer2 = 0.1f, timer3 = 0.1f;
 
 	private GameObject dialogueInstance;
+
+	public AudioSourceManagerScript ASMS;
 
 	void Awake()
 	{
@@ -64,6 +66,8 @@ public class DialogueManager : MonoBehaviour
 		bttnDtct = this.gameObject.GetComponent<ButtonDetection> ();
 
 		dlgTrigger = this.gameObject.GetComponent<DialogueTrigger> ();
+
+		//ASMS = ;
 	}
 
 
@@ -77,8 +81,9 @@ public class DialogueManager : MonoBehaviour
 			if (timer <= 0f)
 			{
 				scrollBarFacebook.value -= 1.0f;
-				Debug.Log ("allo j'existe");
+				//Debug.Log ("allo j'existe");
 				timer2 -= Time.deltaTime;
+
 				if (timer2 <= 0f) 
 				{
 					boulesale = false;
@@ -151,6 +156,7 @@ public class DialogueManager : MonoBehaviour
 
 		if (prefab == conversationPartner ) 
 		{
+			ASMS.GetComponent<AudioSourceManagerScript>().audioSourceClicksEtTyping.PlayOneShot (messengerSFX);
 			Debug.Log ("Le prefab étant instantié est celui de MARIE-EVE");
 			//Si c'est bien le prefab de conversation de marie eve, alors faire l'animation de facebook messenger des trois petits points
 		}

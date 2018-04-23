@@ -80,5 +80,5 @@ public class AudioSourceManagerScript : MonoBehaviour
 //			Debug.Log ("From AudioSourceManagerScript.cs, the current value of testINT is: " + testINT);
 ////			audioSourceMusique.pitch -= .1f;
 //		}
-//	}0
+//	}
 }
