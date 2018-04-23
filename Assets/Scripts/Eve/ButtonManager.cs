@@ -217,6 +217,14 @@ public class ButtonManager: MonoBehaviour {
 		if (easter == inputfieldQuestionParis.text) {
 			pablo.SetActive (true);
 		}
+		DM.boulesale = true;
+		DM.Update ();
+		Canvas.ForceUpdateCanvases();
+		_vertLayoutGroup.SetLayoutVertical();
+		_ContentSizeFitter.enabled = true;
+		_ContentSizeFitter.SetLayoutVertical();
+		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.passwordTemplate.transform );
+		_ContentSizeFitter.enabled = false;
 	}
 
 	void TaskOnClickQuestionAdrien (){
@@ -251,6 +259,14 @@ public class ButtonManager: MonoBehaviour {
 			questionZeusImage.sprite = pasvrai;
 			Canvas.ForceUpdateCanvases ();
 		}
+		DM.boulesale = true;
+		DM.Update ();
+		Canvas.ForceUpdateCanvases();
+		_vertLayoutGroup.SetLayoutVertical();
+		_ContentSizeFitter.enabled = true;
+		_ContentSizeFitter.SetLayoutVertical();
+		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.passwordTemplate.transform );
+		_ContentSizeFitter.enabled = false;
 	}
 		
 	void TaskonClickDemarrer ()
