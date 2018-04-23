@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class ForceReUpdate : MonoBehaviour {
 
+	public ButtonManager BM;
+
 	//public scrollRectPosition SR;
 	public GameObject scriptManager;
 	public ScrollRect scrollFacebook;

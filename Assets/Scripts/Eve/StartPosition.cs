@@ -201,7 +201,7 @@ public class StartPosition : MonoBehaviour {
 
 		facebookConnInPage.SetActive (false);
 		shortCutSophieFB.SetActive (false);
-		//shortCutCassFB.SetActive (false);
+		shortCutCassFB.SetActive (false);
 
 		questionOne.SetActive (false);
 		question2.SetActive (false);

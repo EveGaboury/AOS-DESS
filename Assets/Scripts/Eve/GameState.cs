@@ -311,6 +311,7 @@ public class GameState : MonoBehaviour {
 			ChildrenSuiteConvo ();
 			FR.OnEnable ();
 			SP.SoMessMarieEveMessenger.SetActive (true);
+		
 
 		} else {
 
@@ -330,13 +331,17 @@ public class GameState : MonoBehaviour {
 			SP.SoMessYoMessenger.SetActive (false);
 
 			SC.OnClick_Messenger ();
-
 			deactivateChildren ();
-
 			FR.OnEnable ();
 		}
-			DM.boulesale = true;
-			DM.Update ();
+			SRP.InvertStart ();
+			Canvas.ForceUpdateCanvases ();
+			BM._vertLayoutGroup.SetLayoutVertical();
+			BM._ContentSizeFitter.enabled = false;
+			BM._ContentSizeFitter.SetLayoutVertical();
+			LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.messengerTemplate.transform );
+			LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.messengerTemplate2.transform );
+			BM._ContentSizeFitter.enabled = true;
 	}
 
 	public void shortCutFacebook () {
@@ -720,6 +725,8 @@ public class GameState : MonoBehaviour {
 
 	public void MessengerSoME () {
 
+		SP.messengerTemplate.SetActive(true);
+		SP.messengerTemplate2.SetActive (false);
 		SP.fixCass.SetActive (false);
 		SP.messengerTemplate.SetActive (true);
 		SP.SoMessMarieEveMessenger.SetActive (true);
@@ -728,17 +735,20 @@ public class GameState : MonoBehaviour {
 		SC.OnClick_Messenger ();
 		ChildrenSuiteConvo ();
 		FR.OnEnable ();
+		DM.boulesale = true;
+		DM.Update ();
+		Canvas.ForceUpdateCanvases();
 		BM._vertLayoutGroup.SetLayoutVertical();
-		BM._ContentSizeFitter.enabled = true;
-		BM._ContentSizeFitter.SetLayoutVertical();
 		BM._ContentSizeFitter.enabled = false;
-		Canvas.ForceUpdateCanvases ();
-		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.passwordTemplate.transform );
+		BM._ContentSizeFitter.SetLayoutVertical();
+		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.messengerTemplate.transform );
+		BM._ContentSizeFitter.enabled = true;
 
 	}
 
 	public void MessengerSoCass (){
 
+		SP.messengerTemplate2.SetActive (true);
 		suiteConvo.SetActive (false);
 		SP.fixCass.SetActive (false);
 		SP.SoMessPoMessenger.SetActive (false);
@@ -746,22 +756,26 @@ public class GameState : MonoBehaviour {
 		SP.messengerTemplate.SetActive (false);
 		SP.messengerTemplate2.SetActive (true);
 		SP.SoMessCassMessenger.SetActive (true);
+		SP.messengerTemplate.SetActive (false);
 		SP.SoMessCassMessenger.transform.SetAsFirstSibling ();
 		SC.InitialState ();
 		deactivateChildren ();
-		SRP.InvertStart ();
 		FR.OnEnable ();
+		DM.Update ();
+		DM.boulesale = true;
+		DM.Update ();
+		Canvas.ForceUpdateCanvases();
 		BM._vertLayoutGroup.SetLayoutVertical();
-		BM._ContentSizeFitter.enabled = true;
-		BM._ContentSizeFitter.SetLayoutVertical();
 		BM._ContentSizeFitter.enabled = false;
-		Canvas.ForceUpdateCanvases ();
-		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.passwordTemplate.transform );
+		BM._ContentSizeFitter.SetLayoutVertical();
+		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.messengerTemplate2.transform );
+		BM._ContentSizeFitter.enabled = true;
 
 	}
 
 	public void MessengerSoYann (){
 
+		SP.messengerTemplate2.SetActive (true);
 		suiteConvo.SetActive (false);
 		SP.fixCass.SetActive (false);
 		SP.SoMessCassMessenger.SetActive (false);
@@ -769,23 +783,27 @@ public class GameState : MonoBehaviour {
 		SP.messengerTemplate.SetActive (false);
 		SP.messengerTemplate2.SetActive (true);
 		SP.SoMessYoMessenger.SetActive (true);
+		SP.messengerTemplate.SetActive (false);
 		SP.SoMessYoMessenger.transform.SetAsFirstSibling ();
 		SC.InitialState ();
 		deactivateChildren ();
-		SRP.InvertStart ();
 		FR.OnEnable ();
+		DM.Update ();
+		DM.boulesale = true;
+		DM.Update ();
+		Canvas.ForceUpdateCanvases();
 		BM._vertLayoutGroup.SetLayoutVertical();
-		BM._ContentSizeFitter.enabled = true;
-		BM._ContentSizeFitter.SetLayoutVertical();
 		BM._ContentSizeFitter.enabled = false;
-		Canvas.ForceUpdateCanvases ();
-		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.passwordTemplate.transform );
+		BM._ContentSizeFitter.SetLayoutVertical();
+		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.messengerTemplate2.transform );
+		BM._ContentSizeFitter.enabled = true;
+
 
 	}
 
 	public void MessengerSoPO ()
 	{
-
+		SP.messengerTemplate2.SetActive (true);
 		suiteConvo.SetActive (false);
 		SP.fixCass.SetActive (false);
 		SP.SoMessCassMessenger.SetActive (false);
@@ -793,149 +811,179 @@ public class GameState : MonoBehaviour {
 		SP.messengerTemplate.SetActive (false);
 		SP.messengerTemplate2.SetActive (true);
 		SP.SoMessPoMessenger.SetActive (true);
+		SP.messengerTemplate.SetActive (false);
 		SP.SoMessPoMessenger.transform.SetAsFirstSibling ();
 		SC.InitialState ();
 		deactivateChildren ();
-		SRP.InvertStart ();
 		FR.OnEnable ();
+		DM.Update ();
+		DM.boulesale = true;
+		DM.Update ();
+		Canvas.ForceUpdateCanvases();
 		BM._vertLayoutGroup.SetLayoutVertical();
-		BM._ContentSizeFitter.enabled = true;
-		BM._ContentSizeFitter.SetLayoutVertical();
 		BM._ContentSizeFitter.enabled = false;
-		Canvas.ForceUpdateCanvases ();
-		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.passwordTemplate.transform );
+		BM._ContentSizeFitter.SetLayoutVertical();
+		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.messengerTemplate2.transform );
+		BM._ContentSizeFitter.enabled = true;
+
 	}
 
 	public void MessengerCassPa()
 	{
+		SP.messengerTemplate2.SetActive (true);
 		SP.CassMessPaMessenger.SetActive (true);
 		SP.CassMessAdrienMessenger.SetActive (false);
 		SP.CassMessHugoMessenger.SetActive (false);
 		SP.CassMessA1Messenger.SetActive (false);
 		SP.CassMessSophieMessenger.SetActive (false);
 		SP.CassMessA2Messenger.SetActive (false);
+		SP.messengerTemplate.SetActive (false);
 		SP.CassMessPaMessenger.transform.SetAsFirstSibling ();
 		SC.InitialState ();
 		deactivateChildren ();
-		SRP.InvertStart ();
 		FR.OnEnable ();
+		DM.Update ();
+		DM.boulesale = true;
+		DM.Update ();
+		Canvas.ForceUpdateCanvases();
 		BM._vertLayoutGroup.SetLayoutVertical();
-		BM._ContentSizeFitter.enabled = true;
-		BM._ContentSizeFitter.SetLayoutVertical();
 		BM._ContentSizeFitter.enabled = false;
-		Canvas.ForceUpdateCanvases ();
-		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.passwordTemplate.transform );
+		BM._ContentSizeFitter.SetLayoutVertical();
+		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.messengerTemplate2.transform );
+		BM._ContentSizeFitter.enabled = true;
+
 	
 	}
 
-	public void MessengerCassAdrien(){
-
+	public void MessengerCassAdrien()
+	{
+		SP.messengerTemplate2.SetActive (true);
 		SP.CassMessAdrienMessenger.SetActive (true);
 		SP.CassMessPaMessenger.SetActive (false);
 		SP.CassMessHugoMessenger.SetActive (false);
 		SP.CassMessA1Messenger.SetActive (false);
 		SP.CassMessSophieMessenger.SetActive (false);
 		SP.CassMessA2Messenger.SetActive (false);
+		SP.messengerTemplate.SetActive (false);
 		SP.CassMessAdrienMessenger.transform.SetAsFirstSibling ();
 		SC.InitialState ();
 		deactivateChildren ();
-		SRP.InvertStart ();
 		FR.OnEnable ();
+		DM.Update ();
+		DM.boulesale = true;
+		DM.Update ();
+		Canvas.ForceUpdateCanvases();
 		BM._vertLayoutGroup.SetLayoutVertical();
-		BM._ContentSizeFitter.enabled = true;
-		BM._ContentSizeFitter.SetLayoutVertical();
 		BM._ContentSizeFitter.enabled = false;
-		Canvas.ForceUpdateCanvases ();
-		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.passwordTemplate.transform );
+		BM._ContentSizeFitter.SetLayoutVertical();
+		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.messengerTemplate2.transform );
+		BM._ContentSizeFitter.enabled = true;
 
 	}
 
-	public void MessengerCassHugo (){
-
+	public void MessengerCassHugo ()
+	{
+		SP.messengerTemplate2.SetActive (true);
 		SP.CassMessHugoMessenger.SetActive (true);
 		SP.CassMessAdrienMessenger.SetActive (false);
 		SP.CassMessPaMessenger.SetActive (false);
 		SP.CassMessA1Messenger.SetActive (false);
 		SP.CassMessSophieMessenger.SetActive (false);
 		SP.CassMessA2Messenger.SetActive (false);
+		SP.messengerTemplate.SetActive (false);
 		SP.CassMessHugoMessenger.transform.SetAsFirstSibling ();
 		SC.InitialState ();
 		deactivateChildren ();
-		SRP.InvertStart ();
 		FR.OnEnable ();
+		DM.Update ();
+		DM.boulesale = true;
+		DM.Update ();
+		Canvas.ForceUpdateCanvases();
 		BM._vertLayoutGroup.SetLayoutVertical();
-		BM._ContentSizeFitter.enabled = true;
-		BM._ContentSizeFitter.SetLayoutVertical();
 		BM._ContentSizeFitter.enabled = false;
-		Canvas.ForceUpdateCanvases ();
-		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.passwordTemplate.transform );
+		BM._ContentSizeFitter.SetLayoutVertical();
+		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.messengerTemplate2.transform );
+		BM._ContentSizeFitter.enabled = true;
 
 	}
 
-	public void MessengerCassA1 (){
-
+	public void MessengerCassA1 ()
+	{
+		SP.messengerTemplate2.SetActive (true);
 		SP.CassMessA1Messenger.SetActive (true);
 		SP.CassMessHugoMessenger.SetActive (false);
 		SP.CassMessAdrienMessenger.SetActive (false);
 		SP.CassMessPaMessenger.SetActive (false);
 		SP.CassMessSophieMessenger.SetActive (false);
 		SP.CassMessA2Messenger.SetActive (false);
+		SP.messengerTemplate.SetActive (false);
 		SP.CassMessA1Messenger.transform.SetAsFirstSibling ();
 		SC.InitialState ();
 		deactivateChildren ();
-		SRP.InvertStart ();
 		FR.OnEnable ();
+		DM.Update ();
+		DM.boulesale = true;
+		DM.Update ();
+		Canvas.ForceUpdateCanvases();
 		BM._vertLayoutGroup.SetLayoutVertical();
-		BM._ContentSizeFitter.enabled = true;
-		BM._ContentSizeFitter.SetLayoutVertical();
 		BM._ContentSizeFitter.enabled = false;
-		Canvas.ForceUpdateCanvases ();
-		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.passwordTemplate.transform );
+		BM._ContentSizeFitter.SetLayoutVertical();
+		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.messengerTemplate2.transform );
+		BM._ContentSizeFitter.enabled = true;
 
 	}
 
-	public void MessengerCassSophie (){
+	public void MessengerCassSophie ()
+	{
 
+		SP.messengerTemplate2.SetActive (true);
 		SP.CassMessSophieMessenger.SetActive (true);
 		SP.CassMessA1Messenger.SetActive (false);
 		SP.CassMessHugoMessenger.SetActive (false);
 		SP.CassMessAdrienMessenger.SetActive (false);
 		SP.CassMessPaMessenger.SetActive (false);
 		SP.CassMessA2Messenger.SetActive (false);
+		SP.messengerTemplate.SetActive (false);
 		SP.CassMessSophieMessenger.transform.SetAsFirstSibling ();
 		SC.InitialState ();
 		deactivateChildren ();
-		SRP.InvertStart ();
 		FR.OnEnable ();
+		DM.Update ();
+		DM.boulesale = true;
+		DM.Update ();
+		Canvas.ForceUpdateCanvases();
 		BM._vertLayoutGroup.SetLayoutVertical();
-		BM._ContentSizeFitter.enabled = true;
-		BM._ContentSizeFitter.SetLayoutVertical();
 		BM._ContentSizeFitter.enabled = false;
-		Canvas.ForceUpdateCanvases ();
-		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.passwordTemplate.transform );
+		BM._ContentSizeFitter.SetLayoutVertical();
+		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.messengerTemplate2.transform );
+		BM._ContentSizeFitter.enabled = true;
 
 	}
 
-	public void MessengerCassA2 (){
+	public void MessengerCassA2 ()
+	{
 
+		SP.messengerTemplate2.SetActive (true);
 		SP.CassMessA2Messenger.SetActive (true);
 		SP.CassMessSophieMessenger.SetActive (false);
 		SP.CassMessA1Messenger.SetActive (false);
 		SP.CassMessHugoMessenger.SetActive (false);
 		SP.CassMessAdrienMessenger.SetActive (false);
 		SP.CassMessPaMessenger.SetActive (false);
+		SP.messengerTemplate.SetActive (false);
 		SP.CassMessA2Messenger.transform.SetAsFirstSibling ();
 		SC.InitialState ();
 		deactivateChildren ();
-		SRP.InvertStart ();
 		FR.OnEnable ();
+		DM.Update ();
+		DM.boulesale = true;
+		DM.Update ();
+		Canvas.ForceUpdateCanvases();
 		BM._vertLayoutGroup.SetLayoutVertical();
-		BM._ContentSizeFitter.enabled = true;
-		BM._ContentSizeFitter.SetLayoutVertical();
 		BM._ContentSizeFitter.enabled = false;
-		Canvas.ForceUpdateCanvases ();
-		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.passwordTemplate.transform );
+		BM._ContentSizeFitter.SetLayoutVertical();
+		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.messengerTemplate2.transform );
+		BM._ContentSizeFitter.enabled = true;
 
-	
 	}
 }
