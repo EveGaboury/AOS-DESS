@@ -15,6 +15,8 @@ public class DataPrefab : MonoBehaviour
 
 	public AnimationClip animCLIP;
 
+	public float changeLeVolumeDeLaTune = 0.66f;
+
 	[HideInInspector]
 	public bool animClipIsPlaying = false, justAnotherBoool = true;
 
@@ -27,11 +29,13 @@ public class DataPrefab : MonoBehaviour
 
 	AudioSource ASMS_Data;
 
+	GameObject localGameObject;
+
 	void Start()
 	{
 		animator = GetComponent<Animator> ();
 
-		GameObject localGameObject = GameObject.Find ("SoundManager");
+		localGameObject = GameObject.Find ("SoundManager");
 
 		ASMS_Data = localGameObject.gameObject.GetComponent<AudioSourceManagerScript> ().audioSourceData;
 	}
@@ -73,24 +77,44 @@ public class DataPrefab : MonoBehaviour
 			{
 				CreateButtonAndAssignScript ();
 
-				PlayAudio ();
+				StartCoroutine (PlayAudio ());
+
+//				PlayAudio ();
 
 				this.gameObject.GetComponent<Image> ().overrideSprite = finalSprite;
 			}
 		}
 	}
 
-	public void PlayAudio()
+//	public void PlayAudio()
+//	{
+//		//this.gameObject.GetComponent<AudioSourceManagerScript> ().audioSourceData.PlayOneShot (clipToBePlayed,0.5f);
+//		localGameObject.gameObject.GetComponent<AudioSourceManagerScript> ().audioSourceMusique.volume = 0.66f;
+//		ASMS_Data.PlayOneShot (clipToBePlayed,0.5f);
+//
+//	}
+
+	IEnumerator PlayAudio()
 	{
 		//this.gameObject.GetComponent<AudioSourceManagerScript> ().audioSourceData.PlayOneShot (clipToBePlayed,0.5f);
-		ASMS_Data.PlayOneShot (clipToBePlayed,0.5f);
+		localGameObject.gameObject.GetComponent<AudioSourceManagerScript> ().audioSourceMusique.volume = changeLeVolumeDeLaTune;
+
+		ASMS_Data.PlayOneShot (clipToBePlayed, 0.5f);
+
+		float localFloat = clipToBePlayed.length;
+
+		yield return new WaitForSeconds (localFloat);
+
+		localGameObject.gameObject.GetComponent<AudioSourceManagerScript> ().ResetAllAudioSourcesVolumeSliders ();
 	}
 
 	public void PlaySoundOnceButtonInstantiated()
 	{
 		ASMS_Data.Stop ();
 
-		PlayAudio ();
+//		PlayAudio ();
+
+		StartCoroutine (PlayAudio ());
 	}
 
 	void CreateButtonAndAssignScript()

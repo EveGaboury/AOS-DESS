@@ -48,21 +48,21 @@ public class AudioSourceManagerScript : MonoBehaviour
 			localAudioSources [i].priority = 128;
 		}
 	}
-	public void FadeSoundWhenClickIsPlaying()
-	{
-		StartCoroutine (WhenSoundClickScriptIsBeingCalled());
-	}
-
-	IEnumerator WhenSoundClickScriptIsBeingCalled()
-	{
-		localAudioSources[0].volume = .7f;
-		localAudioSources[1].volume = .7f;
-		localAudioSources[3].volume = .7f;
-		localAudioSources[4].volume = .7f;
-
-		yield return new WaitForSeconds (localAudioSources[2].time);
-	}
-
+//	public void FadeSoundWhenClickIsPlaying()
+//	{
+//		StartCoroutine (WhenSoundClickScriptIsBeingCalled());
+//	}
+//
+//	IEnumerator WhenSoundClickScriptIsBeingCalled()
+//	{
+//		localAudioSources[0].volume = .7f;
+//		localAudioSources[1].volume = .7f;
+//		localAudioSources[3].volume = .7f;
+//		localAudioSources[4].volume = .7f;
+//
+//		yield return new WaitForSeconds (localAudioSources[2].time);
+//	}
+//
 	public void ResetAllAudioSourcesVolumeSliders()
 	{
 		for (int i = 0; i < localAudioSources.Length; i++)
