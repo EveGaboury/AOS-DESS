@@ -18,6 +18,7 @@ public class ButtonManager: MonoBehaviour {
 	public FadeOutScript FOS;
 
 
+
 	//public Button iconFb;
 	public Button accueilButton;
 
@@ -81,12 +82,15 @@ public class ButtonManager: MonoBehaviour {
 	public Button firstData;
 	public Button EndTuto;
 	private bool EndTutoDone;
-
+	public GameObject boutonRouge;
 
 
 
 	void Start () 
 	{
+
+	
+
 
 		Button btn = bouttontrash.GetComponent <Button> ();
 		btn.onClick.AddListener (TaskOnClickTrash);
@@ -289,8 +293,7 @@ public class ButtonManager: MonoBehaviour {
 
 		FOS.startFading ();
 
-
-		//lancer l'animation de la croix
+		boutonRouge.GetComponent<Animator> ().SetBool ("scalingBoutton",true);
 	
 
 	}
@@ -299,16 +302,14 @@ public class ButtonManager: MonoBehaviour {
 	{
 
 		if (EndTutoDone == false) 
-		
+
 		
 		{
-			
+
+			boutonRouge.GetComponent<Animator> ().SetBool ("scalingBoutton",false);
 			SP.leDevoir.SetActive (false);
 			SDS.GetComponent<SoundDesignScript> ().OnClickSoundNotificationCourriel ();
 			AM.popUpAnim ();
-			//finAnimationBoutonCroix
-
-			//Lancer changement de la musique pour début du jeu
 
 			EndTutoDone = true;
 		}
