@@ -14,7 +14,7 @@ public class StartPosition : MonoBehaviour {
 	public GameObject fenetrePoireCanvas;
 	public GameObject elementsCommun;
 	public GameObject gmailNotif;
-	public GameObject photoWindow;
+	//public GameObject photoWindow;
 
 	//Browser
 	public GameObject browserCanvas;
@@ -173,7 +173,7 @@ public class StartPosition : MonoBehaviour {
 		fenetrePoireCanvas.SetActive (false);
 		elementsCommun.SetActive (true);
 		gmailNotif.SetActive (true);
-		photoWindow.SetActive (false);
+		//photoWindow.SetActive (false);
 
 		shortCutFacebook.SetActive (false);
 
@@ -254,6 +254,7 @@ public class StartPosition : MonoBehaviour {
 
 
 		leDevoir.SetActive (true);
+		voile.SetActive (true);
 	}
 }
 
