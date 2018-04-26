@@ -57,6 +57,8 @@ public class DialogueManager : MonoBehaviour
 
 	public Sprite boutonME_Sprite;
 
+	float writtingSpeed = 0.03f;
+
 	void Awake()
 	{
 		answerButtonsParent = SP.dialogueMessenger.GetComponent<Transform>();  
@@ -70,12 +72,6 @@ public class DialogueManager : MonoBehaviour
 		bttnDtct = this.gameObject.GetComponent<ButtonDetection> ();
 
 		dlgTrigger = this.gameObject.GetComponent<DialogueTrigger> ();
-
-
-	
-
-
-		//ASMS = ;
 	}
 
 
@@ -131,7 +127,7 @@ public class DialogueManager : MonoBehaviour
 
 			bttnDtct.WillItWorkIDontKnow ();
 
-			prefab = conversationPartner;
+			//prefab = conversationPartner;
 			InstantiateStuff (nextSentence);
 
 			boulesale = true;
@@ -142,27 +138,11 @@ public class DialogueManager : MonoBehaviour
 
 	public void EndDialogue ()
 	{
-
-	
 		boutonME.GetComponent<Image>().sprite = boutonME_Sprite;
 
 		hasConversationEnded = true;
 
 		listeDeBouttons [0].gameObject.transform.parent.gameObject.SetActive (false);
-
-
-
-		//		for (int i = 0; i < listeDeBouttons.Count; i++) 
-//		{
-//			if (listeDeBouttons[i].gameObject != null) 
-//			{
-//				listeDeBouttons[i].GetComponentInChildren<TextMeshProUGUI>().text = "<size=14>Fin de la conversation.</size>";
-//
-//				listeDeBouttons [i].GetComponent<Button> ().enabled = false;
-//
-//				Debug.Log ("End of conversation.");
-//			}
-//		}
 	}	 
 
 	public void InstantiateStuff(string dialogue)
@@ -172,24 +152,37 @@ public class DialogueManager : MonoBehaviour
 
 		if (prefab == conversationPartner ) 
 		{
-//			ASMS.GetComponent<AudioSourceManagerScript>().audioSourceClicksEtTyping.PlayOneShot (messengerSFX);
-			Debug.Log ("Le prefab étant instantié est celui de MARIE-EVE");
+			dialogueInstance = Instantiate (prefab, conversationHistory.position, Quaternion.identity) as GameObject;
+
+			dialogueInstance.GetComponent<Transform> ().SetParent (conversationHistory, false);
+
+			dialogueInstance.GetComponent<Transform> ().SetAsLastSibling ();
+
+			dialogueInstance.GetComponent<Transform> ().localScale = new Vector2 (prefab.GetComponent<Transform>().localScale.x, prefab.GetComponent<Transform>().localScale.y);
+
+			dialogueInstance.GetComponentInChildren<TextMeshProUGUI> ().text = dialogue;
+
+			//ASMS.GetComponent<AudioSourceManagerScript>().audioSourceClicksEtTyping.PlayOneShot (messengerSFX);
+			Debug.Log ("Le prefab étant instantié est celui de MARIE-EVE; varialble dialogue= " + dialogue);
 			//Si c'est bien le prefab de conversation de marie eve, alors faire l'animation de facebook messenger des trois petits points
 		}
 		else if (prefab == yourAnswers) 
 		{
-			Debug.Log ("Le prefab étant instantié est celui de SOPHIE");
+			dialogueInstance = Instantiate (prefab, conversationHistory.position, Quaternion.identity) as GameObject;
+
+			dialogueInstance.GetComponent<Transform> ().SetParent (conversationHistory, false);
+
+			dialogueInstance.GetComponent<Transform> ().SetAsLastSibling ();
+
+			dialogueInstance.GetComponent<Transform> ().localScale = new Vector2 (prefab.GetComponent<Transform>().localScale.x, prefab.GetComponent<Transform>().localScale.y);
+
+			dialogueInstance.GetComponentInChildren<TextMeshProUGUI> ().text = dialogue;
+
+			//StartCoroutine (TypeSentence(dialogue));
+
+			Debug.Log ("Le prefab étant instantié est celui de SOPHIE; varialble dialogue= " + dialogue);
 			//Si c'est bien le prefab de conversation de sophie, alors faire la coroutine TypeSentences
 		}
-		dialogueInstance = Instantiate (prefab, conversationHistory.position, Quaternion.identity) as GameObject;
-
-		dialogueInstance.GetComponent<Transform> ().SetParent (conversationHistory, false);
-
-		dialogueInstance.GetComponent<Transform> ().SetAsLastSibling ();
-
-		dialogueInstance.GetComponent<Transform> ().localScale = new Vector2 (prefab.GetComponent<Transform>().localScale.x, prefab.GetComponent<Transform>().localScale.y);
-
-		dialogueInstance.GetComponentInChildren<TextMeshProUGUI> ().text = dialogue;
 	}
 
  	void FetchButtonsInOrderToMakeAList() 
@@ -204,6 +197,17 @@ public class DialogueManager : MonoBehaviour
 
 				listeNomsDeBouttons.Add (child.name);
 			} 
+		}
+	}
+
+	IEnumerator TypeSentence(string sentence)
+	{
+		//this.gameObject.GetComponent<TextMeshProUGUI> ().text = "";
+
+		foreach (char letter in sentence.ToCharArray())
+		{
+			dialogueInstance.GetComponentInChildren<TextMeshProUGUI> ().text+= letter;
+			yield return new WaitForSeconds (.3f);
 		}
 	}
 }

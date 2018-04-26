@@ -110,33 +110,41 @@ public class ButtonDetection : MonoBehaviour/*, IPointerClickHandler*/
 			{
 				currentIndex = 0;
 
+				//SOPHIE
 				messengerManager.GetComponent<DialogueManager> ().prefab = messengerManager.GetComponent<DialogueManager> ().yourAnswers;
 
 				messengerManager.GetComponent<DialogueManager> ().InstantiateStuff (reponsesSophieQ2 [currentIndex]);
 
+				//MARIE EVE
 				messengerManager.GetComponent<DialogueManager> ().prefab = messengerManager.GetComponent<DialogueManager> ().conversationPartner;
+
 				messengerManager.GetComponent<DialogueManager> ().InstantiateStuff (reponseMarieEveASophieQ2 [currentIndex]);
 			}
 			else if ((EventSystem.current.currentSelectedGameObject == this.gameObject.GetComponent<DialogueManager>().listeDeBouttons[1]) || (currentKey.ToString() == oneTwoThreeViveLAlgerie[1]))
 			{
 				currentIndex = 1;
 
+				//SOPHIE
 				messengerManager.GetComponent<DialogueManager> ().prefab = messengerManager.GetComponent<DialogueManager> ().yourAnswers;
 
 				messengerManager.GetComponent<DialogueManager> ().InstantiateStuff (reponsesSophieQ2 [currentIndex]);
 
+				//MARIE EVE
 				messengerManager.GetComponent<DialogueManager> ().prefab = messengerManager.GetComponent<DialogueManager> ().conversationPartner;
+
 				messengerManager.GetComponent<DialogueManager> ().InstantiateStuff (reponseMarieEveASophieQ2 [currentIndex]);
 			}
 			else if ((EventSystem.current.currentSelectedGameObject == this.gameObject.GetComponent<DialogueManager>().listeDeBouttons[2]) ||( currentKey.ToString() == oneTwoThreeViveLAlgerie[2]))
 			{
 				currentIndex = 2;
-
+				//SOPHIE
 				messengerManager.GetComponent<DialogueManager> ().prefab = messengerManager.GetComponent<DialogueManager> ().yourAnswers;
 
 				messengerManager.GetComponent<DialogueManager> ().InstantiateStuff (reponsesSophieQ2 [currentIndex]);
 
+				//MARIE EVE
 				messengerManager.GetComponent<DialogueManager> ().prefab = messengerManager.GetComponent<DialogueManager> ().conversationPartner;
+
 				messengerManager.GetComponent<DialogueManager> ().InstantiateStuff (reponseMarieEveASophieQ2 [currentIndex]);
 			}
 		}
@@ -146,33 +154,42 @@ public class ButtonDetection : MonoBehaviour/*, IPointerClickHandler*/
 			{
 				currentIndex = 0;
 
+				//SOPHIE
 				messengerManager.GetComponent<DialogueManager> ().prefab = messengerManager.GetComponent<DialogueManager> ().yourAnswers;
 
 				messengerManager.GetComponent<DialogueManager> ().InstantiateStuff (reponsesSophieQ1 [currentIndex]);
 
+				//MARIE EVE
 				messengerManager.GetComponent<DialogueManager> ().prefab = messengerManager.GetComponent<DialogueManager> ().conversationPartner;
+
 				messengerManager.GetComponent<DialogueManager> ().InstantiateStuff (reponseMarieEveASophieQ1 [currentIndex]);
 			}
 			else if ((EventSystem.current.currentSelectedGameObject == this.gameObject.GetComponent<DialogueManager>().listeDeBouttons[1]) || (currentKey.ToString() == oneTwoThreeViveLAlgerie[1]))
 			{
 				currentIndex = 1;
 
+				//SOPHIE
 				messengerManager.GetComponent<DialogueManager> ().prefab = messengerManager.GetComponent<DialogueManager> ().yourAnswers;
 
 				messengerManager.GetComponent<DialogueManager> ().InstantiateStuff (reponsesSophieQ1 [currentIndex]);
 
+				//MARIE EVE
 				messengerManager.GetComponent<DialogueManager> ().prefab = messengerManager.GetComponent<DialogueManager> ().conversationPartner;
+
 				messengerManager.GetComponent<DialogueManager> ().InstantiateStuff (reponseMarieEveASophieQ1 [currentIndex]);
 			}
 			else if ((EventSystem.current.currentSelectedGameObject == this.gameObject.GetComponent<DialogueManager>().listeDeBouttons[2]) ||( currentKey.ToString() == oneTwoThreeViveLAlgerie[2]))
 			{
 				currentIndex = 2;
 
+				//SOPHIE
 				messengerManager.GetComponent<DialogueManager> ().prefab = messengerManager.GetComponent<DialogueManager> ().yourAnswers;
 
 				messengerManager.GetComponent<DialogueManager> ().InstantiateStuff (reponsesSophieQ1 [currentIndex]);
 
+				//MARIE EVE
 				messengerManager.GetComponent<DialogueManager> ().prefab = messengerManager.GetComponent<DialogueManager> ().conversationPartner;
+
 				messengerManager.GetComponent<DialogueManager> ().InstantiateStuff (reponseMarieEveASophieQ1 [currentIndex]);
 			}
 		}
