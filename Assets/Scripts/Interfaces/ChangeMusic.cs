@@ -147,28 +147,28 @@ public class ChangeMusic : MonoBehaviour
 		}
 	}
 
-	void CrossFadeBetweenTunes ()
-	{
-		if (ASMS_Music.audioSourceMusique.isPlaying)
-		{
-			//Si la chanson est à 10% de la fin
-			if (ASMS_Music.audioSourceMusique.time >= ((ASMS_Music.audioSourceMusique.clip.length / 10) * 9)) 
-			{
-				if (ASMS_Music.audioSourceMusique.volume >= 0.0f) 
-				{
-					ASMS_Music.audioSourceMusique.volume -= Time.deltaTime;
-				}
-			}
-			//Si la chanson est à 10% commencée
-			else if (ASMS_Music.audioSourceMusique.time <= (ASMS_Music.audioSourceMusique.clip.length / 10)) 
-			{
-				if (ASMS_Music.audioSourceMusique.volume <= 1.0f)
-				{
-					ASMS_Music.audioSourceMusique.volume += Time.deltaTime;
-				}
-			}
-		}
-	}
+//	void CrossFadeBetweenTunes ()
+//	{
+//		if (ASMS_Music.audioSourceMusique.isPlaying)
+//		{
+//			//Si la chanson est à 10% de la fin
+//			if (ASMS_Music.audioSourceMusique.time >= ((ASMS_Music.audioSourceMusique.clip.length / 10) * 9)) 
+//			{
+//				if (ASMS_Music.audioSourceMusique.volume >= 0.0f) 
+//				{
+//					ASMS_Music.audioSourceMusique.volume -= Time.deltaTime;
+//				}
+//			}
+//			//Si la chanson est à 10% commencée
+//			else if (ASMS_Music.audioSourceMusique.time <= (ASMS_Music.audioSourceMusique.clip.length / 10)) 
+//			{
+//				if (ASMS_Music.audioSourceMusique.volume <= 1.0f)
+//				{
+//					ASMS_Music.audioSourceMusique.volume += Time.deltaTime;
+//				}
+//			}
+//		}
+//	}
 }
 
 

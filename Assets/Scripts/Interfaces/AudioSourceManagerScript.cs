@@ -6,9 +6,11 @@ public class AudioSourceManagerScript : MonoBehaviour
 {
 	public AudioSource audioSourceData, audioSourceBoutons, audioSourceClicksEtTyping, audioSourceCueEmotion, audioSourceMusique;
 
-	AudioSource[] localAudioSources;
+	AudioSource[] audioSourcesAttachedToTheSoundManager;
 
 	int testINT = 0, currentMarker = 0;
+
+	AudioClip cueEmotion;
 
 	void Awake()
 	{
@@ -21,56 +23,64 @@ public class AudioSourceManagerScript : MonoBehaviour
 
 	public void DetectAudioSources()
 	{
-		localAudioSources = this.gameObject.GetComponents<AudioSource> ();
+		audioSourcesAttachedToTheSoundManager = this.gameObject.GetComponents<AudioSource> ();
 
-		audioSourceData = localAudioSources [0];
+		audioSourceData = audioSourcesAttachedToTheSoundManager [0];
 		//audioSourceData.priority = 102;
 
-		audioSourceBoutons = localAudioSources [1]; 
+		audioSourceBoutons = audioSourcesAttachedToTheSoundManager [1]; 
 		//audioSourceBoutons.priority = 153;
 
-		audioSourceClicksEtTyping = localAudioSources [2];
+		audioSourceClicksEtTyping = audioSourcesAttachedToTheSoundManager [2];
 		//audioSourceClicksEtTyping.priority = 204 ;
 
-		audioSourceCueEmotion = localAudioSources [3];
+		audioSourceCueEmotion = audioSourcesAttachedToTheSoundManager [3];
 		//audioSourceCueEmotion.priority = 51;
 
-		audioSourceMusique = localAudioSources [4];
+		audioSourceMusique = audioSourcesAttachedToTheSoundManager [4];
 		//audioSourceMusique.priority = 0;
 	}
 
 
 	void AssignAudioSourcesStartingValues()
 	{
-		for (int i = 0; i < localAudioSources.Length; i++) 
+		for (int i = 0; i < audioSourcesAttachedToTheSoundManager.Length; i++) 
 		{
-			localAudioSources [i].volume = 1.0f;
-			localAudioSources [i].priority = 128;
+			audioSourcesAttachedToTheSoundManager [i].volume = 1.0f;
+			audioSourcesAttachedToTheSoundManager [i].priority = 128;
 		}
 	}
+
+	public void ResetAllAudioSourcesVolumeSliders()
+	{
+		for (int i = 0; i < audioSourcesAttachedToTheSoundManager.Length; i++)
+		{
+			audioSourcesAttachedToTheSoundManager [i].volume = 1f;
+		}
+	}
+
+	IEnumerator CueEmotion()
+	{
+		audioSourceMusique.volume = 0.0f;
+
+		audioSourceCueEmotion.PlayOneShot (cueEmotion, 1.0f);
+
+		/*float localFloat = audioSourceCueEmotion.clip.length;
+		yield return new WaitForSeconds (localFloat);*/
+
+		yield return new WaitForSeconds (audioSourceCueEmotion.clip.length);
+
+		ResetAllAudioSourcesVolumeSliders ();
+
+		//this.gameObject.GetComponent<ChangeMusic> ().PlayNextMusic ();
+	}
+}
+
+
 //	public void FadeSoundWhenClickIsPlaying()
 //	{
 //		StartCoroutine (WhenSoundClickScriptIsBeingCalled());
 //	}
-//
-//	IEnumerator WhenSoundClickScriptIsBeingCalled()
-//	{
-//		localAudioSources[0].volume = .7f;
-//		localAudioSources[1].volume = .7f;
-//		localAudioSources[3].volume = .7f;
-//		localAudioSources[4].volume = .7f;
-//
-//		yield return new WaitForSeconds (localAudioSources[2].time);
-//	}
-//
-	public void ResetAllAudioSourcesVolumeSliders()
-	{
-		for (int i = 0; i < localAudioSources.Length; i++)
-		{
-			localAudioSources [i].volume = 1f;
-		}
-	}
-
 //	void Update()
 //	{
 //		WhenSoundClickScriptIsBeingCalled ();
@@ -88,4 +98,13 @@ public class AudioSourceManagerScript : MonoBehaviour
 ////			audioSourceMusique.pitch -= .1f;
 //		}
 //	}
-}
+//	IEnumerator WhenSoundClickScriptIsBeingCalled()
+//	{
+//		localAudioSources[0].volume = .7f;
+//		localAudioSources[1].volume = .7f;
+//		localAudioSources[3].volume = .7f;
+//		localAudioSources[4].volume = .7f;
+//
+//		yield return new WaitForSeconds (localAudioSources[2].time);
+//	}
+//
