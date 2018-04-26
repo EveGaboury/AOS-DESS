@@ -53,6 +53,10 @@ public class DialogueManager : MonoBehaviour
 
 	public AudioSourceManagerScript ASMS;
 
+	public Image boutonME;
+
+	public Sprite boutonME_Sprite;
+
 	void Awake()
 	{
 		answerButtonsParent = SP.dialogueMessenger.GetComponent<Transform>();  
@@ -66,6 +70,10 @@ public class DialogueManager : MonoBehaviour
 		bttnDtct = this.gameObject.GetComponent<ButtonDetection> ();
 
 		dlgTrigger = this.gameObject.GetComponent<DialogueTrigger> ();
+
+
+	
+
 
 		//ASMS = ;
 	}
@@ -134,9 +142,15 @@ public class DialogueManager : MonoBehaviour
 
 	public void EndDialogue ()
 	{
+
+	
+		boutonME.GetComponent<Image>().sprite = boutonME_Sprite;
+
 		hasConversationEnded = true;
 
 		listeDeBouttons [0].gameObject.transform.parent.gameObject.SetActive (false);
+
+
 
 		//		for (int i = 0; i < listeDeBouttons.Count; i++) 
 //		{
