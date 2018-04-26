@@ -52,6 +52,7 @@ public class DialogueTrigger : MonoBehaviour
 			activateConversation = true;
 
 			this.gameObject.GetComponent<DialogueManager> ().prefab = this.gameObject.GetComponent<DialogueManager> ().conversationPartner;
+
 			this.gameObject.GetComponent<DialogueManager>().StartDialogue (dialogue);
 
 			//FindObjectOfType<DialogueManager> ().StartDialogue (dialogue);		
