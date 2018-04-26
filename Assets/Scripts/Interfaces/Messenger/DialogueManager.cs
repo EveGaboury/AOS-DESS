@@ -136,17 +136,19 @@ public class DialogueManager : MonoBehaviour
 	{
 		hasConversationEnded = true;
 
-		for (int i = 0; i < listeDeBouttons.Count; i++) 
-		{
-			if (listeDeBouttons[i].gameObject != null) 
-			{
-				listeDeBouttons[i].GetComponentInChildren<TextMeshProUGUI>().text = "<size=14>Fin de la conversation.</size>";
+		listeDeBouttons [0].gameObject.transform.parent.gameObject.SetActive (false);
 
-				listeDeBouttons [i].GetComponent<Button> ().enabled = false;
-
-				Debug.Log ("End of conversation.");
-			}
-		}
+		//		for (int i = 0; i < listeDeBouttons.Count; i++) 
+//		{
+//			if (listeDeBouttons[i].gameObject != null) 
+//			{
+//				listeDeBouttons[i].GetComponentInChildren<TextMeshProUGUI>().text = "<size=14>Fin de la conversation.</size>";
+//
+//				listeDeBouttons [i].GetComponent<Button> ().enabled = false;
+//
+//				Debug.Log ("End of conversation.");
+//			}
+//		}
 	}	 
 
 	public void InstantiateStuff(string dialogue)
