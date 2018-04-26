@@ -14,10 +14,12 @@ public class HelpScript : MonoBehaviour {
 	public TextMeshProUGUI TextAide;
 
 
+	public Button bouttonFinTuto;
 	public Button boutonConnexionTL;
 	public Button boutonDataTL;
 	public Button boutonHacking;
 	public Button boutonPosting;
+
 
 	private bool ConnextionTLDone;
 
@@ -27,7 +29,10 @@ public class HelpScript : MonoBehaviour {
 	{
 
 		TextMeshProUGUI TextAide = GetComponent <TextMeshProUGUI>();
-		TextAide.text = ("Bonjour. Vous pouvez toujours aller voir vos courriels. Certaines informations peuvent être importantes à lire et à receuillir.");
+
+
+		bouttonFinTuto.GetComponent <Button> ();
+		bouttonFinTuto.onClick.AddListener (TaskOFinTuto);
 
 		boutonConnexionTL.GetComponent <Button> ();
 		boutonConnexionTL.onClick.AddListener (TaskOnConnexionTL);
@@ -46,9 +51,16 @@ public class HelpScript : MonoBehaviour {
 
 
 
-		TextAide.text = ("Bonjour. Vous pouvez toujours aller voir vos courriels. Certaines informations peuvent être importantes à lire et à receuillir.");
+		TextAide.text = ("Bonjour. Pour prendre une note, il faut cliquer sur cette information. Une information apparaîtra toujours avec un surlignage jaune au contact de la souris.");
 
 
+	}
+
+
+
+	public void TaskOFinTuto () 
+	{
+		TextAide.text = ("Vous pouvez toujours aller voir vos courriels. Certaines informations peuvent être importantes à lire et à receuillir.");
 	}
 
 
