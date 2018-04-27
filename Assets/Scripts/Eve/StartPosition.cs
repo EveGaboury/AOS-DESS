@@ -76,6 +76,7 @@ public class StartPosition : MonoBehaviour {
 	public GameObject profilYannScriptable;
 	public GameObject profilHugoScriptable;
 	public GameObject profilMarieEveScriptable;
+	public GameObject profilFredScriptable;
 
 
 	//facebook page newsfeed
