@@ -29,6 +29,10 @@ public class SoundDesignScript : MonoBehaviour
 
 	float MusicVolume = 1.0f;
 
+	int currentIntValue;
+
+	AudioClip currentAudioClip;
+
 	void Start ()
 	{
 		ASMS_Boutons = this.gameObject.GetComponent<AudioSourceManagerScript> ();
@@ -42,11 +46,15 @@ public class SoundDesignScript : MonoBehaviour
 		//ici faire jouer une seule fois la "cue 2"
 		if(hasSFXBeenPlayedBefore[1] == false)
 		{
-			hasSFXBeenPlayedBefore[1] = true;
+			currentIntValue = 1;
+			currentAudioClip = cue_emotion_2;
+			Invoke("PrepareCallFOrInvoke", 3.0f);
 
-			ASMS_Boutons.audioSourceCueEmotion.clip = cue_emotion_2;
-
-			StartCoroutine(PlayAudio(cue_emotion_2));
+//			hasSFXBeenPlayedBefore[1] = true;
+//
+//			ASMS_Boutons.audioSourceCueEmotion.clip = cue_emotion_2;
+//
+//			StartCoroutine(PlayAudio(cue_emotion_2));
 		}
 	}
 
@@ -94,11 +102,15 @@ public class SoundDesignScript : MonoBehaviour
 //		//ici faire jouer une seule fois la "cue 1"
 		if (hasSFXBeenPlayedBefore[0] == false) 
 		{
-			hasSFXBeenPlayedBefore[0] = true;
+			currentIntValue = 0;
+			currentAudioClip = cue_emotion_1;
+			Invoke("PrepareCallFOrInvoke", 3.0f);
 
-			ASMS_Boutons.audioSourceCueEmotion.clip = cue_emotion_1;
-
-			StartCoroutine(PlayAudio(cue_emotion_1));
+//			hasSFXBeenPlayedBefore[0] = true;
+//
+//			ASMS_Boutons.audioSourceCueEmotion.clip = cue_emotion_1;
+//
+//			StartCoroutine(PlayAudio(cue_emotion_1));
 		}
 	}
 
@@ -154,37 +166,26 @@ public class SoundDesignScript : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		//if (ASMS_Boutons.audioSourceCueEmotion.clip == true) 
-		//{
-			//Debug.Log ("there is an audioclip playing in the audioSourceCueEmotion" + ASMS_Boutons.audioSourceCueEmotion.clip.name);
+		if (ASMS_Boutons.audioSourceCueEmotion.clip == cue_emotion_1/* && hasSFXBeenPlayedBefore[0] == true*/) 
+		{
+			Invoke ("ResetVolumeValues", ASMS_Boutons.audioSourceCueEmotion.clip.length);
 
-			if (ASMS_Boutons.audioSourceCueEmotion.clip == cue_emotion_1/* && hasSFXBeenPlayedBefore[0] == true*/) 
-			{
-				//StartCoroutine(CrossFadeBetweenTunes(ASMS_Boutons.audioSourceCueEmotion, ASMS_Boutons.audioSourceMusique,1.0f));
-				Debug.Log ("la cue d'emotion " + cue_emotion_1 + " est entrain de jouer.");
+			//Debug.Log ("la cue d'emotion " + cue_emotion_1 + " est entrain de jouer.");
+		}
+		else if (ASMS_Boutons.audioSourceCueEmotion.clip == cue_emotion_2) 
+		{
+			Invoke ("ResetVolumeValues", ASMS_Boutons.audioSourceCueEmotion.clip.length);
 
-//				if (ASMS_Boutons.audioSourceCueEmotion.time == ASMS_Boutons.audioSourceCueEmotion.clip.length) 
-//				{
-//					Debug.Log ("la  cue_emotion_1  a TERMINER de jouer.");
-//				}
-			}
-			else if (ASMS_Boutons.audioSourceCueEmotion.clip == cue_emotion_2/* && hasSFXBeenPlayedBefore[1] == true*/) 
-			{
-				//StartCoroutine(CrossFadeBetweenTunes(ASMS_Boutons.audioSourceCueEmotion, ASMS_Boutons.audioSourceMusique,1.0f));
-				Debug.Log ("la cue d'emotion " + cue_emotion_2 + " est entrain de jouer.");
+			//Debug.Log ("la cue d'emotion " + cue_emotion_2 + " est entrain de jouer.");
+		}
+	}
 
-				Invoke ("ResetVolumeValues", ASMS_Boutons.audioSourceCueEmotion.clip.length);
+	void PrepareCallFOrInvoke()
+	{
+		hasSFXBeenPlayedBefore[currentIntValue] = true;
 
-//				if (!ASMS_Boutons.audioSourceCueEmotion.isPlaying)
-//				{
-//					Debug.Log ("la  cue_emotion_2  a TERMINER de jouer.");
-//				}
+		ASMS_Boutons.audioSourceCueEmotion.clip = currentAudioClip;
 
-//				if (ASMS_Boutons.audioSourceCueEmotion.time == ASMS_Boutons.audioSourceCueEmotion.clip.length) 
-//				{
-//					Debug.Log ("la  cue_emotion_2  a TERMINER de jouer.");
-//				}
-			}
-		//}
+		StartCoroutine(PlayAudio(currentAudioClip));
 	}
 }

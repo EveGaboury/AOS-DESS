@@ -8,7 +8,7 @@ using TMPro;
 public class ChangeMusic : MonoBehaviour
 {
 	//Public
-	public AudioClip[] clipList, cueEmotion;
+	public AudioClip[] clipList;
 
 	public GameObject displayTitle, iTunes;
 
@@ -22,6 +22,8 @@ public class ChangeMusic : MonoBehaviour
 	GameObject canvasEve;
 
 	Color initialColor, isPlayingColor;
+
+	public int taillePolice = 18;
 
 	AudioSourceManagerScript ASMS_Music;
 
@@ -53,8 +55,6 @@ public class ChangeMusic : MonoBehaviour
 
 	void Update() 
 	{
-		//CrossFadeBetweenTunes (); 
-
 		if (ASMS_Music.audioSourceMusique.isPlaying == true && ASMS_Music.audioSourceMusique.time <= .5f) 
 		{
 			StartCoroutine (DisplayCurrentlyPlayingSongName());
@@ -95,10 +95,10 @@ public class ChangeMusic : MonoBehaviour
 	{
 		int k = (currentAudioIndex - 1) % clipList.Length;
 
-//		if (k <= 0) 
-//		{
-//			k = 0;
-//		}
+		if (k < 0) 
+		{
+			k = clipList.Length;
+		}
 
 		PlayMusicAtIndex(k);
 	}
@@ -143,86 +143,7 @@ public class ChangeMusic : MonoBehaviour
 
 		for (int i = 0; i < listeNomsChansons.Count; i++) 
 		{
-			listeNomsChansons [i].GetComponentInChildren<TextMeshProUGUI> ().text = "<size=18>" + clipList [i].name + "</size>";
+			listeNomsChansons [i].GetComponentInChildren<TextMeshProUGUI> ().text = "<size=" + taillePolice+">" + clipList [i].name + "</size>";
 		}
 	}
-
-//	void CrossFadeBetweenTunes ()
-//	{
-//		if (ASMS_Music.audioSourceMusique.isPlaying)
-//		{
-//			//Si la chanson est à 10% de la fin
-//			if (ASMS_Music.audioSourceMusique.time >= ((ASMS_Music.audioSourceMusique.clip.length / 10) * 9)) 
-//			{
-//				if (ASMS_Music.audioSourceMusique.volume >= 0.0f) 
-//				{
-//					ASMS_Music.audioSourceMusique.volume -= Time.deltaTime;
-//				}
-//			}
-//			//Si la chanson est à 10% commencée
-//			else if (ASMS_Music.audioSourceMusique.time <= (ASMS_Music.audioSourceMusique.clip.length / 10)) 
-//			{
-//				if (ASMS_Music.audioSourceMusique.volume <= 1.0f)
-//				{
-//					ASMS_Music.audioSourceMusique.volume += Time.deltaTime;
-//				}
-//			}
-//		}
-//	}
 }
-
-
-
-//	public void RandomizeNextSong()
-//	{
-//		//Do the thingy!
-//	}
-//
-//	public void FadeInFadeOutCueEmotion()
-//	{
-//		for (int j = 0; j < clipList.Length; j++)
-//		{
-//			if (clipList[j] && audioSource1.isPlaying == true) 
-//			{
-//				/*audioSource1.volume = .5f;*/
-//
-//				/*audioSource2.PlayOneShot(cueEmotion [j]);*/
-//					
-//				int j = [j];
-//				StartCoroutine(FadeCueEmotion(j));
-//
-//				/*audioSource1.volume = 1.0f;*/
-//			}
-//		}
-//	}
-
-//	IEnumerator FadeCueEmotion(int j)
-//	{
-//     	audioSource1.volume = .5f;
-//		audioSource2.PlayOneShot(cueEmotion [j]);
-//		yield return new WaitForSeconds (5.0f);
-//		audioSource1.volume = 1.0f;
-//	}
-
-//	void CrossFadeBetweenTunes ()
-//	{
-//		if (audioSource1.isPlaying)
-//		{
-//			//Si la chanson est à 10% de la fin
-//			if (audioSource1.time >= ((audioSource1.clip.length / 10) * 9)) 
-//			{
-//				if (audioSource1.volume >= 0.0f) 
-//				{
-//					audioSource1.volume -= Time.deltaTime;
-//				}
-//			}
-//			//Si la chanson est à 10% commencée
-//			else if (audioSource1.time <= (audioSource.clip.length / 10)) 
-//			{
-//				if (audioSource1.volume <= 1.0f)
-//				{
-//					audioSource1.volume += Time.deltaTime;
-//				}
-//			}
-//		}
-//	}

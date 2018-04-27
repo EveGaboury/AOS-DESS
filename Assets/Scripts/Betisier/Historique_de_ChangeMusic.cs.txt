@@ -1,51 +1,44 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using System.Collections;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using UnityEngine;
 using TMPro;
-using System.Linq;
 
 public class ChangeMusic : MonoBehaviour
 {
 	//Public
 	public AudioClip[] clipList, cueEmotion;
 
-	public GameObject displayTitle;
-
-	//public AudioSource audioSource1, audioSource2;
+	public GameObject displayTitle, iTunes;
 
 	//Private
 	List<GameObject> listeNomsChansons = new List<GameObject> ();
-
-	AudioSource audioSource;
 
 	int currentAudioIndex = 0;
 
 	bool isAudioPlaying;
 
-	GameObject canvasEve, iTunes;
+	GameObject canvasEve;
 
 	Color initialColor, isPlayingColor;
 
+	AudioSourceManagerScript ASMS_Music;
+
 	void Awake()
 	{
-		iTunes = GameObject.Find ("iTunesCanvas");
+		ASMS_Music = this.gameObject.GetComponent<AudioSourceManagerScript> ();
 
 		RetrieveAllChildrenGameObjectsOfiTunes ();
 	}
 
 	void Start() 
 	{
-		//DetectAudioSources ();
-		this.gameObject.GetComponent<AudioSourceManagerScript>().audioSourceMusique.clip
-		audioSource1.clip = clipList[currentAudioIndex]; 
+		ASMS_Music.audioSourceMusique.Stop ();
 
-		audioSource1.Stop ();
+		ASMS_Music.audioSourceMusique.clip = clipList[currentAudioIndex];
 
-		audioSource1.clip = clipList[currentAudioIndex];
-
-		audioSource1.Play ();
+		ASMS_Music.audioSourceMusique.Play ();
 
 		isAudioPlaying = true;
 
@@ -56,20 +49,18 @@ public class ChangeMusic : MonoBehaviour
 		isPlayingColor = Color.green; 
 
 		HighlightCurrentlyPlayingSongButton ();
-
-		//ActivateAndDeactive ();
 	}
 
 	void Update() 
 	{
 		//CrossFadeBetweenTunes (); 
 
-		if ((audioSource1.isPlaying == true)/* && (audioSource1.time <= .5f)*/) 
+		if (ASMS_Music.audioSourceMusique.isPlaying == true && ASMS_Music.audioSourceMusique.time <= .5f) 
 		{
 			StartCoroutine (DisplayCurrentlyPlayingSongName());
 		}
 
-		if (audioSource1.time == audioSource1.clip.length) 
+		if (ASMS_Music.audioSourceMusique.time == ASMS_Music.audioSourceMusique.clip.length) 
 		{
 			PlayNextMusic ();
 		}
@@ -82,13 +73,13 @@ public class ChangeMusic : MonoBehaviour
 			return;
 		}
 
-		audioSource1.Stop ();
+		ASMS_Music.audioSourceMusique.Stop ();
 
 		currentAudioIndex = k;
 
-		audioSource1.clip = clipList[currentAudioIndex];
+		ASMS_Music.audioSourceMusique.clip = clipList[currentAudioIndex];
 
-		audioSource1.Play ();
+		ASMS_Music.audioSourceMusique.Play ();
 
 		HighlightCurrentlyPlayingSongButton ();
 	}
@@ -96,6 +87,7 @@ public class ChangeMusic : MonoBehaviour
 	public void PlayNextMusic()
 	{
 		int k = (currentAudioIndex + 1) % clipList.Length;
+
 		PlayMusicAtIndex(k);
 	}
 
@@ -103,31 +95,19 @@ public class ChangeMusic : MonoBehaviour
 	{
 		int k = (currentAudioIndex - 1) % clipList.Length;
 
-		if (k <= 0) 
-		{
-			k = 0;
-		}
+//		if (k <= 0) 
+//		{
+//			k = 0;
+//		}
 
 		PlayMusicAtIndex(k);
-	}
-
-	public void ActivateAndDeactive()
-	{
-		if (iTunes.gameObject.activeSelf == true) 
-		{
-			iTunes.gameObject.SetActive (false);
-		}
-		else if (iTunes.gameObject.activeSelf == false) 
-		{
-			iTunes.gameObject.SetActive (true);
-		}
 	}
 
 	void HighlightCurrentlyPlayingSongButton() 
 	{
 		for (int k = 0; k < listeNomsChansons.Count; k++)
 		{
-			if (audioSource1.clip.name == clipList [k].name)
+			if (ASMS_Music.audioSourceMusique.clip.name == clipList [k].name)
 			{
 				listeNomsChansons [k].GetComponent<Image> ().color = isPlayingColor;
 			}  
@@ -142,21 +122,12 @@ public class ChangeMusic : MonoBehaviour
 	{
 		displayTitle.SetActive (true);
 
-		displayTitle.GetComponentInChildren<TextMeshProUGUI> ().text = audioSource1.clip.name;
+		displayTitle.GetComponentInChildren<TextMeshProUGUI> ().text = ASMS_Music.audioSourceMusique.clip.name;
 
 		yield return new WaitForSeconds (5.0f);
 
 		displayTitle.SetActive (false);
 	}
-		
-//	void DetectAudioSources()
-//	{
-//		AudioSource[] localAudioSources = this.gameObject.GetComponents<AudioSource> ();
-//
-//		audioSource1 = localAudioSources [0];
-//
-//		audioSource2 = localAudioSources [1];
-//	}
 
 	void RetrieveAllChildrenGameObjectsOfiTunes()
 	{
@@ -176,34 +147,29 @@ public class ChangeMusic : MonoBehaviour
 		}
 	}
 
-	//	void CrossFadeBetweenTunes ()
-	//	{
-	//		if (audioSource1.isPlaying)
-	//		{
-	//			//Si la chanson est à 10% de la fin
-	//			if (audioSource1.time >= ((audioSource1.clip.length / 10) * 9)) 
-	//			{
-	//				if (audioSource1.volume >= 0.0f) 
-	//				{
-	//					audioSource1.volume -= Time.deltaTime;
-	//				}
-	//			}
-	//			//Si la chanson est à 10% commencée
-	//			else if (audioSource1.time <= (audioSource.clip.length / 10)) 
-	//			{
-	//				if (audioSource1.volume <= 1.0f)
-	//				{
-	//					audioSource1.volume += Time.deltaTime;
-	//				}
-	//			}
-	//		}
-	//	}
+//	void CrossFadeBetweenTunes ()
+//	{
+//		if (ASMS_Music.audioSourceMusique.isPlaying)
+//		{
+//			//Si la chanson est à 10% de la fin
+//			if (ASMS_Music.audioSourceMusique.time >= ((ASMS_Music.audioSourceMusique.clip.length / 10) * 9)) 
+//			{
+//				if (ASMS_Music.audioSourceMusique.volume >= 0.0f) 
+//				{
+//					ASMS_Music.audioSourceMusique.volume -= Time.deltaTime;
+//				}
+//			}
+//			//Si la chanson est à 10% commencée
+//			else if (ASMS_Music.audioSourceMusique.time <= (ASMS_Music.audioSourceMusique.clip.length / 10)) 
+//			{
+//				if (ASMS_Music.audioSourceMusique.volume <= 1.0f)
+//				{
+//					ASMS_Music.audioSourceMusique.volume += Time.deltaTime;
+//				}
+//			}
+//		}
+//	}
 }
-
-
-
-
-
 
 
 
@@ -236,4 +202,27 @@ public class ChangeMusic : MonoBehaviour
 //		audioSource2.PlayOneShot(cueEmotion [j]);
 //		yield return new WaitForSeconds (5.0f);
 //		audioSource1.volume = 1.0f;
+//	}
+
+//	void CrossFadeBetweenTunes ()
+//	{
+//		if (audioSource1.isPlaying)
+//		{
+//			//Si la chanson est à 10% de la fin
+//			if (audioSource1.time >= ((audioSource1.clip.length / 10) * 9)) 
+//			{
+//				if (audioSource1.volume >= 0.0f) 
+//				{
+//					audioSource1.volume -= Time.deltaTime;
+//				}
+//			}
+//			//Si la chanson est à 10% commencée
+//			else if (audioSource1.time <= (audioSource.clip.length / 10)) 
+//			{
+//				if (audioSource1.volume <= 1.0f)
+//				{
+//					audioSource1.volume += Time.deltaTime;
+//				}
+//			}
+//		}
 //	}

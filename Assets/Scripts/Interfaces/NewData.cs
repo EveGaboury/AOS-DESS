@@ -7,8 +7,6 @@ using UnityEngine.UI;
 
 public class NewData : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-//	public int objID;
-
 	public GameObject resultatBlocNotes;
 
 	Color currentColorValue, highLightedColor = Color.yellow, startingColor = Color.white;
@@ -19,11 +17,6 @@ public class NewData : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
 	float currentAlphaValue;
 
-	//public GameObject soundManager;
-
-	//public AudioClip soundwriting;
-
-
 	public void Start()
 	{
 		prefab = this.gameObject;
@@ -33,9 +26,7 @@ public class NewData : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
 	public void OnPointerEnter(PointerEventData eventData)
 	{
-		if (/*resultatBlocNotes.GetComponent<DataPrefab> ().animClipIsPlaying == false ||*/
-			resultatBlocNotes.GetComponent<DataPrefab> ().justAnotherBoool == true
-			/*(resultatBlocNotes.GetComponent<DataPrefab> ().animClipIsPlaying == true && resultatBlocNotes.GetComponent<DataPrefab> ().justAnotherBoool == true)*/) 
+		if (resultatBlocNotes.GetComponent<DataPrefab> ().justAnotherBoool == true) 
 		{
 			currentTextValue = "<b>" + startingText + "</b>";
 			currentAlphaValue = 255f;
@@ -63,9 +54,6 @@ public class NewData : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
 	public void StartAnimation()
 	{
-		
-
-		//PlaySoundWriting ();
 		resultatBlocNotes.GetComponent<Animator> ().SetBool ("onClick", true);
 
 		resultatBlocNotes.GetComponent<DataPrefab> ().animClipIsPlaying = true;
@@ -75,38 +63,5 @@ public class NewData : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 		resultatBlocNotes.GetComponent<Transform> ().localScale = new Vector2(1.0f, 1.0f);
 
 		this.gameObject.GetComponent<Button> ().enabled = false;
-
-
-
-//		GameObject newDataInstance = Instantiate (prefab, Vector2.zero, Quaternion.identity) as GameObject;
-//
-//		newDataInstance.GetComponent<Transform> ().SetParent (parentToBe.transform);
-//
-//		newDataInstance.GetComponent<Transform> ().localScale = new Vector2(.5f, .5f);
-//
-//		newDataInstance.GetComponent<Image> ().enabled = false;
-//
-//		Debug.Log ("Hello World!");
 	}
-
-//	public void PlaySoundWriting()
-//	{
-//
-//	//	soundManager.GetComponent<AudioSource>().PlayOneShot(soundwriting);
-//
-//		soundManager.GetComponent<AudioSource> ().clip = soundwriting;
-//
-//		soundManager.GetComponent<AudioSource>().PlayDelayed(0.75f);
-//
-//
-//		//5.0f,sound_writing); 
-//		//soundManager.audioSourceSD.clip = sound_itunes; 
-//
-//		//AudioSource audioSource = GetComponent<AudioSource>();
-//		//soundManager.audioSourceSD.PlayDelayed(5);
-//
-//
-//		//AudioSource audioSource = GetComponent<AudioSource>();
-//		//audioSource.PlayDelayed(10);
-//	}
 }

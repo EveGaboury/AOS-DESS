@@ -1,100 +1,110 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class DataPrefab : MonoBehaviour
-{  
-	public Sprite finalSprite;
-	
-	public string currentlyPlayingClip;
+public class NewData : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+{
+//	public int objID;
 
-	public AudioClip clipToBePlayed;
+	public GameObject resultatBlocNotes;
 
-	public AnimationClip animCLIP;
+	Color currentColorValue, highLightedColor = Color.yellow, startingColor = Color.white;
 
-	public GameObject soundManager;
+	public GameObject prefab, parentToBe;
 
-	[HideInInspector]
-	public bool animClipIsPlaying = false, justAnotherBoool = true;
+	string startingText, currentTextValue;
 
-	Animator animator;
+	float currentAlphaValue;
 
-	float nextFire = 0.0f, timeIncrement = 0.0f; 
+	//public GameObject soundManager;
 
-	bool isAudioClipPlaying;
+	//public AudioClip soundwriting;
 
-	void Start()
+
+	public void Start()
 	{
-		animator = GetComponent<Animator> ();
+		prefab = this.gameObject;
+		startingText = prefab.GetComponentInChildren<TMP_Text> ().text;
+		parentToBe = GameObject.Find ("Content_InventorySlot");
 	}
 
-	void Update()
+	public void OnPointerEnter(PointerEventData eventData)
 	{
-		if (animClipIsPlaying == true) 
+		if (/*resultatBlocNotes.GetComponent<DataPrefab> ().animClipIsPlaying == false ||*/
+			resultatBlocNotes.GetComponent<DataPrefab> ().justAnotherBoool == true
+			/*(resultatBlocNotes.GetComponent<DataPrefab> ().animClipIsPlaying == true && resultatBlocNotes.GetComponent<DataPrefab> ().justAnotherBoool == true)*/) 
 		{
-			justAnotherBoool = false;
-				
-			CheckIfClipIsDonePlaying ();
-		}
-
-		if ((this.gameObject.GetComponent<Button> () != null) 
-			&& (soundManager.GetComponent<AudioButtons> ().audioSource2.isPlaying == true) 
-			/*&& (soundManager.GetComponent<AudioSource> ().clip.name == clipToBePlayed.name)*/) 
-		{
-			this.gameObject.GetComponent<Button> ().enabled = false; 
-		} 
-		else if ((this.gameObject.GetComponent<Button> () != null) 
-			&& (soundManager.GetComponent<AudioButtons> ().audioSource2.isPlaying == false) 
-			/*&& (soundManager.GetComponent<AudioSource> ().clip.name != clipToBePlayed.name)*/)
-		{
-			this.gameObject.GetComponent<Button> ().enabled = true; 
-		} 
-	}
-
-	void CheckIfClipIsDonePlaying()
-	{
-		if (animator.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).IsName (currentlyPlayingClip) &&
-			animator.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).normalizedTime >= 1.0f) 
-		{
-
-			animClipIsPlaying = false;
-
-			animator.SetBool ("onClick", false);
-
-			if (animClipIsPlaying == false && justAnotherBoool == false) 
-			{
-				CreateButtonAndAssignScript ();
-
-				PlayAudio ();
-
-				this.gameObject.GetComponent<Image> ().overrideSprite = finalSprite;
-			}
+			currentTextValue = "<b>" + startingText + "</b>";
+			currentAlphaValue = 255f;
+			currentColorValue = highLightedColor;
+			ManageColorChange ();
 		}
 	}
-		
-	public void PlayAudio()
-	{
-		soundManager.GetComponent<AudioButtons> ().audioSource2.PlayOneShot (clipToBePlayed,0.5f);
-		//soundManager.GetComponent<AudioSource> ().PlayOneShot (clipToBePlayed,0.5f);
+
+	public void OnPointerExit (PointerEventData eventData)
+	{	
+		currentTextValue = startingText;
+		currentAlphaValue = 0f;
+		currentColorValue = startingColor;
+		ManageColorChange ();
 	}
 
-	public void PlaySoundOnceButtonInstantiated()
+	void ManageColorChange()
 	{
-		Debug.Log ("PlaySoundOnceButtonInstantiated() has been called"); 
+		prefab.GetComponentInChildren<TMP_Text> ().text = currentTextValue;
 
-		soundManager.GetComponent<AudioButtons> ().audioSource2.Stop ();
+		prefab.GetComponent<Image> ().CrossFadeAlpha (currentAlphaValue,0,true);
 
-		//soundManager.GetComponent<AudioSource> ().Stop ();
-
-		PlayAudio ();
+		prefab.GetComponent<Image> ().color = currentColorValue;
 	}
 
-	void CreateButtonAndAssignScript()
+	public void StartAnimation()
 	{
-		Button btn = this.gameObject.AddComponent<Button> () as Button;
+		//PlaySoundWriting ();
+		resultatBlocNotes.GetComponent<Animator> ().SetBool ("onClick", true);
 
-		btn.GetComponent<Button>().onClick.AddListener(PlaySoundOnceButtonInstantiated); 
+		resultatBlocNotes.GetComponent<DataPrefab> ().animClipIsPlaying = true;
+
+		resultatBlocNotes.GetComponent<Transform> ().SetParent (parentToBe.transform);
+
+		resultatBlocNotes.GetComponent<Transform> ().localScale = new Vector2(1.0f, 1.0f);
+
+		this.gameObject.GetComponent<Button> ().enabled = false;
+
+
+
+//		GameObject newDataInstance = Instantiate (prefab, Vector2.zero, Quaternion.identity) as GameObject;
+//
+//		newDataInstance.GetComponent<Transform> ().SetParent (parentToBe.transform);
+//
+//		newDataInstance.GetComponent<Transform> ().localScale = new Vector2(.5f, .5f);
+//
+//		newDataInstance.GetComponent<Image> ().enabled = false;
+//
+//		Debug.Log ("Hello World!");
 	}
+
+//	public void PlaySoundWriting()
+//	{
+//
+//	//	soundManager.GetComponent<AudioSource>().PlayOneShot(soundwriting);
+//
+//		soundManager.GetComponent<AudioSource> ().clip = soundwriting;
+//
+//		soundManager.GetComponent<AudioSource>().PlayDelayed(0.75f);
+//
+//
+//		//5.0f,sound_writing); 
+//		//soundManager.audioSourceSD.clip = sound_itunes; 
+//
+//		//AudioSource audioSource = GetComponent<AudioSource>();
+//		//soundManager.audioSourceSD.PlayDelayed(5);
+//
+//
+//		//AudioSource audioSource = GetComponent<AudioSource>();
+//		//audioSource.PlayDelayed(10);
+//	}
 }

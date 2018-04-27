@@ -27,6 +27,7 @@ public class AudioSourceManagerScript : MonoBehaviour
 
 		audioSourceData = audioSourcesAttachedToTheSoundManager [0];
 		//audioSourceData.priority = 102;
+		audioSourceData.volume = 0.0f;
 
 		audioSourceBoutons = audioSourcesAttachedToTheSoundManager [1]; 
 		//audioSourceBoutons.priority = 153;
