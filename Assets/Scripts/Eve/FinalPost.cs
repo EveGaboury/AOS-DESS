@@ -10,6 +10,8 @@ public class FinalPost : MonoBehaviour {
 	public TMP_InputField SearchField;
 	public TextMeshProUGUI inputText;
 
+	public StartPosition SP;
+
 	public Button postButton;
 
 
@@ -23,8 +25,10 @@ public class FinalPost : MonoBehaviour {
 
 	public void SearchPost(string userSearch)
 	{
-		if (SearchField.text == "www.avis-deces-cassandra-royer.fr") {
+		if ((SearchField.text == ("www.avis-deces-cassandra-royer.fr")) || (SearchField.text == ("www.avis-décès-cassandra-royer.fr")) || (SearchField.text == ("avis-décès-cassandra-royer.fr")))
+		{
 			postButton.GetComponent<Button> ().enabled = true;
+			SP.leDevoir.SetActive (false); 
 		}
 	}
 }
