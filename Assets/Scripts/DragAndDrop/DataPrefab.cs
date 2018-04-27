@@ -83,9 +83,9 @@ public class DataPrefab : MonoBehaviour
 
 	IEnumerator PlayAudio()
 	{
-		ASMS_Data.PlayOneShot (clipToBePlayed, 0.5f);
-
 		localGameObject.gameObject.GetComponent<AudioSourceManagerScript> ().audioSourceMusique.volume = changeLeVolumeDeLaTune;
+
+		ASMS_Data.PlayOneShot (clipToBePlayed, 0.5f);
 
 		float localFloat = clipToBePlayed.length;
 
