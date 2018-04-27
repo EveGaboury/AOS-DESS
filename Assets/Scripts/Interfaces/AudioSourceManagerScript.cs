@@ -8,7 +8,7 @@ public class AudioSourceManagerScript : MonoBehaviour
 
 	AudioSource[] audioSourcesAttachedToTheSoundManager;
 
-	int testINT = 0, currentMarker = 0;
+	//int testINT = 0, currentMarker = 0;
 
 	AudioClip cueEmotion;
 
@@ -18,7 +18,7 @@ public class AudioSourceManagerScript : MonoBehaviour
 
 		//AssignAudioSourcesStartingValues ();
 
-		currentMarker = 2;
+		//currentMarker = 2;
 	}
 
 	public void DetectAudioSources()
@@ -27,7 +27,7 @@ public class AudioSourceManagerScript : MonoBehaviour
 
 		audioSourceData = audioSourcesAttachedToTheSoundManager [0];
 		//audioSourceData.priority = 102;
-		audioSourceData.volume = 0.0f;
+		//audioSourceData.volume = 0.0f;
 
 		audioSourceBoutons = audioSourcesAttachedToTheSoundManager [1]; 
 		//audioSourceBoutons.priority = 153;
@@ -39,7 +39,7 @@ public class AudioSourceManagerScript : MonoBehaviour
 
 		audioSourceCueEmotion = audioSourcesAttachedToTheSoundManager [3];
 		//audioSourceCueEmotion.priority = 51;
-		audioSourceCueEmotion.volume = 0.0f;
+		//audioSourceCueEmotion.volume = 0.0f;
 
 		audioSourceMusique = audioSourcesAttachedToTheSoundManager [4];
 		//audioSourceMusique.priority = 0;
@@ -63,21 +63,21 @@ public class AudioSourceManagerScript : MonoBehaviour
 		}
 	}
 
-	IEnumerator CueEmotion()
-	{
-		audioSourceMusique.volume = 0.0f;
-
-		audioSourceCueEmotion.PlayOneShot (cueEmotion, 1.0f);
-
-		/*float localFloat = audioSourceCueEmotion.clip.length;
-		yield return new WaitForSeconds (localFloat);*/
-
-		yield return new WaitForSeconds (audioSourceCueEmotion.clip.length);
-
-		ResetAllAudioSourcesVolumeSliders ();
-
-		//this.gameObject.GetComponent<ChangeMusic> ().PlayNextMusic ();
-	}
+//	IEnumerator CueEmotion()
+//	{
+//		audioSourceMusique.volume = 0.0f;
+//
+//		audioSourceCueEmotion.PlayOneShot (cueEmotion, 1.0f);
+//
+//		/*float localFloat = audioSourceCueEmotion.clip.length;
+//		yield return new WaitForSeconds (localFloat);*/
+//
+//		yield return new WaitForSeconds (audioSourceCueEmotion.clip.length);
+//
+//		ResetAllAudioSourcesVolumeSliders ();
+//
+//		//this.gameObject.GetComponent<ChangeMusic> ().PlayNextMusic ();
+//	}
 }
 
 
@@ -111,4 +111,3 @@ public class AudioSourceManagerScript : MonoBehaviour
 //
 //		yield return new WaitForSeconds (localAudioSources[2].time);
 //	}
-//

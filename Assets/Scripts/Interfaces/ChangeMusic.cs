@@ -95,9 +95,14 @@ public class ChangeMusic : MonoBehaviour
 	{
 		int k = (currentAudioIndex - 1) % clipList.Length;
 
-		if (k < 0) 
+//		if (k < 0) 
+//		{
+//			k = clipList.Length;
+//		}
+
+		if (k <= 0) 
 		{
-			k = clipList.Length;
+			k = 0;
 		}
 
 		PlayMusicAtIndex(k);
@@ -122,7 +127,7 @@ public class ChangeMusic : MonoBehaviour
 	{
 		displayTitle.SetActive (true);
 
-		displayTitle.GetComponentInChildren<TextMeshProUGUI> ().text = ASMS_Music.audioSourceMusique.clip.name;
+		displayTitle.GetComponentInChildren<TextMeshProUGUI> ().text = ASMS_Music.audioSourceMusique.clip.name + "\n is playing.";
 
 		yield return new WaitForSeconds (5.0f);
 
