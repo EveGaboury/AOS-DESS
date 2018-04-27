@@ -16,7 +16,7 @@ public class AudioSourceManagerScript : MonoBehaviour
 	{
 		DetectAudioSources ();
 
-		AssignAudioSourcesStartingValues ();
+		//AssignAudioSourcesStartingValues ();
 
 		currentMarker = 2;
 	}
@@ -30,26 +30,29 @@ public class AudioSourceManagerScript : MonoBehaviour
 
 		audioSourceBoutons = audioSourcesAttachedToTheSoundManager [1]; 
 		//audioSourceBoutons.priority = 153;
+		//audioSourceBoutons.volume = 0.0f;
 
 		audioSourceClicksEtTyping = audioSourcesAttachedToTheSoundManager [2];
 		//audioSourceClicksEtTyping.priority = 204 ;
+		//audioSourceClicksEtTyping.volume = 0.0f;
 
 		audioSourceCueEmotion = audioSourcesAttachedToTheSoundManager [3];
 		//audioSourceCueEmotion.priority = 51;
+		audioSourceCueEmotion.volume = 0.0f;
 
 		audioSourceMusique = audioSourcesAttachedToTheSoundManager [4];
 		//audioSourceMusique.priority = 0;
 	}
 
 
-	void AssignAudioSourcesStartingValues()
-	{
-		for (int i = 0; i < audioSourcesAttachedToTheSoundManager.Length; i++) 
-		{
-			audioSourcesAttachedToTheSoundManager [i].volume = 1.0f;
-			audioSourcesAttachedToTheSoundManager [i].priority = 128;
-		}
-	}
+//	void AssignAudioSourcesStartingValues()
+//	{
+//		for (int i = 0; i < audioSourcesAttachedToTheSoundManager.Length; i++) 
+//		{
+//			audioSourcesAttachedToTheSoundManager [i].volume = 1.0f;
+//			audioSourcesAttachedToTheSoundManager [i].priority = 128;
+//		}
+//	}
 
 	public void ResetAllAudioSourcesVolumeSliders()
 	{

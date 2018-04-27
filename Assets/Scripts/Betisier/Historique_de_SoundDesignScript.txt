@@ -6,131 +6,185 @@ using UnityEngine.UI;
 
 public class SoundDesignScript : MonoBehaviour 
 {
-	//AudioSource pou les sound Design sounds
-	public AudioSource audioSourceSD;
+	public AudioClip 
+					sound_courriel, 				//AudioClip Sound Courriel Application
+					sound_trash,					//AudioClip Sound Trash Application
+					sound_browser, 					//AudioClip Sound Browser Application
+					sound_itunes, 					//AudioClip Sound Itunes Application
+					sound_browser_error, 			//AudioClip sound Error Browser
+					sound_browser_right, 			//AudioClip sound bonne adresse ajoute Browser
+					sound_tl_connexion, 			//AudioClip sound bon mot de passe connexion
+					sound_tl_wrong, 				//AudioClip sound mauvais mot de passe
+					sound_tl_hacking,				//AudioClip sound recuperation du compte TL tonlivre effectué
+					sound_tl_right, 				//AudioClip sound bonne réponse 
+					sound_starting_mac,  			//AudioClip starting mac 
+					sound_notification_courriel,	//AudioClip notification Courriel
+					cue_emotion_1,					//AudioCLip cue d'emotion numero 1
+					cue_emotion_2; 					//AudioClip cue d'emotion numero 2
 
-	//AudioClip Sound Courriel Application
-	public AudioClip sound_courriel;
+	//Private
+	AudioSourceManagerScript ASMS_Boutons;
 
-	//AudioClip Sound Trash Application
-	public AudioClip sound_trash;
+	bool[] hasSFXBeenPlayedBefore = new bool[2];
 
-	//AudioClip Sound Browser Application
-	public AudioClip sound_browser;
-
-	//AudioClip Sound Itunes Application
-	public AudioClip sound_itunes;
-
-	//AudioClip sound Error Browser
-	public AudioClip sound_browser_error;
-
-	//AudioClip sound bonne adresse ajoute Browser
-	public AudioClip sound_browser_right;
-
-	//AudioClip sound bon mot de passe connexion
-	public AudioClip sound_tl_connexion;
-
-	//AudioClip sound mauvais mot de passe
-	public AudioClip sound_tl_wrong;
-
-	//AudioClip sound recuperation du compte TL tonlivre effectué
-	public AudioClip sound_tl_hacking;
-
-	//AudioClip sound bonne réponse 
-	public AudioClip sound_tl_right;
-
-	//AudioClip starting mac
-	public AudioClip sound_starting_mac;
-
-	//AudioClip notification Courriel
-	public AudioClip sound_notification_courriel;
-
-	AudioSource ASMS_Boutons;
+	float MusicVolume = 1.0f;
 
 	void Start ()
 	{
-		ASMS_Boutons = this.gameObject.GetComponent<AudioSourceManagerScript> ().audioSourceBoutons;
-
-		audioSourceSD = this.gameObject.GetComponent<AudioSource> ();
+		ASMS_Boutons = this.gameObject.GetComponent<AudioSourceManagerScript> ();
 	}
 
 	//OnClickBarreAppli
 	public void OnclickSoundCourriel () 
 	{
-//		this.gameObject.GetComponent<AudioSourceManagerScript> ().audioSourceBoutons.PlayOneShot (sound_courriel);
+		ASMS_Boutons.audioSourceBoutons.PlayOneShot (sound_courriel); 
 
-		audioSourceSD.clip = sound_courriel;
-		audioSourceSD.PlayOneShot (audioSourceSD.clip);
+		//ici faire jouer une seule fois la "cue 2"
+		if(hasSFXBeenPlayedBefore[1] == false)
+		{
+			hasSFXBeenPlayedBefore[1] = true;
+
+			ASMS_Boutons.audioSourceCueEmotion.clip = cue_emotion_2;
+
+			StartCoroutine(PlayAudio(cue_emotion_2));
+		}
 	}
 
 	public void OnclickSoundTrash () 
 	{
-		audioSourceSD.clip = sound_trash;
-		audioSourceSD.PlayOneShot (audioSourceSD.clip);
+		ASMS_Boutons.audioSourceBoutons.PlayOneShot (sound_trash);
 	}
 
 	public void OnclickSoundItunes () 
 	{
-		audioSourceSD.clip = sound_itunes;
-		audioSourceSD.PlayOneShot (audioSourceSD.clip);
+		ASMS_Boutons.audioSourceBoutons.PlayOneShot (sound_itunes);
 	}
-
 
 	public void OnclickSoundBrowser () 
 	{
-		audioSourceSD.clip = sound_browser;
-		audioSourceSD.PlayOneShot (audioSourceSD.clip);
+		ASMS_Boutons.audioSourceBoutons.PlayOneShot (sound_browser);
 	}
-
-
+		
 	//OnclickBrowser
 	public void OnclickSoundBrowserError () 
 	{
-		audioSourceSD.clip = sound_browser_error;
-		audioSourceSD.PlayOneShot (audioSourceSD.clip);
+		ASMS_Boutons.audioSourceBoutons.PlayOneShot (sound_browser_error);
 	}
 
 	public void OnclickSoundBrowserRight () 
 	{
-		audioSourceSD.clip = sound_browser_right;
-		audioSourceSD.PlayOneShot (audioSourceSD.clip);
+		ASMS_Boutons.audioSourceBoutons.PlayOneShot (sound_browser_right);
 	}
 
 	//OnClickTonLivre
 	public void OnclickSoundTLConnexion () 
 	{
-		audioSourceSD.clip = sound_tl_connexion;
-		audioSourceSD.PlayOneShot (audioSourceSD.clip);
+		ASMS_Boutons.audioSourceBoutons.PlayOneShot (sound_tl_connexion);
 	}
 
 	public void OnclickSoundTLWrong ()
 	{
-		audioSourceSD.clip = sound_tl_wrong;
-		audioSourceSD.PlayOneShot (audioSourceSD.clip);
+		ASMS_Boutons.audioSourceBoutons.PlayOneShot (sound_tl_wrong);
 	}
 
 	public void OnclickSoundTLHacking () 
 	{
-		audioSourceSD.clip = sound_tl_hacking;
-		audioSourceSD.PlayOneShot (audioSourceSD.clip);
+		ASMS_Boutons.audioSourceBoutons.PlayOneShot (sound_tl_hacking);
+
+//		//ici faire jouer une seule fois la "cue 1"
+		if (hasSFXBeenPlayedBefore[0] == false) 
+		{
+			hasSFXBeenPlayedBefore[0] = true;
+
+			ASMS_Boutons.audioSourceCueEmotion.clip = cue_emotion_1;
+
+			StartCoroutine(PlayAudio(cue_emotion_1));
+		}
 	}
 
 	public void OnclickSoundTLRight () 
 	{
-		audioSourceSD.clip = sound_tl_right;
-		audioSourceSD.PlayOneShot (audioSourceSD.clip);
+		ASMS_Boutons.audioSourceBoutons.PlayOneShot (sound_tl_right);
 	}
 		
 	//introduction et début du jeu
 	public void OnClicksoundDemarrageMac () 
 	{
-		audioSourceSD.clip = sound_starting_mac;
-		audioSourceSD.PlayOneShot (audioSourceSD.clip);
+		ASMS_Boutons.audioSourceBoutons.PlayOneShot (sound_starting_mac);
 	}
 
 	public void OnClickSoundNotificationCourriel () 
 	{
-		audioSourceSD.clip = sound_notification_courriel;
-		audioSourceSD.PlayDelayed (1.7f);
+		ASMS_Boutons.audioSourceBoutons.clip = sound_notification_courriel;
+		ASMS_Boutons.audioSourceBoutons.PlayDelayed (1.7f);
+	}
+
+	IEnumerator PlayAudio(AudioClip tuneToPlay)
+	{
+		ASMS_Boutons.audioSourceCueEmotion.PlayOneShot (tuneToPlay);
+
+		StartCoroutine(CrossFadeBetweenTunes(ASMS_Boutons.audioSourceMusique, ASMS_Boutons.audioSourceCueEmotion, 1.0f));
+
+		float localFloat = tuneToPlay.length;
+
+		yield return new WaitForSeconds (localFloat);
+
+		ASMS_Boutons.audioSourceCueEmotion.clip = null;
+	}
+
+	IEnumerator CrossFadeBetweenTunes (AudioSource a, AudioSource b, float seconds)
+	{
+		float step_interval = seconds / 1.0f;
+
+		float volume_interval = MusicVolume / 5.0f;
+
+		for (int i = 0; i < 20; i++) 
+		{
+			a.volume -= volume_interval;
+			b.volume += volume_interval;
+
+			yield return new WaitForSeconds (step_interval);
+		}
+	}
+
+	void ResetVolumeValues()
+	{
+		StartCoroutine(CrossFadeBetweenTunes(ASMS_Boutons.audioSourceCueEmotion, ASMS_Boutons.audioSourceMusique,1.0f));
+	}
+
+	void FixedUpdate()
+	{
+		//if (ASMS_Boutons.audioSourceCueEmotion.clip == true) 
+		//{
+			//Debug.Log ("there is an audioclip playing in the audioSourceCueEmotion" + ASMS_Boutons.audioSourceCueEmotion.clip.name);
+
+			if (ASMS_Boutons.audioSourceCueEmotion.clip == cue_emotion_1/* && hasSFXBeenPlayedBefore[0] == true*/) 
+			{
+				//StartCoroutine(CrossFadeBetweenTunes(ASMS_Boutons.audioSourceCueEmotion, ASMS_Boutons.audioSourceMusique,1.0f));
+				Debug.Log ("la cue d'emotion " + cue_emotion_1 + " est entrain de jouer.");
+
+//				if (ASMS_Boutons.audioSourceCueEmotion.time == ASMS_Boutons.audioSourceCueEmotion.clip.length) 
+//				{
+//					Debug.Log ("la  cue_emotion_1  a TERMINER de jouer.");
+//				}
+			}
+			else if (ASMS_Boutons.audioSourceCueEmotion.clip == cue_emotion_2/* && hasSFXBeenPlayedBefore[1] == true*/) 
+			{
+				//StartCoroutine(CrossFadeBetweenTunes(ASMS_Boutons.audioSourceCueEmotion, ASMS_Boutons.audioSourceMusique,1.0f));
+				Debug.Log ("la cue d'emotion " + cue_emotion_2 + " est entrain de jouer.");
+
+				Invoke ("ResetVolumeValues", ASMS_Boutons.audioSourceCueEmotion.clip.length);
+
+//				if (!ASMS_Boutons.audioSourceCueEmotion.isPlaying)
+//				{
+//					Debug.Log ("la  cue_emotion_2  a TERMINER de jouer.");
+//				}
+
+//				if (ASMS_Boutons.audioSourceCueEmotion.time == ASMS_Boutons.audioSourceCueEmotion.clip.length) 
+//				{
+//					Debug.Log ("la  cue_emotion_2  a TERMINER de jouer.");
+//				}
+			}
+		//}
 	}
 }

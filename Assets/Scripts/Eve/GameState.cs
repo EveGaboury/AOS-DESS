@@ -345,6 +345,8 @@ public class GameState : MonoBehaviour {
 			deactivateChildren ();
 
 			FR.OnEnable ();
+
+			//cue emotion ici "final" il faut que ça le fasse une seule fois 
 		}
 
 			DM.boulesale = true;

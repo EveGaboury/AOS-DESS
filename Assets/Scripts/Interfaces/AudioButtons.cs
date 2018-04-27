@@ -25,7 +25,9 @@ public class AudioButtons : MonoBehaviour
 		ASMS_buttons = this.gameObject.GetComponent<AudioSourceManagerScript> ();
 
 		SearchAllButtonsInTheHierarchy ();
+
 		RetrieveChildrenOfData ();
+
 		SearchForGameObjectsWithToggleComponents ();
 
 		AddSoundToButton ();

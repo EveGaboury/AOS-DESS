@@ -104,11 +104,11 @@ public class ButtonDetection : MonoBehaviour/*, IPointerClickHandler*/
 	{
 		if (messengerManager.GetComponent<DialogueManager> ().sentences.Count == 0) 
 		{
-			for (int j = 0; j < 3; j++)
+			for (int i = 0; i < 3; i++)
 			{
-				if ((EventSystem.current.currentSelectedGameObject == this.gameObject.GetComponent<DialogueManager>().listeDeBouttons[j]) || (currentKey.ToString() == oneTwoThreeViveLAlgerie[j]))
+				if ((EventSystem.current.currentSelectedGameObject == this.gameObject.GetComponent<DialogueManager>().listeDeBouttons[i]) || (currentKey.ToString() == oneTwoThreeViveLAlgerie[i]))
 				{
-					currentIndex = j;
+					currentIndex = i;
 
 					//SOPHIE
 					InstantiateSophieAnswers(reponsesSophieQ2[currentIndex]);
@@ -117,83 +117,22 @@ public class ButtonDetection : MonoBehaviour/*, IPointerClickHandler*/
 					InstantiateMarieEveAnswers(reponseMarieEveASophieQ2[currentIndex]);
 				}
 			}
-//			if ((EventSystem.current.currentSelectedGameObject == this.gameObject.GetComponent<DialogueManager>().listeDeBouttons[0]) || (currentKey.ToString() == oneTwoThreeViveLAlgerie[0]))
-//			{
-//				currentIndex = 0;
-//
-//				//SOPHIE
-//				InstantiateSophieAnswers();
-//
-//				//MARIE EVE
-//				InstantiateMarieEveAnswers();
-//			}
-//			else if ((EventSystem.current.currentSelectedGameObject == this.gameObject.GetComponent<DialogueManager>().listeDeBouttons[1]) || (currentKey.ToString() == oneTwoThreeViveLAlgerie[1]))
-//			{
-//				currentIndex = 1;
-//
-//				//SOPHIE
-//				InstantiateSophieAnswers();
-//
-//				//MARIE EVE
-//				InstantiateMarieEveAnswers();
-//			}
-//			else if ((EventSystem.current.currentSelectedGameObject == this.gameObject.GetComponent<DialogueManager>().listeDeBouttons[2]) ||( currentKey.ToString() == oneTwoThreeViveLAlgerie[2]))
-//			{
-//				currentIndex = 2;
-//
-//				//SOPHIE
-//				InstantiateSophieAnswers();
-//
-//				//MARIE EVE
-//				InstantiateMarieEveAnswers();
-//			}
 		}
 		else if (messengerManager.GetComponent<DialogueManager> ().sentences.Count == 1) 
 		{
-			for (int i = 0; i < 3; i++) 
+			for (int j = 0; j < 3; j++) 
 			{
-				if ((EventSystem.current.currentSelectedGameObject == this.gameObject.GetComponent<DialogueManager>().listeDeBouttons[i]) || (currentKey.ToString() == oneTwoThreeViveLAlgerie[i]))
+				if ((EventSystem.current.currentSelectedGameObject == this.gameObject.GetComponent<DialogueManager>().listeDeBouttons[j]) || (currentKey.ToString() == oneTwoThreeViveLAlgerie[j]))
 				{
-					currentIndex = i;
+					currentIndex = j;
 
 					//SOPHIE
-
 					InstantiateSophieAnswers(reponsesSophieQ1 [currentIndex]);
 
 					//MARIE EVE
 					InstantiateMarieEveAnswers(reponseMarieEveASophieQ1 [currentIndex]);
 				}
 			}
-//			if ((EventSystem.current.currentSelectedGameObject == this.gameObject.GetComponent<DialogueManager>().listeDeBouttons[0]) || (currentKey.ToString() == oneTwoThreeViveLAlgerie[0]))
-//			{
-//				currentIndex = 0;
-//
-//				//SOPHIE
-//				InstantiateSophieAnswers();
-//
-//				//MARIE EVE
-//				InstantiateMarieEveAnswers();
-//			}
-//			else if ((EventSystem.current.currentSelectedGameObject == this.gameObject.GetComponent<DialogueManager>().listeDeBouttons[1]) || (currentKey.ToString() == oneTwoThreeViveLAlgerie[1]))
-//			{
-//				currentIndex = 1;
-//
-//				//SOPHIE
-//				InstantiateSophieAnswers();
-//
-//				//MARIE EVE
-//				InstantiateMarieEveAnswers();
-//			}
-//			else if ((EventSystem.current.currentSelectedGameObject == this.gameObject.GetComponent<DialogueManager>().listeDeBouttons[2]) ||( currentKey.ToString() == oneTwoThreeViveLAlgerie[2]))
-//			{
-//				currentIndex = 2;
-//
-//				//SOPHIE
-//				InstantiateSophieAnswers();
-//
-//				//MARIE EVE
-//				InstantiateMarieEveAnswers();
-//			}
 		}
 	}
 
@@ -202,6 +141,8 @@ public class ButtonDetection : MonoBehaviour/*, IPointerClickHandler*/
 		messengerManager.GetComponent<DialogueManager> ().prefab = messengerManager.GetComponent<DialogueManager> ().yourAnswers;
 
 		messengerManager.GetComponent<DialogueManager> ().InstantiateStuff (answerSophie);
+
+		//StartCoroutine (TypeSentence(answerSophie));
 	}
 
 	void InstantiateMarieEveAnswers(string answerMarieEve)
@@ -209,5 +150,17 @@ public class ButtonDetection : MonoBehaviour/*, IPointerClickHandler*/
 		messengerManager.GetComponent<DialogueManager> ().prefab = messengerManager.GetComponent<DialogueManager> ().conversationPartner;
 
 		messengerManager.GetComponent<DialogueManager> ().InstantiateStuff (answerMarieEve);
+
+		//StartCoroutine (TypeSentence(answerMarieEve));
+	}
+
+	IEnumerator TypeSentence(string sentence)
+	{
+		foreach (char letter in sentence.ToCharArray())
+		{
+			this.gameObject.GetComponent<DialogueManager>().dialogueInstance.GetComponentInChildren<TextMeshProUGUI> ().text += letter;
+			//dialogueInstance.GetComponentInChildren<TextMeshProUGUI> ().text += letter;
+			yield return new WaitForSeconds (.05f);
+		}
 	}
 }

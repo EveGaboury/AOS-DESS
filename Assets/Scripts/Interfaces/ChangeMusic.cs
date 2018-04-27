@@ -95,10 +95,10 @@ public class ChangeMusic : MonoBehaviour
 	{
 		int k = (currentAudioIndex - 1) % clipList.Length;
 
-		if (k <= 0) 
-		{
-			k = 0;
-		}
+//		if (k <= 0) 
+//		{
+//			k = 0;
+//		}
 
 		PlayMusicAtIndex(k);
 	}
