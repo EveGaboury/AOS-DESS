@@ -168,6 +168,9 @@ public class StartPosition : MonoBehaviour {
 
 	public GameObject Fin;
 
+	//help
+	public GameObject windowHelp;
+
 
 
 	void Start () 
@@ -261,7 +264,15 @@ public class StartPosition : MonoBehaviour {
 
 		leDevoir.SetActive (true);
 		voile.SetActive (true);
+
+
+		windowHelp.SetActive (false);
+
 	}
+
+
+
+
 }
 
 
