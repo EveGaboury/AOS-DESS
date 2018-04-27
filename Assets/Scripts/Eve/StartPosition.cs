@@ -76,6 +76,7 @@ public class StartPosition : MonoBehaviour {
 	public GameObject profilYannScriptable;
 	public GameObject profilHugoScriptable;
 	public GameObject profilMarieEveScriptable;
+	public GameObject profilFredScriptable;
 
 
 	//facebook page newsfeed
@@ -162,6 +163,11 @@ public class StartPosition : MonoBehaviour {
 	//Introduction.
 	public GameObject leDevoir;
 	public GameObject voile;
+
+	//EndGame
+
+	public GameObject Fin;
+
 
 
 	void Start () 
@@ -251,7 +257,7 @@ public class StartPosition : MonoBehaviour {
 		avisDeces.SetActive (false);
 		shortCutDeces.SetActive (false);
 
-
+		Fin.SetActive (false);
 
 		leDevoir.SetActive (true);
 		voile.SetActive (true);

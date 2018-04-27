@@ -352,6 +352,7 @@ public class GameState : MonoBehaviour {
 			DM.boulesale = true;
 			DM.Update ();
 
+			SRP.InvertStart ();
 			Canvas.ForceUpdateCanvases ();
 			BM._vertLayoutGroup.SetLayoutVertical();
 			BM._ContentSizeFitter.enabled = false;
@@ -415,6 +416,7 @@ public class GameState : MonoBehaviour {
 		SP.profilHugoScriptable.SetActive (false);
 		SP.profilYannScriptable.SetActive (false);
 		SP.profilMarieEveScriptable.SetActive (false);
+		SP.profilFredScriptable.SetActive (false);
 
 		SP.mesAmisTemplate.SetActive (false);
 		SP.newsFeedTemplate.SetActive (false);
@@ -449,6 +451,7 @@ public class GameState : MonoBehaviour {
 		SP.profilHugoScriptable.SetActive (false);
 		SP.profilYannScriptable.SetActive (false);
 		SP.profilMarieEveScriptable.SetActive (false);
+		SP.profilFredScriptable.SetActive (false);
 
 		SP.mesAmisTemplate.SetActive (false);
 		SP.newsFeedTemplate.SetActive (false);
@@ -482,6 +485,7 @@ public class GameState : MonoBehaviour {
 		SP.profilHugoScriptable.SetActive (false);
 		SP.profilYannScriptable.SetActive (false);
 		SP.profilMarieEveScriptable.SetActive (false);
+		SP.profilFredScriptable.SetActive (false);
 
 		SP.mesAmisTemplate.SetActive (false);
 		SP.newsFeedTemplate.SetActive (false);
@@ -523,6 +527,7 @@ public class GameState : MonoBehaviour {
 			SP.profilHugoScriptable.SetActive (true);
 			SP.profilYannScriptable.SetActive (false);
 			SP.profilMarieEveScriptable.SetActive (false);
+			SP.profilFredScriptable.SetActive (false);
 
 			SP.mesAmisTemplate.SetActive (false);
 			SP.newsFeedTemplate.SetActive (false);
@@ -564,6 +569,7 @@ public class GameState : MonoBehaviour {
 		SP.profilHugoScriptable.SetActive (false);
 		SP.profilYannScriptable.SetActive (false);
 		SP.profilMarieEveScriptable.SetActive (true);
+		SP.profilFredScriptable.SetActive (false);
 
 		SP.mesAmisTemplate.SetActive (false);
 		SP.newsFeedTemplate.SetActive (false);
@@ -607,6 +613,7 @@ public class GameState : MonoBehaviour {
 		SP.profilHugoScriptable.SetActive (false);
 		SP.profilYannScriptable.SetActive (true);
 		SP.profilMarieEveScriptable.SetActive (false);
+		SP.profilFredScriptable.SetActive (false);
 
 		SP.mesAmisTemplate.SetActive (false);
 		SP.newsFeedTemplate.SetActive (false);
@@ -637,6 +644,7 @@ public class GameState : MonoBehaviour {
 		SP.profilYann.SetActive (false);
 		SP.profilFred.SetActive (true);
 
+		SP.profilFredScriptable.SetActive (true);
 		SP.profilAdrienScriptable.SetActive (false);
 		SP.profilSoScriptable.SetActive (false);
 		SP.profilCassScriptable.SetActive (false);
