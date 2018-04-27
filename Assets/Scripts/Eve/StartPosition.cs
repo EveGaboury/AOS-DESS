@@ -164,6 +164,11 @@ public class StartPosition : MonoBehaviour {
 	public GameObject leDevoir;
 	public GameObject voile;
 
+	//EndGame
+
+	public GameObject Fin;
+
+
 
 	void Start () 
 	{
@@ -252,7 +257,7 @@ public class StartPosition : MonoBehaviour {
 		avisDeces.SetActive (false);
 		shortCutDeces.SetActive (false);
 
-
+		Fin.SetActive (false);
 
 		leDevoir.SetActive (true);
 		voile.SetActive (true);
