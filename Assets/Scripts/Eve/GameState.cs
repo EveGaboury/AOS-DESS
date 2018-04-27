@@ -350,6 +350,7 @@ public class GameState : MonoBehaviour {
 			DM.boulesale = true;
 			DM.Update ();
 
+			SRP.InvertStart ();
 			Canvas.ForceUpdateCanvases ();
 			BM._vertLayoutGroup.SetLayoutVertical();
 			BM._ContentSizeFitter.enabled = false;
