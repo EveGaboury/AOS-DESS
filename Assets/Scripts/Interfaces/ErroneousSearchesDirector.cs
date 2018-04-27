@@ -13,6 +13,11 @@ public class ErroneousSearchesDirector : MonoBehaviour
 
 	public Button fredButton;
 	public Button adrienButton;
+	public Button cassButton;
+	public Button SoButton;
+	public Button MarieEButton;
+	public Button HugoButton;
+	public Button YannButton;
 
 	public Image[] portraitsToBeDisplayed;
 
@@ -24,7 +29,9 @@ public class ErroneousSearchesDirector : MonoBehaviour
 
 	Transform wrongSearchResults;
 
-	public bool adrien=false, frederic=false, adrien2=false, frederic2=false;
+	public bool adrien=false, frederic=false, cassandra=false, sophie=false, marieE=false, Hugo=false, Yann=false;
+
+	public bool adrien2=false, frederic2=false, cassandra2=false, sophie2=false, marieE2=false, Hugo2=false, Yann2=false;
 
 	char[] verification = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
 						   'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
@@ -32,40 +39,28 @@ public class ErroneousSearchesDirector : MonoBehaviour
 	void Awake()
 	{
 		wrongSearchResults = GetComponent<Transform>();
-//		searchBar = GetComponent<TMP_InputField> ();
 		retrieveData = GetComponent<RepositoryOfFakeNames> ();
-//		this.gameObject.GetComponentInParent<Transform>().transform.parent.gameObject.GetComponentInParent<Transform>().parent.gameObject.GetComponentInChildren<TMP_InputField>().text;
-//		Debug.Log (this.gameObject.GetComponentInParent<Transform>().transform.parent.gameObject.GetComponentInParent<Transform>().parent.gameObject.GetComponentInChildren<TMP_InputField>().text);
 	}
 		
 	public void SortInputedData (string userSearch) 
 	{
 		userSearch = searchBar.GetComponent<TMP_InputField> ().text;
-//		Debug.Log ("The value of 'userSearch' from SortInputedData(): " + userSearch[0]);
 		char firstLetter = userSearch[0];
 
 		if (firstLetter <= verification[25] && firstLetter >= verification[0]) 
 		{
 			Debug.Log ("minuscules: " + firstLetter);
 			BringWrongSearchResultsPanel(firstLetter);
-//			RetrieveAllImages ();
 
 		}
 		else if( firstLetter<= verification[51] && firstLetter >= verification[26])
 		{
 			Debug.Log ("MAJUSCULES: " + firstLetter);
 			BringWrongSearchResultsPanel (firstLetter);
-//			RetrieveAllImages ();
-		}
-		else
-		{
-			//BringWrongSearchResultsPanel (userSearch);
-			//RetrieveAllImages ();
-			//Debug.Log ("The greatest FAILURE of: " + userSearch);
 		}
 	}
 
-	void BringWrongSearchResultsPanel(/*string test*/char test)
+	void BringWrongSearchResultsPanel(char test)
 	{
 		Debug.Log ("The value of 'test' from BringWrongSearchResultsPanel(): " + test);
 
@@ -90,7 +85,6 @@ public class ErroneousSearchesDirector : MonoBehaviour
 				{
 					adrien = true;
 					adrienButton.GetComponent<Button> ().enabled = true;
-//					Debug.Log (Mathf.Clamp(textDisplay.Length, 1, 4));
 					textDisplay [0].GetComponentInChildren<TextMeshProUGUI> ().text = retrieveData.A_Prenoms [0].ToString ();
 					textDisplay [1].GetComponentInChildren<TextMeshProUGUI> ().text = retrieveData.A_Prenoms [1].ToString () + " " + retrieveData.NomsDeFamille[Random.Range(0, retrieveData.NomsDeFamille.Length)].ToString();
 					textDisplay [2].GetComponentInChildren<TextMeshProUGUI> ().text = retrieveData.A_Prenoms [2].ToString () + " " + retrieveData.NomsDeFamille[Random.Range(0, retrieveData.NomsDeFamille.Length)].ToString();
@@ -106,7 +100,14 @@ public class ErroneousSearchesDirector : MonoBehaviour
 				//CCCCCC
 				if((test == verification[2]) || (test == verification[28]))
 				{
-					textDisplay [i].GetComponent<TextMeshProUGUI> ().text = retrieveData.C_Prenoms[i].ToString() + " " + retrieveData.NomsDeFamille[Random.Range(0, retrieveData.NomsDeFamille.Length)].ToString();
+					cassandra = true;
+					cassButton.GetComponent<Button>().enabled = true;
+
+					textDisplay [0].GetComponentInChildren<TextMeshProUGUI> ().text = retrieveData.C_Prenoms [0].ToString ();
+					textDisplay [1].GetComponentInChildren<TextMeshProUGUI> ().text = retrieveData.C_Prenoms [1].ToString () + " " + retrieveData.NomsDeFamille[Random.Range(0, retrieveData.NomsDeFamille.Length)].ToString();
+					textDisplay [2].GetComponentInChildren<TextMeshProUGUI> ().text = retrieveData.C_Prenoms [2].ToString () + " " + retrieveData.NomsDeFamille[Random.Range(0, retrieveData.NomsDeFamille.Length)].ToString();
+					textDisplay [3].GetComponentInChildren<TextMeshProUGUI> ().text = retrieveData.C_Prenoms [3].ToString () + " " + retrieveData.NomsDeFamille[Random.Range(0, retrieveData.NomsDeFamille.Length)].ToString();
+					textDisplay [4].GetComponentInChildren<TextMeshProUGUI> ().text = retrieveData.C_Prenoms [4].ToString () + " " + retrieveData.NomsDeFamille[Random.Range(0, retrieveData.NomsDeFamille.Length)].ToString();
 				}
 				//DDDDDD
 				if((test == verification[3]) || (test == verification[29]))
@@ -193,7 +194,14 @@ public class ErroneousSearchesDirector : MonoBehaviour
 				//SSSSSSS
 				if((test == verification[18]) || (test == verification[44]))
 				{
-					textDisplay [i].GetComponent<TextMeshProUGUI> ().text = retrieveData.S_Prenoms[i].ToString() + " " + retrieveData.NomsDeFamille[Random.Range(0, retrieveData.NomsDeFamille.Length)].ToString();
+					sophie = true;
+					SoButton.GetComponent<Button> ().enabled = true;
+		
+					textDisplay [0].GetComponent<TextMeshProUGUI> ().text = retrieveData.S_Prenoms[0].ToString();
+					textDisplay [1].GetComponent<TextMeshProUGUI> ().text = retrieveData.S_Prenoms[1].ToString() + " " + retrieveData.NomsDeFamille[Random.Range(0, retrieveData.NomsDeFamille.Length)].ToString();
+					textDisplay [2].GetComponent<TextMeshProUGUI> ().text = retrieveData.S_Prenoms[2].ToString() + " " + retrieveData.NomsDeFamille[Random.Range(0, retrieveData.NomsDeFamille.Length)].ToString();
+					textDisplay [3].GetComponent<TextMeshProUGUI> ().text = retrieveData.S_Prenoms[3].ToString() + " " + retrieveData.NomsDeFamille[Random.Range(0, retrieveData.NomsDeFamille.Length)].ToString();
+					textDisplay [4].GetComponent<TextMeshProUGUI> ().text = retrieveData.S_Prenoms[4].ToString() + " " + retrieveData.NomsDeFamille[Random.Range(0, retrieveData.NomsDeFamille.Length)].ToString();
 				}
 				//TTTTTTT
 				if((test == verification[19]) || (test == verification[45]))
@@ -232,46 +240,28 @@ public class ErroneousSearchesDirector : MonoBehaviour
 				}
 			}
 		}
-//IMPORTANT PERMET PEUT ETRE D AGILISER TOUT LE BASTRINGUE >>>>>>>>>>>>>>>>>>>>>>>>>
-//				for (int j = 0; j < (25+1); j++)
-//				{
-//					for (int k = 51; k > (25); k--) 
-//					{
-//						if ((userSearch == verification[j].ToString()) || (userSearch == verification[k].ToString())) 
-//						{
-//							textDisplay [i].GetComponent<TextMeshProUGUI> ().text = retrieveData[A][i];
-//							print ("AAAROLOLO");
-//						}
-//					}
-//IMPORTANT PERMET PEUT ETRE D AGILISER TOUT LE BASTRINGUE >>>>>>>>>>>>>>>>>>>>>>>>>
 		RetrieveAllImages();
 	}
 
-	void RetrieveAllImages()
+	void RetrieveAllImages ()
 	{
 		Component[] imagePosition;
 
 		imagePosition = this.gameObject.GetComponentsInChildren (typeof(Image));
 
-		foreach (Image img in imagePosition)
-		{
-			for (int i = 0; i < imagePosition.Length; i++) 
-			{	
+		foreach (Image img in imagePosition) {
+			for (int i = 0; i < imagePosition.Length; i++) {	
 
-				if (adrien == false) 
-				{
-				
-					if (frederic == false)
-						imagePosition [i].GetComponent<Image> ().sprite = retrieveData.photoProfil [i];
-					if (frederic == true) {
-						imagePosition[0].GetComponent<Image>().sprite = retrieveData.photoProfil[6];
-						imagePosition[1].GetComponent<Image>().sprite = retrieveData.photoProfil[0];
-						imagePosition[2].GetComponent<Image>().sprite = retrieveData.photoProfil[1];
-						imagePosition[3].GetComponent<Image>().sprite = retrieveData.photoProfil[2];
-						imagePosition[4].GetComponent<Image>().sprite = retrieveData.photoProfil[3];
-						frederic2 = true;
-					}
+
+				if (frederic == true) {
+					imagePosition [0].GetComponent<Image> ().sprite = retrieveData.photoProfil [6];
+					imagePosition [1].GetComponent<Image> ().sprite = retrieveData.photoProfil [0];
+					imagePosition [2].GetComponent<Image> ().sprite = retrieveData.photoProfil [1];
+					imagePosition [3].GetComponent<Image> ().sprite = retrieveData.photoProfil [2];
+					imagePosition [4].GetComponent<Image> ().sprite = retrieveData.photoProfil [3];
+					frederic2 = true;
 				}
+
 					
 				if (adrien == true) {
 					imagePosition [0].GetComponent<Image> ().sprite = retrieveData.photoProfil [5];
@@ -281,24 +271,31 @@ public class ErroneousSearchesDirector : MonoBehaviour
 					imagePosition [4].GetComponent<Image> ().sprite = retrieveData.photoProfil [3];
 					adrien2 = true;
 				}
-		
-				//imagePosition[i].GetComponent<Image>().sprite = retrieveData.photoProfil[i];				
-//				if (imagePosition [i].GetComponent<Image> ().sprite == null) 
-//				{
-//					imagePosition [i].GetComponent<Image> ().sprite = retrieveData.photoProfil [Random.Range (0, retrieveData.photoProfil.Length)];
-//				}
-//				else if (imagePosition [i].GetComponent<Image> ().sprite != null)
-//				{
-//					if (imagePosition [i].GetComponent<Image> ().sprite.name == retrieveData.profilePhotos[i].name)
-//					{
-//						retrieveData.profilePhotos.RemoveAt (i);
-//					}
-//				}
+
+				if (cassandra == true) {
+					imagePosition [0].GetComponent<Image> ().sprite = retrieveData.photoProfil [7];
+					imagePosition [1].GetComponent<Image> ().sprite = retrieveData.photoProfil [0];
+					imagePosition [2].GetComponent<Image> ().sprite = retrieveData.photoProfil [1];
+					imagePosition [3].GetComponent<Image> ().sprite = retrieveData.photoProfil [2];
+					imagePosition [4].GetComponent<Image> ().sprite = retrieveData.photoProfil [3];
+					cassandra2 = true;
+				}
+
+				if (sophie == true) {
+					imagePosition [0].GetComponent<Image> ().sprite = retrieveData.photoProfil [8];
+					imagePosition [1].GetComponent<Image> ().sprite = retrieveData.photoProfil [0];
+					imagePosition [2].GetComponent<Image> ().sprite = retrieveData.photoProfil [1];
+					imagePosition [3].GetComponent<Image> ().sprite = retrieveData.photoProfil [2];
+					imagePosition [4].GetComponent<Image> ().sprite = retrieveData.photoProfil [3];
+					sophie2 = true;
+				}
 			}
 		}
 
 		adrien = false;
 		frederic = false;
+		cassandra = false;
+		sophie = false;
 
 	}
 
@@ -311,23 +308,25 @@ public class ErroneousSearchesDirector : MonoBehaviour
 
 	public void ButtonOfChoice ()
 	{
-		if (adrien2==true) {
+		if (adrien2 == true) {
 			GS.BoutonAdrien ();
 		}
 
-		if (frederic2==true) {
+		if (frederic2 == true) {
 			GS.BoutonFred ();
 		}
 
+		if (cassandra2 == true) {
+			GS.BoutonCass ();
+		}
+
+		if (sophie2 == true) {
+			GS.BoutonSophie ();
+		}
+
+		cassandra2 = false;
 		adrien2 = false;
 		frederic2 = false;
+		sophie2 = false;
 	}
-
-
-//	void Update ()
-//	{
-//		Debug.Log (adrien + "adrien");
-//		Debug.Log (frederic + "frederic");
-//	}
-
 }
