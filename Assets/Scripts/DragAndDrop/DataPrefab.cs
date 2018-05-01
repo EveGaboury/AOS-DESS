@@ -15,19 +15,15 @@ public class DataPrefab : MonoBehaviour
 
 	public AnimationClip animCLIP;
 
-	public float changeLeVolumeDeLaTune;
-
 	[HideInInspector]
 	public bool animClipIsPlaying = false, justAnotherBoool = true;
 
 	//Private
-	Animator animator;
-
-	float nextFire = 0.0f, timeIncrement = 0.0f; 
+	Animator animator; 
 
 	bool isAudioClipPlaying;
 
-	AudioSource ASMS_Data;
+	AudioSourceManagerScript ASMS_Data;
 
 	GameObject localGameObject;
 
@@ -39,7 +35,7 @@ public class DataPrefab : MonoBehaviour
 
 		localGameObject = GameObject.Find ("SoundManager");
 
-		ASMS_Data = localGameObject.gameObject.GetComponent<AudioSourceManagerScript> ().audioSourceData;
+		ASMS_Data = localGameObject.gameObject.GetComponent<AudioSourceManagerScript> ();
 	}
 
 	void FixedUpdate()
@@ -51,11 +47,11 @@ public class DataPrefab : MonoBehaviour
 			CheckIfClipIsDonePlaying ();
 		}
 
-		if ((this.gameObject.GetComponent<Button> () != null) && (ASMS_Data.isPlaying == true)) 
+		if ((this.gameObject.GetComponent<Button> () != null) && (ASMS_Data.audioSourceData.isPlaying == true)) 
 		{
 			this.gameObject.GetComponent<Button> ().enabled = false; 
 		} 
-		else if ((this.gameObject.GetComponent<Button> () != null) && (ASMS_Data.isPlaying == false))
+		else if ((this.gameObject.GetComponent<Button> () != null) && (ASMS_Data.audioSourceData.isPlaying == false))
 		{
 			this.gameObject.GetComponent<Button> ().enabled = true; 
 		}
@@ -74,31 +70,30 @@ public class DataPrefab : MonoBehaviour
 			{
 				CreateButtonAndAssignScript ();
 
-				StartCoroutine (PlayAudio ());
+				AudioSource[] localArrayAudioSources = new AudioSource[] {ASMS_Data.audioSourceMusique, ASMS_Data.audioSourceBoutons, ASMS_Data.audioSourceClicksEtTyping, ASMS_Data.audioSourceCueEmotion };
+
+				for (int i = 0; i < localArrayAudioSources.Length; i++)
+				{
+					StopAllCoroutines ();
+					StartCoroutine (localGameObject.GetComponent<AudioSourceManagerScript> ().PlayAudio (localArrayAudioSources, clipToBePlayed, ASMS_Data.audioSourceData));
+				}
 
 				this.gameObject.GetComponent<Image> ().overrideSprite = finalSprite;
 			}
 		}
 	}
 
-	IEnumerator PlayAudio()
-	{
-		localGameObject.gameObject.GetComponent<AudioSourceManagerScript> ().audioSourceMusique.volume = changeLeVolumeDeLaTune;
-
-		ASMS_Data.PlayOneShot (clipToBePlayed, 0.5f);
-
-		float localFloat = clipToBePlayed.length;
-
-		yield return new WaitForSeconds (localFloat);
-
-		localGameObject.gameObject.GetComponent<AudioSourceManagerScript> ().ResetAllAudioSourcesVolumeSliders ();
-	}
-
 	public void PlaySoundOnceButtonInstantiated()
 	{
-		ASMS_Data.Stop ();
+		ASMS_Data.audioSourceData.Stop ();
 
-		StartCoroutine (PlayAudio ());
+		AudioSource[] localArrayAudioSources = new AudioSource[] {ASMS_Data.audioSourceMusique, ASMS_Data.audioSourceBoutons, ASMS_Data.audioSourceClicksEtTyping, ASMS_Data.audioSourceCueEmotion };
+
+		for (int i = 0; i < localArrayAudioSources.Length; i++)
+		{
+			StopAllCoroutines ();
+			StartCoroutine (localGameObject.GetComponent<AudioSourceManagerScript> ().PlayAudio (localArrayAudioSources, clipToBePlayed, ASMS_Data.audioSourceData));
+		}
 	}
 
 	void CreateButtonAndAssignScript()
