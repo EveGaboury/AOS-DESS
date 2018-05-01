@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioSourceManagerScript : MonoBehaviour 
 {
-	public float resetVolumeValueAfterPlayingSound = 0.3f;
+	public AudioMixer audioMixer;
+
+	public float resetVolumeValueAfterPlayingSound;
 
 	public AudioSource audioSourceData, audioSourceBoutons, audioSourceClicksEtTyping, audioSourceCueEmotion, audioSourceMusique;
 
@@ -38,5 +41,21 @@ public class AudioSourceManagerScript : MonoBehaviour
 		{
 			audioSourcesAttachedToTheSoundManager [i].volume = resetVolumeValueAfterPlayingSound;
 		}
+	}
+
+	public IEnumerator PlayAudio(AudioSource[] m_audioSource, AudioClip m_audioClip, AudioSource playSound)
+	{
+		for (int i = 0; i < m_audioSource.Length; i++)
+		{
+			m_audioSource[i].volume = 0.66f;
+		}
+
+		playSound.PlayOneShot(m_audioClip, 0.5f); 
+
+		float localFloat = m_audioClip.length;
+
+		yield return new WaitForSeconds (localFloat);
+
+		ResetAllAudioSourcesVolumeSliders ();
 	}
 }

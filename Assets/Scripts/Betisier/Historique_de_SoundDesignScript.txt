@@ -44,18 +44,12 @@ public class SoundDesignScript : MonoBehaviour
 		ASMS_Boutons.audioSourceBoutons.PlayOneShot (sound_courriel); 
 
 		//ici faire jouer une seule fois la "cue 2"
-		if(hasSFXBeenPlayedBefore[1] == false)
-		{
-			currentIntValue = 1;
-			currentAudioClip = cue_emotion_2;
-			Invoke("PrepareCallFOrInvoke", 3.0f);
-
-//			hasSFXBeenPlayedBefore[1] = true;
-//
-//			ASMS_Boutons.audioSourceCueEmotion.clip = cue_emotion_2;
-//
-//			StartCoroutine(PlayAudio(cue_emotion_2));
-		}
+//		if(hasSFXBeenPlayedBefore[1] == false)
+//		{
+//			currentIntValue = 1;
+//			currentAudioClip = cue_emotion_2;
+//			Invoke("PrepareCallFOrInvoke", 3.0f);
+//		}
 	}
 
 	public void OnclickSoundTrash () 
@@ -100,18 +94,12 @@ public class SoundDesignScript : MonoBehaviour
 		ASMS_Boutons.audioSourceBoutons.PlayOneShot (sound_tl_hacking);
 
 //		//ici faire jouer une seule fois la "cue 1"
-		if (hasSFXBeenPlayedBefore[0] == false) 
-		{
-			currentIntValue = 0;
-			currentAudioClip = cue_emotion_1;
-			Invoke("PrepareCallFOrInvoke", 3.0f);
-
-//			hasSFXBeenPlayedBefore[0] = true;
-//
-//			ASMS_Boutons.audioSourceCueEmotion.clip = cue_emotion_1;
-//
-//			StartCoroutine(PlayAudio(cue_emotion_1));
-		}
+//		if (hasSFXBeenPlayedBefore[0] == false) 
+//		{
+//			currentIntValue = 0;
+//			currentAudioClip = cue_emotion_1;
+//			Invoke("PrepareCallFOrInvoke", 3.0f);
+//		}
 	}
 
 	public void OnclickSoundTLRight () 
@@ -131,61 +119,62 @@ public class SoundDesignScript : MonoBehaviour
 		ASMS_Boutons.audioSourceBoutons.PlayDelayed (1.7f);
 	}
 
-	IEnumerator PlayAudio(AudioClip tuneToPlay)
-	{
-		ASMS_Boutons.audioSourceCueEmotion.PlayOneShot (tuneToPlay);
-
-		StartCoroutine(CrossFadeBetweenTunes(ASMS_Boutons.audioSourceMusique, ASMS_Boutons.audioSourceCueEmotion, 1.0f));
-
-		float localFloat = tuneToPlay.length;
-
-		yield return new WaitForSeconds (localFloat);
-
-		ASMS_Boutons.audioSourceCueEmotion.clip = null;
-	}
-
-	IEnumerator CrossFadeBetweenTunes (AudioSource a, AudioSource b, float seconds)
-	{
-		float step_interval = seconds / 1.0f;
-
-		float volume_interval = MusicVolume / 5.0f;
-
-		for (int i = 0; i < 20; i++) 
-		{
-			a.volume -= volume_interval;
-			b.volume += volume_interval;
-
-			yield return new WaitForSeconds (step_interval);
-		}
-	}
-
-	void ResetVolumeValues()
-	{
-		StartCoroutine(CrossFadeBetweenTunes(ASMS_Boutons.audioSourceCueEmotion, ASMS_Boutons.audioSourceMusique,1.0f));
-	}
-
-	void FixedUpdate()
-	{
-		if (ASMS_Boutons.audioSourceCueEmotion.clip == cue_emotion_1/* && hasSFXBeenPlayedBefore[0] == true*/) 
-		{
-			Invoke ("ResetVolumeValues", ASMS_Boutons.audioSourceCueEmotion.clip.length);
-
-			//Debug.Log ("la cue d'emotion " + cue_emotion_1 + " est entrain de jouer.");
-		}
-		else if (ASMS_Boutons.audioSourceCueEmotion.clip == cue_emotion_2) 
-		{
-			Invoke ("ResetVolumeValues", ASMS_Boutons.audioSourceCueEmotion.clip.length);
-
-			//Debug.Log ("la cue d'emotion " + cue_emotion_2 + " est entrain de jouer.");
-		}
-	}
-
-	void PrepareCallFOrInvoke()
-	{
-		hasSFXBeenPlayedBefore[currentIntValue] = true;
-
-		ASMS_Boutons.audioSourceCueEmotion.clip = currentAudioClip;
-
-		StartCoroutine(PlayAudio(currentAudioClip));
-	}
+//	IEnumerator PlayAudio(AudioClip tuneToPlay)
+//	{
+//		ASMS_Boutons.audioSourceCueEmotion.PlayOneShot (tuneToPlay);
+//
+//		StartCoroutine(CrossFadeBetweenTunes(ASMS_Boutons.audioSourceMusique, ASMS_Boutons.audioSourceCueEmotion, 1.0f));
+//
+//		float localFloat = tuneToPlay.length;
+//
+//		yield return new WaitForSeconds (localFloat);
+//
+//		ASMS_Boutons.audioSourceCueEmotion.clip = null;
+//	}
+//
+//	IEnumerator CrossFadeBetweenTunes (AudioSource a, AudioSource b, float seconds)
+//	{
+//		float step_interval = seconds / 1.0f;
+//
+//		float volume_interval = MusicVolume / 5.0f;
+//
+//		for (int i = 0; i < 20; i++) 
+//		{
+//			a.volume -= volume_interval;
+//			b.volume += volume_interval;
+//
+//			yield return new WaitForSeconds (step_interval);
+//		}
+//	}
+//
+//	void FixedUpdate()
+//	{
+//		if (ASMS_Boutons.audioSourceCueEmotion.clip == cue_emotion_1/* && hasSFXBeenPlayedBefore[0] == true*/) 
+//		{
+//			Invoke ("ResetVolumeValues", ASMS_Boutons.audioSourceCueEmotion.clip.length);
+//
+//			//Debug.Log ("la cue d'emotion " + cue_emotion_1 + " est entrain de jouer.");
+//		}
+//		else if (ASMS_Boutons.audioSourceCueEmotion.clip == cue_emotion_2) 
+//		{
+//			Invoke ("ResetVolumeValues", ASMS_Boutons.audioSourceCueEmotion.clip.length);
+//
+//			//Debug.Log ("la cue d'emotion " + cue_emotion_2 + " est entrain de jouer.");
+//		}
+//
+//		//Afin de detecter si le volume de l'audioSource a une valeur de .3f et plustard d'essayer de le caper à cetter valeur
+////		if (ASMS_Boutons.audioSourceCueEmotion.volume == 0.3f) 
+////		{
+////			Debug.Log ("Le volume de audioSourceCueEmotion est a .3f");
+////		}
+//	}
+//
+//	void PrepareCallFOrInvoke()
+//	{
+//		hasSFXBeenPlayedBefore[currentIntValue] = true;
+//
+//		ASMS_Boutons.audioSourceCueEmotion.clip = currentAudioClip;
+//
+//		StartCoroutine(PlayAudio(currentAudioClip));
+//	}
 }

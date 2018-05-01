@@ -1021,47 +1021,4 @@ public class GameState : MonoBehaviour {
 		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.messengerTemplate2.transform );
 
 	}
-
-//	IEnumerator PlayAudio(AudioClip tuneToPlay)
-//	{
-//		soundManager.GetComponent<AudioSourceManagerScript> ().audioSourceCueEmotion.PlayOneShot (tuneToPlay);
-//
-//		StartCoroutine(CrossFadeBetweenTunes(soundManager.GetComponent<AudioSourceManagerScript> ().audioSourceMusique, soundManager.GetComponent<AudioSourceManagerScript> ().audioSourceCueEmotion, 1.0f));
-//
-//		float localFloat = tuneToPlay.length;
-//
-//		yield return new WaitForSeconds (localFloat);
-//
-//		soundManager.GetComponent<AudioSourceManagerScript> ().audioSourceCueEmotion.clip = null;
-//	}
-//
-//	IEnumerator CrossFadeBetweenTunes (AudioSource a, AudioSource b, float seconds)
-//	{
-//		float step_interval = seconds / 1.0f;
-//
-//		float volume_interval = MusicVolume / 5.0f;
-//
-//		for (int i = 0; i < 20; i++) 
-//		{
-//			a.volume -= volume_interval;
-//			b.volume += volume_interval;
-//
-//			yield return new WaitForSeconds (step_interval);
-//		}
-//	}
-//
-//	void ResetVolumeValues()
-//	{
-//		StartCoroutine(CrossFadeBetweenTunes(soundManager.GetComponent<AudioSourceManagerScript> ().audioSourceCueEmotion, soundManager.GetComponent<AudioSourceManagerScript> ().audioSourceMusique,1.0f));
-//	}
-//
-//	void FixedUpdate()
-//	{
-//		if (soundManager.GetComponent<AudioSourceManagerScript> ().audioSourceCueEmotion.clip == cue_emotion) 
-//		{
-//			Invoke ("ResetVolumeValues", soundManager.GetComponent<AudioSourceManagerScript> ().audioSourceCueEmotion.clip.length);
-//
-//			//Debug.Log ("la cue d'emotion " + cue_emotion + " est entrain de jouer.");
-//		}
-//	}
 }
