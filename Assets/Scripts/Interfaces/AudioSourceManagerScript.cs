@@ -47,13 +47,11 @@ public class AudioSourceManagerScript : MonoBehaviour
 	{
 		for (int i = 0; i < m_audioSource.Length; i++)
 		{
-			m_audioSource[i].volume = 0.15f;
+			m_audioSource[i].volume = 0.66f;
 		}
 
-		playSound.clip = m_audioClip; 
-
-		playSound.PlayDelayed (1.0f);
-
+		playSound.PlayOneShot(m_audioClip, 0.5f); 
+		//playSound.PlayDelayed (1);
 		float localFloat = m_audioClip.length;
 
 		yield return new WaitForSeconds (localFloat);
