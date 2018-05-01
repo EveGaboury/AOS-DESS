@@ -15,7 +15,7 @@ public class DataPrefab : MonoBehaviour
 
 	public AnimationClip animCLIP;
 
-	public float changeLeVolumeDeLaTune = 0.3f;
+	public float changeLeVolumeDeLaTune;
 
 	[HideInInspector]
 	public bool animClipIsPlaying = false, justAnotherBoool = true;
