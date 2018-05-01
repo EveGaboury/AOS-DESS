@@ -21,46 +21,33 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: -4326.9766
+        value: 473.24805
         inSlope: 0
-        outSlope: 63.795357
-        tangentMode: 65
+        outSlope: 93.51575
+        tangentMode: 69
       - serializedVersion: 2
-        time: 124.88333
-        value: 3640
-        inSlope: 63.795357
+        time: 78.433334
+        value: 7808
+        inSlope: 93.51575
         outSlope: 0
         tangentMode: 69
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: TextMeshPro Text (1)
+    path: Content
     classID: 224
     script: {fileID: 0}
+  m_PPtrCurves:
   - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 2
-        time: 0
-        value: -1077.9996
-        inSlope: 0
-        outSlope: 64.76445
-        tangentMode: 65
-      - serializedVersion: 2
-        time: 124.88333
-        value: 7010.001
-        inSlope: 64.76445
-        outSlope: 0
-        tangentMode: 69
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_AnchoredPosition.y
-    path: Titre
-    classID: 224
-    script: {fileID: 0}
-  m_PPtrCurves: []
+    - time: 0
+      value: {fileID: 0}
+    - time: 78.433334
+      value: {fileID: 0}
+    attribute: m_Sprite
+    path: 
+    classID: 114
+    script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
@@ -69,26 +56,28 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 1436316666
+      path: 829950261
       attribute: 538195251
       script: {fileID: 0}
       typeID: 224
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1052141744
-      attribute: 538195251
-      script: {fileID: 0}
-      typeID: 224
+      path: 0
+      attribute: 2015549526
+      script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+      typeID: 114
       customType: 0
-      isPPtrCurve: 0
-    pptrCurveMapping: []
+      isPPtrCurve: 1
+    pptrCurveMapping:
+    - {fileID: 0}
+    - {fileID: 0}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 124.88333
+    m_StopTime: 78.450005
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -109,43 +98,21 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: -4326.9766
+        value: 473.24805
         inSlope: 0
-        outSlope: 63.795357
-        tangentMode: 65
+        outSlope: 93.51575
+        tangentMode: 69
       - serializedVersion: 2
-        time: 124.88333
-        value: 3640
-        inSlope: 63.795357
+        time: 78.433334
+        value: 7808
+        inSlope: 93.51575
         outSlope: 0
         tangentMode: 69
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: TextMeshPro Text (1)
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 2
-        time: 0
-        value: -1077.9996
-        inSlope: 0
-        outSlope: 64.76445
-        tangentMode: 65
-      - serializedVersion: 2
-        time: 124.88333
-        value: 7010.001
-        inSlope: 64.76445
-        outSlope: 0
-        tangentMode: 69
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_AnchoredPosition.y
-    path: Titre
+    path: Content
     classID: 224
     script: {fileID: 0}
   m_EulerEditorCurves: []
