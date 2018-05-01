@@ -25,15 +25,15 @@ public class DataPrefab : MonoBehaviour
 
 	AudioSourceManagerScript ASMS_Data;
 
-	GameObject localGameObject;
-
-	float MusicVolume = 1.0f;
+	GameObject localGameObject, scriptManager;
 
 	void Start()
 	{
 		animator = GetComponent<Animator> ();
 
 		localGameObject = GameObject.Find ("SoundManager");
+
+		scriptManager = GameObject.Find ("ScriptManager");
 
 		ASMS_Data = localGameObject.gameObject.GetComponent<AudioSourceManagerScript> ();
 	}
@@ -74,7 +74,11 @@ public class DataPrefab : MonoBehaviour
 
 				for (int i = 0; i < localArrayAudioSources.Length; i++)
 				{
-					StopAllCoroutines ();
+					//			scriptManager.GetComponent<GameState> ().StopAllCoroutines ();
+					//			localGameObject.GetComponent<AudioSourceManagerScript> ().StopAllCoroutines ();
+
+					ASMS_Data.GetComponent<AudioSourceManagerScript> ().StopAllCoroutines ();
+
 					StartCoroutine (localGameObject.GetComponent<AudioSourceManagerScript> ().PlayAudio (localArrayAudioSources, clipToBePlayed, ASMS_Data.audioSourceData));
 				}
 
@@ -91,7 +95,11 @@ public class DataPrefab : MonoBehaviour
 
 		for (int i = 0; i < localArrayAudioSources.Length; i++)
 		{
-			StopAllCoroutines ();
+//			scriptManager.GetComponent<GameState> ().StopAllCoroutines ();
+//			localGameObject.GetComponent<AudioSourceManagerScript> ().StopAllCoroutines ();
+
+			ASMS_Data.GetComponent<AudioSourceManagerScript> ().StopAllCoroutines ();
+
 			StartCoroutine (localGameObject.GetComponent<AudioSourceManagerScript> ().PlayAudio (localArrayAudioSources, clipToBePlayed, ASMS_Data.audioSourceData));
 		}
 	}
