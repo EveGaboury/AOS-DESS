@@ -1,24 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioSourceManagerScript : MonoBehaviour 
 {
+	public AudioMixer audioMixer;
+
+	public float resetVolumeValueAfterPlayingSound;
+
 	public AudioSource audioSourceData, audioSourceBoutons, audioSourceClicksEtTyping, audioSourceCueEmotion, audioSourceMusique;
 
 	AudioSource[] audioSourcesAttachedToTheSoundManager;
 
-	//int testINT = 0, currentMarker = 0;
-
 	AudioClip cueEmotion;
+
+	GameObject fetchGameState;
 
 	void Awake()
 	{
 		DetectAudioSources ();
 
-		//AssignAudioSourcesStartingValues ();
-
-		//currentMarker = 2;
+		fetchGameState = GameObject.Find ("ScriptManager");
 	}
 
 	public void DetectAudioSources()
@@ -26,88 +29,73 @@ public class AudioSourceManagerScript : MonoBehaviour
 		audioSourcesAttachedToTheSoundManager = this.gameObject.GetComponents<AudioSource> ();
 
 		audioSourceData = audioSourcesAttachedToTheSoundManager [0];
-		//audioSourceData.priority = 102;
-		//audioSourceData.volume = 0.0f;
 
 		audioSourceBoutons = audioSourcesAttachedToTheSoundManager [1]; 
-		//audioSourceBoutons.priority = 153;
-		//audioSourceBoutons.volume = 0.0f;
 
 		audioSourceClicksEtTyping = audioSourcesAttachedToTheSoundManager [2];
-		//audioSourceClicksEtTyping.priority = 204 ;
-		//audioSourceClicksEtTyping.volume = 0.0f;
 
 		audioSourceCueEmotion = audioSourcesAttachedToTheSoundManager [3];
-		//audioSourceCueEmotion.priority = 51;
-		//audioSourceCueEmotion.volume = 0.0f;
 
 		audioSourceMusique = audioSourcesAttachedToTheSoundManager [4];
-		//audioSourceMusique.priority = 0;
 	}
-
-
-//	void AssignAudioSourcesStartingValues()
-//	{
-//		for (int i = 0; i < audioSourcesAttachedToTheSoundManager.Length; i++) 
-//		{
-//			audioSourcesAttachedToTheSoundManager [i].volume = 1.0f;
-//			audioSourcesAttachedToTheSoundManager [i].priority = 128;
-//		}
-//	}
 
 	public void ResetAllAudioSourcesVolumeSliders()
 	{
 		for (int i = 0; i < audioSourcesAttachedToTheSoundManager.Length; i++)
 		{
-			audioSourcesAttachedToTheSoundManager [i].volume = 1f;
+			if (this.gameObject.GetComponent<SoundDesignScript>().hasSFXBeenPlayedBefore[0] == true || this.gameObject.GetComponent<SoundDesignScript>().hasSFXBeenPlayedBefore[1] == true || fetchGameState.GetComponent<GameState>().playCueOnce == true) 
+			{
+				if (this.gameObject.GetComponent<SoundDesignScript>().hasSFXBeenPlayedBefore[0] == true) 
+				{
+					audioSourcesAttachedToTheSoundManager [0].volume = resetVolumeValueAfterPlayingSound;
+					audioSourcesAttachedToTheSoundManager [1].volume = resetVolumeValueAfterPlayingSound;
+					audioSourcesAttachedToTheSoundManager [2].volume = resetVolumeValueAfterPlayingSound;
+					audioSourcesAttachedToTheSoundManager [3].volume = resetVolumeValueAfterPlayingSound;
+					//Debug.Log ("sDS.GetComponent<SoundDesignScript>().hasSFXBeenPlayedBefore[0] is: " + this.gameObject.GetComponent<SoundDesignScript>().hasSFXBeenPlayedBefore[0]);
+				}
+				else if (this.gameObject.GetComponent<SoundDesignScript>().hasSFXBeenPlayedBefore[1] == true) 
+				{
+					audioSourcesAttachedToTheSoundManager [0].volume = resetVolumeValueAfterPlayingSound;
+					audioSourcesAttachedToTheSoundManager [1].volume = resetVolumeValueAfterPlayingSound;
+					audioSourcesAttachedToTheSoundManager [2].volume = resetVolumeValueAfterPlayingSound;
+					audioSourcesAttachedToTheSoundManager [3].volume = resetVolumeValueAfterPlayingSound;
+					//Debug.Log ("sDS.GetComponent<SoundDesignScript>().hasSFXBeenPlayedBefore[1] is: " + this.gameObject.GetComponent<SoundDesignScript>().hasSFXBeenPlayedBefore[1]);
+				}
+				else if (fetchGameState.GetComponent<GameState>().playCueOnce == true) 
+				{
+					audioSourcesAttachedToTheSoundManager [0].volume = resetVolumeValueAfterPlayingSound;
+					audioSourcesAttachedToTheSoundManager [1].volume = resetVolumeValueAfterPlayingSound;
+					audioSourcesAttachedToTheSoundManager [2].volume = resetVolumeValueAfterPlayingSound;
+					audioSourcesAttachedToTheSoundManager [3].volume = resetVolumeValueAfterPlayingSound;
+					//Debug.Log ("gS.GetComponent<GameState>().playCueOnce is: " + fetchGameState.GetComponent<GameState>().playCueOnce);
+				}
+			} 
+			else
+			{
+				audioSourcesAttachedToTheSoundManager [i].volume = resetVolumeValueAfterPlayingSound;
+			}
 		}
 	}
 
-//	IEnumerator CueEmotion()
-//	{
-//		audioSourceMusique.volume = 0.0f;
-//
-//		audioSourceCueEmotion.PlayOneShot (cueEmotion, 1.0f);
-//
-//		/*float localFloat = audioSourceCueEmotion.clip.length;
-//		yield return new WaitForSeconds (localFloat);*/
-//
-//		yield return new WaitForSeconds (audioSourceCueEmotion.clip.length);
-//
-//		ResetAllAudioSourcesVolumeSliders ();
-//
-//		//this.gameObject.GetComponent<ChangeMusic> ().PlayNextMusic ();
-//	}
+	public IEnumerator PlayAudio(AudioSource[] m_audioSource, AudioClip m_audioClip, AudioSource playSound)
+	{
+		for (int i = 0; i < m_audioSource.Length; i++)
+		{
+			m_audioSource[i].volume = 0.66f;
+		}
+
+		playSound.PlayOneShot(m_audioClip, 0.5f); 
+
+		float localFloat = m_audioClip.length;
+
+		yield return new WaitForSeconds (localFloat);
+
+		ResetAllAudioSourcesVolumeSliders ();
+	}
 }
 
 
-//	public void FadeSoundWhenClickIsPlaying()
-//	{
-//		StartCoroutine (WhenSoundClickScriptIsBeingCalled());
-//	}
-//	void Update()
-//	{
-//		WhenSoundClickScriptIsBeingCalled ();
-//		if (Input.GetKeyDown(KeyCode.A)) 
-//		{
-//			testINT += 1;
-//			Debug.Log ("From AudioSourceManagerScript.cs, the current value of testINT is: " + testINT);
-////			audioSourceMusique.pitch += .1f;
-//		}
-//
-//		if (Input.GetKeyDown(KeyCode.B)) 
-//		{
-//			testINT -= 1;
-//			Debug.Log ("From AudioSourceManagerScript.cs, the current value of testINT is: " + testINT);
-////			audioSourceMusique.pitch -= .1f;
-//		}
-//	}
-//	IEnumerator WhenSoundClickScriptIsBeingCalled()
-//	{
-//		localAudioSources[0].volume = .7f;
-//		localAudioSources[1].volume = .7f;
-//		localAudioSources[3].volume = .7f;
-//		localAudioSources[4].volume = .7f;
-//
-//		yield return new WaitForSeconds (localAudioSources[2].time);
-//	}
+for (int j = 0; j < 4; j++) 
+{
+	audioSourcesAttachedToTheSoundManager [j].volume = resetVolumeValueAfterPlayingSound;
+}

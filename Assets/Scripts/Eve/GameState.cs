@@ -29,7 +29,12 @@ public class GameState : MonoBehaviour {
 
 	//PourJouerLesCuesEmotion\\
 	public AudioClip cue_emotion;
-	private bool playCueOnce;
+
+
+	[HideInInspector]
+	public bool playCueOnce = false;
+
+
 	private GameObject soundManager;
 	float MusicVolume = 1.0f;
 	//PourJouerLesCuesEmotion\\
@@ -39,7 +44,8 @@ public class GameState : MonoBehaviour {
 		soundManager = GameObject.Find ("SoundManager");
 	}
 
-	void Update (){	
+	void Update ()
+	{	
 	//game state facebook
 	if (ButtonFBSophie.activeSelf == true) {
 		soOpenFacebook = true;
@@ -358,16 +364,32 @@ public class GameState : MonoBehaviour {
 			FR.OnEnable ();
 
 			//cue emotion ici "final" il faut que ça le fasse une seule fois
-//			if (playCueOnce == false) 
-//			{
-//				playCueOnce = true;
-//
-//				soundManager.GetComponent<AudioSourceManagerScript> ().audioSourceCueEmotion.clip = cue_emotion;
-//
-//				StartCoroutine(PlayAudio(cue_emotion));
-//			}
-		}
+			if (playCueOnce == false) 
+			{
+				Debug.Log ("Eureka should be playing.");
+				playCueOnce = true;
 
+				AudioSource[] localArrayAudioSourcesForCueEmotion = new AudioSource[] 
+				{
+					soundManager.GetComponent<AudioSourceManagerScript> ().audioSourceBoutons,
+					soundManager.GetComponent<AudioSourceManagerScript> ().audioSourceClicksEtTyping,
+					soundManager.GetComponent<AudioSourceManagerScript> ().audioSourceData 
+				};
+
+				for (int i = 0; i < localArrayAudioSourcesForCueEmotion.Length; i++)
+				{
+					soundManager.GetComponent<AudioSourceManagerScript> ().GetComponent<AudioSourceManagerScript> ().StopAllCoroutines ();
+
+					for (int j = 0; j < 20; j++)
+					{
+						soundManager.GetComponent<AudioSourceManagerScript> ().audioSourceMusique.volume = 0.0f;
+					}
+
+					StartCoroutine (soundManager.GetComponent<AudioSourceManagerScript> ().GetComponent<AudioSourceManagerScript> ().PlayAudio (localArrayAudioSourcesForCueEmotion, cue_emotion, soundManager.GetComponent<AudioSourceManagerScript> ().audioSourceCueEmotion));
+				}
+			}
+		}
+		 
 			DM.boulesale = true;
 			DM.Update ();
 

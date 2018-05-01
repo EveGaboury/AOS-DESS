@@ -70,13 +70,10 @@ public class DataPrefab : MonoBehaviour
 			{
 				CreateButtonAndAssignScript ();
 
-				AudioSource[] localArrayAudioSources = new AudioSource[] {ASMS_Data.audioSourceMusique, ASMS_Data.audioSourceBoutons, ASMS_Data.audioSourceClicksEtTyping, ASMS_Data.audioSourceCueEmotion };
+				AudioSource[] localArrayAudioSources = new AudioSource[] {/*ASMS_Data.audioSourceMusique,*/ ASMS_Data.audioSourceBoutons, ASMS_Data.audioSourceClicksEtTyping, ASMS_Data.audioSourceCueEmotion };
 
 				for (int i = 0; i < localArrayAudioSources.Length; i++)
 				{
-					//			scriptManager.GetComponent<GameState> ().StopAllCoroutines ();
-					//			localGameObject.GetComponent<AudioSourceManagerScript> ().StopAllCoroutines ();
-
 					ASMS_Data.GetComponent<AudioSourceManagerScript> ().StopAllCoroutines ();
 
 					StartCoroutine (localGameObject.GetComponent<AudioSourceManagerScript> ().PlayAudio (localArrayAudioSources, clipToBePlayed, ASMS_Data.audioSourceData));
@@ -91,13 +88,10 @@ public class DataPrefab : MonoBehaviour
 	{
 		ASMS_Data.audioSourceData.Stop ();
 
-		AudioSource[] localArrayAudioSources = new AudioSource[] {ASMS_Data.audioSourceMusique, ASMS_Data.audioSourceBoutons, ASMS_Data.audioSourceClicksEtTyping, ASMS_Data.audioSourceCueEmotion };
+		AudioSource[] localArrayAudioSources = new AudioSource[] {/*ASMS_Data.audioSourceMusique,*/ ASMS_Data.audioSourceBoutons, ASMS_Data.audioSourceClicksEtTyping, ASMS_Data.audioSourceCueEmotion };
 
 		for (int i = 0; i < localArrayAudioSources.Length; i++)
 		{
-//			scriptManager.GetComponent<GameState> ().StopAllCoroutines ();
-//			localGameObject.GetComponent<AudioSourceManagerScript> ().StopAllCoroutines ();
-
 			ASMS_Data.GetComponent<AudioSourceManagerScript> ().StopAllCoroutines ();
 
 			StartCoroutine (localGameObject.GetComponent<AudioSourceManagerScript> ().PlayAudio (localArrayAudioSources, clipToBePlayed, ASMS_Data.audioSourceData));
