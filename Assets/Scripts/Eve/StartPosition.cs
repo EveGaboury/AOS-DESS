@@ -266,7 +266,7 @@ public class StartPosition : MonoBehaviour {
 		voile.SetActive (true);
 
 
-		windowHelp.SetActive (false);
+		//windowHelp.SetActive (false);
 
 	}
 
