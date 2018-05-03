@@ -5,8 +5,6 @@ using UnityEngine.Audio;
 
 public class AudioSourceManagerScript : MonoBehaviour 
 {
-	public AudioMixer audioMixer;
-
 	public float resetVolumeValueAfterPlayingSound;
 
 	public AudioSource audioSourceData, audioSourceBoutons, audioSourceClicksEtTyping, audioSourceCueEmotion, audioSourceMusique;
@@ -32,7 +30,11 @@ public class AudioSourceManagerScript : MonoBehaviour
 		}
 		else if (!audioSourceCueEmotion.isPlaying) 
 		{
-			audioSourceMusique.volume = 1.0f;
+			while (audioSourceMusique.volume >= 1.0f) 
+			{
+				InvokeRepeating("Test", 0.0f, 0.3f);
+			}
+
 			ResetAllAudioSourcesVolumeSliders();
 		}
 	}
@@ -91,5 +93,10 @@ public class AudioSourceManagerScript : MonoBehaviour
 		yield return new WaitForSeconds (localFloat);
 
 		ResetAllAudioSourcesVolumeSliders ();
+	}
+
+	void Test()
+	{
+		audioSourceMusique.volume += 0.05f;
 	}
 }
