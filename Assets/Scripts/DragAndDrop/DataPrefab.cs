@@ -70,11 +70,13 @@ public class DataPrefab : MonoBehaviour
 			{
 				CreateButtonAndAssignScript ();
 
-				AudioSource[] localArrayAudioSources = new AudioSource[] {/*ASMS_Data.audioSourceMusique,*/ ASMS_Data.audioSourceBoutons, ASMS_Data.audioSourceClicksEtTyping, ASMS_Data.audioSourceCueEmotion };
+				AudioSource[] localArrayAudioSources = new AudioSource[] {/*ASMS_Data.audioSourceMusique,*/ ASMS_Data.audioSourceBoutons, ASMS_Data.audioSourceClicksEtTyping/*, ASMS_Data.audioSourceCueEmotion*/};
 
 				for (int i = 0; i < localArrayAudioSources.Length; i++)
 				{
 					ASMS_Data.GetComponent<AudioSourceManagerScript> ().StopAllCoroutines ();
+
+					ASMS_Data.audioSourceData.volume = 1.0f;
 
 					StartCoroutine (localGameObject.GetComponent<AudioSourceManagerScript> ().PlayAudio (localArrayAudioSources, clipToBePlayed, ASMS_Data.audioSourceData));
 				}
@@ -88,14 +90,18 @@ public class DataPrefab : MonoBehaviour
 	{
 		ASMS_Data.audioSourceData.Stop ();
 
-		AudioSource[] localArrayAudioSources = new AudioSource[] {/*ASMS_Data.audioSourceMusique,*/ ASMS_Data.audioSourceBoutons, ASMS_Data.audioSourceClicksEtTyping, ASMS_Data.audioSourceCueEmotion };
+		AudioSource[] localArrayAudioSources = new AudioSource[] {/*ASMS_Data.audioSourceMusique,*/ ASMS_Data.audioSourceBoutons, ASMS_Data.audioSourceClicksEtTyping/*, ASMS_Data.audioSourceCueEmotion*/};
 
-		for (int i = 0; i < localArrayAudioSources.Length; i++)
-		{
+		//for (int i = 0; i < localArrayAudioSources.Length; i++)
+		//{
 			ASMS_Data.GetComponent<AudioSourceManagerScript> ().StopAllCoroutines ();
 
+			//InvokeRepeating("Test", 0.0f, 0.3f);
+
+			ASMS_Data.audioSourceData.volume = 1.0f;
+
 			StartCoroutine (localGameObject.GetComponent<AudioSourceManagerScript> ().PlayAudio (localArrayAudioSources, clipToBePlayed, ASMS_Data.audioSourceData));
-		}
+		//}
 	}
 
 	void CreateButtonAndAssignScript()
@@ -104,4 +110,13 @@ public class DataPrefab : MonoBehaviour
 
 		btn.GetComponent<Button>().onClick.AddListener(PlaySoundOnceButtonInstantiated); 
 	}
+
+//	void Test()
+//	{
+////		for (int k = 0; k < 20; k++)
+////		{
+////			ASMS_Data.audioSourceData.volume += 0.05f;
+////		}
+//		ASMS_Data.audioSourceData.volume = 1.0f;
+//	}
 }

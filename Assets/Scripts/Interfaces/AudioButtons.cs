@@ -33,6 +33,7 @@ public class AudioButtons : MonoBehaviour
 		AddSoundToButton ();
 
 		targetObject = GameObject.Find ("CanvasEve");
+
 		data = GameObject.Find ("Data");
 	}
 

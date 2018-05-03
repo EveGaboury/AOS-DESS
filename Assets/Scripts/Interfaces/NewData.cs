@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class NewData : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class NewData : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
 	public GameObject resultatBlocNotes;
 
@@ -63,5 +63,13 @@ public class NewData : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 		resultatBlocNotes.GetComponent<Transform> ().localScale = new Vector2(1.0f, 1.0f);
 
 		this.gameObject.GetComponent<Button> ().enabled = false;
+	}
+
+	public void OnPointerClick(PointerEventData onPointerClickEventData)
+	{
+		if (onPointerClickEventData.pointerPress.gameObject.name == this.gameObject.name) 
+		{
+			this.gameObject.GetComponent<Image> ().enabled = false;
+		}
 	}
 }

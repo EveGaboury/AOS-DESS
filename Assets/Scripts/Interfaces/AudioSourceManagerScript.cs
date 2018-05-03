@@ -28,21 +28,13 @@ public class AudioSourceManagerScript : MonoBehaviour
 	{
 		if (audioSourceCueEmotion.isPlaying) 
 		{
-			
+			Debug.Log ("");
 		}
 		else if (!audioSourceCueEmotion.isPlaying) 
 		{
-			Debug.Log ("This function has been called.");
 			audioSourceMusique.volume = 1.0f;
+			ResetAllAudioSourcesVolumeSliders();
 		}
-//		if (this.gameObject.GetComponent<SoundDesignScript> ().m_hasSFXBeenPlayedBefore [0] == true) 
-//		{
-//			audioSourceMusique.volume = 0.0f;
-//		} 
-//		if (this.gameObject.GetComponent<SoundDesignScript> ().m_hasSFXBeenPlayedBefore [1] == true) 
-//		{
-//			audioSourceMusique.volume = 0.0f;
-//		}
 	}
 
 	public void DetectAudioSources()
@@ -68,50 +60,36 @@ public class AudioSourceManagerScript : MonoBehaviour
 			{
 				for (int j = 0; j < 4; j++) 
 				{
-					audioSourcesAttachedToTheSoundManager [j].volume = resetVolumeValueAfterPlayingSound;
+					audioSourcesAttachedToTheSoundManager [j].volume = 1.0f;
 				}
 			} 
 			else
 			{
-				audioSourcesAttachedToTheSoundManager [i].volume = resetVolumeValueAfterPlayingSound;
+				audioSourcesAttachedToTheSoundManager [i].volume = 1.0f;
 			}
 		}
 	}
 
 	public IEnumerator PlayAudio(AudioSource[] m_audioSource, AudioClip m_audioClip, AudioSource playSound)
 	{
-		//if (this.gameObject.GetComponent<SoundDesignScript> ().hasSFXBeenPlayedBefore [0] == true 
-		//	|| this.gameObject.GetComponent<SoundDesignScript> ().hasSFXBeenPlayedBefore [1] == true 
-		//	|| fetchGameState.GetComponent<GameState> ().playCueOnce == true) 
-		//{
-		//	audioSourceMusique.volume = 0.0f;
-		//} 
-		//else
-		//{
-			for (int i = 0; i < m_audioSource.Length; i++)
+		playSound.PlayOneShot(m_audioClip, 1.0f); 
+
+		float test = (5.0f / 20.0f);
+
+		float autreTest = (1.0f / 20.0f); 
+
+		for (int i = 0; i < m_audioSource.Length; i++)
+		{
+			for (int j = 0; j < 20; j++) 
 			{
-				m_audioSource[i].volume = 0.66f;
+				m_audioSource [i].volume -= autreTest;
 			}
-		//}
-		playSound.PlayOneShot(m_audioClip, 0.5f); 
+		}
 
 		float localFloat = m_audioClip.length;
 
 		yield return new WaitForSeconds (localFloat);
 
 		ResetAllAudioSourcesVolumeSliders ();
-
-//		if (this.gameObject.GetComponent<SoundDesignScript> ().m_hasSFXBeenPlayedBefore[0] == true) 
-//		{
-//			this.gameObject.GetComponent<SoundDesignScript> ().m_hasSFXBeenPlayedBefore[0] = false;
-//		}
-//		if (this.gameObject.GetComponent<SoundDesignScript> ().m_hasSFXBeenPlayedBefore[1] == true) 
-//		{
-//			this.gameObject.GetComponent<SoundDesignScript> ().m_hasSFXBeenPlayedBefore[1] = false;
-//		}
-//		if ( fetchGameState.GetComponent<GameState> ().playCueOnce == true) 
-//		{
-//			fetchGameState.GetComponent<GameState> ().playCueOnce = false;
-//		}
 	}
 }
