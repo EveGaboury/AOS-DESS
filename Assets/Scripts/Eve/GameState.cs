@@ -1049,9 +1049,9 @@ public class GameState : MonoBehaviour {
 
 	void Test()
 	{
-		soundManager.GetComponent<AudioSourceManagerScript> ().audioSourceMusique -= 0.05f;
-		soundManager.GetComponent<AudioSourceManagerScript> ().audioSourceBoutons -= 0.05f;
-		soundManager.GetComponent<AudioSourceManagerScript> ().audioSourceClicksEtTyping -= 0.05f;
-		soundManager.GetComponent<AudioSourceManagerScript> ().audioSourceData -= 0.05f;
+		soundManager.GetComponent<AudioSourceManagerScript> ().audioSourceMusique.volume -= 0.05f;
+		soundManager.GetComponent<AudioSourceManagerScript> ().audioSourceBoutons.volume -= 0.05f;
+		soundManager.GetComponent<AudioSourceManagerScript> ().audioSourceClicksEtTyping.volume -= 0.05f;
+		soundManager.GetComponent<AudioSourceManagerScript> ().audioSourceData.volume -= 0.05f;
 	}
 }
