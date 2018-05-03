@@ -30,10 +30,10 @@ public class AudioSourceManagerScript : MonoBehaviour
 		}
 		else if (!audioSourceCueEmotion.isPlaying) 
 		{
-			while (audioSourceMusique.volume >= 1.0f) 
-			{
+			//while (audioSourceMusique.volume >= 1.0f) 
+			//{
 				InvokeRepeating("Test", 0.0f, 0.3f);
-			}
+			//}
 
 			ResetAllAudioSourcesVolumeSliders();
 		}
@@ -97,6 +97,9 @@ public class AudioSourceManagerScript : MonoBehaviour
 
 	void Test()
 	{
-		audioSourceMusique.volume += 0.05f;
+		for (int i = 0; i < 20; i++)
+		{
+			audioSourceMusique.volume += 0.05f;
+		}
 	}
 }
