@@ -19,6 +19,8 @@ public class SearchEngine: MonoBehaviour
 
 	public Sprite finalFacebook;
 
+	public bool shortcutFB = false;
+
 	void Start()
 	{
 		//ClearContent ();
@@ -73,7 +75,10 @@ public class SearchEngine: MonoBehaviour
 			SP.passwordTemplate.SetActive (false);
 			SP.animloading.SetActive (false);
 			SP.shortCutFacebook.SetActive (true);
+			SP.messengerTemplate2.SetActive (false);
 			SDS.GetComponent<SoundDesignScript> ().OnclickSoundBrowserRight (); 
+			shortcutFB = true;
+		
 		} 
 
 		if ((searchBar.text == "www.avis-de-décès-cassandra-royer.fr") || (searchBar.text == "avis-de-décès-cassandra-royer.fr") || (searchBar.text == "www.avis-de-deces-cassandra-royer.fr") || (searchBar.text == "avis-de-deces-cassandra-royer.fr"))
@@ -83,6 +88,9 @@ public class SearchEngine: MonoBehaviour
 			SP.avisDeces.SetActive (true);
 			SP.notFound.SetActive (false);
 			SP.shortCutDeces.SetActive (true);
+			SP.facebookCanvas.SetActive (false);
+			SP.messengerTemplate2.SetActive (false);
+			SP.shortCutFacebook.SetActive (false);
 		} 
 	}
 
@@ -95,7 +103,15 @@ public class SearchEngine: MonoBehaviour
 		SP.animloading.SetActive (false);
 		SDS.GetComponent<SoundDesignScript> ().OnclickSoundBrowserError (); 
 	}
+
+
+	public void shortcuFB ()
+	{
+		if (shortcutFB ==true)
+			SP.shortCutFacebook.SetActive (true);
+	}
 }
+
 
 //    public  void SearchYoutube()
 //    {

@@ -111,6 +111,7 @@ public class GameState : MonoBehaviour {
 		SP.fixCass.SetActive (false);
 		SP.fixSo.SetActive (false);
 		SP.pageNewFeedTemplate.SetActive (false);
+		SP.messengerTemplate2.SetActive (false);
 
 		SP.profilYann.SetActive (false);
 		SP.profilMarieEve2.SetActive (false);
