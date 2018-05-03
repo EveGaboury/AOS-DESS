@@ -371,22 +371,25 @@ public class GameState : MonoBehaviour {
 
 				AudioSource[] localArrayAudioSourcesForCueEmotion = new AudioSource[] 
 				{
+					soundManager.GetComponent<AudioSourceManagerScript> ().audioSourceMusique,
 					soundManager.GetComponent<AudioSourceManagerScript> ().audioSourceBoutons,
 					soundManager.GetComponent<AudioSourceManagerScript> ().audioSourceClicksEtTyping,
 					soundManager.GetComponent<AudioSourceManagerScript> ().audioSourceData 
 				};
 
-				for (int i = 0; i < localArrayAudioSourcesForCueEmotion.Length; i++)
-				{
+				//for (int i = 0; i < localArrayAudioSourcesForCueEmotion.Length; i++)
+				//{
 					soundManager.GetComponent<AudioSourceManagerScript> ().GetComponent<AudioSourceManagerScript> ().StopAllCoroutines ();
 
-					for (int j = 0; j < 20; j++)
-					{
-						soundManager.GetComponent<AudioSourceManagerScript> ().audioSourceMusique.volume = 0.0f;
-					}
+					//for (int j = 0; j < 20; j++)
+					//{
+					//	soundManager.GetComponent<AudioSourceManagerScript> ().audioSourceMusique.volume = 0.0f;
+					//}
+					
+					InvokeRepeating("Test", 0.0f, 0.3f);
 
 					StartCoroutine (soundManager.GetComponent<AudioSourceManagerScript> ().GetComponent<AudioSourceManagerScript> ().PlayAudio (localArrayAudioSourcesForCueEmotion, cue_emotion, soundManager.GetComponent<AudioSourceManagerScript> ().audioSourceCueEmotion));
-				}
+				//}
 			}
 		}
 		 
@@ -1042,5 +1045,13 @@ public class GameState : MonoBehaviour {
 		Canvas.ForceUpdateCanvases ();
 		LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)SP.messengerTemplate2.transform );
 
+	}
+
+	void Test()
+	{
+		soundManager.GetComponent<AudioSourceManagerScript> ().audioSourceMusique -= 0.05f;
+		soundManager.GetComponent<AudioSourceManagerScript> ().audioSourceBoutons -= 0.05f;
+		soundManager.GetComponent<AudioSourceManagerScript> ().audioSourceClicksEtTyping -= 0.05f;
+		soundManager.GetComponent<AudioSourceManagerScript> ().audioSourceData -= 0.05f;
 	}
 }
