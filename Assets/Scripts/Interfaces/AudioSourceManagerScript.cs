@@ -5,15 +5,18 @@ using UnityEngine.Audio;
 
 public class AudioSourceManagerScript : MonoBehaviour 
 {
-	public float resetVolumeValueAfterPlayingSound;
-
 	public AudioSource audioSourceData, audioSourceBoutons, audioSourceClicksEtTyping, audioSourceCueEmotion, audioSourceMusique;
+
+	[HideInInspector]
+	public float m_value, plus = 0.032f, minus = -0.016f;
 
 	AudioSource[] audioSourcesAttachedToTheSoundManager;
 
 	AudioClip cueEmotion;
 
 	GameObject fetchGameState;
+
+	string cueName;
 
 	void Awake()
 	{
@@ -24,19 +27,35 @@ public class AudioSourceManagerScript : MonoBehaviour
 
 	void Update()
 	{
-		if (audioSourceCueEmotion.isPlaying) 
+		if (audioSourceCueEmotion.isPlaying && audioSourceCueEmotion.clip.name == "Cue 1 Eureka")
 		{
-			Debug.Log ("");
+			Debug.Log ("Yay! " + "Cue 1 Eureka is PLAYING.");
+
+			m_value = minus;
+			StartCoroutine (CueSound ());
+
+			cueName = audioSourceCueEmotion.clip.name;
+			Invoke ("CueIsDonePlaying", audioSourceCueEmotion.clip.length);
 		}
-		else if (!audioSourceCueEmotion.isPlaying) 
+		else if (audioSourceCueEmotion.isPlaying && (audioSourceCueEmotion.clip.name == "Cue 2 Sadness _ I want to know"))
 		{
-			if (audioSourceMusique.volume < 1.0f) 
-			{
-				InvokeRepeating("Test", 0.0f, 0.3f);
+			Debug.Log ("Yay! " + "Cue 2 Sadness _ I want to know is PLAYING.");
 
-				ResetAllAudioSourcesVolumeSliders();
-			}
+			m_value = minus;
+			StartCoroutine (CueSound());
 
+			cueName = audioSourceCueEmotion.clip.name;
+			Invoke ("CueIsDonePlaying", audioSourceCueEmotion.clip.length);
+		}
+		else if (audioSourceCueEmotion.isPlaying && (audioSourceCueEmotion.clip.name == "Cue 3 World upside down"))
+		{
+			Debug.Log ("Yay! " + "Cue 3 World upside down is PLAYING.");
+
+			m_value = minus;
+			StartCoroutine (CueSound());
+
+			cueName = audioSourceCueEmotion.clip.name;
+			Invoke ("CueIsDonePlaying", audioSourceCueEmotion.clip.length);
 		}
 	}
 
@@ -96,11 +115,25 @@ public class AudioSourceManagerScript : MonoBehaviour
 		ResetAllAudioSourcesVolumeSliders ();
 	}
 
-	void Test()
+	/*public*/ IEnumerator CueSound()
 	{
-		for (int i = 0; i < 20; i++)
+		for (int i = 0; i < 20; i++) 
 		{
-			audioSourceMusique.volume += 0.05f;
+			audioSourceMusique.volume = m_value;
+			yield return new WaitForSeconds(0.1f);
+		}
+	}
+
+	void CueIsDonePlaying()
+	{
+		if (audioSourceMusique.volume < 1.0f)
+		{
+			for (int i = 0; i < 20; i++) 
+			{
+				audioSourcesAttachedToTheSoundManager [4].volume += 0.05f;
+			}
+
+			Debug.Log (cueName + " song was playing has ENDED.");
 		}
 	}
 }

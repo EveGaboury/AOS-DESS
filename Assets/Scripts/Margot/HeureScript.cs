@@ -3,41 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
-
-public class HeureScript : MonoBehaviour {
-
-
-
+public class HeureScript : MonoBehaviour
+{
 	public TextMeshProUGUI TextHeure;
 
 	private float startTime = 0;
 
-
-	// Use this for initialization
 	void Start () 
 	{
-
-		startTime = Time.time;
-
-
-
-		
+		startTime = Time.deltaTime;
 	}
-	
-	// Update is called once per frame
+
 	void Update () 
 	{
+		if (SceneManager.GetActiveScene ().name == "Scene_final") 
+		{
+			float t = Time.time + startTime;
 
-		float t = Time.time + startTime;
+			int minutes = (int) (t / 60);
 
+			string str = minutes.ToString("00");
 
-		int minutes = (int) (t / 60);
+			TextMeshProUGUI TextAide = GetComponent <TextMeshProUGUI>();
 
-
-		string str = minutes.ToString("00");
-
-		TextMeshProUGUI TextAide = GetComponent <TextMeshProUGUI>();
-		TextAide.text = ("11:" + str);
+			TextAide.text = ("11:" + str);
+		}
+		else if (SceneManager.GetActiveScene ().name == "Scene_Intro") 
+		{
+			startTime = 0;
+		}
 	}
 }

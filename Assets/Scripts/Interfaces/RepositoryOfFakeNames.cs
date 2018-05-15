@@ -28,7 +28,9 @@ public class RepositoryOfFakeNames: MonoBehaviour
 	public string[] R_Prenoms;
 	public string[] S_Prenoms;
 	public string[] T_Prenoms;
-	public string[] U_Prenoms;
+
+	public string[] U_Prenoms/*_Feminin, U_Prenoms_Masculin*/;
+
 	public string[] V_Prenoms;
 	public string[] W_Prenoms;
 	public string[] X_Prenoms;

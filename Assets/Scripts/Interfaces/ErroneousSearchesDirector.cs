@@ -25,6 +25,9 @@ public class ErroneousSearchesDirector : MonoBehaviour
 
 	public TMP_InputField searchBar;
 
+	//Si c'est vrai c'est une fille, si c'est faux c'est un garçon
+	public bool[] firstNamesByGender = new bool[5];
+
 	TextMeshProUGUI displayText;
 
 	RepositoryOfFakeNames retrieveData;
@@ -35,8 +38,7 @@ public class ErroneousSearchesDirector : MonoBehaviour
 
 	public bool adrien2=false, frederic2=false, cassandra2=false, sophie2=false, marieE2=false, Hugo2=false, Yann2=false;
 
-
-	Component[] imagePosition;
+	Component[] imagePosition, textDisplay;
 
 	char[] verification = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
 						   'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
@@ -45,6 +47,8 @@ public class ErroneousSearchesDirector : MonoBehaviour
 	{
 		wrongSearchResults = GetComponent<Transform>();
 		retrieveData = GetComponent<RepositoryOfFakeNames> ();
+
+		textDisplay = this.gameObject.GetComponentsInChildren (typeof(TextMeshProUGUI));
 	}
 		
 	public void SortInputedData (string userSearch) 
@@ -75,11 +79,6 @@ public class ErroneousSearchesDirector : MonoBehaviour
 		{
 			this.gameObject.SetActive(true);
 		}
-
-
-		Component[] textDisplay;
-
-		textDisplay = this.gameObject.GetComponentsInChildren (typeof(TextMeshProUGUI));
 
 		foreach (TextMeshProUGUI txt in textDisplay)
 		{
@@ -256,6 +255,10 @@ public class ErroneousSearchesDirector : MonoBehaviour
 				{
 					Img_Portrait01.enabled = false;
 					textDisplay [i].GetComponent<TextMeshProUGUI> ().text = retrieveData.U_Prenoms[i].ToString() + " " + retrieveData.NomsDeFamille[Random.Range(0, retrieveData.NomsDeFamille.Length)].ToString();
+
+//					string[] m_feminin = retrieveData.U_Prenoms_Feminin, m_masculiN = retrieveData.U_Prenoms_Masculin;
+//						
+//					SetNamesByGender (m_feminin, m_masculiN);
 				}
 				//VVVVVVV
 				if((test == verification[21]) || (test == verification[47]))
@@ -439,4 +442,13 @@ public class ErroneousSearchesDirector : MonoBehaviour
 		Yann2 = false;
 		Hugo2 = false;
 	}
+
+//	void SetNamesByGender(string[] feminin, string[] masculin)
+//	{
+//		textDisplay [0].GetComponent<TextMeshProUGUI> ().text = /*"Prénom de fille." +*/ feminin[0] + " " + retrieveData.NomsDeFamille[Random.Range(0, retrieveData.NomsDeFamille.Length)].ToString();
+//		textDisplay [1].GetComponent<TextMeshProUGUI> ().text = /*"Prénom de garçon." +*/ masculin [0] + " " + retrieveData.NomsDeFamille [Random.Range (0, retrieveData.NomsDeFamille.Length)].ToString ();
+//		textDisplay [2].GetComponent<TextMeshProUGUI> ().text = /*"Prénom de fille." +*/ feminin [1] + " " + retrieveData.NomsDeFamille [Random.Range (0, retrieveData.NomsDeFamille.Length)].ToString ();
+//		textDisplay [3].GetComponent<TextMeshProUGUI> ().text = /*"Prénom de fille." +*/ feminin [2] + " " + retrieveData.NomsDeFamille [Random.Range (0, retrieveData.NomsDeFamille.Length)].ToString ();
+//		textDisplay [4].GetComponent<TextMeshProUGUI> ().text = /*"Prénom de garçon." +*/ masculin [1] + " " + retrieveData.NomsDeFamille [Random.Range (0, retrieveData.NomsDeFamille.Length)].ToString ();
+//	}
 }

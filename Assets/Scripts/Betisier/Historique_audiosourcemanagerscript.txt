@@ -5,9 +5,7 @@ using UnityEngine.Audio;
 
 public class AudioSourceManagerScript : MonoBehaviour 
 {
-	public AudioMixer audioMixer;
-
-	public float resetVolumeValueAfterPlayingSound;
+	//public float resetVolumeValueAfterPlayingSound;
 
 	public AudioSource audioSourceData, audioSourceBoutons, audioSourceClicksEtTyping, audioSourceCueEmotion, audioSourceMusique;
 
@@ -17,113 +15,8 @@ public class AudioSourceManagerScript : MonoBehaviour
 
 	GameObject fetchGameState;
 
-	void Awake()
-	{
-		DetectAudioSources ();
-
-		fetchGameState = GameObject.Find ("ScriptManager");
-	}
-
-	public void DetectAudioSources()
-	{
-		audioSourcesAttachedToTheSoundManager = this.gameObject.GetComponents<AudioSource> ();
-
-		audioSourceData = audioSourcesAttachedToTheSoundManager [0];
-
-		audioSourceBoutons = audioSourcesAttachedToTheSoundManager [1]; 
-
-		audioSourceClicksEtTyping = audioSourcesAttachedToTheSoundManager [2];
-
-		audioSourceCueEmotion = audioSourcesAttachedToTheSoundManager [3];
-
-		audioSourceMusique = audioSourcesAttachedToTheSoundManager [4];
-	}
-
-	public void ResetAllAudioSourcesVolumeSliders()
-	{
-		for (int i = 0; i < audioSourcesAttachedToTheSoundManager.Length; i++)
-		{
-			if (this.gameObject.GetComponent<SoundDesignScript>().hasSFXBeenPlayedBefore[0] == true || this.gameObject.GetComponent<SoundDesignScript>().hasSFXBeenPlayedBefore[1] == true || fetchGameState.GetComponent<GameState>().playCueOnce == true) 
-			{
-				if (this.gameObject.GetComponent<SoundDesignScript>().hasSFXBeenPlayedBefore[0] == true) 
-				{
-					audioSourcesAttachedToTheSoundManager [0].volume = resetVolumeValueAfterPlayingSound;
-					audioSourcesAttachedToTheSoundManager [1].volume = resetVolumeValueAfterPlayingSound;
-					audioSourcesAttachedToTheSoundManager [2].volume = resetVolumeValueAfterPlayingSound;
-					audioSourcesAttachedToTheSoundManager [3].volume = resetVolumeValueAfterPlayingSound;
-					//Debug.Log ("sDS.GetComponent<SoundDesignScript>().hasSFXBeenPlayedBefore[0] is: " + this.gameObject.GetComponent<SoundDesignScript>().hasSFXBeenPlayedBefore[0]);
-				}
-				else if (this.gameObject.GetComponent<SoundDesignScript>().hasSFXBeenPlayedBefore[1] == true) 
-				{
-					audioSourcesAttachedToTheSoundManager [0].volume = resetVolumeValueAfterPlayingSound;
-					audioSourcesAttachedToTheSoundManager [1].volume = resetVolumeValueAfterPlayingSound;
-					audioSourcesAttachedToTheSoundManager [2].volume = resetVolumeValueAfterPlayingSound;
-					audioSourcesAttachedToTheSoundManager [3].volume = resetVolumeValueAfterPlayingSound;
-					//Debug.Log ("sDS.GetComponent<SoundDesignScript>().hasSFXBeenPlayedBefore[1] is: " + this.gameObject.GetComponent<SoundDesignScript>().hasSFXBeenPlayedBefore[1]);
-				}
-				else if (fetchGameState.GetComponent<GameState>().playCueOnce == true) 
-				{
-					audioSourcesAttachedToTheSoundManager [0].volume = resetVolumeValueAfterPlayingSound;
-					audioSourcesAttachedToTheSoundManager [1].volume = resetVolumeValueAfterPlayingSound;
-					audioSourcesAttachedToTheSoundManager [2].volume = resetVolumeValueAfterPlayingSound;
-					audioSourcesAttachedToTheSoundManager [3].volume = resetVolumeValueAfterPlayingSound;
-					//Debug.Log ("gS.GetComponent<GameState>().playCueOnce is: " + fetchGameState.GetComponent<GameState>().playCueOnce);
-				}
-			} 
-			else
-			{
-				audioSourcesAttachedToTheSoundManager [i].volume = resetVolumeValueAfterPlayingSound;
-			}
-		}
-	}
-
-	public IEnumerator PlayAudio(AudioSource[] m_audioSource, AudioClip m_audioClip, AudioSource playSound)
-	{
-		for (int i = 0; i < m_audioSource.Length; i++)
-		{
-			m_audioSource[i].volume = 0.66f;
-		}
-
-		playSound.PlayOneShot(m_audioClip, 0.5f); 
-
-		float localFloat = m_audioClip.length;
-
-		yield return new WaitForSeconds (localFloat);
-
-		ResetAllAudioSourcesVolumeSliders ();
-	}
-}
-
-
-for (int j = 0; j < 4; j++) 
-{
-	audioSourcesAttachedToTheSoundManager [j].volume = resetVolumeValueAfterPlayingSound;
-}
-
-
-
-
-
-
-
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Audio;
-
-public class AudioSourceManagerScript : MonoBehaviour 
-{
-	public AudioMixer audioMixer;
-
-	public float resetVolumeValueAfterPlayingSound;
-
-	public AudioSource audioSourceData, audioSourceBoutons, audioSourceClicksEtTyping, audioSourceCueEmotion, audioSourceMusique;
-
-	AudioSource[] audioSourcesAttachedToTheSoundManager;
-
-	AudioClip cueEmotion;
-
-	GameObject fetchGameState;
+	[HideInInspector]
+	public float m_value, plus = 0.032f, minus = -0.016f;
 
 	void Awake()
 	{
@@ -134,22 +27,80 @@ public class AudioSourceManagerScript : MonoBehaviour
 
 	void Update()
 	{
-		if (audioSourceCueEmotion.isPlaying) 
+		if (audioSourceCueEmotion.isPlaying && (audioSourceCueEmotion.clip.name == "Cue 1 Eureka" || audioSourceCueEmotion.clip.name == "Cue 2 Sadness _ I want to know" ||audioSourceCueEmotion.clip.name == "Cue 3 World upside down")) 
 		{
-			
+			if (audioSourceCueEmotion.clip.name == "Cue 1 Eureka")
+			{
+				Debug.Log ("Yay! " + "Cue 1 Eureka");
+
+				m_value = minus;
+				StartCoroutine (CueSound());
+			}
+			else if (audioSourceCueEmotion.clip.name == "Cue 2 Sadness _ I want to know")
+			{
+				Debug.Log ("Yay! " + "Cue 2 Sadness _ I want to know");
+
+				m_value = minus;
+				StartCoroutine (CueSound());
+			}
+			else if (audioSourceCueEmotion.clip.name == "Cue 3 World upside down") 
+			{
+				Debug.Log ("Yay! " + "Cue 3 World upside down");
+
+				m_value = minus;
+				StartCoroutine (CueSound());
+			}
 		}
-		else if (!audioSourceCueEmotion.isPlaying) 
-		{
-			//Debug.Log ("This function has been called.");
-			audioSourceMusique.volume = 1.0f;
-		}
-//		if (this.gameObject.GetComponent<SoundDesignScript> ().m_hasSFXBeenPlayedBefore [0] == true) 
+//		else if (!audioSourceCueEmotion.isPlaying) 
 //		{
-//			audioSourceMusique.volume = 0.0f;
-//		} 
-//		if (this.gameObject.GetComponent<SoundDesignScript> ().m_hasSFXBeenPlayedBefore [1] == true) 
-//		{
-//			audioSourceMusique.volume = 0.0f;
+//			if (this.gameObject.GetComponent<SoundDesignScript>().m_hasSFXBeenPlayedBefore[0] == true) 
+//			{
+//				Debug.Log ("audioSourceCueEmotion hasSFXBeenPlayedBefore[0] == true.");
+//
+//				this.gameObject.GetComponent<SoundDesignScript> ().m_hasSFXBeenPlayedBefore [0] = false;
+//
+////				m_value = plus;
+////				StartCoroutine (CueSound());
+//
+//				InvokeRepeating("Test", 0.0f, 0.1f);
+//
+//				//ResetAllAudioSourcesVolumeSliders();
+//			}
+//			else if (this.gameObject.GetComponent<SoundDesignScript>().m_hasSFXBeenPlayedBefore[1] == true) 
+//			{
+//				Debug.Log ("audioSourceCueEmotion hasSFXBeenPlayedBefore[1] == true.");
+//
+//				this.gameObject.GetComponent<SoundDesignScript> ().m_hasSFXBeenPlayedBefore [1] = false;
+//
+////				m_value = plus;
+////				StartCoroutine (CueSound());
+//
+//				InvokeRepeating("Test", 0.0f, 0.1f);
+//
+//				//ResetAllAudioSourcesVolumeSliders();
+//			}
+//			else if (fetchGameState.GetComponent<GameState>().m_playCueOnce == true) 
+//			{
+//				Debug.Log ("audioSourceCueEmotion hasSFXBeenPlayedBefore[1] == true.");
+//
+//				this.gameObject.GetComponent<GameState>().m_playCueOnce = false;
+//
+////				m_value = plus;
+////				StartCoroutine (CueSound());
+//
+//				InvokeRepeating("Test", 0.0f, 0.1f);
+//
+//				//ResetAllAudioSourcesVolumeSliders();
+//			}
+//			//if (audioSourceMusique.volume < 1.0f) 
+//			//{
+////				InvokeRepeating("Test", 0.0f, 0.3f);
+//
+////				m_value = plus;
+////				StartCoroutine (CueSound());
+//
+////				ResetAllAudioSourcesVolumeSliders();
+//			//}
 //		}
 	}
 
@@ -166,60 +117,55 @@ public class AudioSourceManagerScript : MonoBehaviour
 		audioSourceCueEmotion = audioSourcesAttachedToTheSoundManager [3];
 
 		audioSourceMusique = audioSourcesAttachedToTheSoundManager [4];
-	}
+	} 
 
 	public void ResetAllAudioSourcesVolumeSliders()
 	{
-		for (int i = 0; i < audioSourcesAttachedToTheSoundManager.Length; i++)
-		{
-			if (this.gameObject.GetComponent<SoundDesignScript>().hasSFXBeenPlayedBefore[0] == true || this.gameObject.GetComponent<SoundDesignScript>().hasSFXBeenPlayedBefore[1] == true || fetchGameState.GetComponent<GameState>().playCueOnce == true) 
-			{
+		//for (int i = 0; i < audioSourcesAttachedToTheSoundManager.Length; i++)
+		//{
+			//if (this.gameObject.GetComponent<SoundDesignScript>().hasSFXBeenPlayedBefore[0] == true || this.gameObject.GetComponent<SoundDesignScript>().hasSFXBeenPlayedBefore[1] == true || fetchGameState.GetComponent<GameState>().playCueOnce == true) 
+			//{
 				for (int j = 0; j < 4; j++) 
 				{
-					audioSourcesAttachedToTheSoundManager [j].volume = resetVolumeValueAfterPlayingSound;
+					audioSourcesAttachedToTheSoundManager [j].volume = 1.0f;
 				}
-			} 
-			else
-			{
-				audioSourcesAttachedToTheSoundManager [i].volume = resetVolumeValueAfterPlayingSound;
-			}
-		}
+			//} 
+//			else
+//			{
+//				audioSourcesAttachedToTheSoundManager [i].volume = 1.0f;
+//			}
+		//}
 	}
 
 	public IEnumerator PlayAudio(AudioSource[] m_audioSource, AudioClip m_audioClip, AudioSource playSound)
 	{
-		//if (this.gameObject.GetComponent<SoundDesignScript> ().hasSFXBeenPlayedBefore [0] == true 
-		//	|| this.gameObject.GetComponent<SoundDesignScript> ().hasSFXBeenPlayedBefore [1] == true 
-		//	|| fetchGameState.GetComponent<GameState> ().playCueOnce == true) 
-		//{
-		//	audioSourceMusique.volume = 0.0f;
-		//} 
-		//else
-		//{
-			for (int i = 0; i < m_audioSource.Length; i++)
+		playSound.PlayOneShot(m_audioClip, 1.0f); 
+
+		float test = (5.0f / 20.0f);
+
+		float autreTest = (1.0f / 20.0f); 
+
+		for (int i = 0; i < m_audioSource.Length; i++)
+		{
+			for (int j = 0; j < 20; j++) 
 			{
-				m_audioSource[i].volume = 0.66f;
+				m_audioSource [i].volume -= autreTest;
 			}
-		//}
-		playSound.PlayOneShot(m_audioClip, 0.5f); 
+		}
 
 		float localFloat = m_audioClip.length;
 
 		yield return new WaitForSeconds (localFloat);
 
 		ResetAllAudioSourcesVolumeSliders ();
+	}
 
-//		if (this.gameObject.GetComponent<SoundDesignScript> ().m_hasSFXBeenPlayedBefore[0] == true) 
-//		{
-//			this.gameObject.GetComponent<SoundDesignScript> ().m_hasSFXBeenPlayedBefore[0] = false;
-//		}
-//		if (this.gameObject.GetComponent<SoundDesignScript> ().m_hasSFXBeenPlayedBefore[1] == true) 
-//		{
-//			this.gameObject.GetComponent<SoundDesignScript> ().m_hasSFXBeenPlayedBefore[1] = false;
-//		}
-//		if ( fetchGameState.GetComponent<GameState> ().playCueOnce == true) 
-//		{
-//			fetchGameState.GetComponent<GameState> ().playCueOnce = false;
-//		}
+	public IEnumerator CueSound()
+	{
+		for (int i = 0; i < 20; i++) 
+		{
+			audioSourceMusique.volume = m_value;
+			yield return new WaitForSeconds(0.1f);
+		}
 	}
 }
